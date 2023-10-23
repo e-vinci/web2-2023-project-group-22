@@ -64,3 +64,26 @@
 
 ## Revues de projets par les pairs
 - Une fois votre projet soumis, vous devrez réaliser un minimum de 5 revues qui vous seront attribuées automatiquement via le site du cours.
+
+1 = High || 2 = Medium || 3 = Low
+---------------------------------------------------------------------------------
+Liste des cas d'utilisation :
+
+1 - Afficher une liste de lieux en fonction d'une catégorie
+1 - Créer un itinéraire en fonction de catégories sélectionnées
+1 - Ajouter une catégorie
+1 - Ajouter un lieu
+2 - Modifier une catégorie
+2 - Modifier un lieu
+2 - Supprimer une catégorie
+2 - Supprimer un lieu
+2 - Ajouter des photos
+2 - Ajouter un avis :
+2 - Commentaire
+2 - Note / 5 étoiles
+1 - Enregistrer un utilisateur
+1 - Se connecter
+2 - Garder une liste des itinéraires créés (connecté)
+3 - Partager un itinéraire
+3 - Estimation de budget
+3 - Créer un groupe de voyage
