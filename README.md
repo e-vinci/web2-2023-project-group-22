@@ -86,6 +86,7 @@ Liste des cas d'utilisation :
 2 - Note / 5 étoiles
 1 - Enregistrer un utilisateur
 1 - Se connecter
+3 - Chat d'aide
 2 - Garder une liste des itinéraires créés (connecté)
 3 - Partager un itinéraire
 3 - Estimation de budget
