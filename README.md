@@ -81,6 +81,7 @@ Liste des cas d'utilisation :
 2 - Garder une liste des itinéraires créés (connecté)
 3 - Partager un itinéraire
 3 - Créer un groupe de voyage
+3 - Sauvegarde automatique
 
 1 - Ajouter un lieu
 2 - Modifier un lieu
