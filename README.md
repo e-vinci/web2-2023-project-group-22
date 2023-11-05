@@ -73,21 +73,27 @@ Say goodbye to travel stress and hello to the adventure of a lifetime with Where
 Liste des cas d'utilisation :
 
 1 - Afficher une liste de lieux en fonction d'une catégorie
-1 - Créer un itinéraire en fonction de catégories sélectionnées
 1 - Ajouter une catégorie
-1 - Ajouter un lieu
-2 - Modifier une catégorie
-2 - Modifier un lieu
 2 - Supprimer une catégorie
-2 - Supprimer un lieu
-2 - Ajouter des photos
-2 - Ajouter un avis :
-2 - Commentaire
-2 - Note / 5 étoiles
-1 - Enregistrer un utilisateur
-1 - Se connecter
-3 - Chat d'aide
+2 - Modifier une catégorie
+
+1 - Créer un itinéraire en fonction de catégories sélectionnées
 2 - Garder une liste des itinéraires créés (connecté)
 3 - Partager un itinéraire
-3 - Estimation de budget
 3 - Créer un groupe de voyage
+
+1 - Ajouter un lieu
+2 - Modifier un lieu
+2 - Supprimer un lieu
+
+2 - Ajouter des photos
+2 - Ajouter un avis
+2 - Note / 5 étoiles
+
+1 - Enregistrer un utilisateur
+1 - Se connecter
+1 - Se Déconnecter
+3 - Se connecter avec Google
+
+3 - Chat d'aide
+3 - Estimation de budget
