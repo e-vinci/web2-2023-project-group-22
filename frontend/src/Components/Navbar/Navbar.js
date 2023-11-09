@@ -31,9 +31,6 @@ const Navbar = () => {
                 <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/game">Game</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/new">New Page</a>
               </li>                        
             </ul>
