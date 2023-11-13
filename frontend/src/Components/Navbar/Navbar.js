@@ -19,8 +19,8 @@ const Navbar = () => {
   const navbar = 
 `   
   <div id="logo">
-      <a href="#" data-uri="/" <img src="${logoImage}" style="width: 50px;"><img src="${logoImage}" style="width: 100px;</a>
-      <a href="#" data-uri="/"><img src="${logoImageNoir}" style="width: 100px;"></a>
+      <a href="#"><img src="${logoImage}" data-uri="/" style="width: 100px;"></a>
+      <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 100px;"></a>
   </div>
     <ul>
         <li class="hover-navbar"><a href="#" data-uri="/">Home page</a></li>
