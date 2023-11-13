@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 import logoImage from '../../img/logo.png'
+// eslint-disable-next-line camelcase
+import logoImageNoir from '../../img/logo-blanc.png'
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -15,18 +17,16 @@ import logoImage from '../../img/logo.png'
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
   const navbar = 
-
-  `
-    <div id="logo">
-      <img src="${logoImage}" style="width: 100px;">
-    </div>
-    <div id="content-nav-bar">
-      <ul>
-        <li><a href="#" data-uri="/">Home page</a></li>
-        <li><a href="#" data-uri="/login">Sign In</a></li>
-        <li><a href="#" data-uri="/register">Sign Up</a></li>
+`   
+  <div id="logo">
+      <a href="#" data-uri="/" <img src="${logoImage}" style="width: 50px;"><img src="${logoImage}" style="width: 100px;</a>
+      <a href="#" data-uri="/"><img src="${logoImageNoir}" style="width: 100px;"></a>
+  </div>
+    <ul>
+        <li class="hover-navbar"><a href="#" data-uri="/">Home page</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/login">Sign In</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/register">Sign Up</a></li>
       </ul>
-    </div>
 `;
   navbarWrapper.innerHTML = navbar;
 };
