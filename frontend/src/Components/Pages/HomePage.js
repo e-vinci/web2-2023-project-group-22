@@ -4,12 +4,6 @@ import Navigate from '../Router/Navigate';
 const HomePage = () => {
   clearPage();
   displayTripButtons();
-  const main = document.querySelector('main');
-  main.style.width = '50%';
-  main.style.marginTop = '25%';
-  main.style.marginLeft = '25%';
-  main.style.display = 'flex';
-  main.style.justifyContent = 'space-around';
 };
 
 function displayTripButtons(){
