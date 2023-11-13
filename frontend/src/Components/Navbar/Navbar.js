@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import { Navbar as BootstrapNavbar } from 'bootstrap';
-
 /**
  * Render the Navbar which is styled by using Bootstrap
  * Each item in the Navbar is tightly coupled with the Router configuration :

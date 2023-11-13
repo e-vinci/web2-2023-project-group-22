@@ -3,7 +3,7 @@ import Navigate from '../Router/Navigate';
 
 const HomePage = () => {
   clearPage();
-  afficherBoutonsVoyage();
+  displayTripButtons();
   const main = document.querySelector('main');
   main.style.width = '50%';
   main.style.marginTop = '25%';
@@ -12,17 +12,21 @@ const HomePage = () => {
   main.style.justifyContent = 'space-around';
 };
 
-function afficherBoutonsVoyage(){
-  const names = ['Créer un voyage', 'Afficher les voyages']
+function displayTripButtons(){
   const main = document.querySelector('main');
-  names.forEach((name)=>{
-    const button = document.createElement('button');
-    button.innerText = name;
-    button.addEventListener('click',()=>{
-      Navigate('/voyages');
-    })
-    main.appendChild(button);
+  const createTripButton = document.createElement('button');
+  const showAllTripsButton = document.createElement('button');
+  createTripButton.innerText = "Créer un voyage";
+  showAllTripsButton.innerText = "Afficher les voyages";
+  createTripButton.addEventListener('click',()=>{
+    Navigate('/trip');
   })
+  showAllTripsButton.addEventListener('click',()=>{
+    Navigate('/alltrips');
+  })
+  main.appendChild(createTripButton);
+  main.appendChild(showAllTripsButton);
+
 }
 
 export default HomePage;
