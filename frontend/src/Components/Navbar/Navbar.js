@@ -31,4 +31,6 @@ const Navbar = () => {
   navbarWrapper.innerHTML = navbar;
 };
 
+
+
 export default Navbar;

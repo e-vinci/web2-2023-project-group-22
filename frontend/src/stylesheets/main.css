@@ -8,6 +8,15 @@ nav{
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0px;
+}
+/*To transform the navbar into a sticky navbar*/
+@media
+(prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 #navbarWrapper{
@@ -60,6 +69,17 @@ a {
   text-decoration: inherit; /* no underline */
   font-size: 20px;
 }
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+	padding-top: 60px;
+  }
 
 /* Login page form */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
@@ -120,8 +140,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid rgba(9,29,40,255);
+	background-color: rgba(9,29,40,255);
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -234,9 +254,7 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: rgba(9,29,40,255);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
