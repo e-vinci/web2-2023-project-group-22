@@ -23,9 +23,9 @@ const Navbar = () => {
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 100px;"></a>
   </div>
     <ul>
-        <li class="hover-navbar"><a href="#" data-uri="/">Home page</a></li>
-        <li class="hover-navbar"><a href="#" data-uri="/loginOrRegister">Sign In</a></li>
-        <li class="hover-navbar"><a href="#" data-uri="/loginOrRegister">Sign Up</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/" class="nav-item">Home page</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item">Sign In</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item">Sign Up</a></li>
       </ul>
 `;
   navbarWrapper.innerHTML = navbar;
