@@ -77,6 +77,7 @@ function displayTrips(elements){
         tripContainer.className = 'grid-item';
         tripContainer.innerHTML = `
             <a href="${element.maps.googleMaps}" target="_blank"><h3>${element.name.common}</h3></href>
+            <img src="${element.flags.png}" style="width: 150px; height: 100px;">
         `;
         tripsContainer.appendChild(tripContainer);
     })
