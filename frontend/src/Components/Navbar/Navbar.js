@@ -24,8 +24,8 @@ const Navbar = () => {
   </div>
     <ul>
         <li class="hover-navbar"><a href="#" data-uri="/">Home page</a></li>
-        <li class="hover-navbar"><a href="#" data-uri="loginOrRegister">Sign In</a></li>
-        <li class="hover-navbar"><a href="#" data-uri="loginOrRegister">Sign Up</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/loginOrRegister">Sign In</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/loginOrRegister">Sign Up</a></li>
       </ul>
 `;
   navbarWrapper.innerHTML = navbar;
