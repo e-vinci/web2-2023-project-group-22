@@ -2,11 +2,10 @@ import { clearPage } from '../../utils/render';
 
 
 
-const LoginPage = () => {
+const LoginRegisterPage = () => {
     clearPage();
-    const loginPage = document.querySelector('main');
-    const loginForm = `
-    <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
+    const loginRegisterPage = document.querySelector('main');
+    const loginRegisterForm = `
 <div id="login-form">
   <div class="container" id="container">
     <div class="form-container sign-up-container">
@@ -58,20 +57,23 @@ const LoginPage = () => {
     `
     
 
-    loginPage.innerHTML = loginForm;
+    loginRegisterPage.innerHTML = loginRegisterForm;
+    switchLoginRegister();
   };
-
+function switchLoginRegister(){
   const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+  const signInButton = document.getElementById('signIn');
+  const container = document.getElementById('container');
 
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
+  signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
+  });
 
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
+  signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
+  });
+}
+
 
   
-export default LoginPage;
+export default LoginRegisterPage;
