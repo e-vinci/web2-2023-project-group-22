@@ -1,4 +1,5 @@
 import { clearPage } from '../../../utils/render';
+import CountryPage from './CountryPage';
 
 const main = document.querySelector('main');
 main.style.display = 'block';
@@ -55,18 +56,20 @@ function displayFilters() {
 }
 // Displays all the coutries
 function displayCountries(elements) {
-  const tripsContainer = document.createElement('div');
-  tripsContainer.className = 'grid-container';
-  main.appendChild(tripsContainer);
+  const countriesList = document.createElement('div');
+  countriesList.className = 'grid-container';
+  main.appendChild(countriesList);
   elements.forEach((element) => {
-    const tripContainer = document.createElement('div');
-    tripContainer.className = 'grid-item';
-    tripContainer.innerHTML = `
+    const country = document.createElement('div');
+    country.className = 'grid-item';
+    country.innerHTML = `
             <h3>${element.name.common}</h3>
             <img src="${element.flags.png}" style="width: 150px; height: 100px;">
-            <input type="hidden" value="${element.cca3}">
         `;
-    tripsContainer.appendChild(tripContainer);
+    countriesList.appendChild(country);
+    country.addEventListener('click', ()=>{
+      CountryPage(element);
+    })
   });
 }
 // Refreshes countries list based on input text
