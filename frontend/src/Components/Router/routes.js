@@ -2,7 +2,7 @@ import HomePage from '../Pages/HomePage';
 import NewPage from '../Pages/NewPage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
-import AllTripsPage from '../Pages/AllTripsPage';
+import AllCountriesPage from '../Pages/Countries/AllCountriesPage';
 import TripPage from '../Pages/TripPage';
 
 const routes = {
@@ -10,7 +10,7 @@ const routes = {
   '/new': NewPage,
   '/login' : LoginPage,
   '/register' : RegisterPage,
-  '/alltrips' : AllTripsPage,
+  '/countries' : AllCountriesPage,
   '/trip' : TripPage,
 };
 

@@ -9,17 +9,17 @@ const HomePage = () => {
 function displayTripButtons(){
   const main = document.querySelector('main');
   const createTripButton = document.createElement('button');
-  const showAllTripsButton = document.createElement('button');
+  const showAllCountriesButton = document.createElement('button');
   createTripButton.innerText = "Créer un voyage";
-  showAllTripsButton.innerText = "Afficher les voyages";
+  showAllCountriesButton.innerText = "Afficher les voyages";
   createTripButton.addEventListener('click',()=>{
     Navigate('/trip');
   })
-  showAllTripsButton.addEventListener('click',()=>{
-    Navigate('/alltrips');
+  showAllCountriesButton.addEventListener('click',()=>{
+    Navigate('/countries');
   })
   main.appendChild(createTripButton);
-  main.appendChild(showAllTripsButton);
+  main.appendChild(showAllCountriesButton);
 
 }
 
