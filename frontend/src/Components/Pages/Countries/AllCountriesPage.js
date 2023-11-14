@@ -64,6 +64,7 @@ function displayCountries(elements) {
     tripContainer.innerHTML = `
             <h3>${element.name.common}</h3>
             <img src="${element.flags.png}" style="width: 150px; height: 100px;">
+            <input type="hidden" value="${element.cca3}">
         `;
     tripsContainer.appendChild(tripContainer);
   });
