@@ -32,10 +32,13 @@ function displayTrips(country){
     main.appendChild(tripsList);
     const newTrip = document.createElement('div');
     newTrip.className = 'grid-item';
-    newTrip.innerText = `Create your own trip to ${country.name.common}`
+    newTrip.innerText = `Create your own trip to ${country.name.common}`;
     tripsList.appendChild(newTrip);
     newTrip.addEventListener('click', () => {
       Navigate('/newtrip');
+    })
+    newTrip.addEventListener('mouseover', () => {
+        newTrip.style.cursor = "pointer";
     })
     TRIPS.forEach((trip) => {
         const tripItem = document.createElement('div');
@@ -44,6 +47,9 @@ function displayTrips(country){
         tripsList.appendChild(tripItem);
         tripItem.addEventListener('click', () => {
             Navigate('/trip');
+        })
+        tripItem.addEventListener('mouseover', () => {
+            tripItem.style.cursor = "pointer";
         })
     })
 }

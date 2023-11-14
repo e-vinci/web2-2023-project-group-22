@@ -70,6 +70,9 @@ function displayCountries(elements) {
     country.addEventListener('click', ()=>{
       CountryPage(element);
     })
+    country.addEventListener('mouseover', () => {
+      country.style.cursor = "pointer";
+  })
   });
 }
 // Refreshes countries list based on input text
