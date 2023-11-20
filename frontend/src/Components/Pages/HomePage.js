@@ -11,9 +11,9 @@ function displayTripButtons(){
   const createTripButton = document.createElement('button');
   const showAllCountriesButton = document.createElement('button');
   createTripButton.innerText = "Créer un voyage";
-  showAllCountriesButton.innerText = "Afficher les voyages";
+  showAllCountriesButton.innerText = "Voir les pays";
   createTripButton.addEventListener('click',()=>{
-    Navigate('/trip');
+    Navigate('/newtrip');
   })
   showAllCountriesButton.addEventListener('click',()=>{
     Navigate('/countries');
