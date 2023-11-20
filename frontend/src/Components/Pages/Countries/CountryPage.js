@@ -11,7 +11,8 @@ const TRIPS = [
     }
 ];
 
-const CountryPage = (country) => {
+const CountryPage = () => {
+    const country = JSON.parse(localStorage.getItem("countryData"));
     clearPage();
     displayCountryInfos(country);
     displayTrips(country);
