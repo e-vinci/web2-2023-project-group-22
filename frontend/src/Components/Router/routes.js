@@ -1,14 +1,16 @@
 import HomePage from '../Pages/HomePage';
-import NewPage from '../Pages/NewPage';
 import LoginRegisterPage from '../Pages/LoginRegisterPage';
-import AllTripsPage from '../Pages/AllTripsPage';
-import TripPage from '../Pages/TripPage';
+import AllCountriesPage from '../Pages/Countries/AllCountriesPage';
+import CountryPage from '../Pages/Countries/CountryPage';
+import NewTripPage from '../Pages/Trips/NewTripPage';
+import TripPage from '../Pages/Trips/TripPage';
 
 const routes = {
   '/': HomePage,
-  '/new': NewPage,
   '/loginOrRegister' : LoginRegisterPage,
-  '/alltrips' : AllTripsPage,
+  '/countries' : AllCountriesPage,
+  '/country' : CountryPage,
+  '/newtrip' : NewTripPage,
   '/trip' : TripPage,
 };
 

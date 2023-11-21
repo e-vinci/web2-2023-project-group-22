@@ -2,7 +2,7 @@ const Footer = () => {
     const footer = document.querySelector('footer');
     const footerContent = 
     `
-        <p>IDHSUIHDUDHUIZHDUIDHUIZDHUH</p>
+        <p></p>
     `;
     footer.innerHTML = footerContent;
 }

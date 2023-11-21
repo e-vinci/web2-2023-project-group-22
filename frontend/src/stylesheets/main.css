@@ -65,7 +65,7 @@ li {
 }
 
 a {
-  color: rgb(255, 255, 255); /* blue colors for links too */
+  color: white; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
   font-size: 20px;
 }
@@ -98,6 +98,7 @@ main {
   justify-content:center;
   align-items: center;
 }
+
 * {
 	box-sizing: border-box;
   margin: 0;
@@ -323,12 +324,17 @@ input {
 	width: 40px;
 }
 
+.nav-item {
+	color: white;
+}
+
 /* All trips display */
 .grid-container {
 	display: inline-grid;
 	gap: 10px;
 	grid-template-columns: auto auto auto;
 	padding: 10px;
+	margin: auto 0;
   }
   
 .grid-item {
@@ -339,4 +345,5 @@ input {
 	text-align: center;
 	width: 250px;
 	height: 250px;
+	border-radius: 15%;
 }
