@@ -65,7 +65,7 @@ li {
 }
 
 a {
-  color: black; /* blue colors for links too */
+  color: rgb(255, 255, 255); /* blue colors for links too */
   text-decoration: inherit; /* no underline */
   font-size: 20px;
 }

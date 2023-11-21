@@ -1,6 +1,6 @@
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
-import videoPresentation from '../../assets/paqueta.mp4'
+import videoPresentation from '../../assets/paqueta.mp4';
 
 const HomePage = () => {
   clearPage();
