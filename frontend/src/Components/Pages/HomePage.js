@@ -45,12 +45,20 @@ function presentationVideoBlock(){
 function presentationBlockImageText(){
   const main = document.querySelector('main');
   const createDivPresentationBlock = document.createElement('div');
-  const createDivPresentationImage = document.createElement('div');
-  const createDivPresentationText = document.createElement('div');
   createDivPresentationBlock.id = "presentationBlock";
+  createDivPresentationBlock.innerText = "hahahalefrrttropnul";
+  
+  const createDivPresentationImage = document.createElement('div');
   createDivPresentationImage.id = "presentationImage";
-  createDivPresentationText.id = "presentationText";
+  createDivPresentationImage.innerText = "hahahalefrrttropnul";
 
+  const createDivPresentationText = document.createElement('div');
+  createDivPresentationText.id = "presentationText";
+  createDivPresentationText.innerText = "hahahalefrrttropnul";
+
+  createDivPresentationBlock.appendChild(createDivPresentationImage);
+  createDivPresentationBlock.appendChild(createDivPresentationText);
+  main.appendChild(createDivPresentationBlock);
 }
 
 
