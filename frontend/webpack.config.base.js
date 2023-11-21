@@ -62,6 +62,10 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|mp3|mp4|mpe?g)$/,
         type: 'asset/resource',
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/inline",
+      },
 
       // {
       //   test: /\.mp4$/,
