@@ -2,7 +2,7 @@ import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
 
 const main = document.querySelector('main');
-main.style.display = 'block';
+// main.style.display = 'block';
 
 const AllCountriesPage = () => {
   clearPage();
@@ -22,7 +22,7 @@ const AllCountriesPage = () => {
         });
       }
     });
-    displayFilters(CURRENCIES);
+    displayFilters(CURRENCIES,countries);
     displayCountries(countries);
   });
 };
