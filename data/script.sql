@@ -85,3 +85,9 @@ CREATE TABLE projetweb.images_trips(
     id_trip INTEGER REFERENCES projetweb.trips(id_trip),
     image VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE projetweb.site_comments(
+    id_comment SERIAL UNIQUE NOT NULL ,
+    id_user INTEGER REFERENCES projetweb.users(id_user) NOT NULL ,
+    PRIMARY KEY (id_comment, id_user)
+)
