@@ -55,8 +55,8 @@ const LoginRegisterPage = () => {
   </div>
 </div>
     `
-    
 
+    
     loginRegisterPage.innerHTML = loginRegisterForm;
     switchLoginRegister();
   };
