@@ -77,16 +77,49 @@ a {
 	top: 0;
 	width: 100%;
   }
-
-/*HOME PAGE CODE*/
-
-
-
   
   /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
   .sticky + .content {
 	padding-top: 60px;
   }
+
+/*HOME PAGE CODE*/
+
+/* Code for the first presentation block */
+#presentationFirstBlock{
+	padding-top: 100px;
+	width: 85%;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+}
+
+#presentationText{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+}
+
+#presentationText p{
+	width: 85%;
+	text-align: justify;
+}
+
+#presentationImage {
+	width: 50%;
+}
+
+#presentationImage img{
+	width: 100%;
+}
+
+/* code for the second homePageBlock */
+
+  
+  
 
 /* Login page form */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
