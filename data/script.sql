@@ -1,78 +1,87 @@
-CREATE TABLE pays(
-    code_pays VARCHAR(3) PRIMARY KEY,
-    nom_pays VARCHAR(50) NOT NULL
+DROP SCHEMA IF EXISTS projetweb CASCADE ;
+CREATE SCHEMA projetweb;
+
+CREATE TABLE projetweb.countries(
+    country_code VARCHAR(3) PRIMARY KEY,
+    country_name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE villes(
-    id_ville SERIAL PRIMARY KEY ,
-    nom_ville VARCHAR NOT NULL,
-    pays VARCHAR(3) REFERENCES pays(code_pays) NOT NULL
+CREATE TABLE projetweb.towns(
+    id_town SERIAL PRIMARY KEY ,
+    town_name VARCHAR NOT NULL,
+    country_code VARCHAR(3) REFERENCES projetweb.countries(country_code) NOT NULL
 );
 
-CREATE TABLE categories_lieux(
-    id_categorie SERIAL PRIMARY KEY  ,
-    nom_categorie VARCHAR(20) NOT NULL
+CREATE TABLE projetweb.categories(
+    id_category SERIAL PRIMARY KEY  ,
+    category_name VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE lieux(
-    id_lieux SERIAL PRIMARY KEY  ,
-    nom_lieu VARCHAR(100) NOT NULL,
-    categorie INTEGER REFERENCES categories_lieux(id_categorie),
+CREATE TABLE projetweb.places(
+    id_place SERIAL PRIMARY KEY  ,
+    place_name VARCHAR(100) NOT NULL,
+    id_category INTEGER REFERENCES projetweb.categories(id_category),
     description VARCHAR(100) NULL,
-    ville INTEGER REFERENCES villes(id_ville) NOT NULL
+    id_town INTEGER REFERENCES projetweb.towns(id_town) NOT NULL
 );
 
-CREATE TABLE voyages(
-    id_voyage SERIAL PRIMARY KEY  ,
-    date_debut DATE NOT NULL ,
-    date_fin DATE NOT NULL ,
-    pays VARCHAR(3) REFERENCES pays(code_pays),
-    ville INTEGER REFERENCES villes(id_ville)
+CREATE TABLE projetweb.trips(
+    id_trip SERIAL PRIMARY KEY  ,
+    start_date DATE NOT NULL ,
+    end_date DATE NOT NULL ,
+    country_code VARCHAR(3) REFERENCES projetweb.countries(country_code),
+    id_town INTEGER REFERENCES projetweb.towns(id_town)
 );
 
-CREATE TABLE utilisateurs(
-    id_utilisateur SERIAL PRIMARY KEY  ,
-    prenom VARCHAR(100) NOT NULL ,
-    nom VARCHAR(100) NOT NULL ,
-    date_naissance DATE NOT NULL ,
+CREATE TABLE projetweb.users(
+    id_user SERIAL PRIMARY KEY  ,
+    firstname VARCHAR(100) NOT NULL ,
+    lastname VARCHAR(100) NOT NULL ,
+    birthdate DATE NOT NULL ,
     email VARCHAR(100) NOT NULL UNIQUE ,
-    mot_de_passe VARCHAR(60) NOT NULL ,
-    date_inscription DATE DEFAULT CURRENT_DATE NOT NULL,
-    photo_de_profil VARCHAR(100) NULL
+    password VARCHAR(60) NOT NULL ,
+    join_date DATE DEFAULT CURRENT_DATE NOT NULL,
+    profile_picture VARCHAR(100) NULL
 );
 
-CREATE TABLE lieux_voyages(
-    id_lieu_voyage SERIAL PRIMARY KEY  ,
-    lieu INTEGER REFERENCES lieux(id_lieux),
-    voyage INTEGER REFERENCES voyages(id_voyage)
+CREATE TABLE projetweb.trips_places(
+    id_place INTEGER REFERENCES projetweb.places(id_place),
+    id_trip INTEGER REFERENCES projetweb.trips(id_trip),
+    PRIMARY KEY (id_place, id_trip)
 );
 
-CREATE TABLE participations_voyages(
-    id_participation SERIAL PRIMARY KEY  ,
-    utilisateur INTEGER REFERENCES utilisateurs(id_utilisateur),
-    voyage INTEGER REFERENCES voyages(id_voyage)
+CREATE TABLE projetweb.trips_participations(
+    id_user INTEGER REFERENCES projetweb.users(id_user),
+    id_trip INTEGER REFERENCES projetweb.trips(id_trip),
+    PRIMARY KEY (id_user, id_trip)
 );
 
-CREATE TABLE avis_lieux(
-    id_avis_lieux SERIAL ,
-    utilisateur INTEGER REFERENCES utilisateurs(id_utilisateur),
-    lieu INTEGER REFERENCES lieux(id_lieux),
-    note INTEGER CHECK ( note = 1 OR note = 2 OR note = 3 OR note = 4 OR note = 5 ),
-    avis VARCHAR(140) NOT NULL ,
-    PRIMARY KEY (id_avis_lieux, utilisateur, lieu)
+CREATE TABLE projetweb.places_comments(
+    id_place_comment SERIAL UNIQUE ,
+    id_user INTEGER REFERENCES projetweb.users(id_user),
+    id_place INTEGER REFERENCES projetweb.places(id_place),
+    note INTEGER CHECK ( note IN (1, 2, 3, 4, 5) ),
+    comment VARCHAR(140) NOT NULL ,
+    PRIMARY KEY (id_user, id_place)
 );
 
-CREATE TABLE avis_voyage(
-    id_avis_voyage SERIAL PRIMARY KEY ,
-    utilisateur INTEGER REFERENCES utilisateurs(id_utilisateur),
-    voyage INTEGER REFERENCES voyages(id_voyage),
-    note INTEGER CHECK ( note = 1 OR note = 2 OR note = 3 OR note = 4 OR note = 5 ),
-    avis VARCHAR(140) NOT NULL ,
-    PRIMARY KEY (id_avis_voyage, utilisateur, voyage)
+CREATE TABLE projetweb.trips_comments(
+    id_trip_comment SERIAL UNIQUE ,
+    id_user INTEGER REFERENCES projetweb.users(id_user),
+    id_trip INTEGER REFERENCES projetweb.trips(id_trip),
+    note INTEGER CHECK ( note IN (1, 2, 3, 4, 5) ),
+    comment VARCHAR(140) NOT NULL ,
+    PRIMARY KEY (id_user, id_trip)
 );
 
-CREATE TABLE photos_avis(
-    id_photo SERIAL PRIMARY KEY  ,
-    avis INTEGER REFERENCES avis_lieux(id_avis_lieux),
-    photo VARCHAR(100) NOT NULL
+CREATE TABLE projetweb.images_comment(
+    id_image SERIAL PRIMARY KEY  ,
+    id_place_comment INTEGER REFERENCES projetweb.places_comments(id_place_comment),
+    image VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE projetweb.images_trips(
+    id_image SERIAL PRIMARY KEY  ,
+    id_trip INTEGER REFERENCES projetweb.trips(id_trip),
+    image VARCHAR(100) NOT NULL
 );
