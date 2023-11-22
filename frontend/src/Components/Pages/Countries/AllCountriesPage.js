@@ -1,9 +1,6 @@
 import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
 
-const main = document.querySelector('main');
-// main.style.display = 'block';
-
 const AllCountriesPage = () => {
   clearPage();
   const CURRENCIES = [];
@@ -29,14 +26,17 @@ const AllCountriesPage = () => {
 
 // Displays filter options
 function displayFilters(currencies, countries) {
+  const main = document.querySelector('main');
+  const filtersDiv = document.createElement('div');
   const textFilter = document.createElement('input');
   textFilter.type = 'text';
   textFilter.name = 'textInput';
   textFilter.placeholder = 'Enter your dream destination';
-  main.appendChild(textFilter);
+  filtersDiv.appendChild(textFilter);
   const currencyFilter = document.createElement('select');
   currencyFilter.id = 'currenciesSelect';
-  main.appendChild(currencyFilter);
+  filtersDiv.appendChild(currencyFilter);
+  main.appendChild(filtersDiv);
   const textInput = document.querySelector('input[name="textInput"]');
   textInput.addEventListener('input', () => {
     refreshListText(textInput, countries);
@@ -60,6 +60,7 @@ function displayFilters(currencies, countries) {
 }
 // Displays all the coutries
 function displayCountries(elements) {
+  const main = document.querySelector('main');
   if (document.querySelectorAll('.grid-container') !== null) {
     const containers = document.querySelectorAll('.grid-container');
     containers.forEach((container) => container.remove());

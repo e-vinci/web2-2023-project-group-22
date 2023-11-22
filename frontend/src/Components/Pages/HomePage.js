@@ -6,9 +6,7 @@ import logoImageNoir from '../../img/imageVille.jpg'
 const HomePage = () => {
   clearPage();
   presentationFirstBloc();
-  // HomePageSecondBlock();
-  // displayTripButtons();
-  
+  // HomePageSecondBlock();  
 };
 
 function displayTripButtons(){
@@ -51,7 +49,7 @@ function presentationFirstBloc(){
 
 // function HomePageSecondBlock(){
 //   const main = document.querySelector('main');
-//   main.innerHTML = 'ighrtighiugh';
+//   main.innerHTML += 'ighrtighiugh';
 // }
 
 
