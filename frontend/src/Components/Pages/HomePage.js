@@ -1,13 +1,12 @@
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
-// import videoPresentation from '../../assets/paqueta.mp4';
+import videoPresentation from '../../assets/paqueta.mp4';
 import logoImageNoir from '../../img/imageVille.jpg'
 
 const HomePage = () => {
   clearPage();
   presentationFirstBloc();
-  // HomePageSecondBlock();
-  // displayTripButtons();
+  HomePageSecondBlock();
   
 };
 
@@ -49,10 +48,46 @@ function presentationFirstBloc(){
   tripButtons.appendChild(displayTripButtons());
 }
 
-// function HomePageSecondBlock(){
-//   const main = document.querySelector('main');
-//   main.innerHTML = 'ighrtighiugh';
-// }
+function HomePageSecondBlock(){
+  const main = document.querySelector('main');
+  const secondBlock = document.createElement('div');
+  secondBlock.id = "secondBlock";
+
+  const secondBlockVideo = document.createElement('div');
+  secondBlockVideo.id = "secondBlockVideo";
+  const video = document.createElement('video');
+  video.src = videoPresentation;
+  video.autoplay = false;
+  video.controls = true;
+  video.muted = false;
+  video.height = 400;
+  video.width = 650; 
+
+  const secondBlockText = document.createElement('div');
+
+  const secondBlockText1 = document.createElement('div');
+  const secondBlockText1H3 = document.createElement('h3');
+  secondBlockText1H3.textContent = "BLABLABLA";
+  const secondBlockText1P = document.createElement('p');
+  secondBlockText1P.textContent = "icnrivnrifnvivnivn";
+
+  const secondBlockText2 = document.createElement('div');
+  const secondBlockText2H3 = document.createElement('h3');
+  secondBlockText2H3.textContent = "BLABLABLA";
+  const secondBlockText2P = document.createElement('p');
+  secondBlockText2P.textContent = "icnrivnrifnvivnivn";
+
+  secondBlockText1.appendChild(secondBlockText1H3);
+  secondBlockText1.appendChild(secondBlockText1P);
+  secondBlockText2.appendChild(secondBlockText2H3);
+  secondBlockText2.appendChild(secondBlockText2P);
+  secondBlockText.appendChild(secondBlockText1);
+  secondBlockText.appendChild(secondBlockText2);
+  secondBlockVideo.appendChild(video);
+  secondBlock.appendChild(secondBlockVideo);
+  secondBlock.appendChild(secondBlockText);
+  main.appendChild(secondBlock);
+}
 
 
 
