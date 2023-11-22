@@ -2,7 +2,7 @@ import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
 
 const main = document.querySelector('main');
-main.style.display = 'block';
+// main.style.display = 'block';
 
 const AllCountriesPage = () => {
   clearPage();
@@ -22,7 +22,7 @@ const AllCountriesPage = () => {
         });
       }
     });
-    displayFilters(CURRENCIES);
+    displayFilters(CURRENCIES,countries);
     displayCountries(countries);
   });
 };
@@ -42,6 +42,10 @@ function displayFilters(currencies, countries) {
     refreshListText(textInput, countries);
   });
   const select = document.querySelector('#currenciesSelect');
+  const defaultOption = document.createElement('option');
+  defaultOption.value = 'default';
+  defaultOption.textContent = 'Select a currency to filter';
+  select.appendChild(defaultOption);
   currencies.forEach((currency) => {
     const option = document.createElement('option');
     option.value = currency;
@@ -49,12 +53,17 @@ function displayFilters(currencies, countries) {
     select.appendChild(option);
   });
   select.addEventListener('change', () => {
-    refreshListCurrency(select.value, countries);
+    if(select.value === 'default') displayCountries(countries);
+    else refreshListCurrency(select.value, countries);
   });
   main.appendChild(select);
 }
 // Displays all the coutries
 function displayCountries(elements) {
+  if (document.querySelectorAll('.grid-container') !== null) {
+    const containers = document.querySelectorAll('.grid-container');
+    containers.forEach((container) => container.remove());
+  }
   const countriesList = document.createElement('div');
   countriesList.className = 'grid-container';
   main.appendChild(countriesList);
