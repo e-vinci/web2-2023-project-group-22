@@ -13,6 +13,11 @@ const TRIPS = [
 
 const CountryPage = () => {
     const country = JSON.parse(localStorage.getItem("countryData"));
+    localStorage.clear();
+    if(country===null) {
+        Navigate('/countries');
+        return;
+    }
     clearPage();
     displayCountryInfos(country);
     displayTrips(country);

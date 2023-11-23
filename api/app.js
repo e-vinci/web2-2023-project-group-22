@@ -21,5 +21,6 @@ app.use('/users', usersRouter);
 app.use('/auths', authsRouter);
 
 app.use(cors(corsOptions));
+require('dotenv').config();
 
 module.exports = app;
