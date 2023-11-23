@@ -89,12 +89,4 @@ function HomePageSecondBlock(){
 }
 
 
-
-
-
-
-
-
-
-
 export default HomePage;
