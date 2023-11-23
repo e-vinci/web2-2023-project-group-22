@@ -96,12 +96,4 @@ function HomePageLastBlock(){
 }
 
 
-
-
-
-
-
-
-
-
 export default HomePage;
