@@ -7,6 +7,7 @@ const HomePage = () => {
   clearPage();
   presentationFirstBloc();
   HomePageSecondBlock();
+  HomePageLastBlock();
 };
 
 function displayTripButtons(){
@@ -63,18 +64,20 @@ function HomePageSecondBlock(){
   video.width = 650; 
 
   const secondBlockText = document.createElement('div');
-
+  secondBlockText.id = "secondBlockText";
   const secondBlockText1 = document.createElement('div');
+  secondBlockText1.className = "secondBlockText";
   const secondBlockText1H3 = document.createElement('h3');
   secondBlockText1H3.textContent = "BLABLABLA";
   const secondBlockText1P = document.createElement('p');
-  secondBlockText1P.textContent = "icnrivnrifnvivnivn";
+  secondBlockText1P.textContent = "rifnvivnivnicnrivnrifnvivnivnicnr";
 
   const secondBlockText2 = document.createElement('div');
+  secondBlockText2.className = "secondBlockText";
   const secondBlockText2H3 = document.createElement('h3');
   secondBlockText2H3.textContent = "BLABLABLA";
   const secondBlockText2P = document.createElement('p');
-  secondBlockText2P.textContent = "icnrivnrifnvivnivn";
+  secondBlockText2P.textContent = "rifnvivnivnicnrivnrifnvivnivnicnr";
 
   secondBlockText1.appendChild(secondBlockText1H3);
   secondBlockText1.appendChild(secondBlockText1P);
@@ -86,6 +89,10 @@ function HomePageSecondBlock(){
   secondBlock.appendChild(secondBlockVideo);
   secondBlock.appendChild(secondBlockText);
   main.appendChild(secondBlock);
+}
+
+function HomePageLastBlock(){
+
 }
 
 
