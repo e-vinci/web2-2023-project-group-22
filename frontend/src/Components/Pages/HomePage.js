@@ -7,7 +7,6 @@ const HomePage = () => {
   clearPage();
   presentationFirstBloc();
   HomePageSecondBlock();
-  
 };
 
 function displayTripButtons(){
