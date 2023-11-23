@@ -27,19 +27,16 @@ const AllCountriesPage = () => {
 // Displays filter options
 function displayFilters(currencies, countries) {
   const main = document.querySelector('main');
-  const filtersDiv = document.createElement('div');
   const textFilter = document.createElement('input');
   textFilter.type = 'text';
   textFilter.name = 'textInput';
   textFilter.placeholder = 'Enter your dream destination';
-  filtersDiv.appendChild(textFilter);
+  main.appendChild(textFilter);
   const currencyFilter = document.createElement('select');
   currencyFilter.id = 'currenciesSelect';
-  filtersDiv.appendChild(currencyFilter);
-  main.appendChild(filtersDiv);
-  const textInput = document.querySelector('input[name="textInput"]');
-  textInput.addEventListener('input', () => {
-    refreshListText(textInput, countries);
+  main.appendChild(currencyFilter);
+  textFilter.addEventListener('input', () => {
+    refreshListText(textFilter, countries);
   });
   const select = document.querySelector('#currenciesSelect');
   const defaultOption = document.createElement('option');
@@ -70,7 +67,7 @@ function displayCountries(elements) {
   main.appendChild(countriesList);
   elements.forEach((element) => {
     const country = document.createElement('div');
-    country.className = 'grid-item';
+    country.className = 'grid-item hidden';
     country.innerHTML = `
             <h3>${element.name.common}</h3>
             <img src="${element.flags.png}" style="width: 150px; height: 100px;">
@@ -84,6 +81,14 @@ function displayCountries(elements) {
       country.style.cursor = "pointer";
   })
   });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting) entry.target.classList.add('show');
+      else entry.target.classList.remove('show');
+    })
+  })
+  const hiddenElements = document.querySelectorAll('.hidden');
+  hiddenElements.forEach((element) => observer.observe(element));
 }
 // Refreshes countries list based on input text
 function refreshListText(textInput, countries) {
