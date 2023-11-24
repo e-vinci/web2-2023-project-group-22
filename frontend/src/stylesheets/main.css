@@ -87,6 +87,7 @@ a {
 
 /* Code for the first presentation block */
 #presentationFirstBlock{
+	background-color: #333;
 	padding-top: 100px;
 	padding-bottom: 100px;
 	width: 85%;
@@ -119,7 +120,38 @@ a {
 
 /* code for the second homePageBlock */
 
-  
+#secondBlock{
+	display: flex;
+	flex-direction: column;
+	background-color: aqua;
+	align-items:center;
+	width: 85%;
+}
+
+#secondBlockText{
+	display: flex;
+	width: 100%;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.secondBlockText{
+	background-color: aquamarine;
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+}
+
+.secondBlockText p{
+	width: 50px;
+	color: brown;
+	font-weight: 20px;
+	text-wrap: wrap;
+}
+
   
 
 /* Login page form */
