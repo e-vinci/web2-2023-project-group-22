@@ -88,5 +88,4 @@ function HomePageSecondBlock(){
   main.appendChild(secondBlock);
 }
 
-
 export default HomePage;

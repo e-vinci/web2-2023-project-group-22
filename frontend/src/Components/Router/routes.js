@@ -5,6 +5,7 @@ import CountryPage from '../Pages/Countries/CountryPage';
 import NewTripPage from '../Pages/Trips/NewTripPage';
 import TripPage from '../Pages/Trips/TripPage';
 
+
 const routes = {
   '/': HomePage,
   '/loginOrRegister' : LoginRegisterPage,
@@ -12,6 +13,7 @@ const routes = {
   '/country' : CountryPage,
   '/newtrip' : NewTripPage,
   '/trip' : TripPage,
+
 };
 
 export default routes;
