@@ -92,7 +92,12 @@ function HomePageSecondBlock(){
 }
 
 function HomePageLastBlock(){
-
+  const main = document.querySelector('main');
+  const lastBlock = document.createElement('div');
+  lastBlock.id = "lastBlock";
+  const text = 'frgrgrgrg';
+  lastBlock.innerHTML = text;
+  main.appendChild(lastBlock);
 }
 
 
