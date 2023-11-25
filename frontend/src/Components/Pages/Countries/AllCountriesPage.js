@@ -1,9 +1,6 @@
 import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
 
-const main = document.querySelector('main');
-// main.style.display = 'block';
-
 const AllCountriesPage = () => {
   clearPage();
   const CURRENCIES = [];
@@ -29,6 +26,7 @@ const AllCountriesPage = () => {
 
 // Displays filter options
 function displayFilters(currencies, countries) {
+  const main = document.querySelector('main');
   const textFilter = document.createElement('input');
   textFilter.type = 'text';
   textFilter.name = 'textInput';
@@ -37,9 +35,8 @@ function displayFilters(currencies, countries) {
   const currencyFilter = document.createElement('select');
   currencyFilter.id = 'currenciesSelect';
   main.appendChild(currencyFilter);
-  const textInput = document.querySelector('input[name="textInput"]');
-  textInput.addEventListener('input', () => {
-    refreshListText(textInput, countries);
+  textFilter.addEventListener('input', () => {
+    refreshListText(textFilter, countries);
   });
   const select = document.querySelector('#currenciesSelect');
   const defaultOption = document.createElement('option');
@@ -60,6 +57,7 @@ function displayFilters(currencies, countries) {
 }
 // Displays all the coutries
 function displayCountries(elements) {
+  const main = document.querySelector('main');
   if (document.querySelectorAll('.grid-container') !== null) {
     const containers = document.querySelectorAll('.grid-container');
     containers.forEach((container) => container.remove());
@@ -69,7 +67,7 @@ function displayCountries(elements) {
   main.appendChild(countriesList);
   elements.forEach((element) => {
     const country = document.createElement('div');
-    country.className = 'grid-item';
+    country.className = 'grid-item hidden';
     country.innerHTML = `
             <h3>${element.name.common}</h3>
             <img src="${element.flags.png}" style="width: 150px; height: 100px;">
@@ -83,6 +81,14 @@ function displayCountries(elements) {
       country.style.cursor = "pointer";
   })
   });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting) entry.target.classList.add('show');
+      else entry.target.classList.remove('show');
+    })
+  })
+  const hiddenElements = document.querySelectorAll('.hidden');
+  hiddenElements.forEach((element) => observer.observe(element));
 }
 // Refreshes countries list based on input text
 function refreshListText(textInput, countries) {

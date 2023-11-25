@@ -13,9 +13,23 @@ const TRIPS = [
 
 const CountryPage = () => {
     const country = JSON.parse(localStorage.getItem("countryData"));
+    localStorage.clear();
+    if(country===null) {
+        Navigate('/countries');
+        return;
+    }
     clearPage();
     displayCountryInfos(country);
     displayTrips(country);
+    main.innerHTML +=`<iframe
+    width="1300"
+    height="750"
+    style="border:0"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/view?key=process.env.MAPS_API_KEY&center=${country.capitalInfo.latlng}&zoom=5">
+    </iframe>`;
 }
 
 function displayCountryInfos(){

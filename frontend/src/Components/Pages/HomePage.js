@@ -7,7 +7,6 @@ const HomePage = () => {
   clearPage();
   presentationFirstBloc();
   HomePageSecondBlock();
-  
 };
 
 function displayTripButtons(){
@@ -88,14 +87,6 @@ function HomePageSecondBlock(){
   secondBlock.appendChild(secondBlockText);
   main.appendChild(secondBlock);
 }
-
-
-
-
-
-
-
-
 
 
 export default HomePage;
