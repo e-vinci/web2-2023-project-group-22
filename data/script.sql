@@ -90,4 +90,4 @@ CREATE TABLE projetweb.site_comments(
     id_comment SERIAL UNIQUE NOT NULL ,
     id_user INTEGER REFERENCES projetweb.users(id_user) NOT NULL ,
     PRIMARY KEY (id_comment, id_user)
-)
+);
