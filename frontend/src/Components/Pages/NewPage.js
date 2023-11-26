@@ -1,21 +1,15 @@
-import Navigate from '../Router/Navigate';
 import { clearPage } from '../../utils/render';
 
-const NewPage = () => {
+const NewPage = async () => {
   clearPage();
-  renderGoBackHomeButton();
-};
-
-function renderGoBackHomeButton() {
   const main = document.querySelector('main');
-  const submit = document.createElement('input');
-  submit.value = 'Go back to HomePage';
-  submit.className = 'btn btn-secondary mt-3';
-  submit.addEventListener('click', () => {
-    Navigate('/');
-  });
-
-  main.appendChild(submit);
-}
+  const request = await fetch('http://localhost:3000/trips/test')
+  .then((response) => {
+    if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    return response.json();
+  })
+  .then((result) => result);
+  main.innerText += request[0].country_name;
+};
 
 export default NewPage;

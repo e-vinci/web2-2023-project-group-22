@@ -1,9 +1,10 @@
 import { clearPage } from "../../../utils/render";
 
-const main = document.querySelector('main');
+
 
 const NewTripPage = () => {
     clearPage();
+    const formDestinationPage = document.querySelector('main');
 
     const formDestination =
 
@@ -23,13 +24,12 @@ const NewTripPage = () => {
           <button>Start dreaming </button>
         </form>
       </div>
-      <div class="form-container destination-container"></div>
         </div>
       </div>
     </div>
   </div>
   `;
-    main.innerHTML = formDestination; 
+  formDestinationPage.innerHTML = formDestination; 
    
 }
 
