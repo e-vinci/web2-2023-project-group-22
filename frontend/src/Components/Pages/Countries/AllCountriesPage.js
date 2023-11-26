@@ -12,10 +12,9 @@ const AllCountriesPage = () => {
   .then((countries) => {
     countries.forEach((country) => {
       if (country.currencies !== null && country.currencies !== undefined) {
-        Object.keys(country.currencies).forEach((currency) => {
-          if (!CURRENCIES.includes(currency)) {
-            CURRENCIES.push(currency);
-          }
+        // CURRENCIES.push(country.currencies);
+        Object.entries(country.currencies).forEach((currency) => {
+          if(!CURRENCIES.includes(currency)) CURRENCIES.push(currency);
         });
       }
     });
@@ -25,7 +24,7 @@ const AllCountriesPage = () => {
 };
 
 // Displays filter options
-function displayFilters(currencies, countries) {
+function displayFilters(CURRENCIES, countries) {
   const main = document.querySelector('main');
   const textFilter = document.createElement('input');
   textFilter.type = 'text';
@@ -43,10 +42,10 @@ function displayFilters(currencies, countries) {
   defaultOption.value = 'default';
   defaultOption.textContent = 'Select a currency to filter';
   select.appendChild(defaultOption);
-  currencies.forEach((currency) => {
+  CURRENCIES.forEach((currency) => {
     const option = document.createElement('option');
-    option.value = currency;
-    option.textContent = currency;
+    option.value = `${currency[0]}`;
+    option.textContent = `${currency[1].name}`;
     select.appendChild(option);
   });
   select.addEventListener('change', () => {
