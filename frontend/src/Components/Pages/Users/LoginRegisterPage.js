@@ -1,4 +1,4 @@
-import { clearPage } from '../../utils/render';
+import { clearPage } from '../../../utils/render';
 
 
 
