@@ -6,7 +6,7 @@ const LoginRegisterPage = () => {
     clearPage();
     const loginRegisterPage = document.querySelector('main');
     const loginRegisterForm = `
-<div id="login-form"> ,;
+<div id="login-form">
   <div class="container" id="container">
     <div class="form-container sign-up-container">
       <form action="/">
