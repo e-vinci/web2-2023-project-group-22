@@ -69,7 +69,7 @@ function displayCountries(elements) {
     country.className = 'grid-item hidden';
     country.innerHTML = `
             <h3>${element.name.common}</h3>
-            <img src="${element.flags.png}" style="width: 150px; height: 100px;">
+            <img src="${element.flags.png}" style="width: 150px; height: 100px; border: 1px solid black">
         `;
     countriesList.appendChild(country);
     country.addEventListener('click', ()=>{
