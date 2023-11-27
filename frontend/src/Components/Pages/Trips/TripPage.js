@@ -8,12 +8,12 @@ const TripPage = () => {
 function displayTripPage () {
     const main = document.querySelector("main");
     main.innerHTML = `
-    <div id="div-trip-page-block" style=" width :100%;">
+    <div id="div-trip-page-block">
 
-        <div id="div-page-block-content" style="background-color : grey; width :50%;">
+        <div id="div-page-block-content">
 
             <div id="div-trip-page-block-content-image">
-                <div id="div-trip-page-block-content-image-text">
+                <div id="div-trip-page-block-content-text">
                     <h1>Voyage à Bruxelles</h1>
                     <i class="bi bi-calendar"></i>
                     <p>1/11 - 30/11</p>
@@ -26,25 +26,30 @@ function displayTripPage () {
                 </div>
             </div>
 
-            <div id="div-trip-page-block-content-info" style="width : 50%; background-color : blue;">
+            <div id="div-trip-page-block-content-info">
                 <div id="div-trip-page-block-content-info-filter">
+                    <h3>Filtrer par budget</h3>
                     <input type="range" min="0" max="1000" />
                 </div>
-                <div id="div-trip-page-block-content-info-capital-cities"></div>
+                <div id="div-trip-page-block-content-info-capital-cities">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
                 <div id="div-trip-page-block-content-info-hotel"></div>
             </div>
 
         </div>
 
         <div id="div-trip-page-block-map" style="">
-            <iframe
-            width="1300"
-            height="750"
+            <iframe id="tripMap"
+            width="700"
+            height="700"
             style="border:0"
             loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
-            src="">
+            src=""
             </iframe>
         </div>
     </div>

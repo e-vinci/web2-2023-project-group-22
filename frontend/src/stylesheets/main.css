@@ -169,7 +169,6 @@ a {
 
 main {
   width: 100%;
-  
   margin: 0%;
   display: flex;
   flex-direction: column;
@@ -190,8 +189,8 @@ main {
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  	padding-top: 20px;
+  	padding-bottom: 20px;
 }
 
 h1 {
@@ -500,3 +499,52 @@ input {
 	
 }
 
+
+/* Trip Page */
+
+#div-trip-page-block{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+#div-trip-page-block-map{
+	width: 50%;
+}
+
+#div-page-block-content{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
+#div-trip-page-block-content-image{
+	background-image: url("../img/imageVille.jpg");
+	background-repeat: no-repeat;
+	width: 100%;
+	padding: 50px 0;
+}
+
+#div-trip-page-block-content-info{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#div-trip-page-block-content-info-filter{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+}
+
+
+
+#tripMap{
+	width: 100%;
+}
