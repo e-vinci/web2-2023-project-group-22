@@ -45,7 +45,7 @@ function displayFilters(CURRENCIES, countries) {
   CURRENCIES.forEach((currency) => {
     const option = document.createElement('option');
     option.value = `${currency[0]}`;
-    option.textContent = `${currency[1].name}`;
+    option.textContent = `${currency[0]} : ${currency[1].name}`;
     select.appendChild(option);
   });
   select.addEventListener('change', () => {
