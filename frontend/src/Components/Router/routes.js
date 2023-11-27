@@ -15,7 +15,8 @@ const routes = {
   '/newtrip' : NewTripPage,
   '/trip' : TripPage,
   '/profil' : ProfilPage,
-  '/newpage' : NewPage
+  '/newpage' : NewPage,
+  '/oauth2callback' : NewPage,
 };
 
 export default routes;

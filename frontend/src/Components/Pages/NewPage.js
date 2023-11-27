@@ -12,4 +12,5 @@ const NewPage = async () => {
   main.innerText += request[0].country_name;
 };
 
+
 export default NewPage;

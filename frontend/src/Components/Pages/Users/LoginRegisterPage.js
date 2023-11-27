@@ -1,7 +1,5 @@
 import { clearPage } from '../../../utils/render';
 
-
-
 const LoginRegisterPage = () => {
     clearPage();
     const loginRegisterPage = document.querySelector('main');
@@ -12,8 +10,8 @@ const LoginRegisterPage = () => {
       <form action="/">
         <h1>Create Account</h1>
         <div class="social-container">
-          <a href="" data-uri="/" class="social"><i class="bi bi-google"></i></a>
-          <a href="" data-uri="/" class="social"><i class="bi bi-facebook"></i></a>
+          <a class="social"><i class="bi bi-google"></i></a>
+          <a class="social googleButton"><i class="bi bi-facebook"></i></a>
         </div>
         <span>or use your email for registration</span>
           <input type="text" placeholder="Name" />
@@ -26,8 +24,8 @@ const LoginRegisterPage = () => {
       <form action="/">
         <h1>Sign in</h1>
         <div class="social-container">
-          <a href="" data-uri="/" class="social"><i class="bi bi-facebook"></i></a>
-          <a href="" data-uri="/" class="social"><i class="bi bi-google"></i></a>
+          <a class="social"><i class="bi bi-facebook"></i></a>
+          <a class="social googleButton"><i class="bi bi-google"></i></a>
         </div>
         <span>or use your account</span>
         <input type="email" placeholder="Email" />
@@ -52,10 +50,12 @@ const LoginRegisterPage = () => {
     </div>
   </div>
 </div>
-    `
-
-    
+    `;
     loginRegisterPage.innerHTML = loginRegisterForm;
+    const googleButton = document.querySelectorAll('.googleButton');
+    googleButton.forEach((button) => {
+      button.addEventListener('click', oauthSignIn);
+    })
     switchLoginRegister();
   };
 function switchLoginRegister(){
@@ -72,6 +72,35 @@ function switchLoginRegister(){
   });
 }
 
+function oauthSignIn() {
+  // Google's OAuth 2.0 endpoint for requesting an access token
+  const oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
 
+  // Create <form> element to submit parameters to OAuth 2.0 endpoint.
+  const form = document.createElement('form');
+  form.setAttribute('method', 'GET'); // Send as a GET request.
+  form.setAttribute('action', oauth2Endpoint);
+  form.setAttribute('target', '_blank');
+
+  // Parameters to pass to OAuth 2.0 endpoint.
+  const params = {'client_id': process.env.GOOGLE_CLIENT_ID,
+                'redirect_uri': 'http://localhost:8080/oauth2callback',
+                'response_type': 'token',
+                'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
+                'include_granted_scopes': 'true',
+                'state': 'pass-through value'};
+
+  Object.entries(params).forEach((param) => {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', param[0]);
+    input.setAttribute('value', param[1]);
+    form.appendChild(input);
+  })
+
+  // Add form to page and submit it to open the OAuth 2.0 endpoint.
+  document.body.appendChild(form);
+  form.submit();
+}
   
 export default LoginRegisterPage;
