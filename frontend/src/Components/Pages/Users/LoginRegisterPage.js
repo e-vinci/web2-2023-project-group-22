@@ -1,4 +1,4 @@
-import { clearPage } from '../../utils/render';
+import { clearPage } from '../../../utils/render';
 
 
 
@@ -53,8 +53,8 @@ const LoginRegisterPage = () => {
   </div>
 </div>
     `
-    
 
+    
     loginRegisterPage.innerHTML = loginRegisterForm;
     switchLoginRegister();
   };
