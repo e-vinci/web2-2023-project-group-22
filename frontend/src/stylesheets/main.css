@@ -12,6 +12,7 @@ nav{
   align-items: center;
   position: sticky;
   top: 0px;
+  z-index: 1;
 }
 /*To transform the navbar into a sticky navbar*/
 @media
@@ -29,7 +30,7 @@ nav{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(9,29,40,255)
+  background-color: rgba(9,29,40,255);
 }
 
 ul{
@@ -87,7 +88,7 @@ a {
 
 /* Code for the first presentation block */
 #presentationFirstBlock{
-	background-color: #333;
+	/* background-color: #333; */
 	padding:100px 0;
 	width: 85%;
 	display: flex;
@@ -122,7 +123,7 @@ a {
 #secondBlock{
 	display: flex;
 	flex-direction: column;
-	background-color: aqua;
+	/* background-color: aqua; */
 	align-items:center;
 	width: 85%;
 }
@@ -137,7 +138,7 @@ a {
 }
 
 .secondBlockText{
-	background-color: aquamarine;
+	/* background-color: aquamarine; */
 	width: 25%;
 	display: flex;
 	flex-direction: column;
@@ -146,7 +147,7 @@ a {
 }
 
 .secondBlockText p{
-	color: brown;
+	/* color: brown; */
 	font-weight: 20px;
 	text-wrap: wrap;
 }
@@ -155,7 +156,7 @@ a {
 
 #lastBlock{
 	width: 85%;
-	background-color: blueviolet;
+	/* background-color: blueviolet; */
 	padding:100px 0;
 }
 
@@ -168,6 +169,7 @@ a {
 
 main {
   width: 100%;
+  
   margin: 0%;
   display: flex;
   flex-direction: column;
@@ -276,6 +278,7 @@ input {
 	max-width: 100%;
 	min-height: 700px;
 }
+
 
 .form-container {
 	position: absolute;
@@ -424,6 +427,39 @@ input {
 	border-radius: 15%;
 }
 
+/* Profil */
+
+@import url("https://bootsrap-4.5.3-dist/css/bootsrap.min.css");
+
+.sidebar{
+	background-color: #333;
+	color: white;
+	height: 100%;
+}
+.sidebar a{
+	margin-left: 10px;
+	
+	color: white;
+	padding-bottom: 10px;
+	font-size: 30px;
+	text-decoration: none;
+	display: flex;
+	
+}
+.card{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+.content{
+	background-color: whitesmoke;
+}
+.containerr{
+	width: 90%;
+    height: 100%;
+	color: #333;
+	
+}
 /* .grid-item:nth-child(2){
 	transition-delay: 100ms;
 }
