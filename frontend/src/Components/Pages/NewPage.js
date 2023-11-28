@@ -2,6 +2,7 @@ import { clearPage } from '../../utils/render';
 
 const NewPage = async () => {
   clearPage();
+  console.log(localStorage.getItem('google_user_info'));
   const buttons = {
     "register": register,
     "login": login,
@@ -19,7 +20,7 @@ const NewPage = async () => {
     input.value = `${button[0]}`;
     input.addEventListener('click', button[1]);
     main.appendChild(input);
-  })
+  });
 };
 
 async function register(){

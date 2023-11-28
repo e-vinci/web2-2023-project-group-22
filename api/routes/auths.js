@@ -1,6 +1,5 @@
 const express = require('express');
 const { register, login } = require('../models/users');
-const { getGoogleoauthUrl } = require('../models/auths');
 
 const router = express.Router();
 
@@ -36,10 +35,6 @@ router.post('/login', async (req, res) => {
   if (!authenticatedUser) return res.sendStatus(401);
 
   return res.json(authenticatedUser);
-});
-
-router.get('/google/url', (req, res) => {
-  res.json(getGoogleoauthUrl());
 });
 
 module.exports = router;
