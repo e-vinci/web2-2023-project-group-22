@@ -1,6 +1,6 @@
 
-import { clearPage } from '../../utils/render';
-import image from '../../img/usertest.png';
+import { clearPage } from '../../../utils/render';
+import image from '../../../img/usertest.png';
 
 
 
