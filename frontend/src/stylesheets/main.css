@@ -12,6 +12,7 @@ nav{
   align-items: center;
   position: sticky;
   top: 0px;
+  z-index: 1;
 }
 /*To transform the navbar into a sticky navbar*/
 @media
@@ -29,7 +30,7 @@ nav{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(9,29,40,255)
+  background-color: rgba(9,29,40,255);
 }
 
 ul{
@@ -73,7 +74,7 @@ a {
 }
 
 .sticky {
-	position: fixed;
+	position: relative;
 	top: 0;
 	width: 100%;
   }
@@ -87,8 +88,8 @@ a {
 
 /* Code for the first presentation block */
 #presentationFirstBlock{
-	padding-top: 100px;
-	padding-bottom: 100px;
+	/* background-color: #333; */
+	padding:100px 0;
 	width: 85%;
 	display: flex;
 	justify-content: center;
@@ -119,7 +120,46 @@ a {
 
 /* code for the second homePageBlock */
 
-  
+#secondBlock{
+	display: flex;
+	flex-direction: column;
+	/* background-color: aqua; */
+	align-items:center;
+	width: 85%;
+}
+
+#secondBlockText{
+	display: flex;
+	width: 100%;
+	padding:100px 0;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.secondBlockText{
+	/* background-color: aquamarine; */
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.secondBlockText p{
+	/* color: brown; */
+	font-weight: 20px;
+	text-wrap: wrap;
+}
+
+/* code for the last home page block */
+
+#lastBlock{
+	width: 85%;
+	/* background-color: blueviolet; */
+	padding:100px 0;
+}
+
   
 
 /* Login page form */
@@ -129,7 +169,6 @@ a {
 
 main {
   width: 100%;
-  
   margin: 0%;
   display: flex;
   flex-direction: column;
@@ -150,8 +189,8 @@ main {
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  	padding-top: 20px;
+  	padding-bottom: 20px;
 }
 
 h1 {
@@ -441,4 +480,71 @@ input {
 	opacity: 1;
 	/* filter: blur(0); */
 	transform: translateX(0);
+}
+.form-destation-containe{
+	position:fixed;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+	align-items:center;
+	top: 50%;
+	height: 100%;
+}
+
+.destination-container {
+	position  :absolute;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	
+}
+
+
+/* Trip Page */
+
+#div-trip-page-block{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+#div-trip-page-block-map{
+	width: 50%;
+}
+
+#div-page-block-content{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
+#div-trip-page-block-content-image{
+	background-image: url("../img/imageVille.jpg");
+	background-repeat: no-repeat;
+	width: 100%;
+	padding: 50px 0;
+}
+
+#div-trip-page-block-content-info{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#div-trip-page-block-content-info-filter{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+}
+
+
+
+#tripMap{
+	width: 100%;
 }
