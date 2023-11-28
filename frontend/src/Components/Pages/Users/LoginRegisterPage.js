@@ -73,34 +73,21 @@ function switchLoginRegister(){
 }
 
 function oauthSignIn() {
-  // Google's OAuth 2.0 endpoint for requesting an access token
-  const oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
-
-  // Create <form> element to submit parameters to OAuth 2.0 endpoint.
-  const form = document.createElement('form');
-  form.setAttribute('method', 'GET'); // Send as a GET request.
-  form.setAttribute('action', oauth2Endpoint);
-  form.setAttribute('target', '_blank');
-
-  // Parameters to pass to OAuth 2.0 endpoint.
-  const params = {'client_id': process.env.GOOGLE_CLIENT_ID,
-                'redirect_uri': 'http://localhost:8080/oauth2callback',
-                'response_type': 'token',
-                'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
-                'include_granted_scopes': 'true',
-                'state': 'pass-through value'};
-
-  Object.entries(params).forEach((param) => {
-    const input = document.createElement('input');
-    input.setAttribute('type', 'hidden');
-    input.setAttribute('name', param[0]);
-    input.setAttribute('value', param[1]);
-    form.appendChild(input);
-  })
-
-  // Add form to page and submit it to open the OAuth 2.0 endpoint.
-  document.body.appendChild(form);
-  form.submit();
+  // if(localStorage.getItem('google_access_token') !== null) console.log("already existing token");
+  // else{
+  //   fetch('http://localhost:3000/auths/google/url')
+  //   .then((response) => {
+  //     if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+  //     return response.json();
+  //   })
+  //   .then((url) => window.open(url, "popup"));
+  // }
+  fetch('http://localhost:3000/auths/google/url')
+    .then((response) => {
+      if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+      return response.json();
+    })
+    .then((url) => window.open(url, "googleWindow", `left=${(window.innerWidth/2)-450/2},top=100,width=450,height=600`));
 }
   
 export default LoginRegisterPage;

@@ -1,5 +1,7 @@
 const express = require('express');
 const { register, login } = require('../models/users');
+const { getGoogleoauthUrl } = require('../models/auths');
+require('../models/auths');
 
 const router = express.Router();
 
@@ -29,6 +31,14 @@ router.post('/login', async (req, res) => {
   if (!authenticatedUser) return res.sendStatus(401); // 401 Unauthorized
 
   return res.json(authenticatedUser);
+});
+
+router.get('/google/url', (req, res) => {
+  res.json(getGoogleoauthUrl());
+});
+
+router.get('/google/callback', (req, res) => {
+  res.send();
 });
 
 module.exports = router;

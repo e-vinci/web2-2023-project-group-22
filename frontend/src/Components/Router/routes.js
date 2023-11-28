@@ -6,6 +6,7 @@ import NewTripPage from '../Pages/Trips/NewTripPage';
 import TripPage from '../Pages/Trips/TripPage';
 import ProfilPage from '../Pages/Users/ProfilPage';
 import NewPage from '../Pages/NewPage';
+import GoogleoauthPage from '../Pages/Users/GoogleoauthPage';
 
 const routes = {
   '/': HomePage,
@@ -16,7 +17,7 @@ const routes = {
   '/trip' : TripPage,
   '/profil' : ProfilPage,
   '/newpage' : NewPage,
-  '/oauth2callback' : NewPage,
+  '/oauth2callback' : GoogleoauthPage,
 };
 
 export default routes;
