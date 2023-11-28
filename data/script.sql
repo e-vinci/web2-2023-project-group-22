@@ -37,7 +37,7 @@ CREATE TABLE projetweb.users(
     id_user SERIAL PRIMARY KEY  ,
     firstname VARCHAR(100) NOT NULL ,
     lastname VARCHAR(100) NOT NULL ,
-    birthdate DATE NOT NULL ,
+    birthdate DATE NULL ,
     email VARCHAR(100) NOT NULL UNIQUE ,
     password VARCHAR(60) NOT NULL ,
     join_date DATE DEFAULT CURRENT_DATE NOT NULL,
