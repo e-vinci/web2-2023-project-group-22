@@ -7,6 +7,7 @@ import TripPage from '../Pages/Trips/TripPage';
 import ProfilPage from '../Pages/Users/ProfilPage';
 import NewPage from '../Pages/NewPage';
 import GoogleoauthPage from '../Pages/Users/GoogleoauthPage';
+import PendingConnectionPage from '../Pages/Users/PendingConnectionPage';
 
 const routes = {
   '/': HomePage,
@@ -18,6 +19,7 @@ const routes = {
   '/profil' : ProfilPage,
   '/newpage' : NewPage,
   '/oauth2callback' : GoogleoauthPage,
+  '/pendingconnection': PendingConnectionPage,
 };
 
 export default routes;

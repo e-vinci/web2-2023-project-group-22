@@ -1,4 +1,5 @@
 import { clearPage } from '../../../utils/render';
+import Navigate from '../../Router/Navigate';
 
 const LoginRegisterPage = () => {
     clearPage();
@@ -80,14 +81,18 @@ function oauthSignIn() {
   //     if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
   //     return response.json();
   //   })
-  //   .then((url) => window.open(url, "popup"));
+  //   .then((url) => window.open(url, "googleWindow", `left=${(window.innerWidth/2)-450/2},top=100,width=450,height=600`));
   // }
   fetch('http://localhost:3000/auths/google/url')
     .then((response) => {
       if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
       return response.json();
     })
-    .then((url) => window.open(url, "googleWindow", `left=${(window.innerWidth/2)-450/2},top=100,width=450,height=600`));
+    .then((url) => {
+      Navigate('/pendingconnection');
+      localStorage.clear();
+      window.open(url, "googleWindow", `left=${(window.innerWidth/2)-450/2},top=${(window.innerHeight/2)-600/2},width=450,height=600`)
+    });
 }
   
 export default LoginRegisterPage;
