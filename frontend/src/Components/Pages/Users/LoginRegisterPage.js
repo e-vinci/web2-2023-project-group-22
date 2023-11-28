@@ -74,25 +74,38 @@ function switchLoginRegister(){
 }
 
 function oauthSignIn() {
-  // if(localStorage.getItem('google_access_token') !== null) console.log("already existing token");
-  // else{
-  //   fetch('http://localhost:3000/auths/google/url')
-  //   .then((response) => {
-  //     if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
-  //     return response.json();
-  //   })
-  //   .then((url) => window.open(url, "googleWindow", `left=${(window.innerWidth/2)-450/2},top=100,width=450,height=600`));
-  // }
-  fetch('http://localhost:3000/auths/google/url')
+  if(localStorage.getItem('google_access_token') !== null){
+    if(localStorage.getItem('googleuserInfo') !== null){
+      Navigate('/');
+    }
+    else{
+      getGoogleUserInfo();
+    }
+  }
+  else{
+    fetch('http://localhost:3000/auths/google/url')
     .then((response) => {
       if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
       return response.json();
     })
     .then((url) => {
-      Navigate('/pendingconnection');
-      localStorage.clear();
-      window.open(url, "googleWindow", `left=${(window.innerWidth/2)-450/2},top=${(window.innerHeight/2)-600/2},width=450,height=600`)
+      window.open(url, "googleWindow", `left=${(window.innerWidth/2)-450/2},top=${(window.innerHeight/2)-600/2},width=450,height=600`);
+      const interval = setInterval(() => {
+        if(localStorage.getItem('google_access_token')) {
+          clearInterval(interval);
+          getGoogleUserInfo();
+        }
+      }, 500);
     });
+  }
+}
+
+function getGoogleUserInfo(){
+  fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+    headers: {Authorization: `Bearer ${localStorage.getItem('google_access_token')}`}
+  })
+  .then(resp => resp.json())
+  .then(json => localStorage.setItem('googleuserInfo', JSON.stringify(json)));
 }
   
 export default LoginRegisterPage;
