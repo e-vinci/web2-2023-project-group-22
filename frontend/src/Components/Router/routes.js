@@ -1,11 +1,12 @@
 import HomePage from '../Pages/HomePage';
-import LoginRegisterPage from '../Pages/LoginRegisterPage';
+import LoginRegisterPage from '../Pages/Users/LoginRegisterPage';
 import AllCountriesPage from '../Pages/Countries/AllCountriesPage';
 import CountryPage from '../Pages/Countries/CountryPage';
 import NewTripPage from '../Pages/Trips/NewTripPage';
 import TripPage from '../Pages/Trips/TripPage';
-import ProfilPage from '../Pages/ProfilPage';
+import ProfilPage from '../Pages/Users/ProfilPage';
 import NewPage from '../Pages/NewPage';
+import GoogleoauthPage from '../Pages/Users/GoogleoauthPage';
 
 const routes = {
   '/': HomePage,
@@ -15,7 +16,8 @@ const routes = {
   '/newtrip' : NewTripPage,
   '/trip' : TripPage,
   '/profil' : ProfilPage,
-  '/newpage' : NewPage
+  '/newpage' : NewPage,
+  '/oauth2callback' : GoogleoauthPage,
 };
 
 export default routes;

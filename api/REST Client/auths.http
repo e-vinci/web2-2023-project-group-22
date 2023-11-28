@@ -9,23 +9,15 @@ Content-Type: application/json
     "password":"admin"
 }
 
-### Login the default admin
-POST {{baseUrl}}/auths/login
-Content-Type: application/json
-
-{
-    "username":"admin",
-    "password":"admin"
-}
-
-
 ### Create the manager user
 POST {{baseUrl}}/auths/register
 Content-Type: application/json
 
 {
-    "username":"manager",
-    "password":"manager"
+    "firstname": "Jhon",
+    "lastname": "Doe",
+    "email":"jhon.doe@example.com",
+    "password":"test"
 }
 
 ### Login the manager user
@@ -33,6 +25,6 @@ POST {{baseUrl}}/auths/login
 Content-Type: application/json
 
 {
-    "username":"manager",
-    "password":"manager"
+    "email":"jhon.doe@example.com",
+    "password":"test"
 }
