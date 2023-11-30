@@ -13,6 +13,7 @@ function onNavBarClick() {
   navbarWrapper.addEventListener('click', (e) => {
     e.preventDefault();
     const navBarItemClicked = e.target;
+    sessionStorage.setItem('clickedNavItem', navBarItemClicked.id);
     const uri = navBarItemClicked?.dataset?.uri;
     if (uri) {
       const componentToRender = routes[uri];

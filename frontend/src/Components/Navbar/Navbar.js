@@ -49,7 +49,6 @@ function NavbarConnected() {
   <div id="logo">
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 120px;"></a>
   </div>
-    <ul>
         <li class="hover-navbar"><a href="#" data-uri="/profil" class="nav-item">Profil</a></li>
     </ul>
 `;

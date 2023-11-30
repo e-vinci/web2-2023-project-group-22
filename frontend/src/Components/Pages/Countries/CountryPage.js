@@ -62,14 +62,15 @@ function displayMap(country){
     const mapDiv = document.querySelector('#mapDiv');
     mapDiv.innerHTML +=`
     <iframe
-        width="500"
-        height="350"
+        width="700"
+        height="450"
         style="border:0"
         loading="lazy"
         allowfullscreen
         referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed/v1/view?key=${process.env.MAPS_API_KEY}&center=${country.capitalInfo.latlng}&zoom=${5}">
+        src="https://www.google.com/maps/embed/v1/view?key=${process.env.MAPS_API_KEY}&center=${country.latlng}&zoom=${5}">
     </iframe>`;
+    console.log(country.latlng);
 }
 
 function displayTrips(country){
