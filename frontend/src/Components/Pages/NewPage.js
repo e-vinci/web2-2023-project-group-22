@@ -146,4 +146,5 @@ function createGoogleMap(){
   initMap();
 }
 
+
 export default NewPage;

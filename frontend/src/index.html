@@ -8,30 +8,18 @@
   </head>
 
   <body>
+    
     <header></header>
     <nav><div id="navbarWrapper"></div></nav>
     <main>
-      <div id="div-trip-page-block">
-
-        <div id="div-page-block-content">
-
-          <div id="div-trip-page-block-content-image">
-            <div id="div-trip-page-block-content-image-text"></div>
-          </div>
-
-          <div id="div-trip-page-block-content-info">
-              <div id="div-trip-page-block-content-info-filter"></div>
-              <div id="div-trip-page-block-content-info-capital-cities"></div>
-              <div id="div-trip-page-block-content-info-hotel"></div>
-          </div>
-
-        </div>
-
-        <div id="div-trip-page-block-map">
-
-        </div>
-
+      <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
       </div>
+      <script>
+        $(window).on("load",function(){
+          $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
     </main> 
     <footer></footer>
   </body>
