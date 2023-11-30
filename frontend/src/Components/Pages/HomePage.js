@@ -8,6 +8,7 @@ const HomePage = () => {
   presentationFirstBloc();
   HomePageSecondBlock();
   HomePageLastBlock();
+  // console.log(localStorage.getItem("user"));
 };
 
 function displayTripButtons(){
