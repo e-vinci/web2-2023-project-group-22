@@ -25,7 +25,8 @@
     "express": "~4.16.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "webpack-env": "^0.8.0"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
