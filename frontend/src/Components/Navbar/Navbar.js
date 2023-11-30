@@ -36,7 +36,7 @@ function NavbarNonConnected () {
   </div>
     <ul>
         <li id="test1" class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item">Sign In</a></li>
-        <li id="test2" class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item">Sign Up</a></li>
+        <li id="test2" class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item" id="signup">Sign Up</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
