@@ -24,12 +24,12 @@ const authorize = async (req, res, next) => {
   }
 };
 
-const isAdmin = async (req, res, next) => {
-  const { role } = req.user;
+// const isAdmin = async (req, res, next) => {
+//   const { role } = req.user;
 
-  if (role !== 'admin') return res.sendStatus(403);
+//   if (role !== 'admin') return res.sendStatus(403);
 
-  return next();
-};
+//   return next();
+// };
 
-module.exports = { authorize, isAdmin };
+module.exports = { authorize };

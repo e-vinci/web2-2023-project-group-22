@@ -12,16 +12,18 @@ const LoginRegisterPage = () => {
       <form action="/">
         <h1>Create Account</h1>
         <div class="social-container">
-          <a class="social"><i class="bi bi-google"></i></a>
-          <a class="social googleButton"><i class="bi bi-facebook"></i></a>
+          <a class="social"><i class="bi bi-facebook"></i></a>
+          <a class="social googleButton"><i class="bi bi-google"></i></a>
         </div>
         <span>or use your email for registration</span>
           <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Firstname" />
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
         <button>Sign Up</button>
       </form>
     </div>
+
     <div class="form-container sign-in-container">
       <form action="/">
         <h1>Sign in</h1>

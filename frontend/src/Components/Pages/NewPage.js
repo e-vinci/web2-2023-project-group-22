@@ -2,7 +2,13 @@ import { clearPage } from '../../utils/render';
 
 const NewPage = async () => {
   clearPage();
-  console.log(localStorage.getItem('google_user_info'));
+  const main = document.querySelector('main');
+  console.log(localStorage.getItem('user'));
+  if(localStorage.getItem('user')) {
+    console.log(JSON.parse(localStorage.getItem('user')).email);
+    main.innerText += "Logged";
+  }
+  else main.innerText += "Not logged";
   const buttons = {
     "register": register,
     "login": login,
@@ -10,7 +16,6 @@ const NewPage = async () => {
     "clearlocal": clearlocal,
     "map": createGoogleMap,
   }
-  const main = document.querySelector('main');
   const div = document.createElement('div');
   div.id = "test";
   main.appendChild(div);
@@ -52,9 +57,9 @@ async function register(){
     },
     method: 'POST',
     body: JSON.stringify({
-      "firstname": "Julien",
-      "lastname": "Remmery",
-      "email": "julien.remmery@student.vinci.be",
+      "firstname": "Gerard",
+      "lastname": "licaj",
+      "email": "g.l@student.vinci.be",
       "password": "test"
   })
   })
@@ -63,6 +68,7 @@ async function register(){
     return response.json();
   })
   .then((result) => result);
+  localStorage.setItem('user', JSON.stringify(request));
   Object.entries(request).forEach((field) => {
     div.innerText += `${field[0]} : ${field[1]}\n`;
   });
@@ -88,6 +94,7 @@ async function login(){
   })
   .then((result) => result);
   localStorage.setItem('user', JSON.stringify(request));
+  console.log(request);
   Object.entries(request).forEach((field) => {
     div.innerText += `${field[0]} : ${field[1]}\n`;
   });
