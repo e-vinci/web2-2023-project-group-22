@@ -7,9 +7,10 @@ const NewPage = async () => {
     "register": register,
     "login": login,
     "getusers": getusers,
+    "clearlocal": clearlocal,
+    "map": createGoogleMap,
   }
   const main = document.querySelector('main');
-  main.style.marginLeft = "5%"
   const div = document.createElement('div');
   div.id = "test";
   main.appendChild(div);
@@ -33,9 +34,9 @@ async function register(){
     },
     method: 'POST',
     body: JSON.stringify({
-      "firstname": "Jhon",
-      "lastname": "Doe",
-      "email": "jhon.doe@example.com",
+      "firstname": "Julien",
+      "lastname": "Remmery",
+      "email": "julien.remmery@student.vinci.be",
       "password": "test"
   })
   })
@@ -59,7 +60,7 @@ async function login(){
     },
     method: 'POST',
     body: JSON.stringify({
-      "email": "jhon.doe@example.com",
+      "email": "julien.remmery@student.vinci.be",
       "password": "test"
   })
   })
@@ -94,6 +95,14 @@ async function getusers(){
   Object.entries(request).forEach((field) => {
     div.innerText += `${field[0]} : ${field[1]}\n`;
   });
+}
+
+function clearlocal(){
+  localStorage.clear()
+}
+
+function createGoogleMap(){
+  
 }
 
 export default NewPage;
