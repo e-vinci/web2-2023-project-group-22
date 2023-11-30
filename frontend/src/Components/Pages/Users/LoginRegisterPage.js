@@ -59,6 +59,9 @@ const LoginRegisterPage = () => {
       button.addEventListener('click', oauthSignIn);
     })
     switchLoginRegister();
+    const container = document.getElementById('container');
+    if(sessionStorage.getItem('clickedNavItem') === "signup") container.classList.add("right-panel-active");
+    sessionStorage.removeItem('clickedNavItem');
   };
 function switchLoginRegister(){
   const signUpButton = document.getElementById('signUp');
