@@ -7,9 +7,10 @@ const NewPage = async () => {
     "register": register,
     "login": login,
     "getusers": getusers,
+    "clearlocal": clearlocal,
+    "map": createGoogleMap,
   }
   const main = document.querySelector('main');
-  main.style.marginLeft = "5%"
   const div = document.createElement('div');
   div.id = "test";
   main.appendChild(div);
@@ -21,6 +22,24 @@ const NewPage = async () => {
     input.addEventListener('click', button[1]);
     main.appendChild(input);
   });
+
+  // Create the script tag, set the appropriate attributes
+const script = document.createElement('script');
+script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.MAPS_API_KEY}&callback=initMap`;
+script.async = true;
+
+// Attach your callback function to the `window` object
+window.initMap = function() {
+  // JS API is loaded and available
+};
+
+// Append the 'script' element to 'head'
+document.head.appendChild(script);
+const map = document.createElement('div');
+map.id = "map";
+map.style.width = "500px";
+map.style.height = "500px";
+main.appendChild(map)
 };
 
 async function register(){
@@ -33,9 +52,9 @@ async function register(){
     },
     method: 'POST',
     body: JSON.stringify({
-      "firstname": "Jhon",
-      "lastname": "Doe",
-      "email": "jhon.doe@example.com",
+      "firstname": "Julien",
+      "lastname": "Remmery",
+      "email": "julien.remmery@student.vinci.be",
       "password": "test"
   })
   })
@@ -59,7 +78,7 @@ async function login(){
     },
     method: 'POST',
     body: JSON.stringify({
-      "email": "jhon.doe@example.com",
+      "email": "julien.remmery@student.vinci.be",
       "password": "test"
   })
   })
@@ -94,6 +113,37 @@ async function getusers(){
   Object.entries(request).forEach((field) => {
     div.innerText += `${field[0]} : ${field[1]}\n`;
   });
+}
+
+function clearlocal(){
+  localStorage.clear()
+}
+
+function createGoogleMap(){
+  // eslint-disable-next-line no-unused-vars
+  let map;
+
+  async function initMap() {
+    // @ts-ignore
+    // eslint-disable-next-line no-undef
+    const { Map } = await google.maps.importLibrary("maps");
+    // eslint-disable-next-line no-undef
+    // const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+    map = new Map(document.getElementById("map"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 5
+    });
+    
+    // eslint-disable-next-line no-unused-vars
+    // const marker = new AdvancedMarkerView({
+    //   map,
+    //   position,
+    //   title: 'Uluru'
+    // });
+  }
+
+  initMap();
 }
 
 export default NewPage;
