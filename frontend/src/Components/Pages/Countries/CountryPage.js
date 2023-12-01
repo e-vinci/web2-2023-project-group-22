@@ -61,19 +61,53 @@ function displayInfos(country){
     `;
 }
 
-function displayMap(country){
-  // eslint-disable-next-line no-unused-vars
-  let map;
-  async function initMap() {
-    // eslint-disable-next-line no-undef
-    const { Map } = await google.maps.importLibrary("maps");
+async function displayMap(country){
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${country.name.common}&key=${process.env.MAPS_API_KEY}`;
+  const data = await fetch(url)
+  .then((response) => {
+    if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    return response.json();
+  })
+  .then((result) => result);
+  if(data.status !== "ok") {
+    // eslint-disable-next-line no-unused-vars
+    let map;
+    async function initMap() {
+      // eslint-disable-next-line no-undef
+      const { Map } = await google.maps.importLibrary("maps");
 
-    map = new Map(document.getElementById("mapDiv"), {
-      center: { lat: country.latlng[0], lng: country.latlng[1]},
-      zoom: 5
-    });
+      map = new Map(document.getElementById("mapDiv"), {
+        center: { lat: country.latlng[0], lng: country.latlng[1]},
+        zoom: 5
+      });
+    }
+    initMap();
   }
-  initMap();
+  else{
+    // eslint-disable-next-line no-unused-vars
+    let map;
+    async function initMap() {
+      // eslint-disable-next-line no-undef
+      const { Map } = await google.maps.importLibrary("maps");
+
+      const bounds = {
+        north: data.results.geometry.bounds.northeast.lat,
+        south: data.results.geometry.bounds.southwest.lat,
+        west: data.results.geometry.bounds.southwest.lng,
+        east: data.results.geometry.bounds.northeast.lng,
+      }
+
+      map = new Map(document.getElementById("mapDiv"), {
+        center: { lat: country.latlng[0], lng: country.latlng[1]},
+        zoom: 5,
+        restriction: {
+          latLngBounds: bounds,
+          strictBounds: false,
+        }
+      });
+    }
+    initMap();
+  }
 }
 
 function displayTrips(country){
