@@ -36,7 +36,7 @@ function NavbarNonConnected () {
   </div>
     <ul>
         <li id="test1" class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item">Sign In</a></li>
-        <li id="test2" class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item">Sign Up</a></li>
+        <li id="test2" class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item" id="signup">Sign Up</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
@@ -49,8 +49,7 @@ function NavbarConnected() {
   <div id="logo">
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 120px;"></a>
   </div>
-    <ul>
-        <li class="hover-navbar"><a href="#" data-uri="/profil" class="nav-item">Profil</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/profile" class="nav-item">Profile</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;

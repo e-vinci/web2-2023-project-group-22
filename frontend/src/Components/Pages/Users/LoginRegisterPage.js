@@ -9,33 +9,33 @@ const LoginRegisterPage = () => {
 <div id="login-form">
   <div class="container" id="container">
     <div class="form-container sign-up-container">
-      <form action="/">
+      <form>
         <h1>Create Account</h1>
         <div class="social-container">
           <a class="social"><i class="bi bi-facebook"></i></a>
           <a class="social googleButton"><i class="bi bi-google"></i></a>
         </div>
         <span>or use your email for registration</span>
-          <input type="text" placeholder="Name" />
-          <input type="text" placeholder="Firstname" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
+          <input type="text" placeholder="Name" id="signUpLastname"/>
+          <input type="text" placeholder="Firstname" id="signUpFirstname"/>
+          <input type="email" placeholder="Email" id="signUpEmail"/>
+          <input type="password" placeholder="Password" id="signUpPassword"/>
+          <input type="password" placeholder="Password confirmation" id="signUpconfirmPassword"/>
+          <input type="submit" value="Sign up" id="signUpButton">
       </form>
     </div>
 
     <div class="form-container sign-in-container">
-      <form action="/">
+      <form>
         <h1>Sign in</h1>
         <div class="social-container">
           <a class="social"><i class="bi bi-facebook"></i></a>
           <a class="social googleButton"><i class="bi bi-google"></i></a>
         </div>
         <span>or use your account</span>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <a href="#">Forgot your password?</a>
-        <button>Sign In</button>
+        <input type="email" placeholder="Email" id="signInEmail"/>
+        <input type="password" placeholder="Password" id="signInPassword"/>
+        <input type="submit" value="Sign in" id="signInButton">
       </form>
     </div>
     <div class="overlay-container">
@@ -56,14 +56,35 @@ const LoginRegisterPage = () => {
 </div>
     `;
     loginRegisterPage.innerHTML = loginRegisterForm;
+
     const googleButton = document.querySelectorAll('.googleButton');
     googleButton.forEach((button) => {
       button.addEventListener('click', oauthSignIn);
     })
+
     switchLoginRegister();
+
     const container = document.getElementById('container');
     if(sessionStorage.getItem('clickedNavItem') === "signup") container.classList.add("right-panel-active");
     sessionStorage.removeItem('clickedNavItem');
+
+    const signInButton = document.getElementById('signInButton');
+    signInButton.addEventListener('click', async () => {
+      const email = document.getElementById('signInEmail').value;
+      const password = document.getElementById('signInPassword').value;
+      login({email, password});
+      Navigate('/');
+    })
+    const signUpButton = document.getElementById('signUpButton');
+    signUpButton.addEventListener('click', async () => {
+      const email = document.getElementById('signUpEmail').value;
+      const password = document.getElementById('signUpPassword').value;
+      const confirmPassword = document.getElementById('signUpconfirmPassword').value;
+      const firstname = document.getElementById('signUpFirstname').value;
+      const lastname = document.getElementById('signUpLastname').value;
+      register({email, password, confirmPassword, firstname, lastname});
+      Navigate('/');
+    })
   };
 function switchLoginRegister(){
   const signUpButton = document.getElementById('signUp');
@@ -105,6 +126,51 @@ function getGoogleUserInfo(){
   })
   .then(resp => resp.json())
   .then(json => localStorage.setItem('google_user_info', JSON.stringify(json)));
+}
+
+async function login(user){
+  const request = await fetch('http://localhost:3000/auths/login', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify({
+      "email": user.email,
+      "password": user.password
+  })
+  })
+  .then((response) => {
+    if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    return response.json();
+  })
+  .then((result) => result);
+  localStorage.setItem('user', JSON.stringify(request));
+  Navigate('/');
+}
+
+async function register(user){
+  const request = await fetch('http://localhost:3000/auths/register', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify({
+      "firstname": user.firstname,
+      "lastname": user.lastname,
+      "email": user.email,
+      "password": user.password,
+      "confirmPassword": user.confirmPassword
+  })
+  })
+  .then((response) => {
+    if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    return response.json();
+  })
+  .then((result) => result);
+  localStorage.setItem('user', JSON.stringify(request));
+  Navigate('/');
 }
   
 export default LoginRegisterPage;

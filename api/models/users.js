@@ -34,9 +34,10 @@ async function login(email, password) {
   return authenticatedUser;
 }
 
-async function register(firstname, lastname, email, password) {
+async function register(firstname, lastname, email, password, confirmPassword) {
   const userFound = await readOneUserFromUsername(email);
   if (userFound) return undefined;
+  if (password !== confirmPassword) return false;
 
   await createOneUser(firstname, lastname, email, password);
 

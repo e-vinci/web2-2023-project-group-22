@@ -12,7 +12,8 @@ const TRIPS = [
 ];
 
 const CountryPage = () => {
-    const country = JSON.parse(sessionStorage.getItem('countryData'));
+    const country = JSON.parse(localStorage.getItem('countryData'));
+    localStorage.removeItem('countryData')
     if(country===null) {
         Navigate('/countries');
         return;
@@ -32,6 +33,8 @@ function displayCountryInfos(country){
     countryInfoDiv.appendChild(infoDiv);
     const mapDiv = document.createElement('div');
     mapDiv.id = "mapDiv";
+    mapDiv.style.width = "600px";
+    mapDiv.style.height = "350px";
     countryInfoDiv.appendChild(mapDiv);
     main.appendChild(countryInfoDiv);
     displayInfos(country);
@@ -59,18 +62,18 @@ function displayInfos(country){
 }
 
 function displayMap(country){
-    const mapDiv = document.querySelector('#mapDiv');
-    mapDiv.innerHTML +=`
-    <iframe
-        width="700"
-        height="450"
-        style="border:0"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed/v1/view?key=${process.env.MAPS_API_KEY}&center=${country.latlng}&zoom=${5}">
-    </iframe>`;
-    console.log(country.latlng);
+  // eslint-disable-next-line no-unused-vars
+  let map;
+  async function initMap() {
+    // eslint-disable-next-line no-undef
+    const { Map } = await google.maps.importLibrary("maps");
+
+    map = new Map(document.getElementById("mapDiv"), {
+      center: { lat: country.latlng[0], lng: country.latlng[1]},
+      zoom: 5
+    });
+  }
+  initMap();
 }
 
 function displayTrips(country){
@@ -87,7 +90,8 @@ function displayTrips(country){
     newTrip.innerText = `Create your own trip to ${country.name.common}`;
     tripsList.appendChild(newTrip);
     newTrip.addEventListener('click', () => {
-      Navigate('/newtrip');
+        localStorage.setItem('countryData', JSON.stringify(country));
+        Navigate('/newtrip');
     })
     newTrip.addEventListener('mouseover', () => {
         newTrip.style.cursor = "pointer";
