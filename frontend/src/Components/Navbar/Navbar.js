@@ -49,7 +49,7 @@ function NavbarConnected() {
   <div id="logo">
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 120px;"></a>
   </div>
-        <li class="hover-navbar"><a href="#" data-uri="/profil" class="nav-item">Profil</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/profile" class="nav-item">Profile</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;

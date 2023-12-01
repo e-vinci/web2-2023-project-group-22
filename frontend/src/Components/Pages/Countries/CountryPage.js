@@ -12,7 +12,8 @@ const TRIPS = [
 ];
 
 const CountryPage = () => {
-    const country = JSON.parse(sessionStorage.getItem('countryData'));
+    const country = JSON.parse(localStorage.getItem('countryData'));
+    localStorage.removeItem('countryData')
     if(country===null) {
         Navigate('/countries');
         return;
@@ -89,7 +90,8 @@ function displayTrips(country){
     newTrip.innerText = `Create your own trip to ${country.name.common}`;
     tripsList.appendChild(newTrip);
     newTrip.addEventListener('click', () => {
-      Navigate('/newtrip');
+        localStorage.setItem('countryData', JSON.stringify(country));
+        Navigate('/newtrip');
     })
     newTrip.addEventListener('mouseover', () => {
         newTrip.style.cursor = "pointer";

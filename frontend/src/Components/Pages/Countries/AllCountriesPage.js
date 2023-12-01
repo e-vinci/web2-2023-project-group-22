@@ -76,7 +76,7 @@ function displayCountries(elements) {
         `;
     countriesList.appendChild(country);
     country.addEventListener('click', ()=>{
-      sessionStorage.setItem('countryData', JSON.stringify(element));
+      localStorage.setItem('countryData', JSON.stringify(element));
       Navigate('/country');
     })
     country.addEventListener('mouseover', () => {
