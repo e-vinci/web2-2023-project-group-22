@@ -24,7 +24,7 @@ const Navbar = () => {
     NavbarNonConnected();
   }
   
-  
+   
 }
 
 function NavbarNonConnected () {
@@ -35,8 +35,8 @@ function NavbarNonConnected () {
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 120px;"></a>
   </div>
     <ul>
-        <li id="test1" class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item">Sign In</a></li>
-        <li id="test2" class="hover-navbar"><a href="#" data-uri="/loginOrRegister" class="nav-item" id="signup">Sign Up</a></li>
+        <li id="test1" class="hover-navbar"><a href="#" data-uri="/auth" class="nav-item">Sign In</a></li>
+        <li id="test2" class="hover-navbar"><a href="#" data-uri="/auth" class="nav-item" id="signup">Sign Up</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
@@ -50,9 +50,16 @@ function NavbarConnected() {
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 120px;"></a>
   </div>
         <li class="hover-navbar"><a href="#" data-uri="/profile" class="nav-item">Profile</a></li>
+        <li class="hover-navbar"><a class="nav-item" id="logout">Log out</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
+  const logout = document.getElementById('logout');
+  logout.addEventListener('click', () => {
+    localStorage.clear();
+    window.location.reload()
+  })
+  
 }
 
 function NavbarAdmin() {
