@@ -69,10 +69,13 @@ async function displayMap(country){
     return response.json();
   })
   .then((result) => result);
-  if(data.status !== "ok") {
+  let initMap;
+  console.log(data);
+  console.log(data.results);
+    if(data.status !== "OK") {
     // eslint-disable-next-line no-unused-vars
     let map;
-    async function initMap() {
+    initMap = async function () {
       // eslint-disable-next-line no-undef
       const { Map } = await google.maps.importLibrary("maps");
 
@@ -86,25 +89,30 @@ async function displayMap(country){
   else{
     // eslint-disable-next-line no-unused-vars
     let map;
-    async function initMap() {
+    initMap = async function () {
       // eslint-disable-next-line no-undef
       const { Map } = await google.maps.importLibrary("maps");
 
-      const bounds = {
-        north: data.results.geometry.bounds.northeast.lat,
-        south: data.results.geometry.bounds.southwest.lat,
-        west: data.results.geometry.bounds.southwest.lng,
-        east: data.results.geometry.bounds.northeast.lng,
-      }
+      // const bounds = {
+      //   north: data.results[0].geometry.bounds.northeast.lat,
+      //   south: data.results[0].geometry.bounds.southwest.lat,
+      //   west: data.results[0].geometry.bounds.southwest.lng,
+      //   east: data.results[0].geometry.bounds.northeast.lng,
+      // }
 
       map = new Map(document.getElementById("mapDiv"), {
         center: { lat: country.latlng[0], lng: country.latlng[1]},
         zoom: 5,
-        restriction: {
-          latLngBounds: bounds,
-          strictBounds: false,
-        }
+        // restriction: {
+        //   latLngBounds: bounds
+        // }
       });
+      // eslint-disable-next-line no-undef
+      const bounds = new google.maps.LatLngBounds(
+        data.results[0].geometry.viewport.southwest,
+        data.results[0].geometry.viewport.northeast
+      );
+      map.fitBounds(bounds);
     }
     initMap();
   }
