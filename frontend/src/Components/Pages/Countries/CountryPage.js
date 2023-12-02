@@ -12,7 +12,8 @@ const TRIPS = [
 ];
 
 const CountryPage = () => {
-    const country = JSON.parse(sessionStorage.getItem('countryData'));
+    const country = JSON.parse(localStorage.getItem('countryData'));
+    localStorage.removeItem('countryData')
     if(country===null) {
         Navigate('/countries');
         return;
@@ -32,6 +33,8 @@ function displayCountryInfos(country){
     countryInfoDiv.appendChild(infoDiv);
     const mapDiv = document.createElement('div');
     mapDiv.id = "mapDiv";
+    mapDiv.style.width = "600px";
+    mapDiv.style.height = "350px";
     countryInfoDiv.appendChild(mapDiv);
     main.appendChild(countryInfoDiv);
     displayInfos(country);
@@ -58,19 +61,61 @@ function displayInfos(country){
     `;
 }
 
-function displayMap(country){
-    const mapDiv = document.querySelector('#mapDiv');
-    mapDiv.innerHTML +=`
-    <iframe
-        width="700"
-        height="450"
-        style="border:0"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed/v1/view?key=${process.env.MAPS_API_KEY}&center=${country.latlng}&zoom=${5}">
-    </iframe>`;
-    console.log(country.latlng);
+async function displayMap(country){
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${country.name.common}&key=${process.env.MAPS_API_KEY}`;
+  const data = await fetch(url)
+  .then((response) => {
+    if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    return response.json();
+  })
+  .then((result) => result);
+  let initMap;
+  console.log(data);
+  console.log(data.results);
+    if(data.status !== "OK") {
+    // eslint-disable-next-line no-unused-vars
+    let map;
+    initMap = async function () {
+      // eslint-disable-next-line no-undef
+      const { Map } = await google.maps.importLibrary("maps");
+
+      map = new Map(document.getElementById("mapDiv"), {
+        center: { lat: country.latlng[0], lng: country.latlng[1]},
+        zoom: 5
+      });
+    }
+    initMap();
+  }
+  else{
+    // eslint-disable-next-line no-unused-vars
+    let map;
+    initMap = async function () {
+      // eslint-disable-next-line no-undef
+      const { Map } = await google.maps.importLibrary("maps");
+
+      // const bounds = {
+      //   north: data.results[0].geometry.bounds.northeast.lat,
+      //   south: data.results[0].geometry.bounds.southwest.lat,
+      //   west: data.results[0].geometry.bounds.southwest.lng,
+      //   east: data.results[0].geometry.bounds.northeast.lng,
+      // }
+
+      map = new Map(document.getElementById("mapDiv"), {
+        center: { lat: country.latlng[0], lng: country.latlng[1]},
+        zoom: 5,
+        // restriction: {
+        //   latLngBounds: bounds
+        // }
+      });
+      // eslint-disable-next-line no-undef
+      const bounds = new google.maps.LatLngBounds(
+        data.results[0].geometry.viewport.southwest,
+        data.results[0].geometry.viewport.northeast
+      );
+      map.fitBounds(bounds);
+    }
+    initMap();
+  }
 }
 
 function displayTrips(country){
@@ -87,7 +132,8 @@ function displayTrips(country){
     newTrip.innerText = `Create your own trip to ${country.name.common}`;
     tripsList.appendChild(newTrip);
     newTrip.addEventListener('click', () => {
-      Navigate('/newtrip');
+        localStorage.setItem('countryData', JSON.stringify(country));
+        Navigate('/newtrip');
     })
     newTrip.addEventListener('mouseover', () => {
         newTrip.style.cursor = "pointer";
