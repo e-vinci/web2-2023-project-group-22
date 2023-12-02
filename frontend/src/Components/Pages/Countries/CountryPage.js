@@ -71,6 +71,7 @@ async function displayMap(country){
   .then((result) => result);
   let initMap;
   console.log(data);
+  console.log(data.status);
   console.log(data.results);
     if(data.status !== "OK") {
     // eslint-disable-next-line no-unused-vars
@@ -104,7 +105,8 @@ async function displayMap(country){
         center: { lat: country.latlng[0], lng: country.latlng[1]},
         zoom: 5,
         // restriction: {
-        //   latLngBounds: bounds
+        //   latLngBounds: bounds,
+        //   strictBounds: false,
         // }
       });
       // eslint-disable-next-line no-undef

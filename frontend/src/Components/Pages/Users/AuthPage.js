@@ -1,8 +1,8 @@
 import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
-import getGoogleAuthLink from '../../../models/auths';
+// import getGoogleAuthLink from '../../../models/auths';
 
-const LoginRegisterPage = () => {
+const AuthPage = () => {
     clearPage();
     const loginRegisterPage = document.querySelector('main');
     const loginRegisterForm = `
@@ -57,10 +57,10 @@ const LoginRegisterPage = () => {
     `;
     loginRegisterPage.innerHTML = loginRegisterForm;
 
-    const googleButton = document.querySelectorAll('.googleButton');
-    googleButton.forEach((button) => {
-      button.addEventListener('click', oauthSignIn);
-    })
+    // const googleButton = document.querySelectorAll('.googleButton');
+    // googleButton.forEach((button) => {
+    //   button.addEventListener('click', oauthSignIn);
+    // })
 
     switchLoginRegister();
 
@@ -72,7 +72,8 @@ const LoginRegisterPage = () => {
     signInButton.addEventListener('click', async () => {
       const email = document.getElementById('signInEmail').value;
       const password = document.getElementById('signInPassword').value;
-      login({email, password});
+      const result = login({email, password});
+      localStorage.setItem('user', JSON.stringify(result));
       Navigate('/');
     })
     const signUpButton = document.getElementById('signUpButton');
@@ -82,7 +83,8 @@ const LoginRegisterPage = () => {
       const confirmPassword = document.getElementById('signUpconfirmPassword').value;
       const firstname = document.getElementById('signUpFirstname').value;
       const lastname = document.getElementById('signUpLastname').value;
-      register({email, password, confirmPassword, firstname, lastname});
+      const result = register({email, password, confirmPassword, firstname, lastname});
+      localStorage.setItem('user', JSON.stringify(result));
       Navigate('/');
     })
   };
@@ -100,36 +102,36 @@ function switchLoginRegister(){
   });
 }
 
-function oauthSignIn() {
-  if(localStorage.getItem('google_access_token') !== null){
-    if(localStorage.getItem('google_user_info') !== null){
-      Navigate('/');
-    }
-    else{
-      getGoogleUserInfo();
-    }
-  }
-  else{
-    window.open(getGoogleAuthLink(), "googleWindow", `left=${(window.innerWidth/2)-450/2},top=${(window.innerHeight/2)-600/2},width=450,height=600`);
-    const interval = setInterval(() => {
-      if(localStorage.getItem('google_access_token')) {
-        clearInterval(interval);
-        getGoogleUserInfo();
-      }
-    }, 500);
-  }
-}
+// function oauthSignIn() {
+//   if(localStorage.getItem('google_access_token') !== null){
+//     if(localStorage.getItem('google_user_info') !== null){
+//       Navigate('/');
+//     }
+//     else{
+//       getGoogleUserInfo();
+//     }
+//   }
+//   else{
+//     window.open(getGoogleAuthLink(), "googleWindow", `left=${(window.innerWidth/2)-450/2},top=${(window.innerHeight/2)-600/2},width=450,height=600`);
+//     const interval = setInterval(() => {
+//       if(localStorage.getItem('google_access_token')) {
+//         clearInterval(interval);
+//         getGoogleUserInfo();
+//       }
+//     }, 500);
+//   }
+// }
 
-function getGoogleUserInfo(){
-  fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-    headers: {Authorization: `Bearer ${localStorage.getItem('google_access_token')}`}
-  })
-  .then(resp => resp.json())
-  .then(json => localStorage.setItem('google_user_info', JSON.stringify(json)));
-}
+// function getGoogleUserInfo(){
+//   fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+//     headers: {Authorization: `Bearer ${localStorage.getItem('google_access_token')}`}
+//   })
+//   .then(resp => resp.json())
+//   .then(json => localStorage.setItem('google_user_info', JSON.stringify(json)));
+// }
 
 async function login(user){
-  const request = await fetch('http://localhost:3000/auths/login', {
+  await fetch('http://localhost:3000/auths/login', {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -145,12 +147,10 @@ async function login(user){
     return response.json();
   })
   .then((result) => result);
-  localStorage.setItem('user', JSON.stringify(request));
-  Navigate('/');
 }
 
 async function register(user){
-  const request = await fetch('http://localhost:3000/auths/register', {
+  await fetch('http://localhost:3000/auths/register', {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -169,8 +169,6 @@ async function register(user){
     return response.json();
   })
   .then((result) => result);
-  localStorage.setItem('user', JSON.stringify(request));
-  Navigate('/');
 }
   
-export default LoginRegisterPage;
+export default AuthPage;
