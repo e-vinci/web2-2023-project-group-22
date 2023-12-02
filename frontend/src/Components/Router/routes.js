@@ -1,5 +1,5 @@
 import HomePage from '../Pages/HomePage';
-import LoginRegisterPage from '../Pages/Users/LoginRegisterPage';
+import AuthPage from '../Pages/Users/AuthPage';
 import AllCountriesPage from '../Pages/Countries/AllCountriesPage';
 import CountryPage from '../Pages/Countries/CountryPage';
 import NewTripPage from '../Pages/Trips/NewTripPage';
@@ -11,7 +11,7 @@ import ModifyTripPage from '../Pages/Trips/ModifyTripPage';
 
 const routes = {
   '/': HomePage,
-  '/loginOrRegister' : LoginRegisterPage,
+  '/auth' : AuthPage,
   '/countries' : AllCountriesPage,
   '/country' : CountryPage,
   '/newtrip' : NewTripPage,
