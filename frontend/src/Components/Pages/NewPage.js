@@ -73,4 +73,5 @@ function initMap(){
   initialize();
 }
 
+
 export default NewPage;

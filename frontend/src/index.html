@@ -9,10 +9,19 @@
   </head>
 
   <body>
+    
     <header></header>
     <nav><div id="navbarWrapper"></div></nav>
     <main>
         
+      <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+      </div>
+      <script>
+        $(window).on("load",function(){
+          $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
     </main> 
     <footer></footer>
   </body>
