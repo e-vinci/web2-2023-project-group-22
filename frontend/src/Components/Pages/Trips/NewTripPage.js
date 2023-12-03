@@ -78,8 +78,10 @@ const NewTripPage = () => {
         if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
         return response.json();
       })
-      .then((result) => result);
-      Navigate("/modifytrip");
+      .then((result) => {
+        localStorage.setItem('trip', JSON.stringify(result));
+        Navigate("/modifytrip");
+      });
     }
   });   
 }

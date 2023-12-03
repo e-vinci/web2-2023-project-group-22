@@ -1,20 +1,23 @@
 const client = require('./db_connection');
 
 async function createTrip(destination, startDate, endDate) {
-  const request = await fetch(`https://restcountries.com/v3.1/translation/${destination}`)
+  console.log(destination);
+  const result = await fetch(`https://restcountries.com/v3.1/translation/${destination}`)
     .then((response) => {
       if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
       return response.json();
     })
-    .then((result) => result);
+    .then((res) => (res));
+
+  console.log(result[0].cca3);
   const query = {
     text: 'INSERT INTO projetweb.trips (country_code, start_date, end_date) VALUES ($1, $2, $3)',
-    values: [request.cca3, startDate, endDate],
+    values: [result[0].cca3, startDate, endDate],
   };
-  await client.query(query);
+  client.query(query);
 
   const trip = {
-    destination,
+    destination: result[0].cca3,
     startDate,
     endDate,
   };
