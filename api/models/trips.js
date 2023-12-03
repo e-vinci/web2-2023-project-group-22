@@ -1,25 +1,37 @@
-const pg = require('pg');
-require('dotenv').config();
+const client = require('./db_connection');
 
-const client = new pg.Client({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DATABASE,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-});
-client.connect();
-
-async function test() {
+async function createTrip(destination, startDate, endDate) {
+  const request = await fetch(`https://restcountries.com/v3.1/translation/${destination}`)
+    .then((response) => {
+      if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+      return response.json();
+    })
+    .then((result) => result);
   const query = {
-    // give the query a unique name
-    text: 'SELECT country_name FROM projetweb.countries WHERE country_code = $1',
-    values: ['BEL'],
+    text: 'INSERT INTO projetweb.trips (country_code, start_date, end_date) VALUES ($1, $2, $3)',
+    values: [request.cca3, startDate, endDate],
+  };
+  await client.query(query);
+
+  const trip = {
+    destination,
+    startDate,
+    endDate,
+  };
+
+  return trip;
+}
+
+async function getTrip(id) {
+  const query = {
+    text: 'SELECT country_code, start_date, end_date FROM projetweb.trips WHERE id_trip = $1',
+    values: id,
   };
   const res = await client.query(query);
   return res;
 }
 
 module.exports = {
-  test,
+  createTrip,
+  getTrip,
 };

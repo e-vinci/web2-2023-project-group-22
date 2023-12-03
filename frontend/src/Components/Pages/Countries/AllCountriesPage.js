@@ -3,6 +3,7 @@ import Navigate from '../../Router/Navigate';
 
 const AllCountriesPage = () => {
   clearPage();
+  const added = [];
   const CURRENCIES = [];
   fetch('https://restcountries.com/v3.1/all')
   .then((response) => {
@@ -12,9 +13,10 @@ const AllCountriesPage = () => {
   .then((countries) => {
     countries.forEach((country) => {
       if (country.currencies !== null && country.currencies !== undefined) {
-        Object.keys(country.currencies).forEach((currency) => {
-          if (!CURRENCIES.includes(currency)) {
+        Object.entries(country.currencies).forEach((currency) => {
+          if(!added.includes(currency[0])){
             CURRENCIES.push(currency);
+            added.push(currency[0]);
           }
         });
       }
@@ -25,7 +27,7 @@ const AllCountriesPage = () => {
 };
 
 // Displays filter options
-function displayFilters(currencies, countries) {
+function displayFilters(CURRENCIES, countries) {
   const main = document.querySelector('main');
   const textFilter = document.createElement('input');
   textFilter.type = 'text';
@@ -43,10 +45,10 @@ function displayFilters(currencies, countries) {
   defaultOption.value = 'default';
   defaultOption.textContent = 'Select a currency to filter';
   select.appendChild(defaultOption);
-  currencies.forEach((currency) => {
+  CURRENCIES.forEach((currency) => {
     const option = document.createElement('option');
-    option.value = currency;
-    option.textContent = currency;
+    option.value = `${currency[0]}`;
+    option.textContent = `${currency[0]} : ${currency[1].name}`;
     select.appendChild(option);
   });
   select.addEventListener('change', () => {
@@ -70,11 +72,11 @@ function displayCountries(elements) {
     country.className = 'grid-item hidden';
     country.innerHTML = `
             <h3>${element.name.common}</h3>
-            <img src="${element.flags.png}" style="width: 150px; height: 100px;">
+            <img src="${element.flags.png}" style="width: 150px; height: 100px; border: 1px solid black">
         `;
     countriesList.appendChild(country);
     country.addEventListener('click', ()=>{
-      localStorage.setItem("countryData", JSON.stringify(element));
+      localStorage.setItem('countryData', JSON.stringify(element));
       Navigate('/country');
     })
     country.addEventListener('mouseover', () => {

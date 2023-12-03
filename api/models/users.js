@@ -1,97 +1,81 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const path = require('node:path');
-const { parse, serialize } = require('../utils/json');
+const client = require('./db_connection');
 
 const jwtSecret = 'ilovemypizza!';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
 
 const saltRounds = 10;
 
-const jsonDbPath = path.join(__dirname, '/../data/users.json');
-
-const defaultUsers = [
-  {
-    id: 1,
-    username: 'admin',
-    password: bcrypt.hashSync('admin', saltRounds),
-  },
-];
-
-async function login(username, password) {
-  const userFound = readOneUserFromUsername(username);
+async function login(email, password) {
+  const userFound = await readOneUserFromUsername(email);
   if (!userFound) return undefined;
 
   const passwordMatch = await bcrypt.compare(password, userFound.password);
   if (!passwordMatch) return undefined;
 
   const token = jwt.sign(
-    { username }, // session data added to the payload (payload : part 2 of a JWT)
+    { email }, // session data added to the payload (payload : part 2 of a JWT)
     jwtSecret, // secret used for the signature (signature part 3 of a JWT)
     { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
 
   const authenticatedUser = {
-    username,
+    email,
+    role: userFound.role,
+    firstname: userFound.firstname,
+    lastname: userFound.lastname,
+    birthdate: userFound.birthdate,
+    join_date: userFound.join_date,
+    profile_picture: userFound.profile_picture,
     token,
   };
 
   return authenticatedUser;
 }
 
-async function register(username, password) {
-  const userFound = readOneUserFromUsername(username);
+async function register(firstname, lastname, email, password, confirmPassword) {
+  const userFound = await readOneUserFromUsername(email);
   if (userFound) return undefined;
+  if (password !== confirmPassword) return false;
 
-  await createOneUser(username, password);
+  await createOneUser(firstname, lastname, email, password);
 
   const token = jwt.sign(
-    { username }, // session data added to the payload (payload : part 2 of a JWT)
+    { email }, // session data added to the payload (payload : part 2 of a JWT)
     jwtSecret, // secret used for the signature (signature part 3 of a JWT)
     { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
 
   const authenticatedUser = {
-    username,
+    email,
+    firstname,
+    lastname,
     token,
   };
 
   return authenticatedUser;
 }
 
-function readOneUserFromUsername(username) {
-  const users = parse(jsonDbPath, defaultUsers);
-  const indexOfUserFound = users.findIndex((user) => user.username === username);
-  if (indexOfUserFound < 0) return undefined;
-
-  return users[indexOfUserFound];
+async function readOneUserFromUsername(email) {
+  const query = {
+    text: 'SELECT email, password, role, firstname, lastname, birthdate, join_date, profile_picture FROM projetweb.users WHERE email = $1',
+    values: [email],
+  };
+  const res = await client.query(query);
+  if (res.rows[0]) return res.rows[0];
+  return undefined;
 }
 
-async function createOneUser(username, password) {
-  const users = parse(jsonDbPath, defaultUsers);
-
+async function createOneUser(firstname, lastname, email, password) {
   const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-  const createdUser = {
-    id: getNextId(),
-    username,
-    password: hashedPassword,
+  const query = {
+    text: 'INSERT INTO projetweb.users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4)',
+    values: [firstname, lastname, email, hashedPassword],
   };
-
-  users.push(createdUser);
-
-  serialize(jsonDbPath, users);
-
-  return createdUser;
-}
-
-function getNextId() {
-  const users = parse(jsonDbPath, defaultUsers);
-  const lastItemIndex = users?.length !== 0 ? users.length - 1 : undefined;
-  if (lastItemIndex === undefined) return 1;
-  const lastId = users[lastItemIndex]?.id;
-  const nextId = lastId + 1;
-  return nextId;
+  const res = await client.query(query);
+  return res;
 }
 
 module.exports = {
