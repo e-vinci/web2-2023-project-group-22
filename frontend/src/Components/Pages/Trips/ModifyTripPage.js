@@ -1,5 +1,6 @@
 import { clearPage } from "../../../utils/render";
 // import Navigate from "../../Router/Navigate";
+import logoImageNoir from '../../../img/logo-blanc.png'
 
 const ModifyTripPage = () => {
     clearPage();
@@ -23,53 +24,80 @@ function displayTripPage () {
     const main = document.querySelector("main");
     main.innerHTML = `
     <div id="div-trip-page-block">
-
-        <div id="div-page-block-content">
-
-            <div id="div-trip-page-block-content-image">
-                <div id="div-trip-page-block-content-text">
-                    <div>
-                        <h1>Voyage à Bruxelles</h1>
+       <div id="trip-page-left-side">
+           <div>
+                <div class="category" id="resto">
+                    <div class="place-image-name">
+                        <h5>Place Louise</h5>
+                        <img src="${logoImageNoir}" style="width: 120px;">
                     </div>
-
-                    <div id="div-trip-page-block-content-text-info">
-                        <div id="div-trip-page-block-content-text-date">
-                            <i class="bi bi-calendar"></i>
-                            <p>1/11 - 30/11</p>
-                        </div>
-                            
-                        <div id="div-trip-page-block-content-text-button">
-                            <input type="submit" value="test">
-                            <input type="submit" value="tziuerhfioh">
-                        </div>
-                        
+                    <div class="place-text">
+                        <p>nigga</p>
                     </div>
-                    
+                    <div class="place-note-and-add">
+                        <p>4,7/5</p>
+                        <input type="submit" value="ajouter au voyage">
+                    </div>
                 </div>
-            </div>
-
-            <div id="div-trip-page-block-content-info">
-                <div id="div-trip-page-block-content-info-capital-cities">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <div class="category" id="resto">
+                    <div class="place-image-name">
+                        <h5>Place Louise</h5>
+                        <img src="${logoImageNoir}" style="width: 120px;">
+                    </div>
+                    <div class="place-text">
+                        <p>nigga</p>
+                    </div>
+                    <div class="place-note-and-add">
+                        <p>4,7/5</p>
+                        <input type="submit" value="ajouter au voyage">
+                    </div>
                 </div>
-                <div id="div-trip-page-block-content-info-hotel"></div>
-            </div>
+                <div class="category" id="resto">
+                    <div class="place-image-name">
+                        <h5>Place Louise</h5>
+                        <img src="${logoImageNoir}" style="width: 120px;">
+                    </div>
+                    <div class="place-text">
+                        <p>nigga</p>
+                    </div>
+                    <div class="place-note-and-add">
+                        <p>4,7/5</p>
+                        <input type="submit" value="ajouter au voyage">
+                    </div>
+                </div>
+                <div class="category" id="resto">
+                    <div class="place-image-name">
+                        <h5>Place Louise</h5>
+                        <img src="${logoImageNoir}" style="width: 120px;">
+                    </div>
+                    <div class="place-text">
+                        <p>nigga</p>
+                    </div>
+                    <div class="place-note-and-add">
+                        <p>4,7/5</p>
+                        <input type="submit" value="ajouter au voyage">
+                    </div>
+                </div>
+                <div class="category" id="resto">
+                    <div class="place-image-name">
+                        <h5>Place Louise</h5>
+                        <img src="${logoImageNoir}" style="width: 120px;">
+                    </div>
+                    <div class="place-text">
+                        <p>nigga</p>
+                    </div>
+                    <div class="place-note-and-add">
+                        <p>4,7/5</p>
+                        <input type="submit" value="ajouter au voyage">
+                    </div>
+                </div>
+           </div>
+           
+       </div>
 
-        </div>
-
-        <div id="div-trip-page-block-map" style="">
-            <iframe id="tripMap"
-            width="700"
-            height="700"
-            style="border:0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src=""
-            </iframe>
-        </div>
+       <div id="trip-page-right-side">
+            <h1>vvvvvvvvvvvvvvvvvvvvvvvvvv</h1>
+       </div>
     </div>
     `;
 }

@@ -2,7 +2,7 @@ const client = require('./db_connection');
 
 async function createTrip(countryCode, startDate, endDate) {
   const query = {
-    text: 'INSERT INTO projetweb.trips (country_code, start_date, end_date) VALUES (?, ?, ?)',
+    text: 'INSERT INTO projetweb.trips (country_code, start_date, end_date) VALUES ($1, $2, $3)',
     values: [countryCode, startDate, endDate],
   };
   await client.query(query);

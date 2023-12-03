@@ -509,87 +509,13 @@ form input {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-}
-
-#div-trip-page-block-map{
-	width: 50%;
-}
-
-#div-page-block-content{
-	width: 50%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	
-}
-
-#div-trip-page-block-content-image{
-	background-image: url("../img/imageVille.jpg");
-	background-repeat: no-repeat;
-	width: 100%;
-	padding: 50px 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#div-trip-page-block-content-info{
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background-color: rgb(187, 218, 208);
-}
-
-#div-trip-page-block-content-text{
-	width: 70%;
-	background-color: #FFFFFF;
-	border: solid;
-	border-radius: 30px;
-	border-style: none;
-	display: flex;
-	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	padding: 20px;
-	
-}
-
-#div-trip-page-block-content-text-info{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	width: 100%;
-}
-#div-trip-page-block-content-text-date{
-	display: flex;
-	flex-direction: row;
-	width: 50%;
-}
-
-#div-trip-page-block-content-text-button{
-	display: flex;
-	flex-direction: row;
-	width: 50%;
-	justify-content: space-evenly;
-	align-items: center;
-}
-#div-trip-page-block-content-info-filter{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 50%;
+	background-color: aqua;
 }
 
 
 
-
-
-#tripMap{
-	width: 100%;
-}
 
 
 /* Loading page */
