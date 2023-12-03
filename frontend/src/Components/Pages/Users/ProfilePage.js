@@ -1,12 +1,18 @@
 
 import { clearPage } from '../../../utils/render';
 import image from '../../../img/usertest.png';
+import Navigate from '../../Router/Navigate';
 
 
 
 const ProfilPage = () => {
     clearPage();
     const profilPage = document.querySelector('main');
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if(!userData){
+        Navigate('/');
+    }
+    console.log(userData);
     const profilPageForm = `
     <div class="containerr">
         <div class="main">

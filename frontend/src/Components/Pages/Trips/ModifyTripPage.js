@@ -7,7 +7,7 @@ const ModifyTripPage = () => {
     const trip = JSON.parse(localStorage.getItem('trip'));
     localStorage.removeItem('trip');
     const content = `
-        <p>Destination: ${trip.destination}</p>
+        <p>Destination: ${trip.countryCode}</p>
         <p>From: ${trip.startDate}<p>
         <p>To: ${trip.endDate}</p>
     `;
