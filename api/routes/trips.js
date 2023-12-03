@@ -1,10 +1,12 @@
 const express = require('express');
 const Trip = require('../models/trips');
+const Utils = require('../utils/auths');
 
 const router = express.Router();
 
 // Create a new trip by giving cca3 country code, start date and end date
-router.post('/createtrip', async (req, res) => {
+router.post('/createtrip', async (req, res, next) => {
+  Utils.authorize(req, res, next);
   const countryCode = req?.body?.countryCode?.length !== 0 ? req.body.countryCode : undefined;
   const startDate = req?.body?.startDate ? req.body.startDate : undefined;
   const endDate = req?.body?.endDate ? req.body.endDate : undefined;

@@ -17,6 +17,7 @@ const authorize = async (req, res, next) => {
     if (!existingUser) return res.sendStatus(401);
 
     req.user = existingUser; // request.user object is available in all other middleware functions
+    console.table(req.user);
     return next();
   } catch (err) {
     console.error('authorize: ', err);
