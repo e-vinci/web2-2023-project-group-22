@@ -7,6 +7,8 @@ import image from '../../../img/usertest.png';
 const ProfilPage = () => {
     clearPage();
     const profilPage = document.querySelector('main');
+    const userData = JSON.parse(localStorage.getItem('user'));
+    console.log(userData);
     const profilPageForm = `
     <div class="containerr">
         <div class="main">
@@ -16,7 +18,7 @@ const ProfilPage = () => {
                         <div class="card-body">
                             <img src='${image}' class="rounded-circle" width="150">
                             <div class="mt-3">
-                            <h3> Bienvenue Tiago</h3>
+                            <h3> Bienvenue ${userData.profile.name} </h3>
                             </div>
                         </div>
                     </div>
