@@ -27,12 +27,44 @@ function displayTripPage () {
        <div id="trip-page-left-side">
            <div>
                 <div class="category" id="resto">
+                <h1>restaurant</h1>
+                    <div class="places">
+                    <div class="place">
+                            <div class="place-image-name">
+                                <h5>Place Louise</h5>
+                                <img src="${logoImageNoir}" style="width: 120px;">
+                            </div>
+                            <div class="place-text">
+                                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
+                            </div>
+                            <div class="place-note-and-add">
+                                <p>4,7/5</p>
+                                <input type="submit" value="ajouter au voyage">
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="place-image-name">
+                                <h5>Place Louise</h5>
+                                <img src="${logoImageNoir}" style="width: 120px;">
+                            </div>
+                            <div class="place-text">
+                                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
+                            </div>
+                            <div class="place-note-and-add">
+                                <p>4,7/5</p>
+                                <input type="submit" value="ajouter au voyage">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category" id="resto">
                     <div class="place-image-name">
                         <h5>Place Louise</h5>
                         <img src="${logoImageNoir}" style="width: 120px;">
                     </div>
                     <div class="place-text">
-                        <p>nigga</p>
+                        <p>trigger</p>
                     </div>
                     <div class="place-note-and-add">
                         <p>4,7/5</p>
@@ -45,7 +77,7 @@ function displayTripPage () {
                         <img src="${logoImageNoir}" style="width: 120px;">
                     </div>
                     <div class="place-text">
-                        <p>nigga</p>
+                        <p>trigger</p>
                     </div>
                     <div class="place-note-and-add">
                         <p>4,7/5</p>
@@ -58,7 +90,7 @@ function displayTripPage () {
                         <img src="${logoImageNoir}" style="width: 120px;">
                     </div>
                     <div class="place-text">
-                        <p>nigga</p>
+                        <p>trigger</p>
                     </div>
                     <div class="place-note-and-add">
                         <p>4,7/5</p>
@@ -71,20 +103,7 @@ function displayTripPage () {
                         <img src="${logoImageNoir}" style="width: 120px;">
                     </div>
                     <div class="place-text">
-                        <p>nigga</p>
-                    </div>
-                    <div class="place-note-and-add">
-                        <p>4,7/5</p>
-                        <input type="submit" value="ajouter au voyage">
-                    </div>
-                </div>
-                <div class="category" id="resto">
-                    <div class="place-image-name">
-                        <h5>Place Louise</h5>
-                        <img src="${logoImageNoir}" style="width: 120px;">
-                    </div>
-                    <div class="place-text">
-                        <p>nigga</p>
+                        <p>trigger</p>
                     </div>
                     <div class="place-note-and-add">
                         <p>4,7/5</p>
