@@ -3,7 +3,6 @@ import { Navbar as BootstrapNavbar } from 'bootstrap';
 // import logoImage from '../../img/logo.png'
 // eslint-disable-next-line camelcase
 import logoImageNoir from '../../img/logo-blanc.png'
-import Navigate from '../Router/Navigate';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -54,12 +53,6 @@ function NavbarConnected() {
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
-  const logout = document.getElementById('logout');
-  logout.addEventListener('click', () => {
-    localStorage.clear();
-    window.location.reload()
-    Navigate('/');
-  })
 }
 
 function NavbarAdmin() {
@@ -75,12 +68,6 @@ function NavbarAdmin() {
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
-  const logout = document.getElementById('logout');
-  logout.addEventListener('click', () => {
-    localStorage.clear();
-    window.location.reload()
-    Navigate('/');
-  })
 }
 
 
