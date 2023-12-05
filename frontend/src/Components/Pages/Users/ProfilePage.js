@@ -10,7 +10,7 @@ const ProfilPage = () => {
     const profilPage = document.querySelector('main');
     const userData = JSON.parse(localStorage.getItem('user'));
     if(!userData){
-        Navigate('/');
+        window.location.href='/';
     }
     console.log(userData);
     const profilPageForm = `
@@ -23,7 +23,7 @@ const ProfilPage = () => {
                             <img src='${image}' class="rounded-circle" width="150">
                             <div class="mt-3">
                             <h3> Bienvenue ${userData.firstname}</h3>
-                            <a class="nav-item" id="logout">Log out</a>
+                            <input type="submit" class="logoutProfile" id="logout" value="Log Out" />
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ const ProfilPage = () => {
                                         ${userData.birthdate}
                                     </div>
                                 </div>
-                                <hr>` : ''}
+                               <hr>` : ''}
                         </div>
                     </div>
                     <div class="card mb-3 content">
@@ -100,8 +100,19 @@ const ProfilPage = () => {
         </div> 
      </div>           
     `
+
     profilPage.innerHTML = profilPageForm;
+    logout();
 };
 
+function logout() {
+    const logoutt = document.querySelector('input');
+    logoutt.addEventListener('click',() => {
+        localStorage.removeItem('user');
+        Navigate('/');
+    })
+
+
+}
 
 export default ProfilPage;
