@@ -9,7 +9,7 @@ const Footer = () => {
     </div>
     <div class="newsletter">
       <p></p>
-      <button id="buttonid" class="subscribe-btn">Donnez votre avis FDP</button>
+      <button id="buttonid" class="subscribe-btn">Donnez votre avis</button>
     </div>
 
     <p>Terms | <a href="#">Privacy Policy</a></p>
@@ -24,24 +24,21 @@ const Footer = () => {
   </div>
     `;
 
-// function showModal() {
-//     const button = document.getElementById('buttonid');
-//     button.addEventListener('click', () => {
-//     openModal();
-//     })
-// }
+  footer.innerHTML += footerContent;
 
-// function openModal() {
-//     document.getElementById('subscribeModal').style.display = 'flex';
-//   }
+function showModal() {
+    const button = document.getElementById('buttonid');
+    button.addEventListener('click', () => {
+    openModal();
+    })
+}
 
-// showModal();
+function openModal() {
+    document.getElementById('subscribeModal').style.display = 'flex';
+  }
 
-// function closeModal() {
-//     document.getElementById('subscribeModal').style.display = 'none';
-//   } 
+showModal();
 
-    footer.innerHTML = footerContent;
 }
 
 export default Footer;

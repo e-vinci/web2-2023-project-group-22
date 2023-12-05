@@ -604,7 +604,7 @@ input {
 footer {
 	background-color: rgba(9,29,40,255);
 	color: #fff;
-	padding: 20px;
+	padding: 2px;
 	text-align: center;
   }
 
@@ -615,10 +615,6 @@ footer {
 
   footer a:hover {
 	text-decoration: underline;
-  }
-
-  .social-icons {
-	margin-top: 10px;
   }
 
   .subscribe-btn {
