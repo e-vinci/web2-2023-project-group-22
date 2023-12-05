@@ -3,6 +3,7 @@ import { Navbar as BootstrapNavbar } from 'bootstrap';
 // import logoImage from '../../img/logo.png'
 // eslint-disable-next-line camelcase
 import logoImageNoir from '../../img/logo-blanc.png'
+import Navigate from '../Router/Navigate';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -58,6 +59,7 @@ function NavbarConnected() {
   logout.addEventListener('click', () => {
     localStorage.clear();
     window.location.reload()
+    Navigate('/');
   })
   
 }
@@ -70,7 +72,7 @@ function NavbarAdmin() {
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 120px;"></a>
   </div>
     <ul>
-        <li class="hover-navbar"><a href="#" data-uri="/profil" class="nav-item">Profil</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/profile" class="nav-item">Profil</a></li>
         <li class="hover-navbar"><a href="#" data-uri="/dashboard" class="nav-item">Dashboard</a></li>
     </ul>
 `;

@@ -6,7 +6,7 @@
     "debug": "npm run dev",
     "dev": "nodemon ./bin/www",
     "start": "nodemon ./bin/www",
-    "lint": "eslint **/*.js",
+    "lint": "eslint '**/*.js'",
     "lint:fix": "npm run lint -- --fix"
   },
   "nodemonConfig": {
@@ -25,9 +25,7 @@
     "express": "~4.16.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
-    "pg": "^8.11.3",
-    "webpack": "^5.89.0",
-    "webpack-env": "^0.8.0"
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
