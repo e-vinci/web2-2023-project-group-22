@@ -1,5 +1,5 @@
 import { clearPage } from "../../../utils/render";
- // import Navigate from "../../Router/Navigate";
+ import Navigate from "../../Router/Navigate";
 
 const NewTripPage = () => {
   const country = JSON.parse(localStorage.getItem('countryData'));
