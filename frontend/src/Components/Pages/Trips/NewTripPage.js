@@ -56,7 +56,7 @@ const NewTripPage = () => {
   const submit = document.getElementById("createDest");
   submit.addEventListener('click', async (event) => {
     event.preventDefault();
-    if(!localStorage.getItem('user')) showLoginModal();
+    if(!localStorage.getItem('user')) console.log("add login modal");
     else{
       event.preventDefault();
       const destination = document.getElementById('destination').value;
@@ -85,12 +85,6 @@ const NewTripPage = () => {
       });
     }
   });   
-}
-
-function showLoginModal(){
-  const modal = document.getElementById('signinmodal');
-  console.log(modal);
-  // modal.show();
 }
 
 export default NewTripPage;

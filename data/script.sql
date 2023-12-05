@@ -30,7 +30,7 @@ CREATE TABLE projetweb.trips(
     start_date DATE NOT NULL ,
     end_date DATE NOT NULL ,
     country_code VARCHAR(3) REFERENCES projetweb.countries(country_code),
-    id_town INTEGER REFERENCES projetweb.towns(id_town)
+    privacy BOOLEAN NOT NULL DEFAULT (TRUE)
 );
 
 CREATE TABLE projetweb.users(

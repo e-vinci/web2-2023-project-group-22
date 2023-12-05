@@ -59,7 +59,7 @@ async function register(firstname, lastname, email, password, confirmPassword) {
 
 async function readOneUserFromUsername(email) {
   const query = {
-    text: 'SELECT email, password, role, firstname, lastname, birthdate, join_date, profile_picture FROM projetweb.users WHERE email = $1',
+    text: 'SELECT id_user, email, password, role, firstname, lastname, birthdate, join_date, profile_picture FROM projetweb.users WHERE email = $1',
     values: [email],
   };
   const res = await client.query(query);

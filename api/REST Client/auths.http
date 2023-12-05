@@ -29,10 +29,10 @@ Content-Type: application/json
     "password":"test"
 }
 
-### Login the manager user
+### 
 POST {{baseUrl}}/trips/createtrip
 Content-Type: application/json
-Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbW1lcnkwMkBob3RtYWlsLmNvbSIsImlhdCI6MTcwMTYyNTc4MSwiZXhwIjoxNzg4MDI1NzgxfQ.28eU_UmDaFSAdY3f92laEjgZakPp5VgpopFLyf5XdIA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbW1lcnkwMkBob3RtYWlsLmNvbSIsImlhdCI6MTcwMTYyNTc4MSwiZXhwIjoxNzg4MDI1NzgxfQ.28eU_UmDaFSAdY3f92laEjgZakPp5VgpopFLyf5XdIA
 
 {
     "countryCode": "Belgium",
