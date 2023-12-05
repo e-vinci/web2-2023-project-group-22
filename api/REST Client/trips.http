@@ -1,2 +1,10 @@
+@baseUrl = http://localhost:3000/trips
+
 ### Trips
 GET http://localhost:3000/trips
+
+### Read trip identified by 2
+GET {{baseUrl}}/45
+
+### Read trips identified for user
+GET {{baseUrl}}/user/user@where2go.com

@@ -70,9 +70,6 @@ async function displayMap(country){
   })
   .then((result) => result);
   let initMap;
-  console.log(data);
-  console.log(data.status);
-  console.log(data.results);
     if(data.status !== "OK") {
     // eslint-disable-next-line no-unused-vars
     let map;

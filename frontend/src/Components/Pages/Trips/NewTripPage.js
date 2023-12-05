@@ -79,42 +79,38 @@ const NewTripPage = () => {
   //   Navigate('/auth')
   // });
   
-//   const submit = document.getElementById("createDest");
-//   submit.addEventListener('click', async (event) => {
-//     event.preventDefault();
-//     if(!localStorage.getItem('user')) showLoginModal();
-//     else{
-//       event.preventDefault();
-//       const destination = document.getElementById('destination').value;
-//       const startDate = document.getElementById('startDate').value;
-//       const endDate = document.getElementById('endDate').value;
-//       await fetch('http://localhost:3000/trips/createtrip', {
-//       headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json',
-//       },
-//       method: 'POST',
-//       body: JSON.stringify({
-//         "countryCode": destination,
-//         "startDate": startDate,
-//         "endDate": endDate
-//       })
-//       })
-//       .then((response) => {
-//         if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
-//         return response.json();
-//       })
-//       .then((result) => result);
-//       Navigate("/modifytrip");
-//     }
-//   });   
-// }
-
-// function showLoginModal(){
-//   const modal = document.getElementById('signinmodal');
-//   console.log(modal);
-//   // modal.show();
-// }
+  const submit = document.getElementById("createDest");
+  submit.addEventListener('click', async (event) => {
+    event.preventDefault();
+    if(!localStorage.getItem('user')) console.log("add login modal");
+    else{
+      event.preventDefault();
+      const destination = document.getElementById('destination').value;
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+      await fetch('http://localhost:3000/trips/createtrip', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': JSON.parse(localStorage.getItem('user')).token,
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        "countryCode": destination,
+        "startDate": startDate,
+        "endDate": endDate
+      })
+      })
+      .then((response) => {
+        if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+        return response.json();
+      })
+      .then((result) => {
+        localStorage.setItem('trip', JSON.stringify(result));
+        Navigate("/modifytrip");
+      });
+    }
+  });   
 }
 
 export default NewTripPage;
