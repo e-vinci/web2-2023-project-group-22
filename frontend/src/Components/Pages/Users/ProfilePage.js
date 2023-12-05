@@ -10,7 +10,7 @@ const ProfilPage = () => {
     const profilPage = document.querySelector('main');
     const userData = JSON.parse(localStorage.getItem('user'));
     if(!userData){
-        Navigate('/');
+        window.location.href='/';
     }
     console.log(userData);
     const profilPageForm = `
@@ -22,7 +22,8 @@ const ProfilPage = () => {
                         <div class="card-body">
                             <img src='${image}' class="rounded-circle" width="150">
                             <div class="mt-3">
-                            <h3> Bienvenue Tiago</h3>
+                            <h3> Bienvenue ${userData.firstname}</h3>
+                            <input type="submit" class="logoutProfile" id="logout" value="Log Out" />
                             </div>
                         </div>
                     </div>
@@ -37,7 +38,7 @@ const ProfilPage = () => {
                                     <h5> Nom Complet <h5>
                                 </div>
                                 <div class="col-md-9 text-secondary">
-                                    Tiago
+                                ${userData.firstname}  ${userData.lastname} 
                                 </div>
                             </div>
                             <hr>
@@ -46,18 +47,21 @@ const ProfilPage = () => {
                                     <h5> Email <h5>
                                 </div>
                                 <div class="col-md-9 text-secondary">
-                                    Tiago@gmail.com
+                                ${userData.email}
                                 </div>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5> Statut <h5>
+                            
+                            
+                            ${userData.birthdate ? 
+                                ` <hr> <div class="row">
+                                    <div class="col-md-3">
+                                        <h5> Statut <h5>
+                                    </div>
+                                    <div class="col-md-9 text-secondary">
+                                        ${userData.birthdate}
+                                    </div>
                                 </div>
-                                <div class="col-md-9 text-secondary">
-                                    Admin
-                                </div>
-                            </div>
+                               <hr>` : ''}
                         </div>
                     </div>
                     <div class="card mb-3 content">
@@ -96,8 +100,19 @@ const ProfilPage = () => {
         </div> 
      </div>           
     `
+
     profilPage.innerHTML = profilPageForm;
+    logout();
 };
 
+function logout() {
+    const logoutt = document.querySelector('input');
+    logoutt.addEventListener('click',() => {
+        localStorage.removeItem('user');
+        Navigate('/');
+    })
+
+
+}
 
 export default ProfilPage;

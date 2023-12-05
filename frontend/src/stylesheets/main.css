@@ -614,3 +614,18 @@ input {
   .draggable.dragging {
 	opacity: .5;
   }
+
+  .logoutProfile {
+	
+	background: #0066A2;
+	color: white;
+	margin-top: 90%;
+	font: bold15px arial,sans-serif;
+	text-shadow: none;
+	}
+
+.logoutProfile:hover{
+	border-radius: 10px;
+	border-color: black;
+}
+
