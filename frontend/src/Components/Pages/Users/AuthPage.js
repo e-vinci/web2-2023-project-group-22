@@ -21,7 +21,7 @@ const AuthPage = () => {
           <input type="email" placeholder="Email" id="signUpEmail"/>
           <input type="password" placeholder="Password" id="signUpPassword"/>
           <input type="password" placeholder="Password confirmation" id="signUpconfirmPassword"/>
-          <input type="submit" value="Sign up" id="signUpButton">
+          <button id="signUpButton">Sign up</button>
       </form>
     </div>
 
@@ -35,7 +35,6 @@ const AuthPage = () => {
         <span>or use your account</span>
         <input type="email" placeholder="Email" id="signInEmail"/>
         <input type="password" placeholder="Password" id="signInPassword"/>
-        <input type="submit" value="Sign in" id="signInButton">
       </form>
     </div>
     <div class="overlay-container">
@@ -54,6 +53,7 @@ const AuthPage = () => {
     </div>
   </div>
 </div>
+<button id="signInButton">Sign in</button>
     `;
     loginRegisterPage.innerHTML = loginRegisterForm;
 
@@ -69,23 +69,23 @@ const AuthPage = () => {
     sessionStorage.removeItem('clickedNavItem');
 
     const signInButton = document.getElementById('signInButton');
-    signInButton.addEventListener('click', async () => {
+    signInButton.addEventListener('click', async (event) => {
+      event.preventDefault();
       const email = document.getElementById('signInEmail').value;
       const password = document.getElementById('signInPassword').value;
-      const result = login({email, password});
-      localStorage.setItem('user', JSON.stringify(result));
-      Navigate('/');
+      await login({email, password});
+      if(localStorage.getItem('user')) Navigate('/');
     })
     const signUpButton = document.getElementById('signUpButton');
-    signUpButton.addEventListener('click', async () => {
+    signUpButton.addEventListener('click', async (event) => {
+      event.preventDefault();
       const email = document.getElementById('signUpEmail').value;
       const password = document.getElementById('signUpPassword').value;
       const confirmPassword = document.getElementById('signUpconfirmPassword').value;
       const firstname = document.getElementById('signUpFirstname').value;
       const lastname = document.getElementById('signUpLastname').value;
-      const result = register({email, password, confirmPassword, firstname, lastname});
-      localStorage.setItem('user', JSON.stringify(result));
-      Navigate('/');
+      await register({email, password, confirmPassword, firstname, lastname});
+      if(localStorage.getItem('user')) Navigate('/');
     })
   };
 function switchLoginRegister(){
@@ -146,7 +146,9 @@ async function login(user){
     if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
     return response.json();
   })
-  .then((result) => result);
+  .then((result) => {
+    localStorage.setItem('user', JSON.stringify(result));
+  });
 }
 
 async function register(user){
@@ -168,7 +170,9 @@ async function register(user){
     if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
     return response.json();
   })
-  .then((result) => result);
+  .then((result) => {
+    localStorage.setItem('user', JSON.stringify(result));
+  });
 }
   
 export default AuthPage;
