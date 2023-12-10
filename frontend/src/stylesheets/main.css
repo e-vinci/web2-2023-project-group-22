@@ -3,6 +3,9 @@
 body{
   margin: 0;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 nav{
@@ -606,6 +609,7 @@ footer {
 	color: #fff;
 	padding: 2px;
 	text-align: center;
+	margin-top: auto;
   }
 
   footer a {
@@ -649,17 +653,17 @@ footer {
 	background-color: rgba(0, 0, 0, 0.5);
 	justify-content: center;
 	align-items: center;
-	z-index: 2;
-	
   }
 
   .modal-content {
 	background-color: rgb(2, 109, 91);
 	padding: 20px;
+	width: 60%;
 	border-radius: 5px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-radius: 25px;
   }
 
   .modal .flex {
@@ -681,24 +685,35 @@ footer {
 	z-index: 1;
   }
 
-  .close-btn {
-	background-color: #333;
+  #email {
+	width: 70%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	font-size: 16px;
+  }
+
+  #close-btn {
+	position: absolute;
+	top: 12px; /* Adjust as needed */
+	right: 12px; /* Adjust as needed */
+	border: 1px solid rgba(9,29,40,255);
+	background-color: rgba(9,29,40,255);
 	color: #fff;
 	padding: 5px 10px;
 	border: none;
 	cursor: pointer;
   }
 
-  .modal-justify {
-	width: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-  }
-
   #subscribeModal {
-	width: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none; /* Initially hidden */
+	/* Add other styles as needed */
   }

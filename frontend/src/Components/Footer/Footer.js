@@ -23,18 +23,18 @@ const Footer = () => {
 
       <div class="modal" id="subscribeModal">
       <div class="modal-content">
-        <div class="flex">
+      <button id="close-btn">X</button>
+      <div class="flex">
         <img src="${logoImageNoir}" width="100px" height="100px"/>
-        
       </div>
       <div>
         <h3>Donnez votre avis</h3>
         <p>
-          Ok bro jzdfiovjiodiocjziociozodj
+        Si vous souhaitez recevoir des idées sur les voyages à faire, inscrivez-vous à notre newsletter!
         </p>
       </div>
   
-      <input type="email" id="email" placeholder="entrez votre email ici" />
+      <input type="email" id="email" placeholder="Entrez votre email ici" />
       <button class="subscribe-btn-modal">Submit</button>
     </div>
 
@@ -54,13 +54,20 @@ function openModal() {
     document.getElementById('subscribeModal').style.display = 'flex';
   }
 
-  function closeModal() {
-    document.getElementsByClassName('close-btn').style = 'none';
+function closeModal() {
+    document.getElementById('subscribeModal').style.display = 'none';
   }
 
+function closeBtn() {
+    // eslint-disable-next-line no-shadow
+    const closeBtn = document.getElementById('close-btn');
+    closeBtn.addEventListener('click', () => {
+    closeModal();
+    })
+}
 
 showModal();
-closeModal();
+closeBtn();
 }
 
 export default Footer;
