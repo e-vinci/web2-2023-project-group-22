@@ -34,7 +34,7 @@ const Footer = () => {
         </p>
       </div>
   
-      <input type="email" id="email" placeholder="Entrez votre email ici" />
+      <input type="email" id="email" placeholder="Entrez votre email ici" required>
       <button class="subscribe-btn-modal">Submit</button>
     </div>
 
@@ -65,6 +65,24 @@ function closeBtn() {
     closeModal();
     })
 }
+
+function validateAndSubmit() {
+  const submitButton = document.querySelector('.subscribe-btn-modal');
+  submitButton.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const email = document.querySelector('#email').value;
+
+      if(email === '') {
+          alert('Please fill out the email field before submitting.');
+          return;
+      }
+
+      closeModal();
+  });
+}
+
+validateAndSubmit();
 
 showModal();
 closeBtn();

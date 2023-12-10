@@ -17,6 +17,7 @@ function displayTripButtons(){
   const showAllCountriesButton = document.createElement('button');
   createTripButton.innerText = "Créer un voyage";
   showAllCountriesButton.innerText = "Voir les pays";
+  createTripButton.style.marginRight = '15px'; // Adjust the value as needed
   createTripButton.addEventListener('click',()=>{
     Navigate('/newtrip');
   })
@@ -31,7 +32,7 @@ function displayTripButtons(){
 function presentationFirstBloc(){
   const main = document.querySelector('main');
   const createDivFirstBlock = 
-  `
+  `<div id="presentationFirstBlockContainer">
       <div id="presentationFirstBlock">
         <div id="presentationText">
           <h3>Voyagez avec Where2go</h3>
@@ -42,6 +43,7 @@ function presentationFirstBloc(){
           <img src="${logoImageNoir}"alt="">
         </div>
       </div>
+    </div>
   `;
   main.innerHTML = createDivFirstBlock;
   const tripButtons = document.querySelector('#tripButtons');
