@@ -22,15 +22,22 @@ async function login(email, password) {
 
   const authenticatedUser = {
     email,
+    role: userFound.role,
+    firstname: userFound.firstname,
+    lastname: userFound.lastname,
+    birthdate: userFound.birthdate,
+    join_date: userFound.join_date,
+    profile_picture: userFound.profile_picture,
     token,
   };
 
   return authenticatedUser;
 }
 
-async function register(firstname, lastname, email, password) {
+async function register(firstname, lastname, email, password, confirmPassword) {
   const userFound = await readOneUserFromUsername(email);
   if (userFound) return undefined;
+  if (password !== confirmPassword) return false;
 
   await createOneUser(firstname, lastname, email, password);
 
@@ -42,6 +49,8 @@ async function register(firstname, lastname, email, password) {
 
   const authenticatedUser = {
     email,
+    firstname,
+    lastname,
     token,
   };
 
@@ -50,7 +59,7 @@ async function register(firstname, lastname, email, password) {
 
 async function readOneUserFromUsername(email) {
   const query = {
-    text: 'SELECT email, password, role FROM projetweb.users WHERE email = $1',
+    text: 'SELECT email, password, role, firstname, lastname, birthdate, join_date, profile_picture FROM projetweb.users WHERE email = $1',
     values: [email],
   };
   const res = await client.query(query);

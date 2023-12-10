@@ -3,6 +3,7 @@ import Navigate from '../../Router/Navigate';
 
 const AllCountriesPage = () => {
   clearPage();
+  const added = [];
   const CURRENCIES = [];
   fetch('https://restcountries.com/v3.1/all')
   .then((response) => {
@@ -12,9 +13,11 @@ const AllCountriesPage = () => {
   .then((countries) => {
     countries.forEach((country) => {
       if (country.currencies !== null && country.currencies !== undefined) {
-        // CURRENCIES.push(country.currencies);
         Object.entries(country.currencies).forEach((currency) => {
-          if(!CURRENCIES.includes(currency)) CURRENCIES.push(currency);
+          if(!added.includes(currency[0])){
+            CURRENCIES.push(currency);
+            added.push(currency[0]);
+          }
         });
       }
     });
@@ -73,7 +76,7 @@ function displayCountries(elements) {
         `;
     countriesList.appendChild(country);
     country.addEventListener('click', ()=>{
-      localStorage.setItem("countryData", JSON.stringify(element));
+      localStorage.setItem('countryData', JSON.stringify(element));
       Navigate('/country');
     })
     country.addEventListener('mouseover', () => {
