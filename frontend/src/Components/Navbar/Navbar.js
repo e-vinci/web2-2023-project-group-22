@@ -23,8 +23,6 @@ const Navbar = () => {
   }else{
     NavbarNonConnected();
   }
-  
-   
 }
 
 function NavbarNonConnected () {
