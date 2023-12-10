@@ -1,6 +1,6 @@
 import { clearPage } from "../../../utils/render";
 // import Navigate from "../../Router/Navigate";
-import logoImageNoir from '../../../img/logo-blanc.png'
+// import logoImageNoir from '../../../img/imageVille.jpg'
 
 const ModifyTripPage = () => {
     clearPage();
@@ -25,93 +25,58 @@ function displayTripPage () {
     main.innerHTML = `
     <div id="div-trip-page-block">
        <div id="trip-page-left-side">
-           <div>
-                <div class="category" id="resto">
-                <h1>restaurant</h1>
-                    <div class="places">
-                    <div class="place">
-                            <div class="place-image-name">
-                                <h5>Place Louise</h5>
-                                <img src="${logoImageNoir}" style="width: 120px;">
-                            </div>
-                            <div class="place-text">
-                                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
-                            </div>
-                            <div class="place-note-and-add">
-                                <p>4,7/5</p>
-                                <input type="submit" value="ajouter au voyage">
-                            </div>
+            <div class="categories" id="resto">
+                <h1>Restaurant  à ...</h1>
+                <div id="cCarousel">
+                
+                    <div id="carousel-vp">
+                        <div id="cCarousel-inner">
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>La ruche</h3>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>Manathan</h3>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>Mcdo</h3>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>Title 4 / 6</h3>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>Title 5 / 6</h3>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
                         </div>
-                        <div class="place">
-                            <div class="place-image-name">
-                                <h5>Place Louise</h5>
-                                <img src="${logoImageNoir}" style="width: 120px;">
-                            </div>
-                            <div class="place-text">
-                                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
-                            </div>
-                            <div class="place-note-and-add">
-                                <p>4,7/5</p>
-                                <input type="submit" value="ajouter au voyage">
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-                <div class="category" id="resto">
-                    <div class="place-image-name">
-                        <h5>Place Louise</h5>
-                        <img src="${logoImageNoir}" style="width: 120px;">
-                    </div>
-                    <div class="place-text">
-                        <p>trigger</p>
-                    </div>
-                    <div class="place-note-and-add">
-                        <p>4,7/5</p>
-                        <input type="submit" value="ajouter au voyage">
-                    </div>
-                </div>
-                <div class="category" id="resto">
-                    <div class="place-image-name">
-                        <h5>Place Louise</h5>
-                        <img src="${logoImageNoir}" style="width: 120px;">
-                    </div>
-                    <div class="place-text">
-                        <p>trigger</p>
-                    </div>
-                    <div class="place-note-and-add">
-                        <p>4,7/5</p>
-                        <input type="submit" value="ajouter au voyage">
-                    </div>
-                </div>
-                <div class="category" id="resto">
-                    <div class="place-image-name">
-                        <h5>Place Louise</h5>
-                        <img src="${logoImageNoir}" style="width: 120px;">
-                    </div>
-                    <div class="place-text">
-                        <p>trigger</p>
-                    </div>
-                    <div class="place-note-and-add">
-                        <p>4,7/5</p>
-                        <input type="submit" value="ajouter au voyage">
-                    </div>
-                </div>
-                <div class="category" id="resto">
-                    <div class="place-image-name">
-                        <h5>Place Louise</h5>
-                        <img src="${logoImageNoir}" style="width: 120px;">
-                    </div>
-                    <div class="place-text">
-                        <p>trigger</p>
-                    </div>
-                    <div class="place-note-and-add">
-                        <p>4,7/5</p>
-                        <input type="submit" value="ajouter au voyage">
-                    </div>
-                </div>
-           </div>
-           
+                <button type="button" class="seeMoreButton">Voir plus</button>
+            </div>
+            
        </div>
 
        <div id="trip-page-right-side">
@@ -120,5 +85,7 @@ function displayTripPage () {
     </div>
     `;
 }
+
+
 
 export default ModifyTripPage;

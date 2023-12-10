@@ -9,12 +9,9 @@ const ProfilPage = () => {
     clearPage();
     const profilPage = document.querySelector('main');
     const userData = JSON.parse(localStorage.getItem('user'));
-<<<<<<< HEAD
-=======
     if(!userData){
         window.location.href='/';
     }
->>>>>>> e8c1a08b51f32c33345bf1413ab54806f4a9e562
     console.log(userData);
     const profilPageForm = `
     <div class="containerr">
@@ -25,12 +22,8 @@ const ProfilPage = () => {
                         <div class="card-body">
                             <img src='${image}' class="rounded-circle" width="150">
                             <div class="mt-3">
-<<<<<<< HEAD
-                            <h3> Bienvenue ${userData.profile.name} </h3>
-=======
                             <h3> Bienvenue ${userData.firstname}</h3>
                             <input type="submit" class="logoutProfile" id="logout" value="Log Out" />
->>>>>>> e8c1a08b51f32c33345bf1413ab54806f4a9e562
                             </div>
                         </div>
                     </div>
