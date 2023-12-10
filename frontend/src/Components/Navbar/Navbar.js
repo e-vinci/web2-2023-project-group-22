@@ -23,8 +23,6 @@ const Navbar = () => {
   }else{
     NavbarNonConnected();
   }
-  
-   
 }
 
 function NavbarNonConnected () {
@@ -50,16 +48,9 @@ function NavbarConnected() {
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 120px;"></a>
   </div>
         <li class="hover-navbar"><a href="#" data-uri="/profile" class="nav-item">Profile</a></li>
-        <li class="hover-navbar"><a class="nav-item" id="logout">Log out</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
-  const logout = document.getElementById('logout');
-  logout.addEventListener('click', () => {
-    localStorage.clear();
-    window.location.reload()
-  })
-  
 }
 
 function NavbarAdmin() {
@@ -70,8 +61,8 @@ function NavbarAdmin() {
       <a href="#"><img src="${logoImageNoir}" data-uri="/" style="width: 120px;"></a>
   </div>
     <ul>
-        <li class="hover-navbar"><a href="#" data-uri="/profil" class="nav-item">Profil</a></li>
-        <li class="hover-navbar"><a href="#" data-uri="/dashboard" class="nav-item">Dashboard</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/profile" class="nav-item">Profil</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/admin/dashboard" class="nav-item">Dashboard</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
