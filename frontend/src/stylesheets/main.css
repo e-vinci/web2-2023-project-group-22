@@ -533,19 +533,18 @@ form input {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-	background-color: aqua;
-	overflow: hidden;
+	/* background-color: aqua; */
 }
 
 #modify-trip-page-left-side{
-	background-color: bisque;
+	/* background-color: bisque; */
 	padding: 50px 0;
 	width: 50%;
 	
 }
 
 #modify-trip-page-right-side{
-	background-color: rgb(255, 140, 0);
+	/* background-color: rgb(255, 140, 0); */
 	padding: 50px 0;
 	width: 50%;
 	height: 1200px;
@@ -627,7 +626,7 @@ form input {
 
 .cCarousel-item {
   width: 250px;
-  height: 365px;
+  height: 400px;
   border: 2px solid white;
   border-radius: 15px;
   overflow: hidden;
@@ -669,13 +668,30 @@ form input {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-color: #DDDDDD;
 	border: solid 2px;
+	border-radius: 20px;
 }
 .seeMoreButton{
 	width: 20%;
 	float: right;
 	color: white;
 	background-color: #4CAF50;
+}
+
+#modify-trip-filter{
+	width: 70%;
+}
+
+#modify-trip-filter-submit{
+	width: 5%;
+}
+
+#form-filter-modify-trip{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 
@@ -1020,4 +1036,33 @@ footer {
 	height: 100%;
 	display: none; /* Initially hidden */
 	/* Add other styles as needed */
+  }
+
+
+  /*Test page*/
+
+  #carousel-container {
+	width: 300px;
+	overflow: hidden;
+	margin: 0 auto;
+  }
+
+  #carousel {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-item {
+	width: 300px;
+	flex: 0 0 auto;
+	text-align: center;
+	padding: 20px;
+	border: 1px solid #ccc;
+	margin: 0;
+  }
+
+  #prev, #next {
+	cursor: pointer;
+	font-size: 20px;
+	margin-top: 10px;
   }
