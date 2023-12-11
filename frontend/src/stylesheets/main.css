@@ -521,12 +521,18 @@ form input {
 
 /* Trip Page */
 
-
+#div-trip-page-block{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	background-color: white;
+	overflow: hidden;
+}
 
 
 /*Modify trip page*/
 
-#div-trip-page-block{
+#modify-div-trip-page-block{
 	display: flex;
 	flex-direction: row;
 	width: 100%;
@@ -1018,3 +1024,24 @@ footer {
 	display: none; /* Initially hidden */
 	/* Add other styles as needed */
   }
+
+  .PlanPageHeader__header {
+    max-width: 560px;
+}
+  .PlanPageHeader__header {
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-top:5%;
+    margin-left:5%;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px 16px 26px 24px;
+    position: flex;
+    right: 32px;
+}
+.PlanPageHeader__image {
+    height: 240px;
+}
