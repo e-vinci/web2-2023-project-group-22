@@ -7,14 +7,16 @@ const TripPage = () => {
 
 function displayTripPage () {
     const main = document.querySelector("main");
-    main.innerHTML = `
+    main.innerHTML = // ${country.name.common} ${trip.id}
+    `
     <div id="div-trip-page-block">
 
         <div id="div-page-block-content">
 
             <div id="div-trip-page-block-content-image">
                 <div id="div-trip-page-block-content-text">
-                    <h1>Voyage à Bruxelles</h1>
+                    <h1>Voyage à </h1>
+                    
                     <i class="bi bi-calendar"></i>
                     <p>1/11 - 30/11</p>
                     <button style="none" type="submit">
