@@ -1,5 +1,6 @@
 import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
+import Navbar from '../../Navbar/Navbar';
 // import getGoogleAuthLink from '../../../models/auths';
 
 const AuthPage = () => {
@@ -73,7 +74,10 @@ const AuthPage = () => {
       const email = document.getElementById('signInEmail').value;
       const password = document.getElementById('signInPassword').value;
       await login({email, password});
-      if(localStorage.getItem('user')) Navigate('/');
+      if(localStorage.getItem('user')) {
+        Navbar();
+        Navigate('/');
+      }
     })
     const signUpButton = document.getElementById('signUpButton');
     signUpButton.addEventListener('click', async (event) => {
