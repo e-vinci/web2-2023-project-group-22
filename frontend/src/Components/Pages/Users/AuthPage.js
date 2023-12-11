@@ -1,5 +1,6 @@
 import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
+import Navbar from '../../Navbar/Navbar';
 // import getGoogleAuthLink from '../../../models/auths';
 
 const AuthPage = () => {
@@ -16,15 +17,14 @@ const AuthPage = () => {
           <a class="social googleButton"><i class="bi bi-google"></i></a>
         </div>
         <span>or use your email for registration</span>
-          <input type="text" placeholder="Name" id="signUpLastname"/>
-          <input type="text" placeholder="Firstname" id="signUpFirstname"/>
-          <input type="email" placeholder="Email" id="signUpEmail"/>
+          <input type="text" placeholder="Last name" id="signUpLastname"/>
+          <input type="text" placeholder="First name" id="signUpFirstname"/>
+          <input type="email" placeholder="Email adress" id="signUpEmail"/>
           <input type="password" placeholder="Password" id="signUpPassword"/>
           <input type="password" placeholder="Password confirmation" id="signUpconfirmPassword"/>
           <button id="signUpButton">Sign up</button>
       </form>
     </div>
-
     <div class="form-container sign-in-container">
       <form>
         <h1>Sign in</h1>
@@ -33,8 +33,9 @@ const AuthPage = () => {
           <a class="social googleButton"><i class="bi bi-google"></i></a>
         </div>
         <span>or use your account</span>
-        <input type="email" placeholder="Email" id="signInEmail"/>
+        <input type="email" placeholder="Email adress" id="signInEmail"/>
         <input type="password" placeholder="Password" id="signInPassword"/>
+        <button id="signInButton">Sign in</button>
       </form>
     </div>
     <div class="overlay-container">
@@ -53,7 +54,6 @@ const AuthPage = () => {
     </div>
   </div>
 </div>
-<button id="signInButton">Sign in</button>
     `;
     loginRegisterPage.innerHTML = loginRegisterForm;
 
@@ -74,7 +74,10 @@ const AuthPage = () => {
       const email = document.getElementById('signInEmail').value;
       const password = document.getElementById('signInPassword').value;
       await login({email, password});
-      if(localStorage.getItem('user')) Navigate('/');
+      if(localStorage.getItem('user')) {
+        Navbar();
+        Navigate('/');
+      }
     })
     const signUpButton = document.getElementById('signUpButton');
     signUpButton.addEventListener('click', async (event) => {
