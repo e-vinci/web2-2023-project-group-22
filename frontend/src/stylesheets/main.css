@@ -537,20 +537,18 @@ form input {
 	overflow: hidden;
 }
 
-#trip-page-left-side{
+#modify-trip-page-left-side{
 	background-color: bisque;
 	padding: 50px 0;
 	width: 50%;
-	height: 1500px;
-	overflow: auto;
+	
 }
 
-#trip-page-right-side{
+#modify-trip-page-right-side{
 	background-color: rgb(255, 140, 0);
 	padding: 50px 0;
 	width: 50%;
 	height: 1200px;
-	overflow: auto;
 }
 
 /* .category{
@@ -599,13 +597,6 @@ form input {
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #222;
-}
 
 #cCarousel {
   position: relative;
@@ -673,11 +664,12 @@ body {
 
 .categories {
 	padding: 30px 0;
-	background-color: #242f3f;
+	margin: 15px 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border: solid 2px;
 }
 .seeMoreButton{
 	width: 20%;
