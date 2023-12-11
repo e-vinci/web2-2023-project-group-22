@@ -21,7 +21,7 @@ const routes = {
   '/profile' : ProfilePage,
   '/newpage' : NewPage,
   '/oauth2callback' : GoogleoauthPage,
-  '/admin/dashboard' : DashboardPage,
+  '/dashboard' : DashboardPage
 };
 
 export default routes;

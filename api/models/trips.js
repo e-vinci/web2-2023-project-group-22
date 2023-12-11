@@ -1,6 +1,12 @@
 const client = require('./db_connection');
 const { readOneUserFromUsername } = require('./users');
 
+<<<<<<< HEAD
+async function createTrip(countryCode, startDate, endDate) {
+  const query = {
+    text: 'INSERT INTO projetweb.trips (country_code, start_date, end_date) VALUES ($1, $2, $3)',
+    values: [countryCode, startDate, endDate],
+=======
 // Creates a trip and add a participation for the creator
 async function createTrip(destination, startDate, endDate, user) {
   const result = await fetch(`https://restcountries.com/v3.1/translation/${destination}`)
@@ -12,6 +18,7 @@ async function createTrip(destination, startDate, endDate, user) {
   const createTripQuery = {
     text: 'INSERT INTO projetweb.trips (country_code, start_date, end_date) VALUES ($1, $2, $3) RETURNING id_trip',
     values: [result[0].cca3, startDate, endDate],
+>>>>>>> e8c1a08b51f32c33345bf1413ab54806f4a9e562
   };
   const res = await client.query(createTripQuery);
   addParticipation(user, res.rows[0]);

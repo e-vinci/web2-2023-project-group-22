@@ -68,7 +68,4 @@ function NavbarAdmin() {
   navbarWrapper.innerHTML = navbar;
 }
 
-
-
-
 export default Navbar;

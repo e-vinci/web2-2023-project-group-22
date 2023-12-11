@@ -280,12 +280,12 @@ form {
 	text-align: center;
 }
 
-input {
-	background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
+form input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
 }
 
 .container {
@@ -524,52 +524,168 @@ input {
 
 /* Trip Page */
 
+
+
+
+/*Modify trip page*/
+
 #div-trip-page-block{
 	display: flex;
 	flex-direction: row;
 	width: 100%;
+	background-color: aqua;
+	overflow: hidden;
 }
 
-#div-trip-page-block-map{
-	width: 50%;
-}
-
-#div-page-block-content{
-	width: 50%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	
-}
-
-#div-trip-page-block-content-image{
-	background-image: url("../img/imageVille.jpg");
-	background-repeat: no-repeat;
-	width: 100%;
+#trip-page-left-side{
+	background-color: bisque;
 	padding: 50px 0;
+	width: 50%;
+	height: 1500px;
+	overflow: auto;
 }
 
-#div-trip-page-block-content-info{
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+#trip-page-right-side{
+	background-color: rgb(255, 140, 0);
+	padding: 50px 0;
+	width: 50%;
+	height: 1200px;
+	overflow: auto;
 }
 
-#div-trip-page-block-content-info-filter{
+/* .category{
+	background-color: brown;
+	margin : 1px;
 	display: flex;
 	flex-direction: column;
+	height: 500px;
+	overflow: auto;
+}
+
+.places{
+	padding: 5%;
+}
+
+.place{
+	border: solid 1px;
+	margin-bottom: 20px;
+}
+
+.place-image-name{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.place-text{
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 50%;
+	margin-left: 10%;
+	text-align: justify;
 }
 
-
-
-#tripMap{
+.place-note-and-add{
+	display: flex;
 	width: 100%;
+	justify-content: space-evenly;
+} */
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #222;
+}
+
+#cCarousel {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+
+
+#carousel-vp {
+  width: 770px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+
+#cCarousel #cCarousel-inner {
+  display: flex;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+  gap: 10px;
+  left: 0px;
+}
+
+.cCarousel-item {
+  width: 250px;
+  height: 365px;
+  border: 2px solid white;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cCarousel-item img {
+  width: 100%;
+  object-fit: cover;
+  min-height: 246px;
+  color: white;
+}
+
+.cCarousel-item .infos {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: white;
+  color: black;
+}
+
+.cCarousel-item .infos button {
+  background: #222;
+  padding: 10px 30px;
+  border-radius: 15px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.categories {
+	padding: 30px 0;
+	background-color: #242f3f;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.seeMoreButton{
+	width: 20%;
+	float: right;
+	color: white;
+	background-color: #4CAF50;
+}
+
 
 
 /* Loading page */
@@ -617,6 +733,122 @@ input {
 	100% { height: 0%;}
   }
 
+
+/* footer */
+
+footer {
+	background-color: rgba(9,29,40,255);
+	color: #fff;
+	padding: 2px;
+	text-align: center;
+	margin-top: auto;
+  }
+
+  footer a {
+	color: #fff;
+	text-decoration: none;
+  }
+
+  footer a:hover {
+	text-decoration: underline;
+  }
+
+  .subscribe-btn {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+  }
+
+  .subscribe-btn-modal {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	width: 15%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+
+  .modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	justify-content: center;
+	align-items: center;
+  }
+
+  .modal-content {
+	background-color: rgb(2, 109, 91);
+	padding: 20px;
+	width: 60%;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25px;
+  }
+
+  .modal .flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  }
+
+  .overlay-modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(3px);
+	z-index: 1;
+  }
+
+  #email {
+	width: 70%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	font-size: 16px;
+  }
+
+  #close-btn {
+	position: absolute;
+	top: 12px; /* Adjust as needed */
+	right: 12px; /* Adjust as needed */
+	border: 1px solid rgba(9,29,40,255);
+	background-color: rgba(9,29,40,255);
+	color: #fff;
+	padding: 5px 10px;
+	border: none;
+	cursor: pointer;
+  }
+
+  #subscribeModal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none; /* Initially hidden */
+	/* Add other styles as needed */
+  }
   .containertest {
 	background-color: #333;
 	padding: 1rem;
