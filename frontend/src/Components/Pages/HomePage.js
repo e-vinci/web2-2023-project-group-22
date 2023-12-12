@@ -7,7 +7,7 @@ const HomePage = () => {
   clearPage();
   presentationFirstBloc();
   HomePageSecondBlock();
-  HomePageLastBlock();
+  TreeDivHomePage();
 };
 
 function displayTripButtons(){
@@ -58,49 +58,40 @@ function HomePageSecondBlock(){
   const secondBlockVideo = document.createElement('div');
   secondBlockVideo.id = "secondBlockVideo";
   const video = document.createElement('video');
+  video.id = "videoHomePage";
   video.src = videoPresentation;
   video.autoplay = false;
   video.controls = true;
   video.muted = false;
   video.height = 400;
   video.width = 650; 
-
-  const secondBlockText = document.createElement('div');
-  secondBlockText.id = "secondBlockText";
-  const secondBlockText1 = document.createElement('div');
-  secondBlockText1.className = "secondBlockText";
-  const secondBlockText1H3 = document.createElement('h3');
-  secondBlockText1H3.textContent = "BLABLABLA";
-  const secondBlockText1P = document.createElement('p');
-  secondBlockText1P.textContent = "rifnvivnivnicnrivnrifnvivnivnicnr";
-
-  const secondBlockText2 = document.createElement('div');
-  secondBlockText2.className = "secondBlockText";
-  const secondBlockText2H3 = document.createElement('h3');
-  secondBlockText2H3.textContent = "BLABLABLA";
-  const secondBlockText2P = document.createElement('p');
-  secondBlockText2P.textContent = "rifnvivnivnicnrivnrifnvivnivnicnr";
-
-  secondBlockText1.appendChild(secondBlockText1H3);
-  secondBlockText1.appendChild(secondBlockText1P);
-  secondBlockText2.appendChild(secondBlockText2H3);
-  secondBlockText2.appendChild(secondBlockText2P);
-  secondBlockText.appendChild(secondBlockText1);
-  secondBlockText.appendChild(secondBlockText2);
   secondBlockVideo.appendChild(video);
   secondBlock.appendChild(secondBlockVideo);
-  secondBlock.appendChild(secondBlockText);
   main.appendChild(secondBlock);
 }
 
-function HomePageLastBlock(){
-  const main = document.querySelector('main');
-  const lastBlock = document.createElement('div');
-  lastBlock.id = "lastBlock";
-  const text = 'frgrgrgrg';
-  lastBlock.innerHTML = text;
-  main.appendChild(lastBlock);
-}
 
+function TreeDivHomePage(){
+  const main = document.querySelector('main');
+  const createDivFirstBlock = 
+  `<div id="ContainerDivHomePage">
+      <div id="firstDivHomePage">
+        <h3>The best trip planner</h3>
+        <p>Use Where2Go as a route map showing directions, distances, and driving times between different attractions you might want to visit.</p>
+      </div>
+      <div id="secondDivHomePage">
+        <h3>The best vacation planner</h3>
+        <p>Use Where2Go to map your journey to figure out the best routes, and read guides from other trip planning websites.</p>
+      </div>
+      <div id="thirdDivHomePage">
+        <h3>The best group itinerary planner</h3>
+        <p>Use Where2Go to share your itinerary with tripmates, friends, and families and collaborate in real time.</p>
+      </div>
+    </div>
+  `;
+
+  main.innerHTML += createDivFirstBlock;
+ 
+}
 
 export default HomePage;
