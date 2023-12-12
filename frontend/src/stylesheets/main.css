@@ -6,6 +6,7 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: linear-gradient(180deg, rgba(2,0,36,1) 6%, rgba(25,84,116,1) 30%, rgba(9,29,40,1) 95%);
 }
 
 nav{
@@ -16,7 +17,6 @@ nav{
 
   top: 0px;
   z-index: 1000;
-  background-color: rgba(9,29,40,255);
   width: 100%;
 }
 /*To transform the navbar into a sticky navbar*/
@@ -109,7 +109,6 @@ a {
 	justify-content: space-evenly;
 	align-items: center;
 	width: 100%;
-	background-color: rgb(13, 62, 72);
 }
 
 #presentationText{
@@ -119,7 +118,7 @@ a {
 	align-items: center;
 	width: 50%;
 	color: white;
-	
+
 }
 
 #tripButtons{
@@ -205,7 +204,6 @@ main {
 }
 
 #login-form {
-	background: #ffffff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -289,7 +287,6 @@ form input {
 }
 
 .container {
-	background-color: #fff;
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
@@ -524,12 +521,18 @@ form input {
 
 /* Trip Page */
 
-
+#div-trip-page-block{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	background-color: white;
+	overflow: hidden;
+}
 
 
 /*Modify trip page*/
 
-#div-trip-page-block{
+#modify-div-trip-page-block{
 	display: flex;
 	flex-direction: row;
 	width: 100%;
@@ -1066,3 +1069,26 @@ footer {
 	font-size: 20px;
 	margin-top: 10px;
   }
+
+
+/**/
+  .PlanPageHeader__header {
+    max-width: 560px;
+}
+  .PlanPageHeader__header {
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-top:5%;
+    margin-left:5%;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px 16px 26px 24px;
+    position: flex;
+    right: 32px;
+}
+.PlanPageHeader__image {
+    height: 240px;
+}
