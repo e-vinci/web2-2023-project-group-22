@@ -1093,23 +1093,40 @@ footer {
 	/* Add other styles as needed */
   }
 
+ 
   .PlanPageHeader__header {
-    max-width: 560px;
-}
-  .PlanPageHeader__header {
+	max-width: 560px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,.2);
     left: 32px;
-	margin-top:5%;
-    margin-left:5%;
+   	margin-bottom:25rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px 16px 26px 24px;
-    position: flex;
+    padding: 16px  24px;
+    position:absolute ;
     right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
 }
 .PlanPageHeader__image {
     height: 240px;
+}
+.PlanPageHeader__display{
+
+    display: flex;
+    flex-direction: row!important;
+    justify-content:space-evenly;
+
+
+}
+.PlanPageHeader__date{
+    margin-top: 8%;
+
+}
+.PlanPageHeader__button{
+    margin-top: 10%;
+    margin-left: 40%;
 }
