@@ -2,6 +2,7 @@
 import { clearPage } from '../../../utils/render';
 import image from '../../../img/usertest.png';
 import Navigate from '../../Router/Navigate';
+import Navbar from '../../Navbar/Navbar';
 
 
 
@@ -109,6 +110,7 @@ function logout() {
     const logoutt = document.querySelector('input');
     logoutt.addEventListener('click',() => {
         localStorage.removeItem('user');
+        Navbar();
         Navigate('/');
     })
 

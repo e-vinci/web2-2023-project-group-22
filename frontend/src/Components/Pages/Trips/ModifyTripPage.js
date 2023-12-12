@@ -24,7 +24,54 @@ function displayTripPage () {
     const main = document.querySelector("main");
     main.innerHTML = `
     <div id="div-trip-page-block">
-       <div id="trip-page-left-side">
+       <div id="modify-trip-page-left-side">
+       <div id="form-filter-modify-trip">
+            <input id="modify-trip-filter" type="text" placeholder="Filtrer par catégorie" />
+            <input id="modify-trip-filter-submit" type="submit" value="Filtrer" />
+       </div>
+       <div class="categories" id="resto">
+                <h1>Restaurant  à ...</h1>
+                <div id="cCarousel">
+                
+                    <div id="carousel-vp">
+                        <div id="cCarousel-inner">
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
+                
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="seeMoreButton">Voir plus</button>
+            </div>
+
             <div class="categories" id="resto">
                 <h1>Restaurant  à ...</h1>
                 <div id="cCarousel">
@@ -36,6 +83,8 @@ function displayTripPage () {
                                 <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
                                 <div class="infos">
                                     <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
                                     <button type="button">Ajouter au voyage</button>
                                 </div>
                             </article>
@@ -43,7 +92,9 @@ function displayTripPage () {
                             <article class="cCarousel-item">
                                 <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
                                 <div class="infos">
-                                    <h3>Manathan</h3>
+                                    <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
                                     <button type="button">Ajouter au voyage</button>
                                 </div>
                             </article>
@@ -51,7 +102,32 @@ function displayTripPage () {
                             <article class="cCarousel-item">
                                 <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
                                 <div class="infos">
-                                    <h3>Mcdo</h3>
+                                    <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
+                                    <button type="button">Ajouter au voyage</button>
+                                </div>
+                            </article>
+                
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="seeMoreButton">Voir plus</button>
+            </div>
+
+            <div class="categories" id="resto">
+                <h1>Restaurant  à ...</h1>
+                <div id="cCarousel">
+                
+                    <div id="carousel-vp">
+                        <div id="cCarousel-inner">
+                    
+                            <article class="cCarousel-item">
+                                <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
+                                <div class="infos">
+                                    <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
                                     <button type="button">Ajouter au voyage</button>
                                 </div>
                             </article>
@@ -59,7 +135,9 @@ function displayTripPage () {
                             <article class="cCarousel-item">
                                 <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
                                 <div class="infos">
-                                    <h3>Title 4 / 6</h3>
+                                    <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
                                     <button type="button">Ajouter au voyage</button>
                                 </div>
                             </article>
@@ -67,10 +145,13 @@ function displayTripPage () {
                             <article class="cCarousel-item">
                                 <img src="https://images.unsplash.com/photo-1564292284209-60cce69f08ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ0MTA1MTJ8&ixlib=rb-4.0.3&q=80&w=400" alt="Moon">
                                 <div class="infos">
-                                    <h3>Title 5 / 6</h3>
+                                    <h3>La ruche</h3>
+                                    <h6>test</h6>
+                                    <h6>4,7/5 <i class="bi bi-star-fill"></i></h6>
                                     <button type="button">Ajouter au voyage</button>
                                 </div>
                             </article>
+                
                         </div>
                     </div>
                 </div>
@@ -79,8 +160,14 @@ function displayTripPage () {
             
        </div>
 
-       <div id="trip-page-right-side">
-            <h1>vvvvvvvvvvvvvvvvvvvvvvvvvv</h1>
+       <div id="modify-trip-page-right-side">
+            <div id="info-trip">
+                <h1>Belgique</h1>
+                <h3>04-12 -> 08/12</h3>
+                <input
+            </div>
+            
+
        </div>
     </div>
     `;
