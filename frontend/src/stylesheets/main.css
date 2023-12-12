@@ -144,9 +144,15 @@ a {
 #secondBlock{
 	display: flex;
 	flex-direction: column;
-	/* background-color: aqua; */
+	justify-content: center;;
 	align-items:center;
-	width: 85%;
+	width: 55%;
+	border-radius: 25px;
+	align-items: center;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
 }
 
 #secondBlockText{
@@ -171,6 +177,68 @@ a {
 	/* color: brown; */
 	font-weight: 20px;
 	text-wrap: wrap;
+}
+
+#videoHomePage {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25px;
+	padding: 20px 0;
+}
+
+#ContainerDivHomePage{
+	margin-top: 4%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+	justify-content: space-evenly;
+
+}
+
+#firstDivHomePage{
+	width: 25%;
+	display: flex;
+	color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 25px;
+	padding: 4%;
+	height: 300px;
+}
+
+#secondDivHomePage{
+	width: 25%;
+	display: flex;
+	color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+	padding: 4%;
+	height: 300px;
+}
+
+#thirdDivHomePage{
+	width: 25%;
+	display: flex;
+	color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+	padding: 4%;
+	height: 300px;
 }
 
 /* code for the last home page block */
