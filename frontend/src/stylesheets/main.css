@@ -1038,10 +1038,30 @@ footer {
     margin-left:5%;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px 16px 26px 24px;
-    position: flex;
+    padding: 16px  24px;
+    position: absolute;
     right: 32px;
+	display:flex;
+	flex-direction: column!important;
+	justify-content:space-between!important;
 }
 .PlanPageHeader__image {
     height: 240px;
 }
+.PlanPageHeader__display{
+	
+	display: flex;
+	flex-direction: row!important;
+	justify-content:space-evenly;
+
+	
+}
+.PlanPageHeader__date{
+	margin-top: 8%;
+
+}
+.PlanPageHeader__button{
+	margin-top: 10%;
+	margin-left: 40%;
+}
+

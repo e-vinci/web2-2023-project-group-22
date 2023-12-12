@@ -17,17 +17,25 @@ function displayTripPage () {
                 <div id="div-trip-page-block-content-text">
                  <img alt="" class="PlanPageHeader__image w-100 object-fit-cover" src="${logoImageNoir}">
 
-                    <div class="PlanPageHeader__header >
-                        <i class="bi bi-calendar">
-                        <h1>Voyage à </h1>
+                    <div class="PlanPageHeader__header" >
+                        
+                        <h1>Voyage à Brussels </h1>
+                        <div class ="PlanPageHeader__display">
+                        <div class ="PlanPageHeader__date">
                         <p> <i class="bi bi-calendar"></i> 1/11 - 30/11</p>
-                        </i>
-                        <button style="none" type="submit">
-                        <i class="bi bi-send"></i>
-                        </button>
-                        <button style="none" type="submit">
-                        <i class="bi bi-share"></i>
-                        </button>
+                        </div>
+                        <div class ="PlanPageHeader__button">
+                            <button style="none" type="submit">
+                            <i class="bi bi-share-fill"></i>
+                            </button>
+                            <button style="none" type="submit">
+                            <i class="bi bi-person-plus-fill"></i>
+                            </button>
+                            </div>
+                        
+                       
+                        </div>
+                        
                     </div>
                 </div>
             <div id="cCarousel">
