@@ -62,7 +62,7 @@ function NavbarAdmin() {
   </div>
     <ul>
         <li class="hover-navbar"><a href="#" data-uri="/profile" class="nav-item">Profil</a></li>
-        <li class="hover-navbar"><a href="#" data-uri="/admin/dashboard" class="nav-item">Dashboard</a></li>
+        <li class="hover-navbar"><a href="#" data-uri="/dashboard" class="nav-item">Dashboard</a></li>
     </ul>
 `;
   navbarWrapper.innerHTML = navbar;
