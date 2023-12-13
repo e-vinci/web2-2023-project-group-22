@@ -4,7 +4,7 @@ import { clearPage } from '../../utils/render';
 // import image1 from '../../img/usertest.png';
 // import Navigate from '../Router/Navigate';
 
-const Testpage = () => {
+const Testpage = async () => {
     clearPage();
     const head = document.querySelector('head');
     head.innerHTML += `
@@ -12,67 +12,45 @@ const Testpage = () => {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     `;
     const main = document.querySelector('main');
+
     main.innerHTML += `
     <div id="customCarousel">
   <div class="carousel-inner">
     <div class="carousel-item">
-      <div class="card">
-        <img src="https://via.placeholder.com/250x200" alt="Card Image">
-        <div class="card-content">
-          <h3>Title 1</h3>
-          <p>Description 1</p>
-          <button>Add to Trip</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://via.placeholder.com/250x200" alt="Card Image">
-        <div class="card-content">
-          <h3>Title 2</h3>
-          <p>Description 2</p>
-          <button>Add to Trip</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://via.placeholder.com/250x200" alt="Card Image">
-        <div class="card-content">
-          <h3>Title 3</h3>
-          <p>Description 3</p>
-          <button>Add to Trip</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://via.placeholder.com/250x200" alt="Card Image">
-        <div class="card-content">
-          <h3>Title 4</h3>
-          <p>Description 4</p>
-          <button>Add to Trip</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://via.placeholder.com/250x200" alt="Card Image">
-        <div class="card-content">
-          <h3>Title 5</h3>
-          <p>Description 5</p>
-          <button>Add to Trip</button>
-        </div>
-      </div>
     </div>
   </div>
 
-  <button class="carousel-control carousel-prev" onclick="prevSlide()">&#8249;</button>
-  <button class="carousel-control carousel-next" onclick="nextSlide()">&#8250;</button>
+  <button class="carousel-control carousel-prev">&#8249;</button>
+  <button class="carousel-control carousel-next">&#8250;</button>
 </div>
     `;
-    slide();
+    const caroussel = document.querySelector('.carousel-item');
+    await fetch('https://restcountries.com/v3.1/all')
+    .then((response) => {
+      if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+      return response.json();
+    })
+    .then((countries) => {
+      countries.forEach((country) => {
+        const card = document.createElement('div');
+        card.className = "card";
+        const img = document.createElement('img');
+        img.src = country.flags.png;
+        card.appendChild(img);
+        const content = document.createElement('card-content');
+        content.className = "card-content";
+        content.innerText = country.name.common;
+        card.appendChild(content);
+        caroussel.appendChild(card);
+      });
+      slide();
+    });
 }
 
 function slide(){
   let currentIndex = 0;
   const totalItems = document.querySelectorAll('.carousel-item').length;
+  console.log(totalItems);
 
   function showSlide(index) {
     const carouselInner = document.querySelector('.carousel-inner');
@@ -92,9 +70,16 @@ function slide(){
     showSlide(currentIndex - 1);
   }
 
-  
-  document.querySelector('.carousel-prev').addEventListener('click', () => prevSlide());
-  document.querySelector('.carousel-next').addEventListener('click', () => nextSlide());
+  const prev = document.querySelector('.carousel-prev');
+  prev.addEventListener('click', (e) => {
+    e.preventDefault();
+    prevSlide();
+  });
+  const next = document.querySelector('.carousel-next');
+  next.addEventListener('click', (e) => {
+    e.preventDefault();
+    nextSlide();
+  });
 
 
 }
