@@ -73,7 +73,8 @@ function HomePageSecondBlock(){
 
 function TreeDivHomePage(){
   const main = document.querySelector('main');
-  const createDivFirstBlock = 
+  const div = document.createElement('div');
+  div.innerHTML =
   `<div id="ContainerDivHomePage">
       <div id="firstDivHomePage">
         <h3>The best trip planner</h3>
@@ -90,7 +91,7 @@ function TreeDivHomePage(){
     </div>
   `;
 
-  main.innerHTML += createDivFirstBlock;
+  main.appendChild(div);
  
 }
 

@@ -1,37 +1,21 @@
-import { clearPage } from "../../../utils/render";
-// import Navigate from "../../Router/Navigate";
-import image from '../../../img/imageVille.jpg'
+import { clearPage } from '../../utils/render';
+// import logoImageNoir from '../../img/logo.png';
+import image from '../../img/imageVille.jpg';
+// import image1 from '../../img/usertest.png';
+// import Navigate from '../Router/Navigate';
 
-const ModifyTripPage = () => {
+const Testpage = () => {
     clearPage();
-    displayTripPage();
-    // displayPage();
-}
-
-// function displayPage(){
-//     if(!localStorage.getItem('trip')) Navigate('/newtrip');
-//     const trip = JSON.parse(localStorage.getItem('trip'));
-//     localStorage.removeItem('trip');
-//     const content = `
-//         <p>Destination: ${trip.destination}</p>
-//         <p>From: ${trip.startDate}<p>
-//         <p>To: ${trip.endDate}</p>
-//     `;
-//     document.querySelector('main').innerHTML = content;
-// }
-
-function displayTripPage () {
-    const main = document.querySelector("main");
-    main.innerHTML = `
-    <div id="div-trip-page-block">
-       <div id="modify-trip-page-left-side">
-            <div id="form-filter-modify-trip">
-                <input id="modify-trip-filter" type="text" placeholder="Filtrer par catégorie" />
-                <input id="modify-trip-filter-submit" type="submit" value="Filtrer" />
-            </div>
-            <div class="categories" id="resto">
-                    <h1>Restaurant  à ...</h1>
-                    <div id="carouselExampleIndicators" class="carousel slide">
+    const head = document.querySelector('head');
+    head.innerHTML += `
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+`;
+    const main = document.querySelector('main');
+    main.innerHTML += `
+    
+    <div id="carouselExampleIndicators" class="carousel slide">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
@@ -132,35 +116,12 @@ function displayTripPage () {
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-                    <button type="button" class="seeMoreButton">Voir plus</button>
-            </div> 
-            <div class="categories" id="resto">
-                    <h1>Restaurant  à ...</h1>
-                    
-                    <button type="button" class="seeMoreButton">Voir plus</button>
-            </div>
-
-            <div class="categories" id="resto">
-                    <h1>Restaurant  à ...</h1>
-                    
-                    <button type="button" class="seeMoreButton">Voir plus</button>
-            </div>
-            
-        </div>
-
-       <div id="modify-trip-page-right-side">
-            <div id="info-trip">
-                <h1>Belgique</h1>
-                <h3>04-12 -> 08/12</h3>
-                <input
-            </div>
-            
-
-       </div>
-    </div>
     `;
 }
 
 
 
-export default ModifyTripPage;
+
+
+
+export default Testpage;

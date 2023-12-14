@@ -589,28 +589,33 @@ form input {
 
 /* Trip Page */
 
-
-
-
-/*Modify trip page*/
-
 #div-trip-page-block{
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-	background-color: aqua;
+	background-color: white;
 	overflow: hidden;
 }
 
+
+/*Modify trip page*/
+
+#modify-div-trip-page-block{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	/* background-color: aqua; */
+}
+
 #modify-trip-page-left-side{
-	background-color: bisque;
+	/* background-color: bisque; */
 	padding: 50px 0;
 	width: 50%;
 	
 }
 
 #modify-trip-page-right-side{
-	background-color: rgb(255, 140, 0);
+	/* background-color: rgb(255, 140, 0); */
 	padding: 50px 0;
 	width: 50%;
 	height: 1200px;
@@ -654,78 +659,6 @@ form input {
 	justify-content: space-evenly;
 } */
 
-*,
-::before,
-::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-#cCarousel {
-  position: relative;
-  max-width: 900px;
-  margin: auto;
-}
-
-
-
-#carousel-vp {
-  width: 770px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  margin: auto;
-}
-
-
-#cCarousel #cCarousel-inner {
-  display: flex;
-  position: absolute;
-  transition: 0.3s ease-in-out;
-  gap: 10px;
-  left: 0px;
-}
-
-.cCarousel-item {
-  width: 250px;
-  height: 365px;
-  border: 2px solid white;
-  border-radius: 15px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.cCarousel-item img {
-  width: 100%;
-  object-fit: cover;
-  min-height: 246px;
-  color: white;
-}
-
-.cCarousel-item .infos {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  background: white;
-  color: black;
-}
-
-.cCarousel-item .infos button {
-  background: #222;
-  padding: 10px 30px;
-  border-radius: 15px;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-}
 
 .categories {
 	padding: 30px 0;
@@ -734,13 +667,30 @@ form input {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-color: #DDDDDD;
 	border: solid 2px;
+	border-radius: 20px;
 }
 .seeMoreButton{
 	width: 20%;
 	float: right;
 	color: white;
 	background-color: #4CAF50;
+}
+
+#modify-trip-filter{
+	width: 70%;
+}
+
+#modify-trip-filter-submit{
+	width: 5%;
+}
+
+#form-filter-modify-trip{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 
@@ -1086,3 +1036,42 @@ footer {
 	display: none; /* Initially hidden */
 	/* Add other styles as needed */
   }
+
+
+  /*Test page*/
+
+  
+
+
+.cards-wrapper{
+	display: flex;
+}
+
+.card{
+	margin: 0.5em 0.5em;
+}
+
+
+
+ 
+/**/
+  .PlanPageHeader__header {
+    max-width: 560px;
+}
+  .PlanPageHeader__header {
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-top:5%;
+    margin-left:5%;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px 16px 26px 24px;
+    position: flex;
+    right: 32px;
+}
+.PlanPageHeader__image {
+    height: 240px;
+}
