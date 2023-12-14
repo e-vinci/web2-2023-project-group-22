@@ -53,7 +53,7 @@ const NewTripPage = () => {
     Navigate('/auth')
   });
   
-  const submit = document.getElementById("createDest");
+  const submit = document.getElementById('createDest');
   submit.addEventListener('click', async (event) => {
     event.preventDefault();
     if(!localStorage.getItem('user')) showLoginModal();
