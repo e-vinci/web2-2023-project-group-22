@@ -286,6 +286,7 @@ form input {
     width: 100%;
 }
 
+
 .container {
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
@@ -450,8 +451,8 @@ form input {
 @import url("https://bootsrap-4.5.3-dist/css/bootsrap.min.css");
 
 .sidebar{
-	background-color: #333;
-	color: white;
+	background-color: white;
+	
 	height: 100%;
 }
 .sidebar a{
@@ -463,6 +464,18 @@ form input {
 	text-decoration: none;
 	display: flex;
 	
+}
+.messageProfil p{
+	color: black;
+}
+.logoutProfile{
+	width: 80%;
+	margin-top: 90%;
+	color: white;
+	background-color: #133e56;
+	border-width: 0px;
+	
+	border-radius: 10px;
 }
 .card{
 	position: relative;
@@ -855,20 +868,6 @@ footer {
 	opacity: .5;
   }
 
-  .logoutProfile {
-	
-	background: #0066A2;
-	color: white;
-	margin-top: 90%;
-	font: bold15px arial,sans-serif;
-	text-shadow: none;
-	}
-
-.logoutProfile:hover{
-	border-radius: 10px;
-	border-color: black;
-}
-
 
   .containertest {
 	background-color: #333;
@@ -886,22 +885,6 @@ footer {
   .draggable.dragging {
 	opacity: .5;
   }
-
-  .logoutProfile {
-	
-	background: #0066A2;
-	color: white;
-	margin-top: 90%;
-	font: bold15px arial,sans-serif;
-	text-shadow: none;
-	}
-
-.logoutProfile:hover{
-	border-radius: 10px;
-	border-color: black;
-}
-
-
 
 /* footer */
 
