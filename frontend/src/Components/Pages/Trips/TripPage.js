@@ -8,6 +8,8 @@ const TripPage = () => {
 
 function displayTripPage () {
     const main = document.querySelector("main");
+    const tripData = JSON.parse(localStorage.getItem('countryData'));
+    localStorage.removeItem('countryData');
     main.innerHTML = // ${country.name.common} ${trip.id}
     
      `
@@ -15,14 +17,13 @@ function displayTripPage () {
         <div id="trip-page-left-side">
             <div id="div-trip-page-block-content-image">
                 <div id="div-trip-page-block-content-text">
-                 <img alt="" class="PlanPageHeader__image w-100 object-fit-cover" src="${logoImageNoir}">
-
+                     <img alt="" class="PlanPageHeader__image w-100 object-fit-cover" src="${logoImageNoir}">
                     <div class="PlanPageHeader__header" >
 
-                        <h1>Voyage à Brussels </h1>
+                        <h1>Trip to ${tripData.destination}</h1>
                         <div class ="PlanPageHeader__display">
                         <div class ="PlanPageHeader__date">
-                        <p> <i class="bi bi-calendar"></i> 1/11 - 30/11</p>
+                        <p> <i class="bi bi-calendar"></i> ${tripData.startDate} to ${tripData.endDate}</p>
                         </div>
                         <div class ="PlanPageHeader__button">
                             <button style="none" type="submit">
@@ -38,13 +39,7 @@ function displayTripPage () {
             <div id="c">
                   <div id="carousel-vp">
                       <div id="cCarousel-inner">
-                  
-                          
-                  
-                          
-                  
-                          
-              
+ 
                       </div>
                   </div>
               </div>
@@ -125,5 +120,6 @@ function displayTripPage () {
     // </div>
     // `;
 }
+
 
 export default TripPage;
