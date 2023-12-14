@@ -3,6 +3,7 @@ import { clearPage } from "../../../utils/render";
 import image from '../../../img/imageVille.jpg'
 
 const ModifyTripPage = () => {
+   
     clearPage();
     displayTripPage();
     // displayPage();
@@ -22,6 +23,8 @@ const ModifyTripPage = () => {
 
 function displayTripPage () {
     const main = document.querySelector("main");
+    // const tripData = JSON.parse(localStorage.getItem('countryData'));
+   //  localStorage.removeItem('countryData');
     main.innerHTML = `
     <div id="div-trip-page-block">
        <div id="modify-trip-page-left-side">
@@ -150,8 +153,7 @@ function displayTripPage () {
 
        <div id="modify-trip-page-right-side">
             <div id="info-trip">
-                <h1>Belgique</h1>
-                <h3>04-12 -> 08/12</h3>
+                <h1> Ajoute en bas  </h1>
                 <input
             </div>
             
@@ -159,6 +161,8 @@ function displayTripPage () {
        </div>
     </div>
     `;
+    // <h1>Trip to ${tripData.destination}</h1>
+    // <h3> ${tripData.startDate} to ${tripData.endDate}</h3>
 }
 
 

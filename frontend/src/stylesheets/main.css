@@ -596,6 +596,18 @@ form input {
 	background-color: white;
 	overflow: hidden;
 }
+#trip-page-left-side{
+	/* background-color: bisque; */
+	width: 50%;
+	
+}
+
+#trip-page-right-side{
+	 background-color: rgb(161, 157, 151); 
+	padding: 50px 0;
+	width: 50%;
+	height: 1200px;
+}
 
 
 /*Modify trip page*/
@@ -615,7 +627,7 @@ form input {
 }
 
 #modify-trip-page-right-side{
-	/* background-color: rgb(255, 140, 0); */
+	 background-color: rgb(161, 157, 151); 
 	padding: 50px 0;
 	width: 50%;
 	height: 1200px;
@@ -1057,16 +1069,16 @@ footer {
  
 /**/
   .PlanPageHeader__header {
-	max-width: 560px;
+	max-width: 460px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,.2);
     left: 32px;
-   	margin-bottom:25rem;
+   	margin-bottom:23rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px  24px;
+    padding: 16px  16px;
     position:absolute ;
     right: 32px;
     display:flex;

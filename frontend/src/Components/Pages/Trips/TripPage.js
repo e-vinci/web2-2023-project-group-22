@@ -6,43 +6,36 @@ const TripPage = () => {
     displayTripPage();
 }
 
-function displayTripPage () {
+function displayTripPage() {
     const main = document.querySelector("main");
-    const tripData = JSON.parse(localStorage.getItem('countryData'));
-    localStorage.removeItem('countryData');
+    // const tripData = JSON.parse(localStorage.getItem('countryData'));
+    //  localStorage.removeItem('countryData');
     main.innerHTML = // ${country.name.common} ${trip.id}
-    
-     `
+
+        `
      <div id="div-trip-page-block">
         <div id="trip-page-left-side">
             <div id="div-trip-page-block-content-image">
                 <div id="div-trip-page-block-content-text">
-                     <img alt="" class="PlanPageHeader__image w-100 object-fit-cover" src="${logoImageNoir}">
+                    <img alt="" class="PlanPageHeader__image w-100 object-fit-cover" src="${logoImageNoir}">
                     <div class="PlanPageHeader__header" >
 
-                        <h1>Trip to ${tripData.destination}</h1>
+                        <h1>Trip to </h1>
                         <div class ="PlanPageHeader__display">
-                        <div class ="PlanPageHeader__date">
-                        <p> <i class="bi bi-calendar"></i> ${tripData.startDate} to ${tripData.endDate}</p>
+                            <div class ="PlanPageHeader__date">
+                            <p> <i class="bi bi-calendar"></i> to </p>
+                            </div>
+                            <div class ="PlanPageHeader__button">
+                                <button style="none" type="submit">
+                                <i class="bi bi-share-fill"></i>
+                                </button>
+                                <button style="none" type="submit">
+                                <i class="bi bi-person-plus-fill"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class ="PlanPageHeader__button">
-                            <button style="none" type="submit">
-                            <i class="bi bi-share-fill"></i>
-                            </button>
-                            <button style="none" type="submit">
-                            <i class="bi bi-person-plus-fill"></i>
-                            </button>
-                            </div>
-                            </div>
+                    </div>
                 </div>
-                </div>
-            <div id="c">
-                  <div id="carousel-vp">
-                      <div id="cCarousel-inner">
- 
-                      </div>
-                  </div>
-              </div>
           </div>    
      </div>
 
@@ -79,7 +72,7 @@ function displayTripPage () {
     //         <div id="div-trip-page-block-content-image">
     //             <div id="div-trip-page-block-content-text">
     //                 <h1>Voyage à </h1>
-                    
+
     //                 <i class="bi bi-calendar"></i>
     //                 <p>1/11 - 30/11</p>
     //                 <button style="none" type="submit">
