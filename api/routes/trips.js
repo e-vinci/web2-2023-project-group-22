@@ -41,4 +41,12 @@ router.get('/user/:userEmail', async (req, res) => {
   return res.json(trip);
 });
 
+// Returns possibles places for trip
+router.get('/places/all', async (req, res) => {
+  const places = await Trip.getPlaces();
+
+  if (!places) res.sendStatus(404);
+  return res.json(places);
+});
+
 module.exports = router;

@@ -5,7 +5,7 @@ CREATE TABLE projetweb.trips(
     id_trip SERIAL PRIMARY KEY  ,
     start_date DATE NOT NULL ,
     end_date DATE NOT NULL ,
-    country_code VARCHAR(3) REFERENCES projetweb.countries(country_code),
+    country_code VARCHAR(3) NOT NULL,
     privacy BOOLEAN NOT NULL DEFAULT (TRUE)
 );
 

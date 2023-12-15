@@ -28,7 +28,7 @@ router.get('/trip/:id', async (req, res) => {
 });
 
 /* GET site comments listing. */
-router.get('/site/all', async (req, res) => {
+router.get('/site', async (req, res) => {
   const siteComments = await readAllSiteComments();
 
   if (!siteComments || Object.keys(siteComments).length === 0) res.sendStatus(404);

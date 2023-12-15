@@ -1,5 +1,8 @@
 const client = require('./db_connection');
-const { readOneUserFromUsername } = require('./users');
+const { readOneUserFromEmail } = require('./users');
+const Utils = require('../utils/json');
+
+const jsonDbPath = `${__dirname}/../data/places.json`;
 
 // Creates a trip and add a participation for the creator
 async function createTrip(destination, startDate, endDate, user) {
@@ -46,7 +49,7 @@ async function getTrip(id) {
 
 // Returns the trips for given email
 async function getUserTrips(email) {
-  const user = await readOneUserFromUsername(email);
+  const user = await readOneUserFromEmail(email);
   if (!user) return undefined;
 
   const getTripQuery = {
@@ -68,10 +71,17 @@ async function getParticipation(id) {
   return res;
 }
 
+// Returns places
+async function getPlaces() {
+  const places = Utils.parse(jsonDbPath, []);
+  return places;
+}
+
 module.exports = {
   createTrip,
   getTrip,
   addParticipation,
   getParticipation,
   getUserTrips,
+  getPlaces,
 };

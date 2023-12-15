@@ -8,3 +8,6 @@ GET {{baseUrl}}/45
 
 ### Read trips identified for user
 GET {{baseUrl}}/user/user@where2go.com
+
+### Read all possible places
+GET {{baseUrl}}/places/all
