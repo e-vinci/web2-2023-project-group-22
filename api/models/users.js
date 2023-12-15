@@ -8,7 +8,7 @@ const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
 const saltRounds = 10;
 
 async function login(email, password) {
-  const userFound = await readOneUserFromUsername(email);
+  const userFound = await readOneUserFromEmail(email);
   if (!userFound) return undefined;
 
   const passwordMatch = await bcrypt.compare(password, userFound.password);
@@ -35,7 +35,7 @@ async function login(email, password) {
 }
 
 async function register(firstname, lastname, email, password, confirmPassword) {
-  const userFound = await readOneUserFromUsername(email);
+  const userFound = await readOneUserFromEmail(email);
   if (userFound) return undefined;
   if (password !== confirmPassword) return false;
 
@@ -57,7 +57,7 @@ async function register(firstname, lastname, email, password, confirmPassword) {
   return authenticatedUser;
 }
 
-async function readOneUserFromUsername(email) {
+async function readOneUserFromEmail(email) {
   const query = {
     text: 'SELECT id_user, email, password, role, firstname, lastname, birthdate, join_date, profile_picture FROM projetweb.users WHERE email = $1',
     values: [email],
@@ -81,5 +81,5 @@ async function createOneUser(firstname, lastname, email, password) {
 module.exports = {
   login,
   register,
-  readOneUserFromUsername,
+  readOneUserFromEmail,
 };

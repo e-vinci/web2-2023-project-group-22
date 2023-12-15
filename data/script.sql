@@ -36,7 +36,7 @@ CREATE TABLE projetweb.trips_comments(
     id_trip_comment SERIAL UNIQUE ,
     id_user INTEGER REFERENCES projetweb.users(id_user),
     id_trip INTEGER REFERENCES projetweb.trips(id_trip),
-    note INTEGER CHECK ( note IN (1, 2, 3, 4, 5) ),
+    rating INTEGER CHECK ( rating IN (1, 2, 3, 4, 5) ),
     comment VARCHAR(140) NOT NULL,
     PRIMARY KEY (id_user, id_trip)
 );
@@ -50,7 +50,7 @@ CREATE TABLE projetweb.images_trips(
 CREATE TABLE projetweb.site_comments(
     id_comment SERIAL UNIQUE NOT NULL ,
     id_user INTEGER REFERENCES projetweb.users(id_user) NOT NULL ,
-    note INTEGER CHECK ( note IN (1, 2, 3, 4, 5) ),
+    rating INTEGER CHECK ( rating IN (1, 2, 3, 4, 5) ),
     comment VARCHAR(140),
     PRIMARY KEY (id_comment, id_user)
 );
