@@ -77,6 +77,44 @@ async function getPlaces() {
   return places;
 }
 
+// Add a place to a trip
+async function addOnePlaceToTrip(tripId, placeId) {
+  const trip = await getTrip(tripId);
+  if (!trip) return undefined;
+
+  const addPlaceQuery = {
+    text: 'INSERT INTO projetweb.trips_places (id_trip, id_place) VALUES ($1, $2)',
+    values: [tripId, placeId],
+  };
+  const res = await client.query(addPlaceQuery);
+  return res;
+}
+
+// Remove a place from a trip
+async function removeOnePlaceToTrip(tripId, placeId) {
+  const trip = await getTrip(tripId);
+  if (!trip) return undefined;
+
+  const removePlaceQuery = {
+    text: 'DELETE FROM projetweb.trips_places WHERE id_trip = $1 AND id_place = $2',
+    values: [tripId, placeId],
+  };
+  const res = await client.query(removePlaceQuery);
+  return res;
+}
+
+async function modifyOrderFromOnePlace(tripId, placeId, order) {
+  const trip = await getTrip(tripId);
+  if (!trip) return undefined;
+
+  const modifyOrderQuery = {
+    text: 'UPDATE projetweb.trips_places SET order = $1 WHERE id_trip = $2 AND id_place = $3',
+    values: [order, tripId, placeId],
+  };
+  const res = await client.query(modifyOrderQuery);
+  return res;
+}
+
 module.exports = {
   createTrip,
   getTrip,
@@ -84,4 +122,7 @@ module.exports = {
   getParticipation,
   getUserTrips,
   getPlaces,
+  addOnePlaceToTrip,
+  removeOnePlaceToTrip,
+  modifyOrderFromOnePlace,
 };

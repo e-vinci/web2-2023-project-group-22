@@ -17,12 +17,14 @@ CREATE TABLE projetweb.users(
     email VARCHAR(100) NOT NULL UNIQUE ,
     password VARCHAR(60) NOT NULL ,
     join_date DATE DEFAULT CURRENT_DATE NOT NULL,
-    profile_picture VARCHAR(100) NULL
+    profile_picture VARCHAR(100) NULL,
+    role VARCHAR(5) NOT NULL DEFAULT 'user' CHECK (role IN ('user', 'admin'))
 );
 
 CREATE TABLE projetweb.trips_places(
     id_place TEXT NOT NULL,
     id_trip INTEGER REFERENCES projetweb.trips(id_trip),
+    order INTEGER NOT NULL,
     PRIMARY KEY (id_place, id_trip)
 );
 
