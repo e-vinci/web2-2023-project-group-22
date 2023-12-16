@@ -9,6 +9,7 @@ const HomePage = () => {
   presentationFirstBloc();
   HomePageSecondBlock();
   TreeDivHomePage();
+  showFeedback();
 };
 
 function displayTripButtons(){
@@ -100,9 +101,34 @@ function TreeDivHomePage(){
       </div>
     </div>
   `;
-
-  main.appendChild(div);
- 
+main.appendChild(div); 
 }
+
+function showFeedback(){
+  fetch('readAllSiteComments')
+    .then(response => response.json())
+    .then(data => {
+      const carouselInner = document.querySelector('.carousel-inner');
+      data.forEach((feedback, index) => {
+        const carouselItem = document.createElement('div');
+        carouselItem.className = `carousel-item ${ index === 0 ? ' active' : ''}`;
+        const card = `
+          <div class="card" style="width: 100rem;">
+            <img src="${feedback.image}" class="card-img-top" alt="Feedback image">
+            <div class="card-body">
+              <h5 class="card-title">${feedback.title}</h5>
+              <p class="card-text">${feedback.text}</p>
+            </div>
+          </div>
+        `;
+        carouselItem.innerHTML = card;
+        carouselInner.appendChild(carouselItem);
+      });
+    });
+}
+
+
+
+
 
 export default HomePage;

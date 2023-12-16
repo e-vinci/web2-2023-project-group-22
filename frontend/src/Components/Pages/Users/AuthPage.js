@@ -1,6 +1,7 @@
 import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
 import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
 // import getGoogleAuthLink from '../../../models/auths';
 
 const AuthPage = () => {
@@ -76,6 +77,7 @@ const AuthPage = () => {
       await login({email, password});
       if(localStorage.getItem('user')) {
         Navbar();
+        Footer();
         Navigate('/');
       }
     })
@@ -90,6 +92,7 @@ const AuthPage = () => {
       await register({email, password, confirmPassword, firstname, lastname});
       if(localStorage.getItem('user')){
         Navbar();
+        Footer();
         Navigate('/');
       }
     })
