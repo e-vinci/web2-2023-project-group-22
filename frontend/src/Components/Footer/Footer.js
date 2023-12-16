@@ -12,7 +12,7 @@ const Footer = () => {
     <div class="newsletter">
       <p></p>
       <div class="overlay hidden"></div>
-      <button id="buttonid" class="subscribe-btn">Donnez votre avis</button>
+      <button id="buttonid" class="subscribe-btn">Give your feedback</button>
     </div>
 
     <p>Terms | <a href="#">Privacy Policy</a></p>
@@ -28,14 +28,14 @@ const Footer = () => {
         <img src="${logoImageNoir}" width="100px" height="100px"/>
       </div>
       <div>
-        <h3>Donnez votre avis</h3>
+        <h3>Give your feeback</h3>
         <p>
-        Si vous souhaitez recevoir des idées sur les voyages à faire, inscrivez-vous à notre newsletter!
+        If you want to give a feedback about our website, please fill in the form below.
         </p>
       </div>
   
-      <input type="email" id="email" placeholder="Entrez votre email ici" required/>
-      <input type="text" id="commentaire" placeholder="Entrez votre commentaire ici" required/>
+      <input type="email" id="email" placeholder="Enter your email here" required/>
+      <input type="text" id="commentaire" placeholder="Enter your feedback here" required/>
 
       <button class="subscribe-btn-modal">Submit</button>
     </div>
