@@ -88,7 +88,10 @@ const AuthPage = () => {
       const firstname = document.getElementById('signUpFirstname').value;
       const lastname = document.getElementById('signUpLastname').value;
       await register({email, password, confirmPassword, firstname, lastname});
-      if(localStorage.getItem('user')) Navigate('/');
+      if(localStorage.getItem('user')){
+        Navbar();
+        Navigate('/');
+      }
     })
   };
 function switchLoginRegister(){
