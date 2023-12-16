@@ -62,7 +62,7 @@ function displayTripPage() {
                                     <div class="card-body">
                                         <h5 class="card-title">Maison Dandoy </h5>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" class="btn btn-primary">Add to trip</a>
                                     </div>
                                 </div>
                                 <div class="card" style="width: 100rem;">
@@ -70,7 +70,7 @@ function displayTripPage() {
                                     <div class="card-body">
                                         <h5 class="card-title">Atomium</h5>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" class="btn btn-primary">Add to trip</a>
                                     </div>
                                 </div>
                                 <div class="card" style="width: 100rem;">
@@ -78,7 +78,7 @@ function displayTripPage() {
                                     <div class="card-body">
                                         <h5 class="card-title">Grande Place</h5>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" class="btn btn-primary">Add to trip</a>
                                     </div>
                                 </div>
                             </div>  
@@ -90,7 +90,7 @@ function displayTripPage() {
                                     <div class="card-body">
                                         <h5 class="card-title">Maneken pis</h5>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" class="btn btn-primary">Add to trip</a>
                                     </div>
                                 </div>
                             <div class="card" style="width: 100rem;">
@@ -98,7 +98,7 @@ function displayTripPage() {
                                 <div class="card-body">
                                     <h5 class="card-title">Garde de Midi </h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Add to trip</a>
                                 </div>
                     </div>
                     <div class="card" style="width: 100rem;">
@@ -106,7 +106,7 @@ function displayTripPage() {
                         <div class="card-body">
                             <h5 class="card-title">Garde de Central </h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-primary">Add to trip</a>
                         </div>
                     </div>
                     </div>  
@@ -118,7 +118,7 @@ function displayTripPage() {
                                 <div class="card-body">
                                     <h5 class="card-title">Laboreur</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Add to trip</a>
                                 </div>
                             </div>
                             <div class="card" style="width: 100rem;">
@@ -126,7 +126,7 @@ function displayTripPage() {
                                 <div class="card-body">
                                     <h5 class="card-title">La Ruche </h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Add to trip</a>
                                 </div>
                             </div>
                             <div class="card" style="width: 100rem;">
@@ -134,7 +134,7 @@ function displayTripPage() {
                                 <div class="card-body">
                                     <h5 class="card-title">Ribs & Steak </h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Add to trip</a>
                                 </div>
                             </div>
                         </div>  
