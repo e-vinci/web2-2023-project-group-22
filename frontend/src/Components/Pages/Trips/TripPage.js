@@ -152,6 +152,19 @@ function displayTripPage() {
 
                </div>    
                 </div>
+                <div class = "PlanPagePlace">
+                <div class = "PlanPageplace_display"  >
+                    <h7>Atomium</h7>   
+                </div>
+                <div class =" PlanPagePlace_image" >
+                    <div class =" PlanPagehotel_chambre" >
+                        <img src="${logoImageNoir}" > 
+                    </div>
+                    <p>  L’Atomium est un monument de Bruxelles, en Belgique, construit à l'occasion de l'Exposition universelle de 1958 et représentant la maille conventionnelle du cristal 
+                    de fer agrandie 165 milliards de fois. Il est situé à Laeken sur le plateau du Heysel où eut lieu cette exposition.</p>
+                
+                </div>
+                </div>
 
 
 
