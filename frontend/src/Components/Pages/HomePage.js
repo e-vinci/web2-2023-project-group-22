@@ -2,6 +2,7 @@ import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 import videoPresentation from '../../assets/paqueta.mp4';
 import logoImageNoir from '../../img/imageVille.jpg'
+import logoSite from '../../img/logoHP.jpg'
 
 const HomePage = () => {
   clearPage();
@@ -59,12 +60,18 @@ function HomePageSecondBlock(){
   secondBlockVideo.id = "secondBlockVideo";
   const video = document.createElement('video');
   video.id = "videoHomePage";
+  video.class = "video-js";
   video.src = videoPresentation;
   video.autoplay = false;
   video.controls = true;
   video.muted = false;
-  video.height = 400;
-  video.width = 650; 
+  video.dataset.setup = "{}";
+  video.preload = "auto"
+  video.style.borderRadius = '60px';
+  video.height = 360;
+  video.width = 640;
+  video.poster = logoSite;
+  video.style.margin = 'auto';
   secondBlockVideo.appendChild(video);
   secondBlock.appendChild(secondBlockVideo);
   main.appendChild(secondBlock);
