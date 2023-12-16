@@ -8,8 +8,7 @@ const NewTripPage = () => {
   const main = document.querySelector('main');
 
   const formDestination =`
-  <div id="form"> 
-    <div class="container" id="container">
+    <div class="container-form" id="container">
       <div class="destination-container" id ="container-destination">
         <form>
           <h1>Chose a destination </h1>
@@ -23,7 +22,6 @@ const NewTripPage = () => {
             <input type="date" id="endDate" required/>
           <input type="submit" value="Start dreaming" id="createDest" />
         </form>
-      </div>
     </div>
   </div>
 

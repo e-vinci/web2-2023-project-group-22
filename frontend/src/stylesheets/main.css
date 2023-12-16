@@ -1,5 +1,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
+
 body{
   margin: 0;
   height: 100%;
@@ -350,8 +351,22 @@ form input {
     width: 100%;
 }
 
+.destination-container {
+	background-color: transparent;
+}
 
 .container {
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 600px;
+}
+
+.container-form {
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
@@ -550,17 +565,17 @@ form input {
 .messageProfil p{
 	color: black;
 }
-.carousel-inner {
-	margin-left: 6.5%;
+.carouselDiv {
+	margin-left: 11%;
 }
-.carousel-control-prev{
+.custom-prev-btn{
 	background-color: black;
 	height: 5%;
 	width: 5%;
 	margin-top: 30%;
 	margin-left: 2%;
 }
-.carousel-control-next{
+.custom-next-btn{
 	background-color: black;
 	height: 5%;
 	width: 5%;
@@ -1140,7 +1155,7 @@ footer {
  
 /* trip page bloc Destination (header )*/
   .PlanPageHeader__header {
-	max-width: 460px;
+	max-width: 500px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
@@ -1178,16 +1193,16 @@ footer {
 /* trip page bloc Destination (body  )*/
 .PlanPageBody {
 	
-    max-width: 700px;
+    max-width: 800px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    box-shadow: 0 4px 32px rgba(0,0,0,.2);
     left: 32px;
    	margin-bottom:3rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px 24px 16px 32px;
+    padding: 16px 42px 16px 32px;
     position:absolute ;
     right: 32px;
     display:flex;
@@ -1197,7 +1212,7 @@ footer {
 
 .PlanPagehotel {
 	
-    max-width: 700px;
+    max-width: 800px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
@@ -1235,5 +1250,46 @@ footer {
 	width:80%; 
 	margin: 5px ;
 	
-
 }
+
+/* All country page */
+
+#textFilter {
+	width: 50%;	
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+}
+
+#currenciesSelect {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 20rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Feedback page */
+
+#carouselGroup{
+	margin-top: 4%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+	justify-content: space-evenly;
+}
+
+.checkedStar {
+	color: orange;
+  }
