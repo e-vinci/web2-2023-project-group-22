@@ -103,16 +103,23 @@ async function removeOnePlaceToTrip(tripId, placeId) {
   return res;
 }
 
-async function modifyOrderFromOnePlace(tripId, placeId, order) {
+async function modifyOneTrip(tripId, places, privacy) {
   const trip = await getTrip(tripId);
   if (!trip) return undefined;
 
-  const modifyOrderQuery = {
-    text: 'UPDATE projetweb.trips_places SET order = $1 WHERE id_trip = $2 AND id_place = $3',
-    values: [order, tripId, placeId],
+  for (let index = 0; index < places.length; index += 1) {
+    const modifyPlacesQuery = {
+      text: 'UPDATE projetweb.trips_places SET id_place = $1 WHERE id_trip = $2 AND order = $3',
+      values: [places[0].place_id, tripId, index + 1],
+    };
+    client.query(modifyPlacesQuery);
+  }
+
+  const modifyPrivacyQuery = {
+    text: 'UPDATE projetweb.trips SET privacy = $1 WHERE id_trip = $2',
+    values: [privacy, tripId],
   };
-  const res = await client.query(modifyOrderQuery);
-  return res;
+  return client.query(modifyPrivacyQuery);
 }
 
 module.exports = {
@@ -124,5 +131,5 @@ module.exports = {
   getPlaces,
   addOnePlaceToTrip,
   removeOnePlaceToTrip,
-  modifyOrderFromOnePlace,
+  modifyOneTrip,
 };
