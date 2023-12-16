@@ -1,5 +1,11 @@
 import { clearPage } from "../../../utils/render"
 import logoImageNoir from '../../../img/imageVille.jpg'
+import chambre from '../../../img/hotel_chambre.jpg'
+import tripadvisor from '../../../img/tripadvisor.png'
+import booking from '../../../img/booking.png'
+import airbnb from '../../../img/aribnb.png'
+
+
 
 const TripPage = () => {
     clearPage();
@@ -35,7 +41,154 @@ function displayTripPage() {
                             </div>
                         </div>
                     </div>
+
+
+
+
+                <div class = "PlanPageBody">
+                    <h4> Most popular places </h4>
+                    <div id="carouselExampleIndicators" class="carousel slide">
+
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+                     </div>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <div class="cards-wrapper">
+                                <div class="card" style="width: 100rem;">
+                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Maison Dandoy </h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 100rem;">
+                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Atomium</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                                <div class="card" style="width: 100rem;">
+                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Grande Place</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cards-wrapper">
+                                <div class="card" style="width: 100rem;">
+                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Maneken pis</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            <div class="card" style="width: 100rem;">
+                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Garde de Midi </h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                    </div>
+                    <div class="card" style="width: 100rem;">
+                        <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Garde de Central </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    </div>  
+                    </div>
+                    <div class="carousel-item active">
+                        <div class="cards-wrapper">
+                        <div class="card" style="width: 100rem;">
+                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Laboreur</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 100rem;">
+                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">La Ruche </h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 100rem;">
+                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ribs & Steak </h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"  ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
                 </div>
+
+               </div>    
+                </div>
+
+
+
+            <div class = "PlanPagehotel">
+                <div class = "PlanPagehotel_display"  >
+                    <h7>Besoin d'un hotel ? </h7>   
+                </div>
+                <div class =" PlanPagehotel_image" >
+                    <div class =" PlanPagehotel_chambre" >
+                        <img src="${chambre}" > 
+                    </div>
+                    <a href="https://www.tripadvisor.com/" target="_blank">
+                    <img src="${tripadvisor}"  >
+                    </a>
+                    <a href="https://www.booking.com/" target="_blank">
+                    <img src="${booking}" >
+                    </a>
+                    <a href="https://www.airbnb.com/" target="_blank">
+                    <img src="${airbnb}" >
+                    </a>
+               
+                
+               
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+
+
+               
           </div>    
      </div>
 

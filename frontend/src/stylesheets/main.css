@@ -1067,7 +1067,7 @@ footer {
 
 
  
-/**/
+/* trip page bloc Destination (header )*/
   .PlanPageHeader__header {
 	max-width: 460px;
     background-color: #fff;
@@ -1094,7 +1094,6 @@ footer {
     flex-direction: row!important;
     justify-content:space-evenly;
 
-
 }
 .PlanPageHeader__date{
     margin-top: 8%;
@@ -1103,4 +1102,67 @@ footer {
 .PlanPageHeader__button{
     margin-top: 10%;
     margin-left: 40%;
+}
+
+/* trip page bloc Destination (body  )*/
+.PlanPageBody {
+	
+    max-width: 700px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+   	margin-bottom:-8rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px 24px 16px 32px;
+    position:absolute ;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+}
+
+.PlanPagehotel {
+	
+    max-width: 700px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+   	margin-bottom:-25rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: px  32px;
+    position:absolute ;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+	
+}
+
+.PlanPagehotel_display{
+	
+	text-align:center;
+}
+.PlanPagehotel_image  {
+	display:flex;
+    flex-direction: row;
+   
+
+}
+.PlanPagehotel_chambre{
+	width:90%; 
+}
+
+.PlanPagehotel_image img {
+	
+	border-radius: 25px;
+	width:80%; 
+	margin: 5px ;
+	
+
 }
