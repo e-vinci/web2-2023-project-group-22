@@ -550,17 +550,17 @@ form input {
 .messageProfil p{
 	color: black;
 }
-.carousel-inner {
-	margin-left: 6.5%;
+.carouselDiv {
+	margin-left: 11%;
 }
-.carousel-control-prev{
+.custom-prev-btn{
 	background-color: black;
 	height: 5%;
 	width: 5%;
 	margin-top: 30%;
 	margin-left: 2%;
 }
-.carousel-control-next{
+.custom-next-btn{
 	background-color: black;
 	height: 5%;
 	width: 5%;
