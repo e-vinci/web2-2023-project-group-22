@@ -66,6 +66,7 @@ const NewTripPage = () => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': JSON.parse(localStorage.getItem('user')).token,
       },
       method: 'POST',
       body: JSON.stringify({
