@@ -1,5 +1,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
+
 body{
   margin: 0;
   height: 100%;
@@ -1276,3 +1277,19 @@ footer {
   box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
+
+/* Feedback page */
+
+#carouselGroup{
+	margin-top: 4%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+	justify-content: space-evenly;
+}
+
+.checkedStar {
+	color: orange;
+  }

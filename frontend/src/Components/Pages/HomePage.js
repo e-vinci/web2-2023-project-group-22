@@ -104,26 +104,30 @@ function TreeDivHomePage(){
 main.appendChild(div); 
 }
 
+
 function showFeedback(){
-  fetch('readAllSiteComments')
+  const main = document.querySelector('main');
+  const carouselGroup = document.createElement('div');
+  carouselGroup.id = "carouselGroup";
+  fetch(`${process.env.API_BASE_URL}/comments/site`)
     .then(response => response.json())
     .then(data => {
-      const carouselInner = document.querySelector('.carousel-inner');
-      data.forEach((feedback, index) => {
+      for(let i = 0; i < 5; i+=1) {
         const carouselItem = document.createElement('div');
-        carouselItem.className = `carousel-item ${ index === 0 ? ' active' : ''}`;
-        const card = `
-          <div class="card" style="width: 100rem;">
-            <img src="${feedback.image}" class="card-img-top" alt="Feedback image">
+        const card = `<div id="ContainerDivHomePage">
+          <div class="card" style="width: 20rem;">
+            <img src="${logoSite}" class="card-img-top" alt="Feedback image">
             <div class="card-body">
-              <h5 class="card-title">${feedback.title}</h5>
-              <p class="card-text">${feedback.text}</p>
+              <h5 class="card-title">${data[i].lastname} ${data[i].firstname}  &nbsp~&nbsp  ${data[i].rating} <span class="fa fa-star checkedStar"></span></p></h5> 
+              
+              <p class="card-text">${data[i].comment}</p>
             </div>
           </div>
         `;
         carouselItem.innerHTML = card;
-        carouselInner.appendChild(carouselItem);
-      });
+        carouselGroup.appendChild(carouselItem);
+        main.appendChild(carouselGroup);
+      }
     });
 }
 
