@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:3000
+
+### Get specific trip comments listing
+GET {{baseUrl}}/comments/trip/1
+
+### Get site comments listing
+GET {{baseUrl}}/comments/site
+
+### Add a site comment
+POST {{baseUrl}}/comments/site/add
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
+
+{
+    "rating": "5",
+    "comment": "Cool trip making site"
+}
+
+### Modify a site comment
+PATCH {{baseUrl}}/comments/site/modify
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
+
+{
+    "rating": "4",
+    "comment": "Still a cool making site but a bit less cool"
+}
+
+### Remove a site comment
+DELETE {{baseUrl}}/comments/site/remove
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs

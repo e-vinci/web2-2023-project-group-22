@@ -3,6 +3,7 @@ import { clearPage } from '../../../utils/render';
 import image from '../../../img/usertest.png';
 import Navigate from '../../Router/Navigate';
 import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
 
 
 
@@ -80,7 +81,7 @@ const ProfilPage = () => {
                                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
                                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
                                     </div>
-                                    <div class="carousel-inner">
+                                    <div class="carousel-inner carouselDiv">
                                         <div class="carousel-item carou">
                                             <div class="cards-wrapper carou">
                                                 <div class="card" style="width: 18rem;">
@@ -168,11 +169,11 @@ const ProfilPage = () => {
                                     </div>
                                     
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <button class="carousel-control-prev custom-prev-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Previous</span>
                                     </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <button class="carousel-control-next custom-next-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Next</span>
                                     </button>
@@ -212,7 +213,9 @@ function logout() {
     logoutt.addEventListener('click',() => {
         localStorage.removeItem('user');
         Navbar();
+        Footer();
         Navigate('/');
+
     })
 
 

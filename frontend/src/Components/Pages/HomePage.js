@@ -2,12 +2,14 @@ import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 import videoPresentation from '../../assets/paqueta.mp4';
 import logoImageNoir from '../../img/imageVille.jpg'
+import logoSite from '../../img/logoHP.jpg'
 
 const HomePage = () => {
   clearPage();
   presentationFirstBloc();
   HomePageSecondBlock();
   TreeDivHomePage();
+  showComments();
 };
 
 function displayTripButtons(){
@@ -35,8 +37,11 @@ function presentationFirstBloc(){
   `<div id="presentationFirstBlockContainer">
       <div id="presentationFirstBlock">
         <div id="presentationText">
-          <h3>Voyagez avec Where2go</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <h3>Travel with Where2go</h3>
+          <p>
+          Welcome to Where2Go – your go-to travel companion! Select your destination, and we'll curate a personalized itinerary featuring the best places to visit. 
+          Effortlessly add them to your plan and share the adventure with friends. It transforms your trip planning into a seamless, 
+          collaborative experience. Start exploring today because unforgettable journeys begin with Where2Go!</p>
           <div id="tripButtons"></div>
         </div>
         <div id="presentationImage">
@@ -59,12 +64,18 @@ function HomePageSecondBlock(){
   secondBlockVideo.id = "secondBlockVideo";
   const video = document.createElement('video');
   video.id = "videoHomePage";
+  video.class = "video-js";
   video.src = videoPresentation;
   video.autoplay = false;
   video.controls = true;
   video.muted = false;
-  video.height = 400;
-  video.width = 650; 
+  video.dataset.setup = "{}";
+  video.preload = "auto"
+  video.style.borderRadius = '60px';
+  video.height = 360;
+  video.width = 640;
+  video.poster = logoSite;
+  video.style.margin = 'auto';
   secondBlockVideo.appendChild(video);
   secondBlock.appendChild(secondBlockVideo);
   main.appendChild(secondBlock);
@@ -90,9 +101,78 @@ function TreeDivHomePage(){
       </div>
     </div>
   `;
-
-  main.appendChild(div);
- 
+main.appendChild(div); 
 }
+
+
+function showComments() {
+  const caroussel = document.createElement('div');
+  caroussel.innerHTML = `
+  <div id="comment-div">
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-inner">
+        
+      </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+  </div>
+  `;
+  const main = document.querySelector('main');
+  main.appendChild(caroussel);
+
+  fetch(`${process.env.API_BASE_URL}/comments/site`)
+    .then(response => response.json())
+    .then(data => {
+      const carousselInner = document.querySelector('.carousel-inner');
+      for (let i = 0; i < Math.ceil(data.length/3); i+=1) {
+        const cItem = `
+        <div class="carousel-item cItem${i}">
+          <div class="cards-wrapper cWrap${i}">
+          </div>  
+        </div>
+        `;
+        carousselInner.innerHTML += cItem;
+      }
+      let count = 0;
+      let wrap = 0;
+      data.forEach((element) => {
+        if(count===3) {wrap+=1; count = 0}
+        count += 1;
+        const card = document.createElement('div');
+        card.className = "card";
+        card.style.width = "300px";
+        const img = document.createElement('img');
+        card.appendChild(img);
+        const cardBody = document.createElement('div');
+        cardBody.className = "card-body";
+        card.appendChild(cardBody);
+        const userName = document.createElement('h5');
+        userName.className = "card-title";
+        userName.innerText = `${element.firstname} ${element.lastname}`;
+        cardBody.appendChild(userName);
+        const rating = document.createElement('p');
+        rating.innerText = element.rating;
+        cardBody.appendChild(rating);
+        const commentText = document.createElement('p');
+        commentText.className = "card-text";
+        commentText.innerText = element.comment;
+        cardBody.appendChild(commentText);
+
+        const cardsWrapper = document.querySelector(`.cWrap${wrap}`);
+        cardsWrapper.appendChild(card);
+      })
+      const items = document.querySelector(`.cItem0`);
+      items.className += " active"
+    });
+}
+
+
 
 export default HomePage;
