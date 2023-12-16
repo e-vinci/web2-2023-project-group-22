@@ -34,7 +34,9 @@ const Footer = () => {
         </p>
       </div>
   
-      <input type="email" id="email" placeholder="Entrez votre email ici" required>
+      <input type="email" id="email" placeholder="Entrez votre email ici" required/>
+      <input type="text" id="commentaire" placeholder="Entrez votre commentaire ici" required/>
+
       <button class="subscribe-btn-modal">Submit</button>
     </div>
 
@@ -72,11 +74,24 @@ function validateAndSubmit() {
       event.preventDefault();
 
       const email = document.querySelector('#email').value;
+      const commentaire =  document.querySelector('#commentaire').value; 
 
-      if(email === '') {
-          alert('Please fill out the email field before submitting.');
+      if(email === '' && commentaire ==='') {
+          alert('Please fill out the email and the comment  field before submitting.');
           return;
       }
+
+      if(email === '') {
+        alert('Please fill out the email field before submitting.');
+        return;
+    }
+
+
+    if(commentaire === '') {
+      alert('Please fill out the comment field before submitting.');
+      return;
+  }
+
 
       closeModal();
   });

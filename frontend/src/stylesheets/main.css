@@ -846,6 +846,20 @@ footer {
 	background-color: #f8f8f8;
 	font-size: 16px;
   }
+  #commentaire {
+	width: 70%;
+	padding: 80px 20px;
+	margin: 8px 20%;
+	margin-bottom:5%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	font-size: 16px;
+	position: relative	;
+  	padding-top: 1%; 
+   
+  }
 
   #close-btn {
 	position: absolute;
@@ -1078,8 +1092,8 @@ footer {
    	margin-bottom:23rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px  16px;
-    position:absolute ;
+    padding: 16px 16px 26px 24px;
+    position: flex;
     right: 32px;
     display:flex;
     flex-direction: column!important;
