@@ -564,17 +564,17 @@ form input {
 .messageProfil p{
 	color: black;
 }
-.carousel-inner {
-	margin-left: 6.5%;
+.carouselDiv {
+	margin-left: 11%;
 }
-.carousel-control-prev{
+.custom-prev-btn{
 	background-color: black;
 	height: 5%;
 	width: 5%;
 	margin-top: 30%;
 	margin-left: 2%;
 }
-.carousel-control-next{
+.custom-next-btn{
 	background-color: black;
 	height: 5%;
 	width: 5%;
@@ -1154,7 +1154,7 @@ footer {
  
 /* trip page bloc Destination (header )*/
   .PlanPageHeader__header {
-	max-width: 460px;
+	max-width: 500px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
@@ -1192,16 +1192,16 @@ footer {
 /* trip page bloc Destination (body  )*/
 .PlanPageBody {
 	
-    max-width: 700px;
+    max-width: 800px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    box-shadow: 0 4px 32px rgba(0,0,0,.2);
     left: 32px;
    	margin-bottom:3rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px 24px 16px 32px;
+    padding: 16px 42px 16px 32px;
     position:absolute ;
     right: 32px;
     display:flex;
@@ -1211,7 +1211,7 @@ footer {
 
 .PlanPagehotel {
 	
-    max-width: 700px;
+    max-width: 800px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;

@@ -25,7 +25,7 @@ async function readOneTripFromId(id) {
 // Get all comments for specified trip
 async function readAllCommentsForTrip(id) {
   const query = {
-    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.trips_comments tc , projetweb.users u WHERE u.id_user = tc.id_user AND id_trip = $1',
+    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.trips_comments tc, projetweb.users u WHERE u.id_user = tc.id_user AND id_trip = $1',
     values: [id],
   };
   const res = await client.query(query);
@@ -36,7 +36,7 @@ async function readAllCommentsForTrip(id) {
 // Returns all site comments
 async function readAllSiteComments() {
   const query = {
-    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.site_comments sc , projetweb.users u WHERE u.id_user = sc.id_user',
+    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.site_comments sc, projetweb.users u WHERE u.id_user = sc.id_user',
   };
   const res = await client.query(query);
   if (res.rows) return res.rows;
@@ -46,7 +46,7 @@ async function readAllSiteComments() {
 // Read a site comment for given user id
 async function readOneSiteCommentFromUserId(id) {
   const query = {
-    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.site_comments sc , projetweb.users u WHERE u.id_user = sc.id_user AND u.user_id = $1',
+    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.site_comments sc, projetweb.users u WHERE u.id_user = sc.id_user AND u.id_user = $1',
     values: [id],
   };
   const res = await client.query(query);
@@ -71,12 +71,10 @@ async function patchOneSiteComment(idUser, rating, comment) {
   if (!commentFound) return undefined;
 
   const query = {
-    text: 'INSERT INTO projetweb.site_comments (id_user, rating, comment) VALUES ($1, $2, $3) RETURNING id_comment',
-    values: [idUser, rating, comment],
+    text: 'UPDATE projetweb.site_comments SET rating = $1, comment = $2 WHERE id_user = $3',
+    values: [rating, comment, idUser],
   };
-  const res = await client.query(query);
-  if (res.rows) return res.rows;
-  return undefined;
+  return client.query(query);
 }
 
 // Delete a site comment if existing
@@ -88,9 +86,7 @@ async function deleteOneSiteComment(idUser) {
     text: 'DELETE FROM projetweb.site_comments WHERE id_user = $1',
     values: [idUser],
   };
-  const res = await client.query(query);
-  if (res.rows[0] > 0) return res.rows;
-  return undefined;
+  return client.query(query);
 }
 
 module.exports = {
