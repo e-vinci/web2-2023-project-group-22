@@ -79,7 +79,10 @@ const NewTripPage = () => {
         if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
         return response.json();
       })
-      .then((result) => result);
+      .then((result) => {
+        console.log(result);
+        localStorage.setItem('countryData', JSON.stringify(result));
+      });
       Navigate("/modifytrip");
     }
   });   
