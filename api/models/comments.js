@@ -25,7 +25,7 @@ async function readOneTripFromId(id) {
 // Get all comments for specified trip
 async function readAllCommentsForTrip(id) {
   const query = {
-    text: 'SELECT lastname, firstname, note, comment FROM projetweb.trips_comments tc , projetweb.users u WHERE u.id_user = tc.id_user AND id_trip = $1',
+    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.trips_comments tc , projetweb.users u WHERE u.id_user = tc.id_user AND id_trip = $1',
     values: [id],
   };
   const res = await client.query(query);
@@ -36,7 +36,7 @@ async function readAllCommentsForTrip(id) {
 // Returns all site comments
 async function readAllSiteComments() {
   const query = {
-    text: 'SELECT lastname, firstname, note, comment FROM projetweb.site_comments sc , projetweb.users u WHERE u.id_user = sc.id_user',
+    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.site_comments sc , projetweb.users u WHERE u.id_user = sc.id_user',
   };
   const res = await client.query(query);
   if (res.rows) return res.rows;
@@ -46,7 +46,7 @@ async function readAllSiteComments() {
 // Read a site comment for given user id
 async function readOneSiteCommentFromUserId(id) {
   const query = {
-    text: 'SELECT lastname, firstname, note, comment FROM projetweb.site_comments sc , projetweb.users u WHERE u.id_user = sc.id_user AND u.user_id = $1',
+    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.site_comments sc , projetweb.users u WHERE u.id_user = sc.id_user AND u.user_id = $1',
     values: [id],
   };
   const res = await client.query(query);

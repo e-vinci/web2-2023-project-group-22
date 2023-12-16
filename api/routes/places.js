@@ -14,7 +14,7 @@ router.post('/new', async (req, res) => {
   const places = Utils.parse(jsonDbPath, []);
   places.push(place);
   Utils.serialize(jsonDbPath, places);
-  res.sendStatus(200);
+  return res.sendStatus(200);
 });
 
 module.exports = router;

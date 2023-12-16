@@ -40,7 +40,7 @@ async function addParticipation(user, trip) {
 // Returns the trip for given id
 async function getTrip(id) {
   const getTripQuery = {
-    text: 'SELECT country_code, start_date, end_date FROM projetweb.trips WHERE id_trip = $1',
+    text: 'SELECT country_code, start_date, end_date, privacy FROM projetweb.trips WHERE id_trip = $1',
     values: [id],
   };
   const res = await client.query(getTripQuery);

@@ -23,21 +23,21 @@ router.post('/createtrip', authorize, async (req, res) => {
 // Returns the trip found for matching id
 router.get('/:id', async (req, res) => {
   const tripId = req.params.id ? req.params.id : undefined;
-  if (!tripId) res.send('Please specify the trip id').statusCode(404);
+  if (!tripId) return res.send('Please specify the trip id').statusCode(404);
   const trip = await Trip.getTrip(tripId);
 
-  if (!trip || Object.keys(trip).length === 0) res.sendStatus(404);
+  if (!trip || Object.keys(trip).length === 0) return res.sendStatus(404);
   return res.json(trip);
 });
 
 // Returns the trips found for matching user
 router.get('/user/:userEmail', async (req, res) => {
   const userEmail = req?.params?.userEmail?.length !== 0 ? req.params.userEmail : undefined;
-  if (!userEmail) res.sendStatus(404);
+  if (!userEmail) return res.sendStatus(404);
 
   const trip = await Trip.getUserTrips(userEmail);
 
-  if (!trip) res.sendStatus(404);
+  if (!trip) return res.sendStatus(404);
   return res.json(trip);
 });
 
@@ -45,7 +45,7 @@ router.get('/user/:userEmail', async (req, res) => {
 router.get('/places/all', async (req, res) => {
   const places = await Trip.getPlaces();
 
-  if (!places) res.sendStatus(404);
+  if (!places) return res.sendStatus(404);
   return res.json(places);
 });
 
