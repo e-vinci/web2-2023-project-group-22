@@ -28,14 +28,3 @@ Content-Type: application/json
     "email":"jhon.doe@example.com",
     "password":"test"
 }
-
-### 
-POST {{baseUrl}}/trips/createtrip
-Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbW1lcnkwMkBob3RtYWlsLmNvbSIsImlhdCI6MTcwMTYyNTc4MSwiZXhwIjoxNzg4MDI1NzgxfQ.28eU_UmDaFSAdY3f92laEjgZakPp5VgpopFLyf5XdIA
-
-{
-    "countryCode": "Belgium",
-    "startDate": "2023-12-03",
-    "endDate": "2023-12-10"
-}
