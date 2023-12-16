@@ -9,7 +9,7 @@ const HomePage = () => {
   presentationFirstBloc();
   HomePageSecondBlock();
   TreeDivHomePage();
-  showFeedback();
+  showComments();
 };
 
 function displayTripButtons(){
@@ -105,33 +105,73 @@ main.appendChild(div);
 }
 
 
-function showFeedback(){
+function showComments() {
+  const caroussel = document.createElement('div');
+  caroussel.innerHTML = `
+  <div id="comment-div">
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-inner">
+        
+      </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+  </div>
+  `;
   const main = document.querySelector('main');
-  const carouselGroup = document.createElement('div');
-  carouselGroup.id = "carouselGroup";
+  main.appendChild(caroussel);
+
   fetch(`${process.env.API_BASE_URL}/comments/site`)
     .then(response => response.json())
     .then(data => {
-      for(let i = 0; i < 5; i+=1) {
-        const carouselItem = document.createElement('div');
-        const card = `<div id="ContainerDivHomePage">
-          <div class="card" style="width: 20rem;">
-            <img src="${logoSite}" class="card-img-top" alt="Feedback image">
-            <div class="card-body">
-              <h5 class="card-title">${data[i].lastname} ${data[i].firstname}  &nbsp~&nbsp  ${data[i].rating} <span class="fa fa-star checkedStar"></span></p></h5> 
-              
-              <p class="card-text">${data[i].comment}</p>
-            </div>
-          </div>
+      const carousselInner = document.querySelector('.carousel-inner');
+      for (let i = 0; i < Math.ceil(data.length/3); i+=1) {
+        const cItem = `
+        <div class="carousel-item cItem${i}">
+          <div class="cards-wrapper cWrap${i}">
+          </div>  
+        </div>
         `;
-        carouselItem.innerHTML = card;
-        carouselGroup.appendChild(carouselItem);
-        main.appendChild(carouselGroup);
+        carousselInner.innerHTML += cItem;
       }
+      let count = 0;
+      let wrap = 0;
+      data.forEach((element) => {
+        if(count===3) {wrap+=1; count = 0}
+        count += 1;
+        const card = document.createElement('div');
+        card.className = "card";
+        card.style.width = "300px";
+        const img = document.createElement('img');
+        card.appendChild(img);
+        const cardBody = document.createElement('div');
+        cardBody.className = "card-body";
+        card.appendChild(cardBody);
+        const userName = document.createElement('h5');
+        userName.className = "card-title";
+        userName.innerText = `${element.firstname} ${element.lastname}`;
+        cardBody.appendChild(userName);
+        const rating = document.createElement('p');
+        rating.innerText = element.rating;
+        cardBody.appendChild(rating);
+        const commentText = document.createElement('p');
+        commentText.className = "card-text";
+        commentText.innerText = element.comment;
+        cardBody.appendChild(commentText);
+
+        const cardsWrapper = document.querySelector(`.cWrap${wrap}`);
+        cardsWrapper.appendChild(card);
+      })
+      const items = document.querySelector(`.cItem0`);
+      items.className += " active"
     });
 }
-
-
 
 
 
