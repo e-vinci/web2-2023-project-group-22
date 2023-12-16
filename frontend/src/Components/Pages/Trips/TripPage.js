@@ -25,7 +25,6 @@ function displayTripPage() {
                 <div id="div-trip-page-block-content-text">
                     <img alt="" class="PlanPageHeader__image w-100 object-fit-cover" src="${logoImageNoir}">
                     <div class="PlanPageHeader__header" >
-
                         <h1>Trip to </h1>
                         <div class ="PlanPageHeader__display">
                             <div class ="PlanPageHeader__date">

@@ -1089,11 +1089,11 @@ footer {
     bottom: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,.2);
     left: 32px;
-   	margin-bottom:23rem;
+   	margin-bottom:35rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px 16px 26px 24px;
-    position: flex;
+    padding: 16px  16px;
+    position:absolute ;
     right: 32px;
     display:flex;
     flex-direction: column!important;
@@ -1127,7 +1127,7 @@ footer {
     bottom: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,.2);
     left: 32px;
-   	margin-bottom:-8rem;
+   	margin-bottom:3rem;
     margin-right: auto;
     min-height: 160px;
     padding: 16px 24px 16px 32px;
@@ -1146,7 +1146,7 @@ footer {
     bottom: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,.2);
     left: 32px;
-   	margin-bottom:-25rem;
+   	margin-bottom:-15rem;
     margin-right: auto;
     min-height: 160px;
     padding: px  32px;
