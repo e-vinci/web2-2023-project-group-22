@@ -63,7 +63,7 @@ router.patch('/site/modify', authorize, async (req, res) => {
 
   const userFound = await readOneUserFromEmail(user);
 
-  const modifiedComment = await patchOneSiteComment(user, rating, comment);
+  const modifiedComment = await patchOneSiteComment(userFound.id_user, rating, comment);
   if (!modifiedComment || Object.keys(modifiedComment).length === 0) return res.sendStatus(401);
 
   const returnedComment = {
