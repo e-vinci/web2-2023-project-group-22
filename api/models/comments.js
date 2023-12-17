@@ -56,7 +56,7 @@ async function readOneSiteCommentFromUserId(id) {
 
 // Add a site comment
 async function addSiteComment(idUser, rating, comment) {
-  const commentFound = readOneSiteCommentFromUserId(idUser);
+  const commentFound = await readOneSiteCommentFromUserId(idUser);
   if (commentFound) return undefined;
 
   const query = {

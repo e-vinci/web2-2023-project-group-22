@@ -3,6 +3,9 @@
 ### Read trip identified by 1
 GET {{baseUrl}}/trips/1
 
+### Read palces for trip identified by 1
+GET {{baseUrl}}/trips/trip/1
+
 ### Read trip identified by -1, not existing
 GET {{baseUrl}}/trips/-1
 
@@ -30,17 +33,17 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1t
 
 {
     "placeId": "ChIJbw4IMIbEw0cRLdRsNbreMSI",
-    "tripId": "1"
+    "tripId": "35"
 }
 
 ### Remove one place of a trip
-POST {{baseUrl}}/trips/removeplace
+DELETE {{baseUrl}}/trips/removeplace
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
 
 {
     "placeId": "ChIJbw4IMIbEw0cRLdRsNbreMSI",
-    "tripId": "1"
+    "tripId": "35"
 }
 
 ### Modify order of one place in a trip
@@ -51,7 +54,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1t
 {
     "places": [
         {
-
+            "id_place": "ChIJbw4IMIbEw0cRLdRsNbreMSI"
         }
     ],
     "tripId": "1"

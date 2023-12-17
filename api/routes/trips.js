@@ -23,7 +23,7 @@ router.post('/createtrip', authorize, async (req, res) => {
 // Returns the trip found for matching id
 router.get('/:id', async (req, res) => {
   const tripId = req.params.id ? req.params.id : undefined;
-  if (!tripId) return res.send('Please specify the trip id').statusCode(404);
+  if (!tripId) return res.sendStatus(400);
   const trip = await Trip.getTrip(tripId);
 
   if (!trip || Object.keys(trip).length === 0) return res.sendStatus(404);
@@ -56,11 +56,11 @@ router.post('/addplace', authorize, async (req, res) => {
 
   // 400 Bad Request
   if (!placeId || !tripId) return res.sendStatus(400);
-
+  console.log(tripId, placeId);
   const addedPlace = await Trip.addOnePlaceToTrip(tripId, placeId);
 
   // 404 Trip not found or place not added
-  if (!addedPlace) return res.sendStatus(404);
+  if (!addedPlace) return res.sendStatus(401);
   return res.json(addedPlace);
 });
 
@@ -73,7 +73,7 @@ router.delete('/removeplace', authorize, async (req, res) => {
   if (!placeId || !tripId) return res.sendStatus(400);
 
   const removedPlace = await Trip.removeOnePlaceToTrip(tripId, placeId);
-
+  console.log(removedPlace);
   // 404 Trip not found or place not added
   if (!removedPlace) return res.sendStatus(404);
   return res.json(removedPlace);
@@ -93,6 +93,16 @@ router.patch('/modifytrip', authorize, async (req, res) => {
   // 404 Trip not found or place not added
   if (!removedPlace) return res.sendStatus(404);
   return res.json(removedPlace);
+});
+
+// Returns the trip found for matching id
+router.get('/trip/:id', async (req, res) => {
+  const tripId = req?.params.id ? req.params.id : undefined;
+  if (!tripId) return res.sendStatus(400);
+
+  const places = await Trip.getPlacesForAGivenTrip(tripId);
+
+  return res.json(places);
 });
 
 module.exports = router;

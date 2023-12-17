@@ -9,6 +9,7 @@ const NewPage = async () => {
     "clearlocal": clearlocal,
     "initMap": initMap,
     "drag&drop": dragdrop,
+    "removeCountryData": removeCountryData,
   }
 
   Object.entries(buttons).forEach((button) => {
@@ -140,4 +141,9 @@ function getDragAfterElement(container, y) {
     
   }, { offset: Number.NEGATIVE_INFINITY }).element
 }
+
+function removeCountryData() {
+  localStorage.removeItem('countryData');
+}
+
 export default NewPage;
