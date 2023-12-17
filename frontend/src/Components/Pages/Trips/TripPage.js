@@ -47,6 +47,7 @@ async function displayTripPage() {
                 <div class = "PlanPagePlace">
                     <div id="trip-places"></div>
                 </div>
+                
                 <div class = "PlanPagehotel">
                     <div class = "PlanPagehotel_display"  >
                         <h7>Besoin d'un hotel ? </h7>   
@@ -65,7 +66,10 @@ async function displayTripPage() {
                         <img src="${airbnb}" >
                         </a>        
                     </div>
-                    </div>         
+                    </div>
+                    <div class = "PlanPageComment">
+                    <div id="trip-places"></div>
+                </div>         
                 </div> 
             </div>
         <div id="trip-page-right-side">
