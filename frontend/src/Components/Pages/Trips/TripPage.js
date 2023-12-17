@@ -37,6 +37,9 @@ async function displayTripPage() {
                             <div class ="PlanPageHeader__date">
                                 <p> <i class="bi bi-calendar"></i>${tripData.startDate} to ${tripData.endDate}</p>
                             </div>
+                            
+                               
+                            
                             <div class ="PlanPageHeader__button">
                                 <button style="none" type="submit" id="modifyTripButton">
                                     <i>Modify trip</i> 
@@ -68,11 +71,47 @@ async function displayTripPage() {
                         </a>        
                     </div>
                     </div>
+
+                    <div class = "PlanPageAddComment">
+                        <div>
+                            <h3>Give your feeback</h3>
+                            <div id="errorMessage" style="color:red"></div>
+                            </div>
+                            
+                            <input type="text" id="commentairetrip" maxlength="140" placeholder="Enter your feedback here (Max 140 characters)" required/>
+                            <div class="subtrip">
+                            <select id="selecttrip" placeholder="1-5" >
+                            <option value="" disabled selected >Select your rating</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            </select>
+                            <label for="myfile">Add a picture:</label>
+                            <input type="file" id="myfile" name="myfile"><br><br>
+                             <button class="subscribe-btn-modal">Submit</button>
+                            </div>
+                            
+                             
+                        </div>
+                          
+                 
+
                     <div class = "PlanPageComment">
-                    <div id="trip-comments"></div>
-                </div>      
-                </div> 
-            </div>
+                        <div id="trip-coments"></div>
+                            <div class ="PlanPageComment_image" >
+                                <img src="${chambre}" > 
+                                <div class = " PlanPageComment_name">
+                                    <h5> Gustavo Gus  </h5>
+                                    <p> Gustavo is Gusson but you can call me Gus</p>
+                                    <p><i class="bi bi-star-fill"></i></p>
+                                 </div>
+                             </div>
+                        </div>         
+                     </div> 
+                </div>
+                
         <div id="trip-page-right-side">
         </div>
     </div>
