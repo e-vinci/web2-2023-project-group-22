@@ -155,7 +155,6 @@ async function displayTripPage() {
     })
     .then((result) => {
         result.forEach((e) => {
-            console.log(e);
             const card = document.createElement('div');
             card.innerHTML = `
                 <div class = "PlanPageplace_display"  >
