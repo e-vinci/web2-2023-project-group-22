@@ -54,5 +54,5 @@ CREATE TABLE projetweb.site_comments(
     id_user INTEGER REFERENCES projetweb.users(id_user) NOT NULL ,
     rating INTEGER CHECK ( rating IN (1, 2, 3, 4, 5) ),
     comment VARCHAR(140),
-    PRIMARY KEY (id_comment, id_user)
+    PRIMARY KEY (id_user)
 );

@@ -722,7 +722,7 @@ form input {
 }
 
 #modify-trip-page-left-side{
-	/* background-color: bisque; */
+	background-color: bisque;
 	padding: 50px 0;
 	width: 50%;
 	
@@ -805,6 +805,14 @@ form input {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+}
+
+.cards-wrapper{
+	display: flex;
+}
+
+.card{
+	margin: 0.5em 0.5em;
 }
 
 
@@ -1142,13 +1150,7 @@ footer {
   
 
 
-.cards-wrapper{
-	display: flex;
-}
 
-.card{
-	margin: 0.5em 0.5em;
-}
 
 
 

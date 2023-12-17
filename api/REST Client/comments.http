@@ -9,7 +9,7 @@ GET {{baseUrl}}/comments/site
 ### Add a site comment
 POST {{baseUrl}}/comments/site/add
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbW1lcnkwMkBob3RtYWlsLmNvbSIsImlhdCI6MTcwMjc3ODA5MiwiZXhwIjoxNzg5MTc4MDkyfQ.5dMIbDxnAua_8eFF_ZjhdkPFpX_mZihFq49E681QPgI
 
 {
     "rating": "5",
