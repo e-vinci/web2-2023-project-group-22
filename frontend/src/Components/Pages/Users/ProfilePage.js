@@ -31,6 +31,7 @@ const ProfilPage = () => {
                             <div class="message ">
                             <p class="welcome-Profil"> Bienvenue </p> 
                             <p class="welcome-Nom-Profil"> ${userData.firstname}</p> </div>
+                            
 
                             <img src='${imagegif}' width="450">
 
@@ -45,7 +46,7 @@ const ProfilPage = () => {
 
                 <div class = "col-md-8 mt-1">
                     <div  class="card mb-3 content">
-                        <h1 class="m-3 pt-3"> Profil</h1>
+                        <h1 class="m-3 pt-3 titre_profil"> Profil</h1>
                         <div class ="card-body">
                             <div class="row">
                                 <div class="col-md-3">
@@ -79,12 +80,10 @@ const ProfilPage = () => {
                         </div>
                     </div>
                     <div class="card mb-3 content">
-                        <h1 class"m-3> Voyages recents</h1>
+                        <h1 class="m-3 titreVoyageRecent"> Voyages recents</h1>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-3">
-                                    <h5> Voyages recents</h5>
-                                </div>
+                                
                                 <div id="carouselExampleIndicators" class="carousel slide">
                                     <div class="carousel-indicators">
                                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
@@ -144,20 +143,7 @@ const ProfilPage = () => {
 
                         </div>
                     </div>
-                    <div class="card mb-3 content">
-                        <h1 class"m-3> Feedbacks</h1>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Feedbacks</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                Feedbacks
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div> 
