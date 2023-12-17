@@ -198,7 +198,7 @@ function showComments() {
         cardsWrapper.appendChild(card);
       })
       const items = document.querySelector(`.cItem0`);
-      items.className += " active"
+      if(items) items.className += " active"
     });
 }
 

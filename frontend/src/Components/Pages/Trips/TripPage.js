@@ -81,23 +81,18 @@ async function displayTripPage() {
                             <input type="text" id="commentairetrip" maxlength="140" placeholder="Enter your feedback here (Max 140 characters)" required/>
                             <div class="subtrip">
                             <select id="selecttrip" placeholder="1-5" >
-                            <option value="" disabled selected >Select your rating</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                                <option value="" disabled selected >Select your rating</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                             <label for="myfile">Add a picture:</label>
                             <input type="file" id="myfile" name="myfile"><br><br>
-                             <button class="subscribe-btn-modal">Submit</button>
-                            </div>
-                            
-                             
+                             <button class="subscribe-btn-modal" id="submitComment">Submit</button>
+                            </div>                   
                         </div>
-                          
-                 
-
                     <div class = "PlanPageComment">
                         <div id="trip-coments"></div>
                             <div class ="PlanPageComment_image" >
@@ -120,6 +115,28 @@ async function displayTripPage() {
     mapDiv.id = "mapDiv";
     const rightSide = document.querySelector('#trip-page-right-side');
     rightSide.appendChild(mapDiv);
+
+    const submitComment = document.querySelector('#submitComment');
+    submitComment.addEventListener('click', () => {
+        const comment = document.querySelector('#commentairetrip').value;
+        const rating = document.querySelector('#selecttrip').value;
+        const image = document.querySelector('#myFile');
+
+        fetch(`${process.env.API_BASE_URL}/comments/trip/add`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': JSON.parse(localStorage.getItem('user')).token,
+              },
+            method: 'POST',
+            body: JSON.stringify({
+                tripId: tripData.id_trip,
+                rating,
+                comment,
+                image,
+            })
+        })
+    })
 
     const modifyTripButton = document.querySelector('#modifyTripButton');
     modifyTripButton.addEventListener('click', () => { 
