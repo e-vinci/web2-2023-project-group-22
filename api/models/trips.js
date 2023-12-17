@@ -13,17 +13,17 @@ async function createTrip(destination, startDate, endDate, user) {
     })
     .then((res) => (res));
   const createTripQuery = {
-    text: 'INSERT INTO projetweb.trips (country_code, start_date, end_date) VALUES ($1, $2, $3) RETURNING id_trip',
+    text: 'INSERT INTO projetweb.trips (country_code, start_date, end_date) VALUES ($1, $2, $3) RETURNING id_trip, start_date, end_date, country_code',
     values: [result[0].cca3, startDate, endDate],
   };
   const res = await client.query(createTripQuery);
   addParticipation(user, res.rows[0]);
 
   const trip = {
-    tripId: res.rows[0].id_trip,
-    destination: result[0].cca3,
-    startDate,
-    endDate,
+    id_trip: res.rows[0].id_trip,
+    country_code: result[0].cca3,
+    start_date: res.rows[0].start_date,
+    end_date: res.rows[0].end_date,
   };
 
   return trip;
@@ -41,7 +41,7 @@ async function addParticipation(user, trip) {
 // Returns the trip for given id
 async function getTrip(id) {
   const getTripQuery = {
-    text: 'SELECT country_code, start_date, end_date, privacy FROM projetweb.trips WHERE id_trip = $1',
+    text: 'SELECT id_trip, country_code, start_date, end_date, privacy FROM projetweb.trips WHERE id_trip = $1',
     values: [id],
   };
   const res = await client.query(getTripQuery);

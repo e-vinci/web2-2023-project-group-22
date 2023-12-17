@@ -34,8 +34,8 @@ const ModifyTripPage = async () => {
             </div>
             <div id="modify-trip-page-right-side">
                 <div id="info-trip">
-                    <h1> Trip to ${tripData.destination}</h1>
-                    <h3> ${tripData.startDate} to ${tripData.endDate}</h3>
+                    <h1> Trip to ${tripData.country_code}</h1>
+                    <h3> ${tripData.start_date.split('T')[0]} to ${tripData.end_date.split('T')[0]}</h3>
                 </div>
                 <div id="trip-places"></div>
             </div>
@@ -46,11 +46,12 @@ const ModifyTripPage = async () => {
     saveButton.id = "save-trip-button";
     saveButton.textContent = "Save";
     saveButton.addEventListener('click', () => {
+        localStorage.setItem('tripData', JSON.stringify(tripData));
         Navigate('/trip');
     })
     infotripDiv.appendChild(saveButton);
     const tripPlacesDiv = document.querySelector('#trip-places');
-    const tripPlaces = await fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.tripId}`, {
+    const tripPlaces = await fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.id_trip}`, {
         method: 'GET',
     })
     .then((response) => {
@@ -88,7 +89,7 @@ const ModifyTripPage = async () => {
                     },
                     body: JSON.stringify({
                         "placeId": r.place.place_id,
-                        "tripId": tripData.tripId,
+                        "tripId": tripData.id_trip,
                     })
                 })
                 .then((response) => {
@@ -183,7 +184,7 @@ const ModifyTripPage = async () => {
                             },
                             body: JSON.stringify({
                                 "placeId": t.place_id,
-                                "tripId": tripData.tripId,
+                                "tripId": tripData.id_trip,
                             })
                         })
                         .then((response) => {
