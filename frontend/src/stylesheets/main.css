@@ -531,10 +531,13 @@ form input {
 @import url("https://bootsrap-4.5.3-dist/css/bootsrap.min.css");
 
 .sidebar{
-	background-color: transparent;
+	background-color: #f5f5dc;;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	
-	height: 98%;
+	height: 97%;
+}
+.titreVoyageRecent{
+	margin-left: 10%;
 }
 .image-profil{
 	margin-top: 5%;
@@ -565,6 +568,7 @@ form input {
 .messageProfil p{
 	color: black;
 }
+
 .carouselDiv {
 	margin-left: 11%;
 }
@@ -582,6 +586,12 @@ form input {
 	margin-top: 30%;
 	margin-right: 2%;
 }
+.wrapercasse{
+	width: 80%;
+	height: 100%;
+}
+
+
 /* Styles pour le bouton-input */
 .button-input {
     display: inline-block;
@@ -598,7 +608,7 @@ form input {
 }
 
 .button-input {
-	margin-top: 100%;
+	margin-top: 2%;
     background: linear-gradient(90deg, #3498db, #2078b8);
     color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -639,7 +649,7 @@ form input {
 	flex-direction: column;
 }
 .content{
-	background-color: whitesmoke;
+	background-color:#f5f5dc;
 }
 .containerr{
 	width: 90%;
@@ -647,6 +657,7 @@ form input {
 	color: #333;
 	
 }
+
 /*---------------------------------------------------------------------------------------------------*/
 /* .grid-item:nth-child(2){
 	transition-delay: 100ms;
