@@ -4,60 +4,42 @@ import { clearPage } from '../../utils/render';
 // import image1 from '../../img/usertest.png';
 // import Navigate from '../Router/Navigate';
 
-const Testpage = () => {
+const Testpage = async () => {
     clearPage();
 
-    const main = document.querySelector('main');
-    main.addEventListener("DOMContentLoaded", () => {
-        // Crée le conteneur du carousel
-        const carouselContainer = document.createElement("div");
-        carouselContainer.id = "carousel-container";
-        main.appendChild(carouselContainer);
-      
-        // Initialise l'index du slide actuel
-        let currentIndex = 0;
-      
-        // Ajoute des slides au carousel
-        const slidesContent = ["Slide 1", "Slide 2", "Slide 3"];
-        const slides = slidesContent.map((content) => {
-          const slide = document.createElement("div");
-          slide.classList.add("slide");
-          slide.textContent = content;
-          carouselContainer.appendChild(slide);
-          return slide;
+    const modifiTripPageLeftSide = document.getElementById('modify-trip-page-left-side');
+    fetch('http://localhost:3000/trips/places/all', {
+          method: 'GET'
+    })
+    .then((response) => {
+        if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+        return response.json();
+    })
+    .then((places) =>{
+        const category = {};
+        Object.entries(places).forEach((place) =>{
+            if(!category[place[1].types[0]]) category[place[1].types[0]] = [place[1]];
+            else category[place[1].types[0]].push(place[1]);
         });
-      
-        // Ajoute des boutons pour la navigation
-        const prevButton = document.createElement("button");
-        prevButton.textContent = "Previous";
-        prevButton.addEventListener("click", showPreviousSlide);
-        main.appendChild(prevButton);
-      
-        const nextButton = document.createElement("button");
-        nextButton.textContent = "Next";
-        nextButton.addEventListener("click", showNextSlide);
-        main.appendChild(nextButton);
-      
-        // Fonction pour afficher le slide suivant
-        function showNextSlide() {
-          slides[currentIndex].classList.remove("visible");
-          currentIndex = (currentIndex + 1) % slides.length;
-          slides[currentIndex].classList.add("visible");
-        }
-      
-        // Fonction pour afficher le slide précédent
-        function showPreviousSlide() {
-          slides[currentIndex].classList.remove("visible");
-          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-          slides[currentIndex].classList.add("visible");
-        }
-      
-        // Affiche le premier slide au chargement de la page
-        slides[currentIndex].classList.add("visible");
-      });
-      
-
-    
+        Object.entries(category).forEach((c) => {
+            console.log(c);
+            const categoryDiv = document.createElement("div");
+            categoryDiv.id = `${c[0]}`;
+            const categoryDivTitle = document.createElement('h1');
+            categoryDivTitle.innerText = `${c[0]}`;
+            categoryDiv.appendChild(categoryDivTitle);
+            c[1].forEach((t) => {
+                if(t.types[0] === c[0]){
+                    const place = document.createElement("div");
+                    place.className = "card";
+                    place.innerText = `${t.name  } ${  t.rating } ${ t.icon}`;
+                    categoryDiv.appendChild(place);
+                }
+            })
+            modifiTripPageLeftSide.appendChild(categoryDiv);
+        })
+        
+    });
 }
 
 

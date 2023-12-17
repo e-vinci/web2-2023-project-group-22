@@ -56,6 +56,9 @@ async function readOneSiteCommentFromUserId(id) {
 
 // Add a site comment
 async function addSiteComment(idUser, rating, comment) {
+  const commentFound = readOneSiteCommentFromUserId(idUser);
+  if (commentFound) return undefined;
+
   const query = {
     text: 'INSERT INTO projetweb.site_comments (id_user, rating, comment) VALUES ($1, $2, $3) RETURNING id_comment',
     values: [idUser, rating, comment],
