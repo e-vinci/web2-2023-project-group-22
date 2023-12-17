@@ -4,6 +4,7 @@ import chambre from '../../../img/hotel_chambre.jpg'
 import tripadvisor from '../../../img/tripadvisor.png'
 import booking from '../../../img/booking.png'
 import airbnb from '../../../img/aribnb.png'
+import Navigate from "../../Router/Navigate";
 
 
 
@@ -37,7 +38,7 @@ async function displayTripPage() {
                                 <p> <i class="bi bi-calendar"></i>${tripData.startDate} to ${tripData.endDate}</p>
                             </div>
                             <div class ="PlanPageHeader__button">
-                                <button style="none" type="submit">
+                                <button style="none" type="submit" id="modifyTripButton">
                                     <i>Modify trip</i> 
                                 </button>
                             </div>
@@ -78,6 +79,11 @@ async function displayTripPage() {
     </div>
     `;
 
+    const modifyTripButton = document.querySelector('#modifyTripButton');
+    modifyTripButton.addEventListener('click', () => { 
+        Navigate('/modifytrip');
+    })
+
     const tripPlaces = document.querySelector('#trip-places');
     const places = await fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.tripId}`, {
         method: 'GET'
@@ -104,6 +110,19 @@ async function displayTripPage() {
         })
         return result;
     });
+
+    if(places.length === 0) {
+        tripPlaces.innerHTML = `
+            <div>
+                <h5>No places yet... Add some ?</h5>
+                <button id="addPlacesButton">Modify trip</button>
+            </div>
+        `;
+        const addPlacesButton = document.querySelector('#addPlacesButton');
+        addPlacesButton.addEventListener('click', () => {
+            Navigate('/modifytrip');
+        })
+    }
 
     const mapBounds = {
         north: 0,
