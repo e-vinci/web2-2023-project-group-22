@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import { clearPage } from "../../../utils/render"
 import logoImageNoir from '../../../img/imageVille.jpg'
 import chambre from '../../../img/hotel_chambre.jpg'
@@ -152,7 +154,17 @@ async function displayTripPage() {
           latLngBounds: mapBounds,
           strictBounds: false,
         }
+
       });
+      places.forEach((place) => {
+        const marker = new google.maps.Marker({
+            label: { text: place.order.toString(), color: "white" },
+            position: place.place.geometry.location,
+            map,
+            title: place.place.name
+        });
+      })
+
       // eslint-disable-next-line no-undef
     //   const bounds = new google.maps.LatLngBounds(
     //     data.results[0].geometry.viewport.southwest,
