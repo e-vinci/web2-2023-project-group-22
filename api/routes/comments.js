@@ -1,4 +1,6 @@
 const express = require('express');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const multer = require('multer');
 const {
   getTripComments,
   readAllSiteComments,
@@ -18,6 +20,20 @@ const {
 
 const router = express.Router();
 
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, 'public/images/ticket_images');
+  },
+  filename(req, file, cb) {
+    const date = new Date();
+    const uniquePrefix = `${date.getFullYear()}-${date.getMonth() + 1
+    }-${date.getDate()}-${date.getHours()}-${date.getMinutes()
+    }-${date.getSeconds()}`;
+    cb(null, `${uniquePrefix}-${file.originalname}`);
+  },
+});
+const upload = multer({ storage });
+
 /* GET specific trip comments listing. */
 router.get('/trip/:id', async (req, res) => {
   const tripId = req.params.id ? req.params.id : undefined;
@@ -30,7 +46,7 @@ router.get('/trip/:id', async (req, res) => {
 });
 
 /* GET specific trip comments listing. */
-router.post('/trip/add', authorize, async (req, res) => {
+router.post('/trip/add', authorize, upload.single('image'), async (req, res) => {
   const tripId = req?.body?.tripId >= 0 && req?.body?.tripId <= 5 ? req.body.tripId : undefined;
   const rating = req?.body?.rating >= 0 && req?.body?.rating <= 5 ? req.body.rating : undefined;
   const comment = req?.body?.comment?.length !== 0 ? req.body.comment : undefined;
@@ -40,7 +56,8 @@ router.post('/trip/add', authorize, async (req, res) => {
 
   if (!tripId || !rating || !comment) return res.sendStatus(400);
 
-  const addedComment = await addOneTripComment(tripId, rating, comment, userFound.id_user);
+  // eslint-disable-next-line max-len
+  const addedComment = await addOneTripComment(tripId, rating, comment, userFound.id_user, req.file.filename);
   if (!addedComment || Object.keys(addedComment).length === 0) return res.sendStatus(401);
 
   return res.json(addedComment);
