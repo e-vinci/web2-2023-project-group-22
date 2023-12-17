@@ -94,22 +94,21 @@ async function deleteOneSiteComment(idUser) {
 
 async function readOneTripCommentFromUserForTripId(userId, tripId) {
   const query = {
-    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.trips_comments tc, projetweb.users u WHERE u.id_user = tc.id_user AND tc.id_user = $1 AND tc.id_trip = $2',
+    text: 'SELECT lastname, firstname, rating, comment, image FROM projetweb.trips_comments tc, projetweb.users u WHERE u.id_user = tc.id_user AND tc.id_user = $1 AND tc.id_trip = $2',
     values: [userId, tripId],
   };
   const res = await client.query(query);
-  console.log(res.rows);
   if (res.rows[0]) return res.rows[0];
   return undefined;
 }
 
-async function addOneTripComment(tripId, rating, comment, userId) {
+async function addOneTripComment(tripId, rating, comment, userId, fileName) {
   const commentFound = await readOneTripCommentFromUserForTripId(userId, tripId);
   if (commentFound) return undefined;
 
   const query = {
-    text: 'INSERT INTO projetweb.trips_comments (id_trip, id_user, rating, comment) VALUES ($1, $2, $3, $4) RETURNING id_trip_comment',
-    values: [tripId, userId, rating, comment],
+    text: 'INSERT INTO projetweb.trips_comments (id_trip, id_user, rating, comment, image) VALUES ($1, $2, $3, $4, $5) RETURNING id_trip_comment',
+    values: [tripId, userId, rating, comment, fileName],
   };
   const res = await client.query(query);
   if (res.rows) return res.rows;
