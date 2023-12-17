@@ -139,14 +139,17 @@ a {
 	border-radius: 20px;
 }
 
+
+
 /* code for the second homePageBlock */
 
 #secondBlock{
 	display: flex;
 	flex-direction: column;
-	/* background-color: aqua; */
+	justify-content: center;;
 	align-items:center;
-	width: 85%;
+	width: 55%;	
+	align-items: center;	
 }
 
 #secondBlockText{
@@ -171,6 +174,67 @@ a {
 	/* color: brown; */
 	font-weight: 20px;
 	text-wrap: wrap;
+}
+
+#videoHomePage {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 0;
+}
+
+#ContainerDivHomePage{
+	margin-top: 4%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+	justify-content: space-evenly;
+
+}
+
+#firstDivHomePage{
+	width: 25%;
+	display: flex;
+	color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 25px;
+	padding: 4%;
+	height: 300px;
+}
+
+#secondDivHomePage{
+	width: 25%;
+	display: flex;
+	color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+	padding: 4%;
+	height: 300px;
+}
+
+#thirdDivHomePage{
+	width: 25%;
+	display: flex;
+	color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+	padding: 4%;
+	height: 300px;
 }
 
 /* code for the last home page block */
@@ -285,6 +349,7 @@ form input {
     margin: 8px 0;
     width: 100%;
 }
+
 
 .container {
 	border-radius: 10px;
@@ -450,8 +515,8 @@ form input {
 @import url("https://bootsrap-4.5.3-dist/css/bootsrap.min.css");
 
 .sidebar{
-	background-color: #333;
-	color: white;
+	background-color: white;
+	
 	height: 100%;
 }
 .sidebar a{
@@ -463,6 +528,18 @@ form input {
 	text-decoration: none;
 	display: flex;
 	
+}
+.messageProfil p{
+	color: black;
+}
+.logoutProfile{
+	width: 80%;
+	margin-top: 90%;
+	color: white;
+	background-color: #133e56;
+	border-width: 0px;
+	
+	border-radius: 10px;
 }
 .card{
 	position: relative;
@@ -528,6 +605,18 @@ form input {
 	background-color: white;
 	overflow: hidden;
 }
+#trip-page-left-side{
+	/* background-color: bisque; */
+	width: 50%;
+	
+}
+
+#trip-page-right-side{
+	 background-color: rgb(161, 157, 151); 
+	padding: 50px 0;
+	width: 50%;
+	height: 1200px;
+}
 
 
 /*Modify trip page*/
@@ -547,7 +636,7 @@ form input {
 }
 
 #modify-trip-page-right-side{
-	/* background-color: rgb(255, 140, 0); */
+	 background-color: rgb(161, 157, 151); 
 	padding: 50px 0;
 	width: 50%;
 	height: 1200px;
@@ -591,78 +680,6 @@ form input {
 	justify-content: space-evenly;
 } */
 
-*,
-::before,
-::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-#cCarousel {
-  position: relative;
-  max-width: 900px;
-  margin: auto;
-}
-
-
-
-#carousel-vp {
-  width: 770px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  margin: auto;
-}
-
-
-#cCarousel #cCarousel-inner {
-  display: flex;
-  position: absolute;
-  transition: 0.3s ease-in-out;
-  gap: 10px;
-  left: 0px;
-}
-
-.cCarousel-item {
-  width: 250px;
-  height: 400px;
-  border: 2px solid white;
-  border-radius: 15px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.cCarousel-item img {
-  width: 100%;
-  object-fit: cover;
-  min-height: 246px;
-  color: white;
-}
-
-.cCarousel-item .infos {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  background: white;
-  color: black;
-}
-
-.cCarousel-item .infos button {
-  background: #222;
-  padding: 10px 30px;
-  border-radius: 15px;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-}
 
 .categories {
 	padding: 30px 0;
@@ -838,6 +855,20 @@ footer {
 	background-color: #f8f8f8;
 	font-size: 16px;
   }
+  #commentaire {
+	width: 70%;
+	padding: 80px 20px;
+	margin: 8px 20%;
+	margin-bottom:5%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	font-size: 16px;
+	position: relative	;
+  	padding-top: 1%; 
+   
+  }
 
   #close-btn {
 	position: absolute;
@@ -877,20 +908,6 @@ footer {
 	opacity: .5;
   }
 
-  .logoutProfile {
-	
-	background: #0066A2;
-	color: white;
-	margin-top: 90%;
-	font: bold15px arial,sans-serif;
-	text-shadow: none;
-	}
-
-.logoutProfile:hover{
-	border-radius: 10px;
-	border-color: black;
-}
-
 
   .containertest {
 	background-color: #333;
@@ -908,22 +925,6 @@ footer {
   .draggable.dragging {
 	opacity: .5;
   }
-
-  .logoutProfile {
-	
-	background: #0066A2;
-	color: white;
-	margin-top: 90%;
-	font: bold15px arial,sans-serif;
-	text-shadow: none;
-	}
-
-.logoutProfile:hover{
-	border-radius: 10px;
-	border-color: black;
-}
-
-
 
 /* footer */
 
@@ -1041,85 +1042,120 @@ footer {
 	/* Add other styles as needed */
   }
 
+ 
 
   /*Test page*/
 
-  #customCarousel {
-	width: 800px;
-	height: 450px;
-	overflow: hidden;
-	position: relative;
-	margin: auto;
-  }
+  
 
-  .carousel-inner {
+
+.cards-wrapper{
 	display: flex;
-	transition: transform 0.5s ease-in-out;
-  }
+}
 
-  .carousel-item {
-	width: 800px;
-	height: 450px;
-  }
+.card{
+	margin: 0.5em 0.5em;
+}
 
-  .card {
-	width: 250px;
-	height: 400px;
-	margin: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	overflow: hidden;
-  }
 
-  .card img {
-	width: 100%;
-	height: 50%;
-	object-fit: cover;
-  }
-
-  .card-content {
-	padding: 10px;
-	text-align: center;
-  }
-
-  .carousel-control {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 30px;
-	height: 30px;
-	background-color: rgba(255, 255, 255, 0.7);
-	border: none;
-	border-radius: 50%;
-	cursor: pointer;
-  }
-
-  .carousel-prev {
-	left: 10px;
-  }
-
-  .carousel-next {
-	right: 10px;
-  }
 
  
-/**/
+/* trip page bloc Destination (header )*/
   .PlanPageHeader__header {
-    max-width: 560px;
-}
-  .PlanPageHeader__header {
+	max-width: 460px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,.2);
     left: 32px;
-	margin-top:5%;
-    margin-left:5%;
+   	margin-bottom:35rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px 16px 26px 24px;
-    position: flex;
+    padding: 16px  16px;
+    position:absolute ;
     right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
 }
 .PlanPageHeader__image {
     height: 240px;
+}
+.PlanPageHeader__display{
+
+    display: flex;
+    flex-direction: row!important;
+    justify-content:space-evenly;
+
+}
+.PlanPageHeader__date{
+    margin-top: 8%;
+
+}
+.PlanPageHeader__button{
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+/* trip page bloc Destination (body  )*/
+.PlanPageBody {
+	
+    max-width: 700px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+   	margin-bottom:3rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px 24px 16px 32px;
+    position:absolute ;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+}
+
+.PlanPagehotel {
+	
+    max-width: 700px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+   	margin-bottom:-15rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: px  32px;
+    position:absolute ;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+	
+}
+
+.PlanPagehotel_display{
+	
+	text-align:center;
+}
+.PlanPagehotel_image  {
+	display:flex;
+    flex-direction: row;
+   
+
+}
+.PlanPagehotel_chambre{
+	width:90%; 
+}
+
+.PlanPagehotel_image img {
+	
+	border-radius: 25px;
+	width:80%; 
+	margin: 5px ;
+	
+
 }

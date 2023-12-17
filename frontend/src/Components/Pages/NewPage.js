@@ -2,6 +2,7 @@ import { clearPage } from '../../utils/render';
 
 const NewPage = async () => {
   clearPage();
+  fetch('http://localhost:3000')
   const main = document.querySelector('main');
 
   const buttons = {
