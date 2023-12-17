@@ -5,6 +5,7 @@ import Navbar from '../../Navbar/Navbar';
 
 const AuthPage = () => {
     clearPage();
+    // formulaire
     const loginRegisterPage = document.querySelector('main');
     const loginRegisterForm = `
 <div id="login-form">
@@ -63,7 +64,7 @@ const AuthPage = () => {
     // })
 
     switchLoginRegister();
-
+    // fortmulaire de connexion 
     const container = document.getElementById('container');
     if(sessionStorage.getItem('clickedNavItem') === "signup") container.classList.add("right-panel-active");
     sessionStorage.removeItem('clickedNavItem');
@@ -79,6 +80,7 @@ const AuthPage = () => {
         Navigate('/');
       }
     })
+    // formulaire d'enregistrement 
     const signUpButton = document.getElementById('signUpButton');
     signUpButton.addEventListener('click', async (event) => {
       event.preventDefault();
@@ -94,6 +96,8 @@ const AuthPage = () => {
       }
     })
   };
+
+  // changement de page login vers Register 
 function switchLoginRegister(){
   const signUpButton = document.getElementById('signUp');
   const signInButton = document.getElementById('signIn');
@@ -136,6 +140,7 @@ function switchLoginRegister(){
 //   .then(json => localStorage.setItem('google_user_info', JSON.stringify(json)));
 // }
 
+// login 
 async function login(user){
   await fetch('http://localhost:3000/auths/login', {
     headers: {
