@@ -29,7 +29,7 @@ const ProfilPage = () => {
                             <img src='${image}' class="image-profil" width="150">
                             <div class="mt-3">
                             <div class="message ">
-                            <p class="welcome-Profil"> Bienvenue </p> 
+                            <p class="welcome-Profil"> Welcome, </p> 
                             <p class="welcome-Nom-Profil"> ${userData.firstname}</p> </div>
                             
 
@@ -46,11 +46,11 @@ const ProfilPage = () => {
 
                 <div class = "col-md-8 mt-1">
                     <div  class="card mb-3 content">
-                        <h1 class="m-3 pt-3 titre_profil"> Profil</h1>
+                        <h1 class="m-3 pt-3 titre_profil"> Profile</h1>
                         <div class ="card-body">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <h5> Nom Complet <h5>
+                                    <h5> Full name <h5>
                                 </div>
                                 <div class="col-md-9 text-secondary">
                                 ${userData.firstname}  ${userData.lastname} 
@@ -80,7 +80,7 @@ const ProfilPage = () => {
                         </div>
                     </div>
                     <div class="card mb-3 content">
-                        <h1 class="m-3 titreVoyageRecent"> Voyages recents</h1>
+                        <h1 class="m-3 titreVoyageRecent"> Recent Trips</h1>
                         <div class="card-body">
                             <div class="row">
                                 
