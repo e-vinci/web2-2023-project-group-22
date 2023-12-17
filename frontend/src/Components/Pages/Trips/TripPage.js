@@ -68,7 +68,9 @@ async function displayTripPage() {
                     </div>         
                 </div> 
             </div>
-        <div id="trip-page-right-side"></div>
+        <div id="trip-page-right-side">
+            <div id="mapDiv"></div>
+        </div>
     </div>
     `;
 
@@ -99,14 +101,40 @@ async function displayTripPage() {
         return result;
     });
 
-    // const mapDiv = document.querySelector('.trip-page-right-side');
-    // const mapBounds = {
-    //     topLeft: 0,
-    //     topRight: 0,
-    //     bottomLeft: 0,
-    //     bottomRight: 0
-    // }
-    places.forEach((place) => console.log(place))
+    const mapBounds = {
+        north: 0,
+        south: 1000,
+        west: 1000,
+        east: 0
+    }
+    places.forEach((place) => {
+        if(place.place.geometry.viewport.north > mapBounds.north) mapBounds.north = place.place.geometry.viewport.north;
+        if(place.place.geometry.viewport.south < mapBounds.south) mapBounds.south = place.place.geometry.viewport.south;
+        if(place.place.geometry.viewport.west < mapBounds.west) mapBounds.west = place.place.geometry.viewport.west;
+        if(place.place.geometry.viewport.east > mapBounds.east) mapBounds.east = place.place.geometry.viewport.east;
+    });
+    // eslint-disable-next-line no-unused-vars
+    let map;
+    const initMap = async function () {
+      // eslint-disable-next-line no-undef
+      const { Map } = await google.maps.importLibrary("maps");
+
+      map = new Map(document.getElementById("mapDiv"), {
+        center: {lat: mapBounds.north, lng: mapBounds.south},
+        zoom: 5,
+        restriction: {
+          latLngBounds: mapBounds,
+          strictBounds: false,
+        }
+      });
+      // eslint-disable-next-line no-undef
+    //   const bounds = new google.maps.LatLngBounds(
+    //     data.results[0].geometry.viewport.southwest,
+    //     data.results[0].geometry.viewport.northeast
+    //   );
+    //   map.fitBounds(bounds);
+    }
+    initMap();
 }
 
 export default TripPage;
