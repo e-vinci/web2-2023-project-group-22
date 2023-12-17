@@ -12,6 +12,8 @@ const HomePage = () => {
   showComments();
 };
 
+// affichage des bouttons pour voyager 
+
 function displayTripButtons(){
   // const main = document.querySelector('main');
   const divButtonTrip = document.createElement('div');
@@ -30,7 +32,7 @@ function displayTripButtons(){
   divButtonTrip.appendChild(showAllCountriesButton); 
   return divButtonTrip;
 }
-
+// texte d'introduction 
 function presentationFirstBloc(){
   const main = document.querySelector('main');
   const createDivFirstBlock = 
@@ -55,6 +57,7 @@ function presentationFirstBloc(){
   tripButtons.appendChild(displayTripButtons());
 }
 
+// affichage de la vidéo 
 function HomePageSecondBlock(){
   const main = document.querySelector('main');
   const secondBlock = document.createElement('div');

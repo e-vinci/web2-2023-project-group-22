@@ -18,6 +18,12 @@ function displayTripPage() {
     //  localStorage.removeItem('countryData');
     main.innerHTML = // ${country.name.common} ${trip.id}
 
+    // <button style="none" type="submit">
+    //    <i class="bi bi-share-fill"></i>
+    //  </button>
+    //  <button style="none" type="submit">
+    //    <i class="bi bi-person-plus-fill"></i>
+    //  </button>
         `
      <div id="div-trip-page-block">
         <div id="trip-page-left-side">
@@ -31,126 +37,63 @@ function displayTripPage() {
                             <p> <i class="bi bi-calendar"></i> to </p>
                             </div>
                             <div class ="PlanPageHeader__button">
-                                <button style="none" type="submit">
-                                <i class="bi bi-share-fill"></i>
-                                </button>
-                                <button style="none" type="submit">
-                                <i class="bi bi-person-plus-fill"></i>
-                                </button>
+                            <button style="none" type="submit">
+                                <i >Modify trip </i> 
+                            </button>
+                               
                             </div>
                         </div>
                     </div>
 
 
 
+
+                   
+                </div>
+               
+                <div class = "PlanPageBody">
+                <div class = "PlanPageplace_display"  >
+                    <h7>Atomium</h7>   
+                </div>
+                <div class =" PlanPagePlace_image" >
+                    <div class =" PlanPagehotel_chambre" >
+                        <img src="${logoImageNoir}" > 
+                    </div>
+                    <p>  L’Atomium est un monument de Bruxelles, en Belgique, construit à l'occasion de l'Exposition universelle de 1958 et représentant la maille conventionnelle du cristal 
+                    de fer agrandie 165 milliards de fois. Il est situé à Laeken sur le plateau du Heysel où eut lieu cette exposition.</p>
+                
+                </div>
+                </div>
+            
+                
 
                 <div class = "PlanPageBody">
-                    <h4> Most popular places </h4>
-                    <div id="carouselExampleIndicators" class="carousel slide">
-
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-                     </div>
-
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card" style="width: 100rem;">
-                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Maison Dandoy </h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Add to trip</a>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 100rem;">
-                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Atomium</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Add to trip</a>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 100rem;">
-                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Grande Place</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Add to trip</a>
-                                    </div>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card" style="width: 100rem;">
-                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Maneken pis</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Add to trip</a>
-                                    </div>
-                                </div>
-                            <div class="card" style="width: 100rem;">
-                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Garde de Midi </h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Add to trip</a>
-                                </div>
-                    </div>
-                    <div class="card" style="width: 100rem;">
-                        <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Garde de Central </h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Add to trip</a>
-                        </div>
-                    </div>
-                    </div>  
-                    </div>
-                    <div class="carousel-item active">
-                        <div class="cards-wrapper">
-                        <div class="card" style="width: 100rem;">
-                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Laboreur</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Add to trip</a>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 100rem;">
-                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">La Ruche </h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Add to trip</a>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 100rem;">
-                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ribs & Steak </h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Add to trip</a>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"  ></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+                <div class = "PlanPageplace_display"  >
+                    <h7>Atomium</h7>   
                 </div>
-
-               </div>    
+                <div class =" PlanPagePlace_image" >
+                    <div class =" PlanPagehotel_chambre" >
+                        <img src="${logoImageNoir}" > 
+                    </div>
+                    <p>  L’Atomium est un monument de Bruxelles, en Belgique, construit à l'occasion de l'Exposition universelle de 1958 et représentant la maille conventionnelle du cristal 
+                    de fer agrandie 165 milliards de fois. Il est situé à Laeken sur le plateau du Heysel où eut lieu cette exposition.</p>
+                
+        
+                </div>
+                </div>
+                <div class = "PlanPageBody">
+                <div class = "PlanPageplace_display"  >
+                    <h7>Atomium</h7>   
+                </div>
+                <div class =" PlanPagePlace_image" >
+                    <div class =" PlanPagehotel_chambre" >
+                        <img src="${logoImageNoir}" > 
+                    </div>
+                    <p>  L’Atomium est un monument de Bruxelles, en Belgique, construit à l'occasion de l'Exposition universelle de 1958 et représentant la maille conventionnelle du cristal 
+                    de fer agrandie 165 milliards de fois. Il est situé à Laeken sur le plateau du Heysel où eut lieu cette exposition.</p>
+                
+        
+                </div>
                 </div>
 
 
@@ -171,10 +114,7 @@ function displayTripPage() {
                     </a>
                     <a href="https://www.airbnb.com/" target="_blank">
                     <img src="${airbnb}" >
-                    </a>
-               
-                
-               
+                    </a>        
                 </div>
 
 

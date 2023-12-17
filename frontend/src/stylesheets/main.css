@@ -332,6 +332,8 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
+/*formulaire de connexion  */
+
 form {
 	background-color: #FFFFFF;
 	display: flex;
@@ -647,7 +649,7 @@ form input {
 	color: #333;
 	
 }
-/*---------------------------------------------------------------------------------------------------*/
+/*---------------------------*/
 /* .grid-item:nth-child(2){
 	transition-delay: 100ms;
 }
@@ -691,6 +693,8 @@ form input {
 
 /* Trip Page */
 
+/*---------------------------------------------------------------------------------------------------*/
+
 #div-trip-page-block{
 	display: flex;
 	flex-direction: row;
@@ -711,8 +715,153 @@ form input {
 	height: 1200px;
 }
 
+/* trip page bloc Destination (header )*/
+/*---------------------------------------------------------------------------------------------------*/
+.PlanPageHeader__header {
+	max-width: 500px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-left: 2rem;
+	top: -80px;
+	position: relative;
+   	margin-bottom:-2rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px  16px;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+}
+.PlanPageHeader__image {
+    height: 240px;
+}
+.PlanPageHeader__display{
+
+    display: flex;
+    flex-direction: row!important;
+    justify-content:space-evenly;
+
+}
+.PlanPageHeader__date{
+    margin-top: 8%;
+
+}
+.PlanPageHeader__button{
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+/* trip page bloc Destination (body )*/
+/*---------------------------------------------------------------------------------------------------*/
+.PlanPageBody {
+	
+    max-width: 900px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 32px rgba(0,0,0,.2);
+    left: 32px;
+	margin-left: 2rem;
+   	margin-bottom:0.5rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px 42px 16px 32px;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+}
+/* trip page bloc endroit*/
+/*---------------------------------------------------------------------------------------------------*/
+.PlanPagePlace {
+	
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-left: 2rem;
+   	margin-bottom:4rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 32px;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+	
+}
+.PlanPagePlace_display{
+	
+	text-align:center;
+}
+.PlanPagePlace_image  {
+	display:flex;
+    flex-direction: row;
+   
+
+}
+.PlanPagePlace_chambre{
+	width:90%; 
+}
+
+.PlanPagePlace_image img {
+	
+	border-radius: 25px;
+	width:80%; 
+	margin: 5px ;
+	
+
+}
+/* trip page bloc hotel*/
+/*---------------------------------------------------------------------------------------------------*/
+.PlanPagehotel {
+	
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-left: 2rem;
+	margin-top: 4rem;
+   	margin-bottom:4rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding:   32px;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+	
+}
+
+.PlanPagehotel_display{
+	
+	text-align:center;
+}
+.PlanPagehotel_image  {
+	display:flex;
+    flex-direction: row;
+}
+.PlanPagehotel_chambre{
+	width:60%; 
+}
+
+.PlanPagehotel_image img {
+	
+	border-radius: 25px;
+	width:80%; 
+	margin: 5px ;	
+}
 
 /*Modify trip page*/
+/*---------------------------------------------------------------------------------------------------*/
 
 #modify-div-trip-page-block{
 	display: flex;
@@ -732,7 +881,7 @@ form input {
 	 background-color: rgb(161, 157, 151); 
 	padding: 50px 0;
 	width: 50%;
-	height: 1200px;
+	height: 1400px;
 }
 
 /* .category{
@@ -818,6 +967,7 @@ form input {
 
 
 /* Loading page */
+/*---------------------------------------------------------------------------------------------------*/
 
   .loader-wrapper {
 	width: 100%;
@@ -864,6 +1014,7 @@ form input {
 
 
 /* footer */
+/*---------------------------------------------------------------------------------------------------*/
 
 footer {
 	background-color: rgba(9,29,40,255);
@@ -1165,7 +1316,6 @@ footer {
   /*Test page*/
 
   
-
 
 
 
