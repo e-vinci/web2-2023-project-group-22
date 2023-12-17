@@ -52,59 +52,72 @@ const ModifyTripPage = () => {
     })
     .then((places) =>{
         const category = {};
+        
         Object.entries(places).forEach((place) =>{
             if(!category[place[1].types[0]]) category[place[1].types[0]] = [place[1]];
             else category[place[1].types[0]].push(place[1]);
         });
         Object.entries(category).forEach((c) => {
-            const leftPage = document.querySelector('#categories');
-            console.log(leftPage);
-            const categoryDiv = document.createElement("div");
-            categoryDiv.id = `${c[0]}`;
-            categoryDiv.innerHTML += `
-            
-                    <div id="carouselExample" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
-                            </div>
-                            <div class="carousel-item">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+            const categories = document.querySelector('#categories');
+            console.log(`${categories  }test1`);
+            categories.id = `${c[0]}`;
+            const carousel = document.createElement('div');
+            carousel.innerHTML = `
+            <div id="carousel-div">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-inner">
+                    
                     </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
             `;
-            leftPage.appendChild(categoryDiv);
+            
+            const carouselInner = document.querySelector('.carousel-inner');
+            for (let i = 0; i < Math.ceil(c.length/3); i+=1) {
+                const cItem = `
+                <div class="carousel-item cItem${i}">
+                  <div class="cards-wrapper cWrap${i}">
+                  </div>  
+                </div>
+                `;
+                carouselInner.innerHTML += cItem;
+              }
+            let count = 0;
+            let wrap = 0;
+            categories.appendChild(categoryDiv);
             c[1].forEach((t) => {
                 if(t.types[0] === c[0]){
-                    // const place = null;
-                    // place.innerHTML += `
-
-                    
-                    // `;
-
-                    // categoryDiv.appendChild(place);
+                    if(count===3) {wrap+=1; count = 0}
+                    count += 1;
+                    const card = document.createElement('div');
+                    card.className = "card";
+                    card.style.width = "300px";
+                    const img = document.createElement('img');
+                    card.appendChild(img);
+                    const cardBody = document.createElement('div');
+                    cardBody.className = "card-body";
+                    card.appendChild(cardBody);
+                    const placeName = document.createElement('h5');
+                    placeName.className = "card-title";
+                    placeName.innerText = `${t.name}`;
+                    cardBody.appendChild(placeName);
+                    const rating = document.createElement('p');
+                    rating.innerText = t.rating;
+                    cardBody.appendChild(rating);
+                    const cardsWrapper = document.querySelector(`.cWrap${wrap}`);
+                    cardsWrapper.appendChild(card);
                 }
             })
-            
+            const items = document.querySelector(`.cItem0`);
+            items.className += " active";
         })
         
     });
