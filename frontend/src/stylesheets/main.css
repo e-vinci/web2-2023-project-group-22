@@ -186,7 +186,7 @@ a {
 }
 
 #ContainerDivHomePage{
-	margin-top: 4%;
+	
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -553,7 +553,7 @@ form input {
 	font-family: 'Open Sans', sans-serif;
     font-size: 56px; 
     font-weight: bold; 
-    color: #133e56;
+    color: #7DD3EC;
 
 }
 .sidebar a{
@@ -1330,3 +1330,38 @@ footer {
   .carousel-control-next-icon{
 	background-color: black;
   }
+
+  .titleBox{
+	color: white;
+	font-size: 26px
+	
+
+  }
+  .comment{
+	color: white;
+  }
+
+  /*homepage*/
+  .cardBehind{
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 25px;
+	background-color: transparent;
+	margin-bottom:50px ;
+  }
+  .card-body{
+	
+	background-color: transparent;
+	text-align: center;
+	border-radius: 25px;
+	
+  }
+  .etoile{
+	color: yellow;
+  }
+  .flecheAvant{
+	background-color: transparent;
+  }
+  .flecheApres{
+	background-color: transparent;
+  }
+  
