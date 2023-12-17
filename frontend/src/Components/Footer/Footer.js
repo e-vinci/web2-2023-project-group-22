@@ -115,12 +115,12 @@ function validateAndSubmit() {
   console.log('click');
   event.preventDefault();
   console.log('submit');
-  const idUser = JSON.parse(localStorage.getItem('user')).id_user;
+  const user = JSON.parse(localStorage.getItem('user'));
   const commentaire =  document.querySelector('#commentaire').value;
   const ratings =  document.querySelector('#rating').value;
-
-  if (!idUser) {
-      displayNotification('You must be connected to give a feedback');
+  console.log(JSON.parse(localStorage.getItem('user')));
+  if (!user) {
+      displayNotification('You must be connected to give a feedback !');
       return;
     }
   // Select the HTML element where you want to display the error message
@@ -145,7 +145,6 @@ function validateAndSubmit() {
         'Authorization': JSON.parse(localStorage.getItem('user')).token
       },
       body: JSON.stringify({
-        userId: idUser,
         comment: commentaire,
         rating: ratings
       })
