@@ -10,6 +10,7 @@ import GoogleoauthPage from '../Pages/Users/GoogleoauthPage';
 import ModifyTripPage from '../Pages/Trips/ModifyTripPage';
 import DashboardPage from '../Pages/Admin/DashboardPage';
 import Testpage from '../Pages/Testpage';
+import PrivacyPolicyPage from '../Pages/PrivacyPolicyPage';
 
 const routes = {
   '/': HomePage,
@@ -23,7 +24,8 @@ const routes = {
   '/newpage' : NewPage,
   '/oauth2callback' : GoogleoauthPage,
   '/dashboard' : DashboardPage,
-  '/test' : Testpage
+  '/test' : Testpage,
+  '/privacypolicy' : PrivacyPolicyPage,
 };
 
 export default routes;
