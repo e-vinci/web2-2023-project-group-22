@@ -12,7 +12,7 @@ const TripPage = () => {
     displayTripPage();
 }
 
-function displayTripPage() {
+async function displayTripPage() {
     const tripData = JSON.parse(localStorage.getItem('tripData'));
     console.log(tripData);
     const main = document.querySelector("main");
@@ -73,7 +73,7 @@ function displayTripPage() {
     `;
 
     const tripPlaces = document.querySelector('#trip-places');
-    fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.tripId}`, {
+    const places = await fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.tripId}`, {
         method: 'GET'
     })
     .then((response) => {
@@ -96,7 +96,17 @@ function displayTripPage() {
             `;
             tripPlaces.appendChild(card);
         })
+        return result;
     });
+
+    // const mapDiv = document.querySelector('.trip-page-right-side');
+    // const mapBounds = {
+    //     topLeft: 0,
+    //     topRight: 0,
+    //     bottomLeft: 0,
+    //     bottomRight: 0
+    // }
+    places.forEach((place) => console.log(place))
 }
 
 export default TripPage;
