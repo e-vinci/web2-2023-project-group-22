@@ -22,7 +22,7 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'public/images/ticket_images');
+    cb(null, 'images/comments_images');
   },
   filename(req, file, cb) {
     const date = new Date();
@@ -50,6 +50,7 @@ router.post('/trip/add', authorize, upload.single('image'), async (req, res) => 
   const tripId = req?.body?.tripId >= 0 && req?.body?.tripId <= 5 ? req.body.tripId : undefined;
   const rating = req?.body?.rating >= 0 && req?.body?.rating <= 5 ? req.body.rating : undefined;
   const comment = req?.body?.comment?.length !== 0 ? req.body.comment : undefined;
+  const image = req.file.filename ? req.file.filename : undefined;
   const user = req.user.email;
 
   const userFound = await readOneUserFromEmail(user);
@@ -57,7 +58,7 @@ router.post('/trip/add', authorize, upload.single('image'), async (req, res) => 
   if (!tripId || !rating || !comment) return res.sendStatus(400);
 
   // eslint-disable-next-line max-len
-  const addedComment = await addOneTripComment(tripId, rating, comment, userFound.id_user, req.file.filename);
+  const addedComment = await addOneTripComment(tripId, rating, comment, userFound.id_user, image);
   if (!addedComment || Object.keys(addedComment).length === 0) return res.sendStatus(401);
 
   return res.json(addedComment);

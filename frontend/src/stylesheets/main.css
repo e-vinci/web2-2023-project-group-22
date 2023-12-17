@@ -761,18 +761,20 @@ form input {
 /* trip page bloc Destination (header )*/
 /*---------------------------------------------------------------------------------------------------*/
 
-	.PlanPageHeader__header {
-	max-width: 700px;
+.PlanPageHeader__header {
+    max-width: 700px;
     background-color: #fff;
     border-radius: 25px;
-    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
     box-shadow: 0 4px 24px rgba(0,0,0,.2);
     left: 32px;
-   	margin-bottom:35rem;
+    position: relative;
+    margin-top: -8rem;
+    margin-left: 2rem;
+       margin-bottom:-7rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px  16px;
-    position:absolute ;
+    padding: 32px;
     right: 32px;
     display:flex;
     flex-direction: column!important;
@@ -855,7 +857,7 @@ form input {
     left: 32px;
 	margin-left: 2rem;
 	margin-top: 4rem;
-   	margin-bottom:4rem;
+   	margin-bottom:2rem;
     margin-right: auto;
     min-height: 160px;
     padding:   32px;
@@ -884,7 +886,7 @@ form input {
 	width:80%; 
 	margin: 5px ;	
 }
-/* trip page bloc hotel*/
+/* trip page bloc coment */
 /*---------------------------------------------------------------------------------------------------*/
 .PlanPageComment {
 	
@@ -896,7 +898,7 @@ form input {
     left: 32px;
 	margin-top: 2rem;
 	margin-left: 2rem;
-   	margin-bottom:4rem;
+   	margin-bottom:2rem;
     margin-right: auto;
     min-height: 160px;
     padding: 32px;
@@ -906,6 +908,79 @@ form input {
     justify-content:space-between!important;
 	
 }
+
+
+.PlanPageComment_image  {
+	display:flex;
+    flex-direction: row;
+	
+}
+
+.PlanPageComment img {
+	
+	border-radius: 25px;
+	width:30%; 
+	margin: 5px ;	
+}
+
+/* trip page bloc ajouter un  coment */
+/*---------------------------------------------------------------------------------------------------*/
+
+.PlanPageAddComment{
+	max-width: 800px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-top: 2rem;
+	margin-left: 2rem;
+   	margin-bottom:2rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px  16px;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+}
+#commentairetrip{
+	width: 95%;
+	padding: 80px 20px;
+	margin-left: 2%;
+	margin-bottom:2%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	font-size: 16px;
+	position: relative	;
+  	padding-top: 1%; 
+}
+#selecttrip{
+	width: 25%;
+	padding: 20px 20px;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom:2%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	font-size: 16px;
+	position: relative	;
+  	padding-top: 1%; 
+}
+.subtrip{
+	display:flex;
+    flex-direction: row;
+    
+	
+    
+
+}
+
+
 
 /*Modify trip page*/
 /*---------------------------------------------------------------------------------------------------*/
