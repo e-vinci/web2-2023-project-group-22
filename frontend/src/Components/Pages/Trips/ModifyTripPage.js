@@ -20,28 +20,25 @@ import { clearPage } from "../../../utils/render";
 const ModifyTripPage = () => {
     clearPage();
     const tripData = JSON.parse(localStorage.getItem('countryData'));
-    localStorage.removeItem('countryData');
+    // localStorage.removeItem('countryData');
     const main = document.querySelector('main');
     main.innerHTML = `
-    <div id="div-trip-page-block">
-        <div id="modify-trip-page-left-side">
-            <div id="form-filter-modify-trip">
-                <input id="modify-trip-filter" type="text" placeholder="Filtrer par catégorie" />
-                <input id="modify-trip-filter-submit" type="submit" value="Filtrer" />
+        <div id="div-trip-page-block">
+            <div id="modify-trip-page-left-side">
+                <div id="form-filter-modify-trip">
+                    <input id="modify-trip-filter" type="text" placeholder="Filtrer par catégorie" />
+                    <input id="modify-trip-filter-submit" type="submit" value="Filtrer" />
+                </div>
+                <div id="categories"></div>
             </div>
-            <div id="categories">
-            </div>
-            
-        </div>
-
-        <div id="modify-trip-page-right-side">
-            <div id="info-trip">
-                <h1> Voyage à ${tripData.destination}</h1>
-                <h3> ${tripData.startDate} to ${tripData.endDate}</h3>
-                <input/>
+            <div id="modify-trip-page-right-side">
+                <div id="info-trip">
+                    <h1> Voyage à ${tripData.destination}</h1>
+                    <h3> ${tripData.startDate} to ${tripData.endDate}</h3>
+                    <input/>
+                </div>
             </div>
         </div>
-    </div>
     `;
     fetch('http://localhost:3000/trips/places/all', {
           method: 'GET'
@@ -51,35 +48,34 @@ const ModifyTripPage = () => {
         return response.json();
     })
     .then((places) =>{
-        const category = {};
-        
+        const categories = {};
+
         Object.entries(places).forEach((place) =>{
-            if(!category[place[1].types[0]]) category[place[1].types[0]] = [place[1]];
-            else category[place[1].types[0]].push(place[1]);
+            if(!categories[place[1].types[0]]) categories[place[1].types[0]] = [place[1]];
+            else categories[place[1].types[0]].push(place[1]);
         });
-        Object.entries(category).forEach((c) => {
-            const categories = document.querySelector('#categories');
-            console.log(`${categories  }test1`);
-            categories.id = `${c[0]}`;
+
+        Object.entries(categories).forEach((c) => {
+            const category = document.createElement('div');
+            category.id = `${c[0]}`;
             const carousel = document.createElement('div');
             carousel.innerHTML = `
-            <div id="carousel-div">
+            <div class="carousel-div">
                 <div id="carouselExampleIndicators" class="carousel slide">
-                    <div class="carousel-inner">
-                    
-                    </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                    <div class="carousel-inner"></div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
             `;
-            
+            const catDiv = document.querySelector('#categories');
+            catDiv.appendChild(carousel);
             const carouselInner = document.querySelector('.carousel-inner');
             for (let i = 0; i < Math.ceil(c.length/3); i+=1) {
                 const cItem = `
@@ -88,11 +84,11 @@ const ModifyTripPage = () => {
                   </div>  
                 </div>
                 `;
+                console.log();
                 carouselInner.innerHTML += cItem;
-              }
+            }
             let count = 0;
             let wrap = 0;
-            categories.appendChild(categoryDiv);
             c[1].forEach((t) => {
                 if(t.types[0] === c[0]){
                     if(count===3) {wrap+=1; count = 0}
@@ -119,7 +115,6 @@ const ModifyTripPage = () => {
             const items = document.querySelector(`.cItem0`);
             items.className += " active";
         })
-        
     });
 }
 
