@@ -33,10 +33,12 @@ const Footer = () => {
           <p>
           If you want to give a feedback about our website, please fill in the form below.
           </p>
+          <div id="errorMessage" style="color:red"></div>
         </div>
         
-        <input type="text" id="commentaire" placeholder="Enter your feedback here" required/>
-        <select id="rating">
+        <input type="text" id="commentaire" maxlength="140" placeholder="Enter your feedback here (Max 140 characters)" required/>
+        <select id="rating" placeholder="1-5">
+        <option value="" disabled selected>Select your rating</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -44,7 +46,6 @@ const Footer = () => {
         <option value="5">5</option>
         </select>
 
-  
         <button class="subscribe-btn-modal">Submit</button>
       </div>
     </div>
@@ -90,20 +91,24 @@ function closeBtn() {
     }
 }
 
+
 function validateAndSubmit() {
   const submitButton = document.querySelector('.subscribe-btn-modal');
-  submitButton.addEventListener('click', async (event) => {
-    event.preventDefault();
+submitButton.addEventListener('click', async (event) => {
+  event.preventDefault();
 
-    const idUser = JSON.parse(localStorage.getItem('user')).id_user;
-    const commentaire =  document.querySelector('#commentaire').value;
-    const ratings =  document.querySelector('#rating').value; 
+  const idUser = JSON.parse(localStorage.getItem('user')).id_user;
+  const commentaire =  document.querySelector('#commentaire').value;
+  const ratings =  document.querySelector('#rating').value; 
 
-    if (commentaire === '') {
-      alert('Please fill in the form');
-      return;
-    }
+  // Select the HTML element where you want to display the error message
+  const errorMessage = document.querySelector('#errorMessage');
 
+  if (commentaire === '') {
+    alert('Please fill in the form');
+    return;
+  }
+  try {
     const response = await fetch(`${process.env.API_BASE_URL}/comments/site/add`, {
       method: 'POST',
       headers: {
@@ -116,13 +121,17 @@ function validateAndSubmit() {
         rating: ratings
       })
     });
-    if (!response.ok) {
-      alert('There was an error submitting your feedback');
+    if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+  } catch (error) {
+    if (error.message === 'fetch error : 401 : Unauthorized') {
+      errorMessage.textContent = 'You can give only one feedback, thank you';
       return;
     }
-
-    closeModal();
-  });
+    errorMessage.textContent ='Unknown error, try again later';
+  }
+  
+  closeModal();
+});
 }
 
 validateAndSubmit();
