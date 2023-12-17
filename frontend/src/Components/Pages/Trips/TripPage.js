@@ -69,8 +69,8 @@ async function displayTripPage() {
                     </div>
                     </div>
                     <div class = "PlanPageComment">
-                    <div id="trip-places"></div>
-                </div>         
+                    <div id="trip-comments"></div>
+                </div>      
                 </div> 
             </div>
         <div id="trip-page-right-side">

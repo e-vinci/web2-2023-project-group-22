@@ -2,11 +2,11 @@ const client = require('./db_connection');
 
 // Returns all trip comments for given id
 async function getTripComments(id) {
-  const tripFound = readOneTripFromId(id);
+  const tripFound = await readOneTripFromId(id);
   if (!tripFound) return undefined;
 
   const tripComments = await readAllCommentsForTrip(id);
-  if (!tripComments.rows) return [];
+  if (!tripComments) return [];
 
   return tripComments;
 }
@@ -55,7 +55,7 @@ async function readOneSiteCommentFromUserId(id) {
 }
 
 // Add a site comment
-async function addSiteComment(idUser, rating, comment) {
+async function addOneSiteComment(idUser, rating, comment) {
   const commentFound = await readOneSiteCommentFromUserId(idUser);
   if (commentFound) return undefined;
 
@@ -92,10 +92,63 @@ async function deleteOneSiteComment(idUser) {
   return client.query(query);
 }
 
+async function readOneTripCommentFromUserForTripId(userId, tripId) {
+  const query = {
+    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.trips_comments tc, projetweb.users u WHERE u.id_user = tc.id_user AND tc.id_user = $1 AND tc.id_trip = $2',
+    values: [userId, tripId],
+  };
+  const res = await client.query(query);
+  console.log(res.rows);
+  if (res.rows[0]) return res.rows[0];
+  return undefined;
+}
+
+async function addOneTripComment(tripId, rating, comment, userId) {
+  const commentFound = await readOneTripCommentFromUserForTripId(userId, tripId);
+  if (commentFound) return undefined;
+
+  const query = {
+    text: 'INSERT INTO projetweb.trips_comments (id_trip, id_user, rating, comment) VALUES ($1, $2, $3, $4) RETURNING id_trip_comment',
+    values: [tripId, userId, rating, comment],
+  };
+  const res = await client.query(query);
+  if (res.rows) return res.rows;
+  return undefined;
+}
+
+async function patchOneTripComment(userId, tripId, rating, comment) {
+  const commentFound = await readOneTripCommentFromUserForTripId(userId, tripId);
+  if (!commentFound) return undefined;
+
+  console.log(commentFound);
+
+  const query = {
+    text: 'UPDATE projetweb.trips_comments SET rating = $1, comment = $2 WHERE id_user = $3 AND id_trip = $4',
+    values: [rating, comment, userId, tripId],
+  };
+  return client.query(query);
+}
+
+async function deleteOneTripComment(userId, tripId) {
+  const commentFound = await readOneTripCommentFromUserForTripId(userId, tripId);
+  if (!commentFound) return undefined;
+
+  const query = {
+    text: 'DELETE FROM projetweb.trips_comments WHERE id_user = $1 AND id_trip = $2',
+    values: [userId, tripId],
+  };
+  const res = await client.query(query);
+  if (res.rows) return res.rows;
+  return undefined;
+}
+
 module.exports = {
   getTripComments,
   readAllSiteComments,
-  addSiteComment,
+  addOneSiteComment,
   patchOneSiteComment,
   deleteOneSiteComment,
+  addOneTripComment,
+  deleteOneTripComment,
+  patchOneTripComment,
 };
