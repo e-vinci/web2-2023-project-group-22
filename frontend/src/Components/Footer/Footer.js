@@ -16,7 +16,7 @@ const Footer = () => {
         <button id="buttonid" class="subscribe-btn">Give your feedback</button>
       </div>
   
-      <p>Terms | <a href="#">Privacy Policy</a></p>
+      <p>Terms | <a href="/privacypolicy">Privacy Policy</a></p>
   
       <p>&copy; 2023 Where2Go. All rights reserved.</p>
       
