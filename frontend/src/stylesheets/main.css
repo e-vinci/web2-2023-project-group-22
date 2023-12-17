@@ -1,5 +1,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
+
 body{
   margin: 0;
   height: 100%;
@@ -350,8 +351,22 @@ form input {
     width: 100%;
 }
 
+.destination-container {
+	background-color: transparent;
+}
 
 .container {
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 600px;
+}
+
+.container-form {
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
@@ -511,19 +526,37 @@ form input {
 }
 
 /* Profil */
+/*---------------------------------------------------------------------------------------------------*/
 
 @import url("https://bootsrap-4.5.3-dist/css/bootsrap.min.css");
 
 .sidebar{
-	background-color: white;
+	background-color: transparent;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	
-	height: 100%;
+	height: 98%;
+}
+.image-profil{
+	margin-top: 5%;
+}
+.welcome-Profil{
+	margin-top: 10%;
+	padding: 5%;
+	font-family: 'Open Sans', sans-serif; 
+    font-size: 52px; 
+}
+.welcome-Nom-Profil{
+	margin-top: 10%;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 56px; 
+    font-weight: bold; 
+    color: #133e56;
+
 }
 .sidebar a{
-	margin-left: 10px;
 	
 	color: white;
-	padding-bottom: 10px;
+	
 	font-size: 30px;
 	text-decoration: none;
 	display: flex;
@@ -532,15 +565,74 @@ form input {
 .messageProfil p{
 	color: black;
 }
-.logoutProfile{
-	width: 80%;
-	margin-top: 90%;
-	color: white;
-	background-color: #133e56;
-	border-width: 0px;
-	
-	border-radius: 10px;
+.carouselDiv {
+	margin-left: 11%;
 }
+.custom-prev-btn{
+	background-color: black;
+	height: 5%;
+	width: 5%;
+	margin-top: 30%;
+	margin-left: 2%;
+}
+.custom-next-btn{
+	background-color: black;
+	height: 5%;
+	width: 5%;
+	margin-top: 30%;
+	margin-right: 2%;
+}
+/* Styles pour le bouton-input */
+.button-input {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.button-input {
+	margin-top: 100%;
+    background: linear-gradient(90deg, #3498db, #2078b8);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-input:hover {
+    background: linear-gradient(90deg, #2980b9, #1c6fa3);
+}
+
+.button-input:active {
+	
+    background: linear-gradient(90deg, red, orange);
+	
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
 .card{
 	position: relative;
 	display: flex;
@@ -555,6 +647,7 @@ form input {
 	color: #333;
 	
 }
+/*---------------------------------------------------------------------------------------------------*/
 /* .grid-item:nth-child(2){
 	transition-delay: 100ms;
 }
@@ -629,7 +722,7 @@ form input {
 }
 
 #modify-trip-page-left-side{
-	/* background-color: bisque; */
+	background-color: bisque;
 	padding: 50px 0;
 	width: 50%;
 	
@@ -712,6 +805,14 @@ form input {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+}
+
+.cards-wrapper{
+	display: flex;
+}
+
+.card{
+	margin: 0.5em 0.5em;
 }
 
 
@@ -1049,20 +1150,14 @@ footer {
   
 
 
-.cards-wrapper{
-	display: flex;
-}
 
-.card{
-	margin: 0.5em 0.5em;
-}
 
 
 
  
 /* trip page bloc Destination (header )*/
   .PlanPageHeader__header {
-	max-width: 460px;
+	max-width: 500px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
@@ -1100,16 +1195,16 @@ footer {
 /* trip page bloc Destination (body  )*/
 .PlanPageBody {
 	
-    max-width: 700px;
+    max-width: 800px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    box-shadow: 0 4px 32px rgba(0,0,0,.2);
     left: 32px;
    	margin-bottom:3rem;
     margin-right: auto;
     min-height: 160px;
-    padding: 16px 24px 16px 32px;
+    padding: 16px 42px 16px 32px;
     position:absolute ;
     right: 32px;
     display:flex;
@@ -1119,7 +1214,7 @@ footer {
 
 .PlanPagehotel {
 	
-    max-width: 700px;
+    max-width: 800px;
     background-color: #fff;
     border-radius: 25px;
     bottom: 0;
@@ -1157,5 +1252,53 @@ footer {
 	width:80%; 
 	margin: 5px ;
 	
-
 }
+
+/* All country page */
+
+#textFilter {
+	width: 50%;	
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+}
+
+#currenciesSelect {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 20rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Feedback page */
+
+#carouselGroup{
+	margin-top: 4%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+	justify-content: space-evenly;
+}
+
+.checkedStar {
+	color: orange;
+  }
+
+  .carousel-control-prev-icon{
+	background-color: black;
+  }
+  .carousel-control-next-icon{
+	background-color: black;
+  }

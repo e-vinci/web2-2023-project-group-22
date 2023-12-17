@@ -1,19 +1,19 @@
-@baseUrl = http://localhost:3000/trips
+@baseUrl = http://localhost:3000
 
-### Trips Does nothing
-GET http://localhost:3000/trips
+### Read trip identified by 1
+GET {{baseUrl}}/trips/1
 
-### Read trip identified by 45
-GET {{baseUrl}}/45
+### Read trip identified by -1, not existing
+GET {{baseUrl}}/trips/-1
 
 ### Read trips identified for user
-GET {{baseUrl}}/user/admin@where2go.com
+GET {{baseUrl}}/trips/user/admin@where2go.com
 
 ### Read all possible places
-GET {{baseUrl}}/places/all
+GET {{baseUrl}}/trips/places/all
 
 ### Create one trip
-POST {{baseUrl}}/createtrip
+POST {{baseUrl}}/trips/createtrip
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
 
@@ -24,7 +24,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1t
 }
 
 ### Add one place to a trip
-POST {{baseUrl}}/addplace
+POST {{baseUrl}}/trips/addplace
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
 
@@ -34,11 +34,25 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1t
 }
 
 ### Remove one place of a trip
-POST {{baseUrl}}/removeplace
+POST {{baseUrl}}/trips/removeplace
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
 
 {
     "placeId": "ChIJbw4IMIbEw0cRLdRsNbreMSI",
+    "tripId": "1"
+}
+
+### Modify order of one place in a trip
+POST {{baseUrl}}/trips/modifyplace
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
+
+{
+    "places": [
+        {
+
+        }
+    ],
     "tripId": "1"
 }

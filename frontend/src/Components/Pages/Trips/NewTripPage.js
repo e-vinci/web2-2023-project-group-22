@@ -8,13 +8,13 @@ const NewTripPage = () => {
   const main = document.querySelector('main');
 
   const formDestination =`
-  <div id="form"> 
-    <div class="container" id="container">
+    <div class="container-form" id="container">
       <div class="destination-container" id ="container-destination">
         <form>
           <h1>Chose a destination </h1>
           <span>Where to go ? </span>
-            <input type="text" placeholder="ex. Paris, Japan, ..." id="destination" required/>
+          <h6 style="color: red;">For economic reasons we only allow trips to Brussels by now</h6>
+            <input type="text" placeholder="ex. Paris, Japan, ..." id="destination" value="Belgium" required readonly/>
             <div class="calendar"></div>
             <h4>Start date </h4>
             <input type="date" id="startDate" required/>
@@ -22,7 +22,6 @@ const NewTripPage = () => {
             <input type="date" id="endDate" required/>
           <input type="submit" value="Start dreaming" id="createDest" />
         </form>
-      </div>
     </div>
   </div>
 
@@ -45,7 +44,8 @@ const NewTripPage = () => {
 
   if(country) {
     const destinationField = document.getElementById('destination');
-    destinationField.value = country.name.common;
+    // destinationField.value = country.name.common;
+    destinationField.value = "Belgium";
   }
 
   const signInButton = document.getElementById('signIn');

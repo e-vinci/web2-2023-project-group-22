@@ -1,6 +1,7 @@
 import { clearPage } from '../../../utils/render';
 import Navigate from '../../Router/Navigate';
 import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
 // import getGoogleAuthLink from '../../../models/auths';
 
 const AuthPage = () => {
@@ -76,6 +77,7 @@ const AuthPage = () => {
       await login({email, password});
       if(localStorage.getItem('user')) {
         Navbar();
+        Footer();
         Navigate('/');
       }
     })
@@ -90,6 +92,7 @@ const AuthPage = () => {
       await register({email, password, confirmPassword, firstname, lastname});
       if(localStorage.getItem('user')){
         Navbar();
+        Footer();
         Navigate('/');
       }
     })
@@ -137,7 +140,7 @@ function switchLoginRegister(){
 // }
 
 async function login(user){
-  await fetch('http://localhost:3000/auths/login', {
+  await fetch(`${process.env.API_BASE_URL}/auths/login`, {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -158,7 +161,7 @@ async function login(user){
 }
 
 async function register(user){
-  await fetch('http://localhost:3000/auths/register', {
+  await fetch(`${process.env.API_BASE_URL}/auths/register`, {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -173,6 +176,7 @@ async function register(user){
   })
   })
   .then((response) => {
+    console.log(response);
     if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
     return response.json();
   })

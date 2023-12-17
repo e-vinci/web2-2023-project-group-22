@@ -9,22 +9,22 @@ Content-Type: application/json
     "password":"admin"
 }
 
-### Create the manager user
+### Create the admin user
 POST {{baseUrl}}/auths/register
 Content-Type: application/json
 
 {
-    "firstname": "Jhon",
-    "lastname": "Doe",
-    "email":"jhon.doe@example.com",
+    "firstname": "admin",
+    "lastname": "admin",
+    "email":"admin@test.com",
     "password":"test"
 }
 
-### Login the manager user
+### Login the admin user
 POST {{baseUrl}}/auths/login
 Content-Type: application/json
 
 {
-    "email":"jhon.doe@example.com",
+    "email":"admin@test.com",
     "password":"test"
 }

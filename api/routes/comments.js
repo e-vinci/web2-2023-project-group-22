@@ -19,11 +19,11 @@ const router = express.Router();
 router.get('/trip/:id', async (req, res) => {
   const tripId = req.params.id ? req.params.id : undefined;
 
-  if (!tripId) res.send('Please specify the trip id').statusCode(404);
+  if (!tripId) return res.send('Please specify the trip id').sendStatus(404);
 
   const tripComments = await getTripComments(tripId);
 
-  if (!tripComments || Object.keys(tripComments).length === 0) res.sendStatus(404);
+  // if (!tripComments || Object.keys(tripComments).length === 0) return res.sendStatus(404);
   return res.json(tripComments);
 });
 
@@ -31,7 +31,7 @@ router.get('/trip/:id', async (req, res) => {
 router.get('/site', async (req, res) => {
   const siteComments = await readAllSiteComments();
 
-  if (!siteComments || Object.keys(siteComments).length === 0) res.sendStatus(404);
+  // if (!siteComments || Object.keys(siteComments).length === 0) return res.sendStatus(404);
   return res.json(siteComments);
 });
 
@@ -44,7 +44,7 @@ router.post('/site/add', authorize, async (req, res) => {
   const userFound = await readOneUserFromEmail(user);
 
   const addedComment = await addSiteComment(userFound.id_user, rating, comment);
-  if (!addedComment || Object.keys(addedComment).length === 0) res.sendStatus(401);
+  if (!addedComment || Object.keys(addedComment).length === 0) return res.sendStatus(401);
 
   const createdComment = {
     firstname: userFound.firstname,
@@ -52,7 +52,7 @@ router.post('/site/add', authorize, async (req, res) => {
     rating,
     comment,
   };
-  res.json(createdComment);
+  return res.json(createdComment);
 });
 
 /* MODIFY site comment. */
@@ -63,8 +63,8 @@ router.patch('/site/modify', authorize, async (req, res) => {
 
   const userFound = await readOneUserFromEmail(user);
 
-  const modifiedComment = await patchOneSiteComment(user, rating, comment);
-  if (!modifiedComment || Object.keys(modifiedComment).length === 0) res.sendStatus(401);
+  const modifiedComment = await patchOneSiteComment(userFound.id_user, rating, comment);
+  if (!modifiedComment || Object.keys(modifiedComment).length === 0) return res.sendStatus(401);
 
   const returnedComment = {
     firstname: userFound.firstname,
@@ -72,7 +72,7 @@ router.patch('/site/modify', authorize, async (req, res) => {
     rating,
     comment,
   };
-  res.json(returnedComment);
+  return res.json(returnedComment);
 });
 
 /* DELETE site comment. */
@@ -82,9 +82,9 @@ router.delete('/site/remove', authorize, async (req, res) => {
   const userFound = await readOneUserFromEmail(user);
 
   const deletedComment = await deleteOneSiteComment(userFound.id_user);
-  if (!deletedComment) res.sendStatus(404);
+  if (!deletedComment) return res.sendStatus(404);
 
-  res.sendStatus(200);
+  return res.sendStatus(200);
 });
 
 module.exports = router;

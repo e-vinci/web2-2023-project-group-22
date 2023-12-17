@@ -30,9 +30,10 @@ const AllCountriesPage = () => {
 function displayFilters(CURRENCIES, countries) {
   const main = document.querySelector('main');
   const textFilter = document.createElement('input');
+  textFilter.id = 'textFilter';
   textFilter.type = 'text';
   textFilter.name = 'textInput';
-  textFilter.placeholder = 'Enter your dream destination';
+  textFilter.placeholder = `Enter your dream destination`;
   main.appendChild(textFilter);
   const currencyFilter = document.createElement('select');
   currencyFilter.id = 'currenciesSelect';

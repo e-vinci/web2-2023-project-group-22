@@ -3,6 +3,7 @@ import { clearPage } from '../../../utils/render';
 import image from '../../../img/usertest.png';
 import Navigate from '../../Router/Navigate';
 import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
 
 
 
@@ -21,10 +22,12 @@ const ProfilPage = () => {
                 <div class="col-md-4 mt-1">
                     <div class="card text-center sidebar">
                         <div class="card-body">
-                            <img src='${image}' class="rounded-circle" width="150">
+                            <img src='${image}' class="image-profil" width="150">
                             <div class="mt-3">
-                            <h3> Bienvenue ${userData.firstname}</h3>
-                            <input type="submit" class="logoutProfile" id="logout" value="Log Out" />
+                            <div class="message ">
+                            <p class="welcome-Profil"> Bienvenue </p> 
+                            <p class="welcome-Nom-Profil"> ${userData.firstname}</p> </div>
+                            <input type="submit" class="button-input" id="logout" value="Log Out" />
                             </div>
                         </div>
                     </div>
@@ -72,9 +75,108 @@ const ProfilPage = () => {
                                 <div class="col-md-3">
                                     <h5> Voyages recents</h5>
                                 </div>
-                                <div class="col-md-9 text-secondary">
-                                    Voyages recents
-                                </div>
+                                <div id="carouselExampleIndicators" class="carousel slide">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+                                    </div>
+                                    <div class="carousel-inner carouselDiv">
+                                        <div class="carousel-item carou">
+                                            <div class="cards-wrapper carou">
+                                                <div class="card" style="width: 18rem;">
+                                                    <img src="${image}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Card title</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="width: 18rem;">
+                                                    <img src="${image}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Card title</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="width: 18rem;">
+                                                    <img src="${image}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Card title</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="cards-wrapper">
+                                            <div class="card" style="width: 18rem;">
+                                            <img src="${image}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="${image}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="${image}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                            </div>  
+                                        </div>
+                                        <div class="carousel-item active">
+                                            <div class="cards-wrapper">
+                                            <div class="card" style="width: 18rem;">
+                                                    <img src="${image}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Card title</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="width: 18rem;">
+                                                    <img src="${image}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Card title</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="width: 18rem;">
+                                                    <img src="${image}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Card title</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    
+                                    </div>
+                                    <button class="carousel-control-prev custom-prev-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next custom-next-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
                             </div>
 
                         </div>
@@ -111,7 +213,9 @@ function logout() {
     logoutt.addEventListener('click',() => {
         localStorage.removeItem('user');
         Navbar();
+        Footer();
         Navigate('/');
+
     })
 
 
