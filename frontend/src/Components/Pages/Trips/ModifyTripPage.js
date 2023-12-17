@@ -58,16 +58,19 @@ const ModifyTripPage = () => {
         Object.entries(categories).forEach((c) => {
             const category = document.createElement('div');
             category.id = `${c[0]}`;
+            category.innerHTML = `
+                <h3>${c[0]}</h3>
+            `;
             const carousel = document.createElement('div');
             carousel.innerHTML = `
             <div class="carousel-div">
-                <div id="carouselExampleIndicators" class="carousel slide">
-                    <div class="carousel-inner"></div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <div id="carouselExampleIndicators${c[0]}" class="carousel slide">
+                    <div class="carousel-inner INNER${c[0]}"></div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators${c[0]}" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators${c[0]}" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -75,22 +78,23 @@ const ModifyTripPage = () => {
             </div>
             `;
             const catDiv = document.querySelector('#categories');
-            catDiv.appendChild(carousel);
-            const carouselInner = document.querySelector('.carousel-inner');
-            for (let i = 0; i < Math.ceil(c.length/3); i+=1) {
+            category.appendChild(carousel)
+            catDiv.appendChild(category);
+            const carouselInner = document.querySelector(`.INNER${c[0]}`);
+            for (let i = 0; i < Math.ceil(c[1].length/3); i+=1) {
                 const cItem = `
-                <div class="carousel-item cItem${i}">
-                  <div class="cards-wrapper cWrap${i}">
+                <div class="carousel-item ITEMS${c[0]}${i}">
+                  <div class="cards-wrapper WRAP${c[0]}${i}">
                   </div>  
                 </div>
                 `;
-                console.log();
+                console.log(`ITEMS${c[0]}${i}`);
                 carouselInner.innerHTML += cItem;
             }
             let count = 0;
             let wrap = 0;
             c[1].forEach((t) => {
-                if(t.types[0] === c[0]){
+                if(t.types[0] === c[0]) {
                     if(count===3) {wrap+=1; count = 0}
                     count += 1;
                     const card = document.createElement('div');
@@ -108,11 +112,19 @@ const ModifyTripPage = () => {
                     const rating = document.createElement('p');
                     rating.innerText = t.rating;
                     cardBody.appendChild(rating);
-                    const cardsWrapper = document.querySelector(`.cWrap${wrap}`);
+                    const addPlaceButton = document.createElement('button');
+                    addPlaceButton.value = "Add to trip";
+                    addPlaceButton.addEventListener('click', (e) => {
+                        e.preventDefault();
+                    })
+                    card.appendChild(addPlaceButton);
+                    const cardsWrapper = document.querySelector(`.WRAP${c[0]}${wrap}`);
+                    console.log(cardsWrapper);
                     cardsWrapper.appendChild(card);
                 }
             })
-            const items = document.querySelector(`.cItem0`);
+            const items = document.querySelector(`.ITEMS${c[0]}0`);
+            console.log(items);
             items.className += " active";
         })
     });
