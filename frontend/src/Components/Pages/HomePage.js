@@ -12,6 +12,8 @@ const HomePage = () => {
   showComments();
 };
 
+// affichage des bouttons pour voyager 
+
 function displayTripButtons(){
   // const main = document.querySelector('main');
   const divButtonTrip = document.createElement('div');
@@ -30,7 +32,7 @@ function displayTripButtons(){
   divButtonTrip.appendChild(showAllCountriesButton); 
   return divButtonTrip;
 }
-
+// texte d'introduction 
 function presentationFirstBloc(){
   const main = document.querySelector('main');
   const createDivFirstBlock = 
@@ -55,6 +57,7 @@ function presentationFirstBloc(){
   tripButtons.appendChild(displayTripButtons());
 }
 
+// affichage de la vidéo 
 function HomePageSecondBlock(){
   const main = document.querySelector('main');
   const secondBlock = document.createElement('div');
@@ -199,6 +202,111 @@ function showComments() {
     });
 }
 
+// Create modal
+const modal = document.createElement('div');
+modal.style.position = 'fixed';
+modal.style.top = '50%';
+modal.style.left = '50%';
+modal.style.transform = 'translate(-50%, -50%)';
+modal.style.backgroundColor = '#fff';
+modal.style.padding = '20px';
+modal.style.zIndex = '1000';
+modal.style.display = 'none';
+modal.style.borderRadius = '10px';
+modal.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+modal.style.maxWidth = '400px';
+modal.style.textAlign = 'center';
+modal.style.fontFamily = 'Arial, sans-serif';
+modal.style.fontSize = '18px';
+modal.style.color = '#333';
+modal.style.lineHeight = '1.6';
 
+
+// Add message
+const message = document.createElement('p');
+message.textContent = 'This website uses cookies. Do you accept? If you do not accept, some features may not work properly. Please read our Privacy Policy for more information. Thank you.'; 
+message.style.marginBottom = '20px';
+modal.appendChild(message);
+
+// Create title
+const title = document.createElement('h2');
+title.textContent = 'Cookie Consent';
+title.style.marginBottom = '20px';
+modal.insertBefore(title, message);
+
+// Add button
+const button = document.createElement('button');
+button.textContent = 'Accept';
+button.style.backgroundColor = '#4CAF50';
+button.style.color = 'white';
+button.style.border = 'none';
+button.style.padding = '10px 20px';
+button.style.textAlign = 'center';
+button.style.textDecoration = 'none';
+button.style.display = 'inline-block';
+button.style.fontSize = '16px';
+button.style.margin = '4px 2px';
+button.style.cursor = 'pointer';
+button.style.borderRadius = '12px';
+modal.appendChild(button);
+
+// Create backdrop
+const backdrop = document.createElement('div');
+backdrop.style.position = 'fixed';
+backdrop.style.top = '0';
+backdrop.style.left = '0';
+backdrop.style.width = '100%';
+backdrop.style.height = '100%';
+backdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+backdrop.style.zIndex = '999';
+backdrop.style.display = 'none';
+
+// Add modal and backdrop to body
+document.body.appendChild(backdrop);
+document.body.appendChild(modal);
+
+// Show modal and backdrop if cookie not set
+window.onload = function onload() {
+  const cookie = document.cookie.split('; ').find(row => row.startsWith('acceptsCookies='));
+  if (!cookie || cookie.split('=')[1] !== 'true') {
+    modal.style.display = 'block';
+    backdrop.style.display = 'block';
+  }
+};
+
+// Hide modal and backdrop and set cookie when button clicked
+button.onclick = function onclick() {
+  document.cookie = 'acceptsCookies=true; path=/';
+  modal.style.display = 'none';
+  backdrop.style.display = 'none';
+};
+
+// Create notification
+const notification = document.createElement('div');
+notification.style.position = 'fixed';
+notification.style.bottom = '20px';
+notification.style.right = '20px';
+notification.style.backgroundColor = '#4CAF50'; // Green background
+notification.style.color = 'white'; // White text
+notification.style.padding = '15px';
+notification.style.borderRadius = '5px';
+notification.style.display = 'none'; // Initially hidden
+notification.textContent = 'You have accepted the cookies.';
+
+// Add notification to body
+document.body.appendChild(notification);
+
+// Hide modal and backdrop, show notification, and set cookie when button clicked
+button.onclick = function onclick() {
+  document.cookie = 'acceptsCookies=true; path=/';
+  modal.style.display = 'none';
+  backdrop.style.display = 'none';
+  notification.style.display = 'block'; // Show notification
+
+  // Hide notification after 3 seconds
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 3000);
+};
 
 export default HomePage;

@@ -16,7 +16,7 @@ const Footer = () => {
         <button id="buttonid" class="subscribe-btn">Give your feedback</button>
       </div>
   
-      <p>Terms | <a href="#">Privacy Policy</a></p>
+      <p>Terms | <a href="/privacypolicy">Privacy Policy</a></p>
   
       <p>&copy; 2023 Where2Go. All rights reserved.</p>
       
@@ -91,21 +91,50 @@ function closeBtn() {
     }
 }
 
+function displayNotification(message) {
+  const notification = document.createElement('div');
+  notification.textContent = message;
+  notification.style.position = 'fixed';
+  notification.style.bottom = '20px';
+  notification.style.right = '20px';
+  notification.style.padding = '10px';
+  notification.style.backgroundColor = 'red';
+  notification.style.color = 'white';
+  notification.style.borderRadius = '5px';
+  document.body.appendChild(notification);
+  setTimeout(() => {
+    document.body.removeChild(notification);
+  }, 3000);
+  console.log(message);
+}
+
 
 function validateAndSubmit() {
   const submitButton = document.querySelector('.subscribe-btn-modal');
-submitButton.addEventListener('click', async (event) => {
+  submitButton.addEventListener('click', async (event) => {
+  console.log('click');
   event.preventDefault();
-
-  const idUser = JSON.parse(localStorage.getItem('user')).id_user;
+  console.log('submit');
+  const user = JSON.parse(localStorage.getItem('user'));
   const commentaire =  document.querySelector('#commentaire').value;
-  const ratings =  document.querySelector('#rating').value; 
-
+  const ratings =  document.querySelector('#rating').value;
+  console.log(JSON.parse(localStorage.getItem('user')));
+  if (!user) {
+      displayNotification('You must be connected to give a feedback !');
+      return;
+    }
   // Select the HTML element where you want to display the error message
   const errorMessage = document.querySelector('#errorMessage');
-
+  errorMessage.style.backgroundColor = 'red'; // Red background
+  errorMessage.style.color = 'white'; // White text
+  errorMessage.style.padding = '2px'; // Padding
+  errorMessage.style.borderRadius = '20px'; // Rounded corners
   if (commentaire === '') {
-    alert('Please fill in the form');
+    errorMessage.textContent = 'Please enter a feedback';
+    return;
+  }
+  if (ratings === '') {
+    errorMessage.textContent = 'Please enter a rating';
     return;
   }
   try {
@@ -116,7 +145,6 @@ submitButton.addEventListener('click', async (event) => {
         'Authorization': JSON.parse(localStorage.getItem('user')).token
       },
       body: JSON.stringify({
-        userId: idUser,
         comment: commentaire,
         rating: ratings
       })

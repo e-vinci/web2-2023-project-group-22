@@ -332,6 +332,8 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
+/*formulaire de connexion  */
+
 form {
 	background-color: #FFFFFF;
 	display: flex;
@@ -672,7 +674,6 @@ form input {
 	color: #333;
 	
 }
-
 /*---------------------------------------------------------------------------------------------------*/
 /* .grid-item:nth-child(2){
 	transition-delay: 100ms;
@@ -717,6 +718,8 @@ form input {
 
 /* Trip Page */
 
+/*---------------------------------------------------------------------------------------------------*/
+
 #div-trip-page-block{
 	display: flex;
 	flex-direction: row;
@@ -727,7 +730,6 @@ form input {
 #trip-page-left-side{
 	/* background-color: bisque; */
 	width: 50%;
-	
 }
 
 #trip-page-right-side{
@@ -737,8 +739,157 @@ form input {
 	height: 1200px;
 }
 
+/* trip page bloc Destination (header )*/
+/*---------------------------------------------------------------------------------------------------*/
+
+	.PlanPageHeader__header {
+	max-width: 700px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+   	margin-bottom:35rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 16px  16px;
+    position:absolute ;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+}
+
+.PlanPageHeader__image {
+    height: 240px;
+}
+.PlanPageHeader__display{
+
+    display:flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+
+}
+.PlanPageHeader__date{
+    margin-top: 8%;
+
+}
+.PlanPageHeader__button{
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+
+/* trip page bloc endroit*/
+/*---------------------------------------------------------------------------------------------------*/
+.PlanPagePlace {
+	
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-top: 10rem;
+	margin-left: 2rem;
+   	margin-bottom:4rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 32px;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+	
+}
+.PlanPagePlace_display{
+	
+	text-align:center;
+}
+.PlanPagePlace_image  {
+	display:flex;
+    flex-direction: row;
+   
+
+}
+.PlanPagePlace_chambre{
+	width:90%; 
+}
+
+.PlanPagePlace_image img {
+	
+	border-radius: 25px;
+	width:80%; 
+	margin: 5px ;
+	
+
+}
+/* trip page bloc hotel*/
+/*---------------------------------------------------------------------------------------------------*/
+.PlanPagehotel {
+	
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-left: 2rem;
+	margin-top: 4rem;
+   	margin-bottom:4rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding:   32px;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+	
+}
+
+.PlanPagehotel_display{
+	
+	text-align:center;
+}
+.PlanPagehotel_image  {
+	display:flex;
+    flex-direction: row;
+}
+.PlanPagehotel_chambre{
+	width:60%; 
+}
+
+.PlanPagehotel_image img {
+	
+	border-radius: 25px;
+	width:80%; 
+	margin: 5px ;	
+}
+/* trip page bloc hotel*/
+/*---------------------------------------------------------------------------------------------------*/
+.PlanPageComment {
+	
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 25px;
+    bottom: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.2);
+    left: 32px;
+	margin-top: 2rem;
+	margin-left: 2rem;
+   	margin-bottom:4rem;
+    margin-right: auto;
+    min-height: 160px;
+    padding: 32px;
+    right: 32px;
+    display:flex;
+    flex-direction: column!important;
+    justify-content:space-between!important;
+	
+}
 
 /*Modify trip page*/
+/*---------------------------------------------------------------------------------------------------*/
 
 #modify-div-trip-page-block{
 	display: flex;
@@ -758,7 +909,7 @@ form input {
 	 background-color: rgb(161, 157, 151); 
 	padding: 50px 0;
 	width: 50%;
-	height: 1200px;
+	height: 1400px;
 }
 
 /* .category{
@@ -844,6 +995,7 @@ form input {
 
 
 /* Loading page */
+/*---------------------------------------------------------------------------------------------------*/
 
   .loader-wrapper {
 	width: 100%;
@@ -890,6 +1042,7 @@ form input {
 
 
 /* footer */
+/*---------------------------------------------------------------------------------------------------*/
 
 footer {
 	background-color: rgba(9,29,40,255);
@@ -1196,106 +1349,8 @@ footer {
 
 
 
-
  
-/* trip page bloc Destination (header )*/
-  .PlanPageHeader__header {
-	max-width: 500px;
-    background-color: #fff;
-    border-radius: 25px;
-    bottom: 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,.2);
-    left: 32px;
-   	margin-bottom:35rem;
-    margin-right: auto;
-    min-height: 160px;
-    padding: 16px  16px;
-    position:absolute ;
-    right: 32px;
-    display:flex;
-    flex-direction: column!important;
-    justify-content:space-between!important;
-}
-.PlanPageHeader__image {
-    height: 240px;
-}
-.PlanPageHeader__display{
 
-    display: flex;
-    flex-direction: row!important;
-    justify-content:space-evenly;
-
-}
-.PlanPageHeader__date{
-    margin-top: 8%;
-
-}
-.PlanPageHeader__button{
-    margin-top: 10%;
-    margin-left: 40%;
-}
-
-/* trip page bloc Destination (body  )*/
-.PlanPageBody {
-	
-    max-width: 800px;
-    background-color: #fff;
-    border-radius: 25px;
-    bottom: 0;
-    box-shadow: 0 4px 32px rgba(0,0,0,.2);
-    left: 32px;
-   	margin-bottom:3rem;
-    margin-right: auto;
-    min-height: 160px;
-    padding: 16px 42px 16px 32px;
-    position:absolute ;
-    right: 32px;
-    display:flex;
-    flex-direction: column!important;
-    justify-content:space-between!important;
-}
-
-.PlanPagehotel {
-	
-    max-width: 800px;
-    background-color: #fff;
-    border-radius: 25px;
-    bottom: 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,.2);
-    left: 32px;
-   	margin-bottom:-15rem;
-    margin-right: auto;
-    min-height: 160px;
-    padding: px  32px;
-    position:absolute ;
-    right: 32px;
-    display:flex;
-    flex-direction: column!important;
-    justify-content:space-between!important;
-	
-}
-
-.PlanPagehotel_display{
-	
-	text-align:center;
-}
-.PlanPagehotel_image  {
-	display:flex;
-    flex-direction: row;
-   
-
-}
-.PlanPagehotel_chambre{
-	width:90%; 
-}
-
-.PlanPagehotel_image img {
-	
-	border-radius: 25px;
-	width:80%; 
-	margin: 5px ;
-	
-}
 
 /* All country page */
 
@@ -1345,6 +1400,47 @@ footer {
   .carousel-control-next-icon{
 	background-color: black;
   }
+
+
+  #privacy-policy {
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+    background-color: #ffffff;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+	0 10px 10px rgba(0,0,0,0.22);
+	text-align: center;
+    border-radius: 25px;
+	border: 1px solid #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#privacy-policy h1 {
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+#privacy-policy h2 {
+    color: #666;
+    margin-top: 20px;
+}
+
+#privacy-policy p {
+    margin: 10px 0;
+}
+
+#privacy-policy ul {
+    padding-left: 20px;
+}
+
+#privacy-policy li {
+    margin-bottom: 10px;
+}
 
   .titleBox{
 	color: white;

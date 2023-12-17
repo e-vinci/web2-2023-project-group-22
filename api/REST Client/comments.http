@@ -3,6 +3,37 @@
 ### Get specific trip comments listing
 GET {{baseUrl}}/comments/trip/1
 
+### Add a trip comment
+POST {{baseUrl}}/comments/trip/add
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbW1lcnkwMkBob3RtYWlsLmNvbSIsImlhdCI6MTcwMjc3ODA5MiwiZXhwIjoxNzg5MTc4MDkyfQ.5dMIbDxnAua_8eFF_ZjhdkPFpX_mZihFq49E681QPgI
+
+{
+    "tripId": 1,
+    "rating": "5",
+    "comment": "Cool trip"
+}
+
+### Remove a trip comment
+DELETE {{baseUrl}}/comments/trip/remove
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbW1lcnkwMkBob3RtYWlsLmNvbSIsImlhdCI6MTcwMjc3ODA5MiwiZXhwIjoxNzg5MTc4MDkyfQ.5dMIbDxnAua_8eFF_ZjhdkPFpX_mZihFq49E681QPgI
+
+{
+    "tripId": 1
+}
+
+### Modify a trip comment
+PATCH {{baseUrl}}/comments/trip/modify
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbW1lcnkwMkBob3RtYWlsLmNvbSIsImlhdCI6MTcwMjc3ODA5MiwiZXhwIjoxNzg5MTc4MDkyfQ.5dMIbDxnAua_8eFF_ZjhdkPFpX_mZihFq49E681QPgI
+
+{
+    "tripId": 1,
+    "rating": "5",
+    "comment": "Cool trip but could be even better"
+}
+
 ### Get site comments listing
 GET {{baseUrl}}/comments/site
 
