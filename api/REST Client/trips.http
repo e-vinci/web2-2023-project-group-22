@@ -3,6 +3,9 @@
 ### Read trip identified by 1
 GET {{baseUrl}}/trips/1
 
+### Read palces for trip identified by 1
+GET {{baseUrl}}/trips/trip/1
+
 ### Read trip identified by -1, not existing
 GET {{baseUrl}}/trips/-1
 
@@ -51,7 +54,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1t
 {
     "places": [
         {
-
+            "id_place": "ChIJbw4IMIbEw0cRLdRsNbreMSI"
         }
     ],
     "tripId": "1"

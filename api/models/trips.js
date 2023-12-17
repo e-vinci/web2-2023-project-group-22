@@ -122,6 +122,19 @@ async function modifyOneTrip(tripId, places, privacy) {
   return client.query(modifyPrivacyQuery);
 }
 
+async function getPlacesForAGivenTrip(tripId) {
+  const trip = await getTrip(tripId);
+  if (!trip) return undefined;
+
+  const modifyPrivacyQuery = {
+    text: 'SELECT id_place FROM projetweb.trips_places WHERE id_trip = $1',
+    values: [tripId],
+  };
+  const res = await client.query(modifyPrivacyQuery);
+  if (res.rows) return res.rows;
+  return [];
+}
+
 module.exports = {
   createTrip,
   getTrip,
@@ -132,4 +145,5 @@ module.exports = {
   addOnePlaceToTrip,
   removeOnePlaceToTrip,
   modifyOneTrip,
+  getPlacesForAGivenTrip,
 };
