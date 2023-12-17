@@ -705,7 +705,6 @@ form input {
 #trip-page-left-side{
 	/* background-color: bisque; */
 	width: 50%;
-	
 }
 
 #trip-page-right-side{
@@ -735,6 +734,7 @@ form input {
     display:flex;
     flex-direction: column!important;
     justify-content:space-between!important;
+	z-index: 1;
 }
 .PlanPageHeader__image {
     height: 240px;

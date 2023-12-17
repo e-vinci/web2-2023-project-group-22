@@ -44,7 +44,7 @@ function displayTripPage() {
                         </div>
                     </div> 
                 </div>
-                <div class = "PlanPageBody">
+                <div class = "PlanPagePlace">
                     <div id="trip-places"></div>
                 </div>
                 <div class = "PlanPagehotel">
@@ -66,7 +66,7 @@ function displayTripPage() {
                         </a>        
                     </div>
                     </div>         
-                </div>    
+                </div> 
             </div>
         <div id="trip-page-right-side"></div>
     </div>
