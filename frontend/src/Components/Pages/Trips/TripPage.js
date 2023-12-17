@@ -34,10 +34,10 @@ async function displayTripPage() {
                 <div id="div-trip-page-block-content-text">
                     <img alt="" class="PlanPageHeader__image w-100 object-fit-cover" src="${logoImageNoir}">
                     <div class="PlanPageHeader__header" >
-                        <h1>Trip to ${tripData.destination}</h1>
+                        <h1>Trip to ${tripData.country_code}</h1>
                         <div class ="PlanPageHeader__display">
                             <div class ="PlanPageHeader__date">
-                                <p> <i class="bi bi-calendar"></i>${tripData.startDate} to ${tripData.endDate}</p>
+                                <p> <i class="bi bi-calendar"></i>${tripData.start_date.split('T')[0]} to ${tripData.end_date.split('T')[0]}</p>
                             </div>
                             
                                
@@ -146,7 +146,7 @@ async function displayTripPage() {
     })
 
     const tripPlaces = document.querySelector('#trip-places');
-    const places = await fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.tripId}`, {
+    const places = await fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.id_trip}`, {
         method: 'GET'
     })
     .then((response) => {
