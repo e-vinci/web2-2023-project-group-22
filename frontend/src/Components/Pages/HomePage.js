@@ -7,8 +7,8 @@ import logoSite from '../../img/logoHP.jpg'
 const HomePage = () => {
   clearPage();
   presentationFirstBloc();
-  HomePageSecondBlock();
   TreeDivHomePage();
+  HomePageSecondBlock();
   showComments();
 };
 
@@ -117,11 +117,11 @@ function showComments() {
         
       </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="carousel-control-prev-icon flecheAvant" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="carousel-control-next-icon flecheApres" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
     </div>
@@ -145,30 +145,56 @@ function showComments() {
       }
       let count = 0;
       let wrap = 0;
+      let nombre = 0;
       data.forEach((element) => {
-        if(count===3) {wrap+=1; count = 0}
+        if(count===3) {
+          wrap+=1; count = 0
+        }
         count += 1;
+        nombre += 1;
+
         const card = document.createElement('div');
-        card.className = "card";
-        card.style.width = "300px";
+        card.className = "card cardBehind";
+        card.style.width = "100%";
+        
         const img = document.createElement('img');
         card.appendChild(img);
         const cardBody = document.createElement('div');
         cardBody.className = "card-body";
         card.appendChild(cardBody);
         const userName = document.createElement('h5');
-        userName.className = "card-title";
+        userName.className = "card-title titleBox";
         userName.innerText = `${element.firstname} ${element.lastname}`;
-        cardBody.appendChild(userName);
+        
+        const nombreetoiles=element.rating;
         const rating = document.createElement('p');
-        rating.innerText = element.rating;
+        cardBody.appendChild(userName);
+        for (let i = 0; i < nombreetoiles; i+=1){
+          const star=document.createElement('i')
+  
+          star.className="bi bi-star-fill etoile";
+          rating.appendChild(star);
+
+        }
+        
+        
         cardBody.appendChild(rating);
+        
+
         const commentText = document.createElement('p');
-        commentText.className = "card-text";
+        commentText.className = "card-text comment";
         commentText.innerText = element.comment;
         cardBody.appendChild(commentText);
-
         const cardsWrapper = document.querySelector(`.cWrap${wrap}`);
+        if(nombre >= 3){
+          cardsWrapper.style.width = "80rem";
+          cardsWrapper.style.height = "15rem";
+        }
+        if(nombre >= 3 && wrap>=1 && count===1){
+          cardsWrapper.style.width = "30rem";
+          cardsWrapper.style.height = "15rem";
+        }
+        
         cardsWrapper.appendChild(card);
       })
       const items = document.querySelector(`.cItem0`);
