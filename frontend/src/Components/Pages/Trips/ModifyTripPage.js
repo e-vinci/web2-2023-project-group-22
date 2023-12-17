@@ -43,6 +43,7 @@ const ModifyTripPage = async () => {
     `;
     const infotripDiv = document.querySelector('#info-trip');
     const saveButton = document.createElement('button');
+    saveButton.id = "save-trip-button";
     saveButton.textContent = "Save";
     saveButton.addEventListener('click', () => {
         Navigate('/trip');
