@@ -20,6 +20,7 @@ async function createTrip(destination, startDate, endDate, user) {
   addParticipation(user, res.rows[0]);
 
   const trip = {
+    tripId: res.rows[0].id_trip,
     destination: result[0].cca3,
     startDate,
     endDate,
@@ -82,11 +83,19 @@ async function addOnePlaceToTrip(tripId, placeId) {
   const trip = await getTrip(tripId);
   if (!trip) return undefined;
 
+  const tripPlaces = await getPlacesForAGivenTrip(tripId);
+  const order = tripPlaces.length + 1;
+  console.log(order);
   const addPlaceQuery = {
-    text: 'INSERT INTO projetweb.trips_places (id_trip, id_place) VALUES ($1, $2)',
-    values: [tripId, placeId],
+    text: 'INSERT INTO projetweb.trips_places (id_trip, id_place, "order") VALUES ($1, $2, $3) RETURNING "order"',
+    values: [tripId, placeId, order],
   };
-  const res = await client.query(addPlaceQuery);
+  let res;
+  try {
+    res = await client.query(addPlaceQuery);
+  } catch (error) {
+    console.log(error.message);
+  }
   return res;
 }
 
@@ -103,16 +112,50 @@ async function removeOnePlaceToTrip(tripId, placeId) {
   return res;
 }
 
-async function modifyOrderFromOnePlace(tripId, placeId, order) {
+async function modifyOneTrip(tripId, places, privacy) {
   const trip = await getTrip(tripId);
   if (!trip) return undefined;
 
-  const modifyOrderQuery = {
-    text: 'UPDATE projetweb.trips_places SET order = $1 WHERE id_trip = $2 AND id_place = $3',
-    values: [order, tripId, placeId],
+  for (let index = 0; index < places.length; index += 1) {
+    const modifyPlacesQuery = {
+      text: 'UPDATE projetweb.trips_places SET id_place = $1 WHERE id_trip = $2 AND order = $3',
+      values: [places[0].place_id, tripId, index + 1],
+    };
+    client.query(modifyPlacesQuery);
+  }
+
+  const modifyPrivacyQuery = {
+    text: 'UPDATE projetweb.trips SET privacy = $1 WHERE id_trip = $2',
+    values: [privacy, tripId],
   };
-  const res = await client.query(modifyOrderQuery);
-  return res;
+  return client.query(modifyPrivacyQuery);
+}
+
+async function getPlacesForAGivenTrip(tripId) {
+  const trip = await getTrip(tripId);
+  if (!trip) return undefined;
+
+  const getPlacesQuery = {
+    text: 'SELECT id_place, "order" FROM projetweb.trips_places WHERE id_trip = $1',
+    values: [tripId],
+  };
+  const res = await client.query(getPlacesQuery);
+  if (res.rows) {
+    const returnedPlaces = [];
+    const places = await getPlaces();
+    places.forEach((p) => {
+      res.rows.forEach((r) => {
+        if (p.place_id === r.id_place) {
+          returnedPlaces.push({
+            place: p,
+            order: r.order,
+          });
+        }
+      });
+    });
+    return returnedPlaces.sort((a, b) => a.order - b.order);
+  }
+  return [];
 }
 
 module.exports = {
@@ -124,5 +167,6 @@ module.exports = {
   getPlaces,
   addOnePlaceToTrip,
   removeOnePlaceToTrip,
-  modifyOrderFromOnePlace,
+  modifyOneTrip,
+  getPlacesForAGivenTrip,
 };

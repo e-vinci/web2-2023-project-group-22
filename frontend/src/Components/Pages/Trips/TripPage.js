@@ -1,9 +1,12 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import { clearPage } from "../../../utils/render"
 import logoImageNoir from '../../../img/imageVille.jpg'
 import chambre from '../../../img/hotel_chambre.jpg'
 import tripadvisor from '../../../img/tripadvisor.png'
 import booking from '../../../img/booking.png'
 import airbnb from '../../../img/aribnb.png'
+import Navigate from "../../Router/Navigate";
 
 
 
@@ -12,259 +15,221 @@ const TripPage = () => {
     displayTripPage();
 }
 
-function displayTripPage() {
+async function displayTripPage() {
+    const tripData = JSON.parse(localStorage.getItem('tripData'));
+    console.log(tripData);
     const main = document.querySelector("main");
-    // const tripData = JSON.parse(localStorage.getItem('countryData'));
-    //  localStorage.removeItem('countryData');
     main.innerHTML = // ${country.name.common} ${trip.id}
 
-        `
-     <div id="div-trip-page-block">
+    // <button style="none" type="submit">
+    //    <i class="bi bi-share-fill"></i>
+    //  </button>
+    //  <button style="none" type="submit">
+    //    <i class="bi bi-person-plus-fill"></i>
+    //  </button>
+    `
+    <div id="div-trip-page-block">
         <div id="trip-page-left-side">
             <div id="div-trip-page-block-content-image">
                 <div id="div-trip-page-block-content-text">
                     <img alt="" class="PlanPageHeader__image w-100 object-fit-cover" src="${logoImageNoir}">
                     <div class="PlanPageHeader__header" >
-                        <h1>Trip to </h1>
+                        <h1>Trip to ${tripData.destination}</h1>
                         <div class ="PlanPageHeader__display">
                             <div class ="PlanPageHeader__date">
-                            <p> <i class="bi bi-calendar"></i> to </p>
+                                <p> <i class="bi bi-calendar"></i>${tripData.startDate} to ${tripData.endDate}</p>
                             </div>
+                            
+                               
+                            
                             <div class ="PlanPageHeader__button">
-                                <button style="none" type="submit">
-                                <i class="bi bi-share-fill"></i>
-                                </button>
-                                <button style="none" type="submit">
-                                <i class="bi bi-person-plus-fill"></i>
+                                <button style="none" type="submit" id="modifyTripButton">
+                                    <i>Modify trip</i> 
                                 </button>
                             </div>
                         </div>
-                    </div>
-
-
-
-
-                <div class = "PlanPageBody">
-                    <h4> Most popular places </h4>
-                    <div id="carouselExampleIndicators" class="carousel slide">
-
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-                     </div>
-
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card" style="width: 100rem;">
-                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Maison Dandoy </h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Add to trip</a>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 100rem;">
-                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Atomium</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Add to trip</a>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 100rem;">
-                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Grande Place</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Add to trip</a>
-                                    </div>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card" style="width: 100rem;">
-                                    <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Maneken pis</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Add to trip</a>
-                                    </div>
-                                </div>
-                            <div class="card" style="width: 100rem;">
-                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Garde de Midi </h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Add to trip</a>
-                                </div>
-                    </div>
-                    <div class="card" style="width: 100rem;">
-                        <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Garde de Central </h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Add to trip</a>
-                        </div>
-                    </div>
-                    </div>  
-                    </div>
-                    <div class="carousel-item active">
-                        <div class="cards-wrapper">
-                        <div class="card" style="width: 100rem;">
-                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Laboreur</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Add to trip</a>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 100rem;">
-                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">La Ruche </h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Add to trip</a>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 100rem;">
-                                <img src="${logoImageNoir}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ribs & Steak </h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Add to trip</a>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"  ></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+                    </div> 
                 </div>
-
-               </div>    
+                <div class = "PlanPagePlace">
+                    <div id="trip-places"></div>
                 </div>
-
-
-
-            <div class = "PlanPagehotel">
-                <div class = "PlanPagehotel_display"  >
-                    <h7>Besoin d'un hotel ? </h7>   
-                </div>
-                <div class =" PlanPagehotel_image" >
-                    <div class =" PlanPagehotel_chambre" >
-                        <img src="${chambre}" > 
-                    </div>
-                    <a href="https://www.tripadvisor.com/" target="_blank">
-                    <img src="${tripadvisor}"  >
-                    </a>
-                    <a href="https://www.booking.com/" target="_blank">
-                    <img src="${booking}" >
-                    </a>
-                    <a href="https://www.airbnb.com/" target="_blank">
-                    <img src="${airbnb}" >
-                    </a>
-               
                 
-               
+                <div class = "PlanPagehotel">
+                    <div class = "PlanPagehotel_display"  >
+                        <h7>Besoin d'un hotel ? </h7>   
+                    </div>
+                    <div class =" PlanPagehotel_image" >
+                        <div class =" PlanPagehotel_chambre" >
+                            <img src="${chambre}" > 
+                        </div>
+                        <a href="https://www.tripadvisor.com/" target="_blank">
+                        <img src="${tripadvisor}"  >
+                        </a>
+                        <a href="https://www.booking.com/" target="_blank">
+                        <img src="${booking}" >
+                        </a>
+                        <a href="https://www.airbnb.com/" target="_blank">
+                        <img src="${airbnb}" >
+                        </a>        
+                    </div>
+                    </div>
+
+                    <div class = "PlanPageAddComment">
+                        <div>
+                            <h3>Give your feeback</h3>
+                            <div id="errorMessage" style="color:red"></div>
+                            </div>
+                            
+                            <input type="text" id="commentairetrip" maxlength="140" placeholder="Enter your feedback here (Max 140 characters)" required/>
+                            <div class="subtrip">
+                            <select id="selecttrip" placeholder="1-5" >
+                                <option value="" disabled selected >Select your rating</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <label for="myfile">Add a picture:</label>
+                            <input type="file" id="myfile" name="myfile"><br><br>
+                             <button class="subscribe-btn-modal" id="submitComment">Submit</button>
+                            </div>                   
+                        </div>
+                    <div class = "PlanPageComment">
+                        <div id="trip-coments"></div>
+                            <div class ="PlanPageComment_image" >
+                                <img src="${chambre}" > 
+                                <div class = " PlanPageComment_name">
+                                    <h5> Gustavo Gus  </h5>
+                                    <p> Gustavo is Gusson but you can call me Gus</p>
+                                    <p><i class="bi bi-star-fill"></i></p>
+                                 </div>
+                             </div>
+                        </div>         
+                     </div> 
                 </div>
+                
+        <div id="trip-page-right-side">
+        </div>
+    </div>
+    `;
+    const mapDiv = document.createElement('div');
+    mapDiv.id = "mapDiv";
+    const rightSide = document.querySelector('#trip-page-right-side');
+    rightSide.appendChild(mapDiv);
 
+    const submitComment = document.querySelector('#submitComment');
+    submitComment.addEventListener('click', () => {
+        const comment = document.querySelector('#commentairetrip').value;
+        const rating = document.querySelector('#selecttrip').value;
+        const image = document.querySelector('#myFile');
 
+        fetch(`${process.env.API_BASE_URL}/comments/trip/add`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': JSON.parse(localStorage.getItem('user')).token,
+              },
+            method: 'POST',
+            body: JSON.stringify({
+                tripId: tripData.id_trip,
+                rating,
+                comment,
+                image,
+            })
+        })
+    })
 
+    const modifyTripButton = document.querySelector('#modifyTripButton');
+    modifyTripButton.addEventListener('click', () => { 
+        Navigate('/modifytrip');
+    })
 
+    const tripPlaces = document.querySelector('#trip-places');
+    const places = await fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.tripId}`, {
+        method: 'GET'
+    })
+    .then((response) => {
+        if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+        return response.json();
+    })
+    .then((result) => {
+        result.forEach((e) => {
+            console.log(e);
+            const card = document.createElement('div');
+            card.innerHTML = `
+                <div class = "PlanPageplace_display"  >
+                    <h7>${e.order}. ${e.place.name}</h7>   
+                </div>
+                <div class =" PlanPagePlace_image" >
+                    <div class =" PlanPagehotel_chambre" >
+                        <img src="${e.place.icon}" style="width: 50px; height: 50px;"> 
+                    </div>
+                    <p>${e.place.formatted_address}</p>
+                </div>
+            `;
+            tripPlaces.appendChild(card);
+        })
+        return result;
+    });
 
-
-
-
+    if(places.length === 0) {
+        tripPlaces.innerHTML = `
+            <div>
+                <h5>No places yet... Add some ?</h5>
+                <button id="addPlacesButton">Modify trip</button>
             </div>
+        `;
+        const addPlacesButton = document.querySelector('#addPlacesButton');
+        addPlacesButton.addEventListener('click', () => {
+            Navigate('/modifytrip');
+        })
+    }
 
+    const mapBounds = {
+        north: 0,
+        south: 1000,
+        west: 1000,
+        east: 0
+    }
+    places.forEach((place) => {
+        if(place.place.geometry.viewport.north > mapBounds.north) mapBounds.north = place.place.geometry.viewport.north;
+        if(place.place.geometry.viewport.south < mapBounds.south) mapBounds.south = place.place.geometry.viewport.south;
+        if(place.place.geometry.viewport.west < mapBounds.west) mapBounds.west = place.place.geometry.viewport.west;
+        if(place.place.geometry.viewport.east > mapBounds.east) mapBounds.east = place.place.geometry.viewport.east;
+    });
+    // eslint-disable-next-line no-unused-vars
+    let map;
+    const initMap = async function () {
+      // eslint-disable-next-line no-undef
+      const { Map } = await google.maps.importLibrary("maps");
 
-               
-          </div>    
-     </div>
+      map = new Map(document.getElementById("mapDiv"), {
+        center: {lat: 50.5039, lng: 4.4699},
+        zoom: 8,
+        restriction: {
+          latLngBounds: mapBounds,
+          strictBounds: false,
+        }
 
-     <div id="trip-page-right-side">
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
-          <h1>Maps</h1>
+      });
+      places.forEach((place) => {
+        const marker = new google.maps.Marker({
+            label: { text: place.order.toString(), color: "white" },
+            position: place.place.geometry.location,
+            map,
+            title: place.place.name
+        });
+      })
 
-     </div>
-  </div>
-  `
-    // <div id="div-trip-page-block">
-
-    //     <div id="div-page-block-content">
-
-    //         <div id="div-trip-page-block-content-image">
-    //             <div id="div-trip-page-block-content-text">
-    //                 <h1>Voyage à </h1>
-
-    //                 <i class="bi bi-calendar"></i>
-    //                 <p>1/11 - 30/11</p>
-    //                 <button style="none" type="submit">
-    //                     <i class="bi bi-send"></i>
-    //                 </button>
-    //                 <button style="none" type="submit">
-    //                     <i class="bi bi-share"></i>
-    //                 </button>
-    //             </div>
-    //         </div>
-
-    //         <div id="div-trip-page-block-content-info">
-    //             <div id="div-trip-page-block-content-info-filter">
-    //                 <h3>Filtrer par budget</h3>
-    //                 <input type="range" min="0" max="1000" />
-    //             </div>
-    //             <div id="div-trip-page-block-content-info-capital-cities">
-    //                 <div></div>
-    //                 <div></div>
-    //                 <div></div>
-    //             </div>
-    //             <div id="div-trip-page-block-content-info-hotel"></div>
-    //         </div>
-
-    //     </div>
-
-    //     <div id="div-trip-page-block-map" style="">
-    //         <iframe id="tripMap"
-    //         width="700"
-    //         height="700"
-    //         style="border:0"
-    //         loading="lazy"
-    //         allowfullscreen
-    //         referrerpolicy="no-referrer-when-downgrade"
-    //         src=""
-    //         </iframe>
-    //     </div>
-    // </div>
-    // `;
+      // eslint-disable-next-line no-undef
+    //   const bounds = new google.maps.LatLngBounds(
+    //     data.results[0].geometry.viewport.southwest,
+    //     data.results[0].geometry.viewport.northeast
+    //   );
+    //   map.fitBounds(bounds);
+    }
+    initMap();
 }
-
 
 export default TripPage;
