@@ -155,6 +155,7 @@ async function displayTripPage() {
     })
     .then((result) => {
         result.forEach((e) => {
+            console.log(e);
             const card = document.createElement('div');
             card.innerHTML = `
                 <div class = "PlanPageplace_display"  >
@@ -162,9 +163,9 @@ async function displayTripPage() {
                 </div>
                 <div class =" PlanPagePlace_image" >
                     <div class =" PlanPagehotel_chambre" >
-                        <img src="${logoImageNoir}" > 
+                        <img src="${e.place.icon}" style="width: 50px; height: 50px;"> 
                     </div>
-                    <p>Test</p>
+                    <p>${e.place.formatted_address}</p>
                 </div>
             `;
             tripPlaces.appendChild(card);
