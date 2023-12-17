@@ -4,6 +4,7 @@ import image from '../../../img/usertest.png';
 import imagegif from '../../../img/globe-13.gif';
 import Navigate from '../../Router/Navigate';
 import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
 
 
 
@@ -173,7 +174,9 @@ function logout() {
     logoutt.addEventListener('click',() => {
         localStorage.removeItem('user');
         Navbar();
+        Footer();
         Navigate('/');
+
     })
 
 

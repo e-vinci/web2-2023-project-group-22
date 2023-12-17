@@ -65,7 +65,7 @@ router.post('/addplace', authorize, async (req, res) => {
 });
 
 // Remove a place for a trip
-router.post('/removeplace', authorize, async (req, res) => {
+router.delete('/removeplace', authorize, async (req, res) => {
   const placeId = req?.body?.placeId?.length !== 0 ? req.body.placeId : undefined;
   const tripId = req?.body?.tripId ? req.body.tripId : undefined;
 
@@ -79,16 +79,16 @@ router.post('/removeplace', authorize, async (req, res) => {
   return res.json(removedPlace);
 });
 
-// Modify a place in a trip
-router.post('/modifyplace', authorize, async (req, res) => {
-  const placeId = req?.body?.placeId?.length !== 0 ? req.body.placeId : undefined;
+// Modify a trip
+router.patch('/modifytrip', authorize, async (req, res) => {
+  const places = req?.body?.places?.length !== 0 ? req.body.places : undefined;
   const tripId = req?.body?.tripId ? req.body.tripId : undefined;
-  const order = req?.body?.order ? req.body.order : undefined;
+  const privacy = req?.body?.privacy ? req.body.privacy : undefined;
 
   // 400 Bad Request
-  if (!placeId || !tripId) return res.sendStatus(400);
+  if (!places || !tripId || !privacy) return res.sendStatus(400);
 
-  const removedPlace = await Trip.modifyOrderFromOnePlace(tripId, placeId, order);
+  const removedPlace = await Trip.modifyOneTrip(tripId, places, privacy);
 
   // 404 Trip not found or place not added
   if (!removedPlace) return res.sendStatus(404);
