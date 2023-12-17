@@ -119,11 +119,18 @@ function commentairSite() {
     const userData = JSON.parse(localStorage.getItem('user'));
     const DivComment = document.createElement('div');
     DivComment.style.width="89%"
-    DivComment.style.height="10%"
+    
+    
+
+    
+    
+    
+ 
     DivComment.innerHTML = `
             <div class="CommentProfileee">
                 <div class="TitleFeedBack">
-                    <h1>FeedBack</h1>
+                    <h1 class="toz">FeedBack</h1>
+
                 </div>
 
             </div>
@@ -131,6 +138,7 @@ function commentairSite() {
 
         `;
     const message = document.createElement('p')
+    message.className = "leCommentaire";
 
     fetch(`${process.env.API_BASE_URL}/comments/site`)
         .then(response => response.json())
@@ -147,6 +155,19 @@ function commentairSite() {
         });
 
         const main = document.querySelector('main');
+
+        // const deleteButton = document.createElement('button');
+        // deleteButton.type = 'button';
+        // deleteButton.value = 'Supprimer';
+        // deleteButton.id = 'deleteButton';
+        // const div = document.querySelector('.CommentProfileee');
+        // div.appendChild(deleteButton);
+
+        // deleteButton.addEventListener('click', () => {
+        //     fetch(`${process.env.API_BASE_URL}/comments/site/remove`, {
+                
+        //    });
+        //  });
         main.appendChild(DivComment);
 }
 
