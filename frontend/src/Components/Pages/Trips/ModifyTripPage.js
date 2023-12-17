@@ -88,7 +88,7 @@ const ModifyTripPage = async () => {
                     },
                     body: JSON.stringify({
                         "placeId": r.place.place_id,
-                        "tripId": tripData.tripId,
+                        "tripId": tripData.id_trip,
                     })
                 })
                 .then((response) => {
@@ -183,7 +183,7 @@ const ModifyTripPage = async () => {
                             },
                             body: JSON.stringify({
                                 "placeId": t.place_id,
-                                "tripId": tripData.tripId,
+                                "tripId": tripData.id_trip,
                             })
                         })
                         .then((response) => {
