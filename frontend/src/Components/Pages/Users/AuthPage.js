@@ -174,7 +174,7 @@ function switchLoginRegister(){
 // }
 
 async function login(user){
-  await fetch('http://localhost:3000/auths/login', {
+  await fetch(`${process.env.API_BASE_URL}/auths/login`, {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -196,7 +196,7 @@ async function login(user){
 
 async function register(user){
   try {
-  await fetch('http://localhost:3000/auths/register', {
+  await fetch(`${process.env.API_BASE_URL}/auths/register`, {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'

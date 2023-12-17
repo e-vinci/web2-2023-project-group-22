@@ -36,7 +36,7 @@ async function readAllCommentsForTrip(id) {
 // Returns all site comments
 async function readAllSiteComments() {
   const query = {
-    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.site_comments sc, projetweb.users u WHERE u.id_user = sc.id_user',
+    text: 'SELECT lastname, firstname, rating, comment FROM projetweb.site_comments sc, projetweb.users u WHERE u.id_user = sc.id_user ORDER BY id_comment DESC',
   };
   const res = await client.query(query);
   if (res.rows) return res.rows;

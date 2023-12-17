@@ -1293,3 +1293,10 @@ footer {
 .checkedStar {
 	color: orange;
   }
+
+  .carousel-control-prev-icon{
+	background-color: black;
+  }
+  .carousel-control-next-icon{
+	background-color: black;
+  }
