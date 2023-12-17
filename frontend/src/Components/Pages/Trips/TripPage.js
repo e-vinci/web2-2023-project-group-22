@@ -74,10 +74,15 @@ async function displayTripPage() {
                 </div> 
             </div>
         <div id="trip-page-right-side">
-            <div id="mapDiv"></div>
         </div>
     </div>
     `;
+    const mapDiv = document.createElement('div');
+    mapDiv.id = "mapDiv";
+    mapDiv.style.width = "600px";
+    mapDiv.style.height = "350px";
+    const rightSide = document.querySelector('#trip-page-right-side');
+    rightSide.appendChild(mapDiv);
 
     const modifyTripButton = document.querySelector('#modifyTripButton');
     modifyTripButton.addEventListener('click', () => { 
