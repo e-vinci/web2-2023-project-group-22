@@ -597,12 +597,29 @@ form input {
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	width: 99%;
 	border-radius: 7px;
+	
+
 }
 
 .CommentProfileee{
 	background-color: #f5f5dc;
 	border-radius: 7px;
+	height: 12rem;
+	margin-bottom: 3%;
 	
+	
+	
+}
+.toz{
+	font-size: 50px;
+	
+}
+.leCommentaire{
+	margin-top: 2%;
+	margin-left: 49%;
+	font-size: 30px;
+	font-family: 'Open Sans', sans-serif;
+	color:#808080;
 }
 .TitleFeedBack{
 	
