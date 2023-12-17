@@ -111,21 +111,19 @@ main.appendChild(div);
 function showComments() {
   const caroussel = document.createElement('div');
   caroussel.innerHTML = `
-  <div id="comment-div">
-    <div id="carouselExampleIndicators" class="carousel slide">
-      <div class="carousel-inner">
-        
+    <div id="comment-div">
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-inner"></div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon flecheAvant" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon flecheApres" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
       </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon flecheAvant" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon flecheApres" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
     </div>
-  </div>
   `;
   const main = document.querySelector('main');
   main.appendChild(caroussel);
@@ -136,10 +134,10 @@ function showComments() {
       const carousselInner = document.querySelector('.carousel-inner');
       for (let i = 0; i < Math.ceil(data.length/3); i+=1) {
         const cItem = `
-        <div class="carousel-item cItem${i}">
-          <div class="cards-wrapper cWrap${i}">
-          </div>  
-        </div>
+          <div class="carousel-item cItem${i}">
+            <div class="cards-wrapper cWrap${i}">
+            </div>  
+          </div>
         `;
         carousselInner.innerHTML += cItem;
       }
@@ -176,11 +174,7 @@ function showComments() {
           rating.appendChild(star);
 
         }
-        
-        
         cardBody.appendChild(rating);
-        
-
         const commentText = document.createElement('p');
         commentText.className = "card-text comment";
         commentText.innerText = element.comment;
@@ -194,7 +188,6 @@ function showComments() {
           cardsWrapper.style.width = "30rem";
           cardsWrapper.style.height = "15rem";
         }
-        
         cardsWrapper.appendChild(card);
       })
       const items = document.querySelector(`.cItem0`);

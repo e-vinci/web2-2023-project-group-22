@@ -1,15 +1,9 @@
-
 import { clearPage } from '../../../utils/render';
 import image from '../../../img/usertest.png';
 import imagegif from '../../../img/globe-13.gif';
 import Navigate from '../../Router/Navigate';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
-
-
-
-
-
 
 const ProfilPage = () => {
     clearPage();
@@ -31,19 +25,14 @@ const ProfilPage = () => {
                             <div class="message ">
                             <p class="welcome-Profil"> Welcome, </p> 
                             <p class="welcome-Nom-Profil"> ${userData.firstname}</p> </div>
-                            
-
                             <img src='${imagegif}' width="450">
-
-                            <br>
-                          
+                            <br>                         
                             </br>
                             <input type="submit" class="button-input" id="logout" value="Log Out" />
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class = "col-md-8 mt-1">
                     <div  class="card mb-3 content">
                         <h1 class="m-3 pt-3 titre_profil"> Profile</h1>
@@ -64,9 +53,7 @@ const ProfilPage = () => {
                                 <div class="col-md-9 text-secondary">
                                 ${userData.email}
                                 </div>
-                            </div>
-                            
-                            
+                            </div>                        
                             ${userData.birthdate ? 
                                 ` <hr> <div class="row">
                                     <div class="col-md-3">
@@ -85,52 +72,7 @@ const ProfilPage = () => {
                             <div class="row">
                                 
                                 <div id="carouselExampleIndicators" class="carousel slide">
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-                                    </div>
-                                    <div class="carousel-inner carouselDiv">
-                                            <div class="carousel-item carou">
-                                                <div class="cards-wrapper wrapercasse">
-                                                    <div class="card" style="width: 18rem;">
-                                                        <img src="${image}" class="card-img-top" alt="...">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Card title</h5>
-                                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                        </div>
-                                                    </div>
-                                                </div>  
-                                            </div>
-                                            <div class="carousel-item">
-                                                <div class="cards-wrapper">
-                                                        <div class="card" style="width: 18rem;">
-                                                            <img src="${image}" class="card-img-top" alt="...">
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Card title</h5>
-                                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>  
-                                            </div>
-                                        <div class="carousel-item active">
-                                            <div class="cards-wrapper">
-                                                <div class="card" style="width: 18rem;">
-                                                        <img src="${image}" class="card-img-top" alt="...">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Card title</h5>
-                                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                        </div>
-                                                    </div>
-                                                </div>  
-                                        </div>
-                                    </div>
-                                
-                                    
-                                   
+                                    <div class="carousel-inner carouselDiv"></div>
                                     <button class="carousel-control-prev custom-prev-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Previous</span>
@@ -139,12 +81,12 @@ const ProfilPage = () => {
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Next</span>
                                     </button>
-                            </div>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
                     
-                </div>
+                    </div>
 
             </div>   
         </div> 
@@ -155,10 +97,9 @@ const ProfilPage = () => {
     `
     profilPage.innerHTML = profilPageForm;
     commentairSite();
-    showCountry();
     
     logout();
-    
+    showTrips(userData);
 };
 
 function logout() {
@@ -171,29 +112,6 @@ function logout() {
 
     })
 
-
-}
-
-function getTripDetails(tripId) {
-    fetch(`${process.env.API_BASE_URL}/trips/${tripId}`)
-        .then(responseFromServer => responseFromServer.json())
-        .then(data => {
-            const tripIds = data;
-            console.log(tripIds)
-
-            
-        })
-}
-
-function showCountry() {
-    const userData = JSON.parse(localStorage.getItem('user'));
-    fetch(`${process.env.API_BASE_URL}/trips/user/${userData.email}`)
-        .then(responseFromServer => responseFromServer.json())
-        .then(data => {
-            const tripIds = data;
-            tripIds.map(trip => getTripDetails(trip.id_trip));
-            
-        })
 
 }
 
@@ -231,4 +149,75 @@ function commentairSite() {
         const main = document.querySelector('main');
         main.appendChild(DivComment);
 }
+
+async function showTrips(userData) {
+    const caroussel = document.createElement('div');
+    caroussel.innerHTML = `
+    <div id="comment-div">
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-inner"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon flecheAvant" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon flecheApres" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    `;
+    const main = document.querySelector('main');
+    main.appendChild(caroussel);
+  
+    fetch(`${process.env.API_BASE_URL}/trips/user/${userData.email}`)
+      .then(response => response.json())
+      .then(data => {
+        const carousselInner = document.querySelector('.carousel-inner');
+        for (let i = 0; i < Math.ceil(data.length/3); i+=1) {
+          const cItem = `
+          <div class="carousel-item cItem${i}">
+            <div class="cards-wrapper cWrap${i}">
+            </div>  
+          </div>
+          `;
+          carousselInner.innerHTML += cItem;
+        }
+        let count = 0;
+        let wrap = 0;
+        data.forEach((element) => {
+            fetch(`${process.env.API_BASE_URL}/trips/${element.id_trip}`, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(result => {
+                fetch(`https://restcountries.com/v3.1/alpha/${result.country_code}`,{
+                    method: 'GET',
+                })
+                .then(response => response.json())
+                .then(res => {
+                    if(count===3) {
+                        wrap+=1; count = 0
+                    }
+                    count += 1;
+                    const card = document.createElement('div');
+                    card.className = "card cardBehind";
+                    card.style.width = "100%";
+                    
+                    const cardBody = document.createElement('div');
+                    cardBody.className = "card-body";
+                    card.appendChild(cardBody);
+                    const userName = document.createElement('h5');
+                    userName.className = "card-title titleBox";
+                    userName.innerText = `${res[0].name.common}`;
+                    const cardsWrapper = document.querySelector(`.cWrap${wrap}`);
+                    cardsWrapper.appendChild(card);
+                });
+                })
+            })
+        })
+    const items = document.querySelector(`.cItem0`);
+    if(items) items.className += " active"
+  }
+
 export default ProfilPage;
