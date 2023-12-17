@@ -36,6 +36,14 @@ const Footer = () => {
         </div>
         
         <input type="text" id="commentaire" placeholder="Enter your feedback here" required/>
+        <select id="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        </select>
+
   
         <button class="subscribe-btn-modal">Submit</button>
       </div>
@@ -84,23 +92,43 @@ function closeBtn() {
 
 function validateAndSubmit() {
   const submitButton = document.querySelector('.subscribe-btn-modal');
-    submitButton.addEventListener('click', (event) => {
-      event.preventDefault();
+  submitButton.addEventListener('click', async (event) => {
+    event.preventDefault();
 
-      const commentaire =  document.querySelector('#commentaire').value; 
+    const idUser = JSON.parse(localStorage.getItem('user')).id_user;
+    const commentaire =  document.querySelector('#commentaire').value;
+    const ratings =  document.querySelector('#rating').value; 
 
-    if(commentaire === '') {
-      alert('Please fill out the comment field before submitting.');
+    if (commentaire === '') {
+      alert('Please fill in the form');
       return;
-  }
+    }
 
-      closeModal();
+    const response = await fetch(`${process.env.API_BASE_URL}/comments/site/add`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': JSON.parse(localStorage.getItem('user')).token
+      },
+      body: JSON.stringify({
+        userId: idUser,
+        comment: commentaire,
+        rating: ratings
+      })
+    });
+    if (!response.ok) {
+      alert('There was an error submitting your feedback');
+      return;
+    }
+
+    closeModal();
   });
-}  
+}
 
 validateAndSubmit();
 showModal();
 closeBtn();
+
 }
 
 export default Footer;
