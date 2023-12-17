@@ -592,7 +592,22 @@ form input {
 	width: 80%;
 	height: 100%;
 }
+.CommentProfile{
+	background-color: #f5f5dc;;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	width: 99%;
+	border-radius: 7px;
+}
 
+.CommentProfileee{
+	background-color: #f5f5dc;
+	border-radius: 7px;
+	
+}
+.TitleFeedBack{
+	margin-left: 10px;
+}
+	
 
 /* Styles pour le bouton-input */
 .button-input {
@@ -1535,7 +1550,7 @@ footer {
   .flecheApres{
 	background-color: transparent;
   }
-  
+
 
   /* Responsive styles */
 @media only screen and (max-width: 600px) {
@@ -1556,3 +1571,4 @@ footer {
     border-radius: 5px;
     overflow: hidden;
 }
+  
