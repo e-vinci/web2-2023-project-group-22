@@ -130,7 +130,7 @@ const ProfilPage = () => {
                                     </div>
                                 
                                     
-                                    </div>
+                                   
                                     <button class="carousel-control-prev custom-prev-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Previous</span>
@@ -145,12 +145,18 @@ const ProfilPage = () => {
                     </div>
                     
                 </div>
-            </div>
+
+            </div>   
         </div> 
+
+
+        
      </div>           
     `
     profilPage.innerHTML = profilPageForm;
+    commentairSite();
     showCountry();
+    
     logout();
     
 };
@@ -175,7 +181,6 @@ function getTripDetails(tripId) {
             const tripIds = data;
             console.log(tripIds)
 
-           
             
         })
 }
@@ -192,5 +197,59 @@ function showCountry() {
 
 }
 
+function commentairSite() {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const DivComment = document.createElement('div');
+    DivComment.style.width="89%"
+    
+    
 
+    
+    
+    
+ 
+    DivComment.innerHTML = `
+            <div class="CommentProfileee">
+                <div class="TitleFeedBack">
+                    <h1 class="toz">FeedBack</h1>
+
+                </div>
+
+            </div>
+
+
+        `;
+    const message = document.createElement('p')
+    message.className = "leCommentaire";
+
+    fetch(`${process.env.API_BASE_URL}/comments/site`)
+        .then(response => response.json())
+        .then(data => {
+           
+            data.forEach(element => {
+                if (element.firstname === userData.firstname && element.lastname === userData.lastname) {
+                    console.log(element.comment);
+                    message.innerText = element.comment;
+                }
+                const div = document.querySelector('.CommentProfileee');
+                div.appendChild(message)
+            });
+        });
+
+        const main = document.querySelector('main');
+
+        // const deleteButton = document.createElement('button');
+        // deleteButton.type = 'button';
+        // deleteButton.value = 'Supprimer';
+        // deleteButton.id = 'deleteButton';
+        // const div = document.querySelector('.CommentProfileee');
+        // div.appendChild(deleteButton);
+
+        // deleteButton.addEventListener('click', () => {
+        //     fetch(`${process.env.API_BASE_URL}/comments/site/remove`, {
+                
+        //    });
+        //  });
+        main.appendChild(DivComment);
+}
 export default ProfilPage;
