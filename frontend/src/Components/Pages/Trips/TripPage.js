@@ -118,8 +118,6 @@ async function displayTripPage() {
     `;
     const mapDiv = document.createElement('div');
     mapDiv.id = "mapDiv";
-    mapDiv.style.width = "600px";
-    mapDiv.style.height = "350px";
     const rightSide = document.querySelector('#trip-page-right-side');
     rightSide.appendChild(mapDiv);
 
@@ -187,8 +185,8 @@ async function displayTripPage() {
       const { Map } = await google.maps.importLibrary("maps");
 
       map = new Map(document.getElementById("mapDiv"), {
-        center: {lat: mapBounds.north, lng: mapBounds.south},
-        zoom: 5,
+        center: {lat: 50.5039, lng: 4.4699},
+        zoom: 8,
         restriction: {
           latLngBounds: mapBounds,
           strictBounds: false,
