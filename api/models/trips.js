@@ -83,15 +83,18 @@ async function addOnePlaceToTrip(tripId, placeId) {
   const trip = await getTrip(tripId);
   if (!trip) return undefined;
 
+  const tripPlaces = await getPlacesForAGivenTrip(tripId);
+  const order = tripPlaces.length + 1;
+  console.log(order);
   const addPlaceQuery = {
-    text: 'INSERT INTO projetweb.trips_places (id_trip, id_place) VALUES ($1, $2)',
-    values: [tripId, placeId],
+    text: 'INSERT INTO projetweb.trips_places (id_trip, id_place, "order") VALUES ($1, $2, $3) RETURNING "order"',
+    values: [tripId, placeId, order],
   };
   let res;
   try {
     res = await client.query(addPlaceQuery);
   } catch (error) {
-    return undefined;
+    console.log(error.message);
   }
   return res;
 }
@@ -132,20 +135,25 @@ async function getPlacesForAGivenTrip(tripId) {
   const trip = await getTrip(tripId);
   if (!trip) return undefined;
 
-  const modifyPrivacyQuery = {
-    text: 'SELECT id_place FROM projetweb.trips_places WHERE id_trip = $1',
+  const getPlacesQuery = {
+    text: 'SELECT id_place, "order" FROM projetweb.trips_places WHERE id_trip = $1',
     values: [tripId],
   };
-  const res = await client.query(modifyPrivacyQuery);
+  const res = await client.query(getPlacesQuery);
   if (res.rows) {
     const returnedPlaces = [];
     const places = await getPlaces();
     places.forEach((p) => {
       res.rows.forEach((r) => {
-        if (p.place_id === r.id_place) returnedPlaces.push(p);
+        if (p.place_id === r.id_place) {
+          returnedPlaces.push({
+            place: p,
+            order: r.order,
+          });
+        }
       });
     });
-    return returnedPlaces;
+    return returnedPlaces.sort((a, b) => a.order - b.order);
   }
   return [];
 }

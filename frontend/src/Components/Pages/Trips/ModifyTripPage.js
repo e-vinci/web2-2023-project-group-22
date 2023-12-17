@@ -1,5 +1,5 @@
 import { clearPage } from "../../../utils/render";
-// import Navigate from "../../Router/Navigate";
+import Navigate from "../../Router/Navigate";
 // import image from '../../../img/imageVille.jpg'
 
 
@@ -36,12 +36,18 @@ const ModifyTripPage = async () => {
                 <div id="info-trip">
                     <h1> Trip to ${tripData.destination}</h1>
                     <h3> ${tripData.startDate} to ${tripData.endDate}</h3>
-                    <input/>
                 </div>
                 <div id="trip-places"></div>
             </div>
         </div>
     `;
+    const infotripDiv = document.querySelector('#info-trip');
+    const saveButton = document.createElement('button');
+    saveButton.textContent = "Save";
+    saveButton.addEventListener('click', () => {
+        Navigate('/trip');
+    })
+    infotripDiv.appendChild(saveButton);
     const tripPlacesDiv = document.querySelector('#trip-places');
     const tripPlaces = await fetch(`${process.env.API_BASE_URL}/trips/trip/${tripData.tripId}`, {
         method: 'GET',
@@ -52,6 +58,7 @@ const ModifyTripPage = async () => {
     })
     .then((result) => {
         result.forEach((r) => {
+            console.log(r.order);
             const card = document.createElement('div');
             card.className = "card";
             card.id = r.place_id;
@@ -63,10 +70,10 @@ const ModifyTripPage = async () => {
             card.appendChild(cardBody);
             const placeName = document.createElement('h5');
             placeName.className = "card-title";
-            placeName.innerText = `${r.name}`;
+            placeName.innerText = `${r.place.name}`;
             cardBody.appendChild(placeName);
             const rating = document.createElement('p');
-            rating.innerText = `${r.rating  } (${r.user_ratings_total})`;
+            rating.innerText = `${r.place.rating  } (${r.place.user_ratings_total})`;
             cardBody.appendChild(rating);
             const removePlaceButton = document.createElement('button');
             removePlaceButton.textContent = "Remove from trip";
@@ -79,7 +86,7 @@ const ModifyTripPage = async () => {
                         'Authorization': JSON.parse(localStorage.getItem('user')).token,
                     },
                     body: JSON.stringify({
-                        "placeId": r.place_id,
+                        "placeId": r.place.place_id,
                         "tripId": tripData.tripId,
                     })
                 })
