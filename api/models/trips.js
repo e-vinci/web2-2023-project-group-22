@@ -20,6 +20,7 @@ async function createTrip(destination, startDate, endDate, user) {
   addParticipation(user, res.rows[0]);
 
   const trip = {
+    tripId: res.rows[0].id_trip,
     destination: result[0].cca3,
     startDate,
     endDate,
@@ -86,7 +87,12 @@ async function addOnePlaceToTrip(tripId, placeId) {
     text: 'INSERT INTO projetweb.trips_places (id_trip, id_place) VALUES ($1, $2)',
     values: [tripId, placeId],
   };
-  const res = await client.query(addPlaceQuery);
+  let res;
+  try {
+    res = await client.query(addPlaceQuery);
+  } catch (error) {
+    return undefined;
+  }
   return res;
 }
 
@@ -131,7 +137,16 @@ async function getPlacesForAGivenTrip(tripId) {
     values: [tripId],
   };
   const res = await client.query(modifyPrivacyQuery);
-  if (res.rows) return res.rows;
+  if (res.rows) {
+    const returnedPlaces = [];
+    const places = await getPlaces();
+    places.forEach((p) => {
+      res.rows.forEach((r) => {
+        if (p.place_id === r.id_place) returnedPlaces.push(p);
+      });
+    });
+    return returnedPlaces;
+  }
   return [];
 }
 

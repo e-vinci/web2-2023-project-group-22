@@ -56,11 +56,11 @@ router.post('/addplace', authorize, async (req, res) => {
 
   // 400 Bad Request
   if (!placeId || !tripId) return res.sendStatus(400);
-
+  console.log(tripId, placeId);
   const addedPlace = await Trip.addOnePlaceToTrip(tripId, placeId);
 
   // 404 Trip not found or place not added
-  if (!addedPlace) return res.sendStatus(404);
+  if (!addedPlace) return res.sendStatus(401);
   return res.json(addedPlace);
 });
 
@@ -73,7 +73,7 @@ router.delete('/removeplace', authorize, async (req, res) => {
   if (!placeId || !tripId) return res.sendStatus(400);
 
   const removedPlace = await Trip.removeOnePlaceToTrip(tripId, placeId);
-
+  console.log(removedPlace);
   // 404 Trip not found or place not added
   if (!removedPlace) return res.sendStatus(404);
   return res.json(removedPlace);

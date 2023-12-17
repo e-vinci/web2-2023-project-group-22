@@ -81,7 +81,7 @@ const NewTripPage = () => {
       })
       .then((result) => {
         console.log(result);
-        localStorage.setItem('countryData', JSON.stringify(result));
+        localStorage.setItem('tripData', JSON.stringify(result));
       });
       Navigate("/modifytrip");
     }
