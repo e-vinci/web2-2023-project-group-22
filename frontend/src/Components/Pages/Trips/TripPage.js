@@ -158,7 +158,7 @@ async function displayTripPage() {
       });
       places.forEach((place) => {
         const marker = new google.maps.Marker({
-            label: { text: place.order.toString(), color: "white" },
+            label: { text: place.order.toString(), color: "white", fontSize: "20px", fontWeight: "bold"},
             position: place.place.geometry.location,
             map,
             title: place.place.name
