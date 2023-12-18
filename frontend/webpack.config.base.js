@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+const Dotenv = require('dotenv-webpack');
 
 const DEVELOPMENT_API_BASE_URL = '/api'; // base URL of your local API. Use /api if you want to use webpack proxy, else use http://localhost:3000 (frontend origin http://localhost:8080 shall then be authorized by the API cors)
 const PRODUCTION_API_BASE_URL = 'https://your-app-name.azurewebsites.net'; // to be changed to point to the URL of your API
@@ -59,9 +61,18 @@ module.exports = {
       // default condition: a file with size less than 8kb will be treated as a inline
       // module type and resource module type otherwise
       {
-        test: /\.(png|jpg|gif|svg|mp3|mpe?g)$/,
+        test: /\.(png|jpg|gif|svg|mp3|mp4|mpe?g)$/,
         type: 'asset/resource',
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/inline",
+      },
+
+      // {
+      //   test: /\.mp4$/,
+      //   use: 'file-loader?name=videos/[name].[ext]',
+      //  },
 
       /* automatically chooses between exporting a data URI and emitting a separate file.
       {
@@ -119,5 +130,6 @@ module.exports = {
       'process.env.API_BASE_URL': JSON.stringify(API_BASE_URL),
       'process.env.PATH_PREFIX': JSON.stringify(PATH_PREFIX),
     }),
+    new Dotenv(),
   ],
 };

@@ -1,11 +1,11 @@
 {
-  "name": "js-phaser-boilerplate",
+  "name": "where2go-api",
   "version": "1.0.0",
-  "description": "myJScourse's modern frontend boilerplate to build a phaser game",
+  "description": "Where2go",
   "scripts": {
     "deploy": "npm run build && gh-pages -d dist",
-    "dev": "webpack --mode development --config webpack.config.base.js && cp dist/index.html dist/404.html",
-    "build": "webpack --mode production --config webpack.config.prod.js && cp dist/index.html dist/404.html",
+    "dev": "webpack --mode development --config webpack.config.base.js",
+    "build": "webpack --mode production --config webpack.config.prod.js",
     "start": "webpack serve --mode development --config webpack.config.base.js"
   },
   "author": "e-baron",
@@ -15,6 +15,7 @@
     "@babel/preset-env": "^7.14.4",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -28,12 +29,19 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@googlemaps/js-api-loader": "^1.16.2",
     "@popperjs/core": "^2.9.2",
-    "bootstrap": "^5.0.1",
+    "@types/google.maps": "^3.54.10",
+    "animejs": "^3.2.1",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.1",
     "clean-webpack-plugin": "^4.0.0",
-    "phaser": "^3.55.2",
+    "dotenv": "^16.3.1",
     "gh-pages": "^4.0.0",
+    "phaser": "^3.55.2",
     "terser-webpack-plugin": "^5.3.6",
+    "validator": "^13.11.0",
     "webpack-merge": "^5.8.0"
   }
 }

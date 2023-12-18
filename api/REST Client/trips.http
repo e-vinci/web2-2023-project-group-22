@@ -1,0 +1,61 @@
+@baseUrl = http://localhost:3000
+
+### Read trip identified by 1
+GET {{baseUrl}}/trips/1
+
+### Read palces for trip identified by 1
+GET {{baseUrl}}/trips/trip/1
+
+### Read trip identified by -1, not existing
+GET {{baseUrl}}/trips/-1
+
+### Read trips identified for user
+GET {{baseUrl}}/trips/user/admin@where2go.com
+
+### Read all possible places
+GET {{baseUrl}}/trips/places/all
+
+### Create one trip
+POST {{baseUrl}}/trips/createtrip
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
+
+{
+    "countryCode": "Belgium",
+    "startDate": "2023-12-15",
+    "endDate": "2023-12-20"
+}
+
+### Add one place to a trip
+POST {{baseUrl}}/trips/addplace
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
+
+{
+    "placeId": "ChIJbw4IMIbEw0cRLdRsNbreMSI",
+    "tripId": "35"
+}
+
+### Remove one place of a trip
+DELETE {{baseUrl}}/trips/removeplace
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
+
+{
+    "placeId": "ChIJbw4IMIbEw0cRLdRsNbreMSI",
+    "tripId": "35"
+}
+
+### Modify order of one place in a trip
+POST {{baseUrl}}/trips/modifyplace
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllbi5yZW1tZXJ5QHN0dWRlbnQudmluY2kuYmUiLCJpYXQiOjE3MDI2NTQxMTIsImV4cCI6MTc4OTA1NDExMn0.H77Ve5mAweaTT_fVjk69PmA9uiApw8vv2mQEGHzQ1Vs
+
+{
+    "places": [
+        {
+            "id_place": "ChIJbw4IMIbEw0cRLdRsNbreMSI"
+        }
+    ],
+    "tripId": "1"
+}

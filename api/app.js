@@ -4,24 +4,26 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const corsOptions = {
-  origin: ['http://localhost:8080', 'https://e-baron.github.io'],
+  origin: ['http://localhost:8080', 'https://julien-remmery-vinci.github.io'],
 };
 
-const usersRouter = require('./routes/users');
-const pizzaRouter = require('./routes/pizzas');
-const authsRouter = require('./routes/auths');
-
 const app = express();
+
+const authsRouter = require('./routes/auths');
+const tripsRouter = require('./routes/trips');
+const placesRouter = require('./routes/places');
+const commentsRouter = require('./routes/comments');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(cors(corsOptions));
+app.use('/auths', cors(corsOptions), authsRouter);
+app.use('/trips', cors(corsOptions), tripsRouter);
+app.use('/places', cors(corsOptions), placesRouter);
+app.use('/comments', cors(corsOptions), commentsRouter);
 
-app.use('/users', usersRouter);
-app.use('/pizzas', pizzaRouter);
-app.use('/auths', authsRouter);
+app.use(cors(corsOptions));
 
 module.exports = app;

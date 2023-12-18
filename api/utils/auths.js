@@ -1,22 +1,23 @@
 const jwt = require('jsonwebtoken');
-const { readOneUserFromUsername } = require('../models/users');
+const { readOneUserFromEmail } = require('../models/users');
 
 const jwtSecret = 'ilovemypizza!';
 
-const authorize = (req, res, next) => {
+const authorize = async (req, res, next) => {
   const token = req.get('authorization');
   if (!token) return res.sendStatus(401);
 
   try {
     const decoded = jwt.verify(token, jwtSecret);
     console.log('decoded', decoded);
-    const { username } = decoded;
+    const { email } = decoded;
 
-    const existingUser = readOneUserFromUsername(username);
+    const existingUser = await readOneUserFromEmail(email);
 
     if (!existingUser) return res.sendStatus(401);
 
     req.user = existingUser; // request.user object is available in all other middleware functions
+    console.table(req.user);
     return next();
   } catch (err) {
     console.error('authorize: ', err);
@@ -24,11 +25,12 @@ const authorize = (req, res, next) => {
   }
 };
 
-const isAdmin = (req, res, next) => {
-  const { username } = req.user;
+// const isAdmin = async (req, res, next) => {
+//   const { role } = req.user;
 
-  if (username !== 'admin') return res.sendStatus(403);
-  return next();
-};
+//   if (role !== 'admin') return res.sendStatus(403);
 
-module.exports = { authorize, isAdmin };
+//   return next();
+// };
+
+module.exports = { authorize };

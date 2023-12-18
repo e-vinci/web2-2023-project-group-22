@@ -1,8 +1,15 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12509210&assignment_repo_type=AssignmentRepo)
 # Projet Web2 2023
+Lien du front [FRONT](https://julien-remmery-vinci.github.io)
+Lien de l'api [API](https://where2go-projet.azurewebsites.net)
+
 ## Introduction
-- Ce boilerplate vous offre l'architecture de base de votre frontend et de votre API pour développer un projet qui vous tient à coeur et qui répond aux exigences résumées ci-dessous (et détaillées dans le template du rapport de projet). 
-- Vous pouvez mettre à jour le boilerplate autant que nécessaire, installer des packages...
-- Votre web repository sur GitHub doit être public.
+- Welcome, everyone!
+Have you ever felt overwhelmed when planning a trip to an unfamiliar city? 
+Balancing your desire to explore with the limited time you have can be challenging.
+That's where Where2Go comes to your rescue. 
+Today, we'll introduce you to a revolutionary travel tool that makes creating the perfect itinerary a breeze. 
+Say goodbye to travel stress and hello to the adventure of a lifetime with Where2Go.
 
 ## API
 - Votre API doit respecter les conventions REST et appliquer le boilerplate offert dans le cadre du cours de Web2.
@@ -63,3 +70,34 @@
 
 ## Revues de projets par les pairs
 - Une fois votre projet soumis, vous devrez réaliser un minimum de 5 revues qui vous seront attribuées automatiquement via le site du cours.
+
+1 = High || 2 = Medium || 3 = Low
+---------------------------------------------------------------------------------
+Liste des cas d'utilisation :
+
+1 - Afficher une liste de lieux en fonction d'une catégorie
+1 - Ajouter une catégorie
+2 - Supprimer une catégorie
+2 - Modifier une catégorie
+
+1 - Créer un itinéraire en fonction de catégories sélectionnées
+2 - Garder une liste des itinéraires créés (connecté)
+3 - Partager un itinéraire
+3 - Créer un groupe de voyage
+3 - Sauvegarde automatique
+
+1 - Ajouter un lieu
+2 - Modifier un lieu
+2 - Supprimer un lieu
+
+2 - Ajouter des photos
+2 - Ajouter un avis
+2 - Note / 5 étoiles
+
+1 - Enregistrer un utilisateur
+1 - Se connecter
+1 - Se Déconnecter
+3 - Se connecter avec Google
+
+3 - Chat d'aide
+3 - Estimation de budget
